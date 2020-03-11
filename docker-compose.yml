@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  fanex.athena.betlistapi:
+    image: ${DOCKER_REGISTRY-}fanexathenabetlistapi
+    build:
+      context: .\BetlistApiHost\Fanex.Athena.BetListApi
+      dockerfile: Dockerfile

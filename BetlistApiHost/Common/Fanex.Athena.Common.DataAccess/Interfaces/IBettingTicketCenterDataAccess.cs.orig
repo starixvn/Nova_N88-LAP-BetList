@@ -1,0 +1,23 @@
+﻿namespace Fanex.Athena.DataAccess.BetList.Interfaces
+{
+    using System.Collections.Generic;
+    using Model.BetList.DTO;
+    using Model.BetList.MetaModel;
+
+    public interface IBettingTicketCenterDataAccess
+    {
+        TicketResult GetBetListForMultipleCustomers(MultipleCustomersBetListMetaModel metaModel);
+
+<<<<<<< HEAD
+        int GetTotalRowForMultipleCustomers(MultipleCustomersBetListMetaModel metaModel);
+
+        TicketResult GetBetListForSingleCustomer(SingleCustomersBetListMetaModel metaModel);
+=======
+        TicketResult GetBetListForSingleCustomer(SingleCustomersBetListMetaModel metaModel, IDictionary<int, string> currencyList);
+>>>>>>> origin/BetListResult_Microservice
+
+        TicketResult GetBetListByRefno(RefNoBetListMetaModel metaModel, IDictionary<int, string> currencyList);
+
+        TicketResult GetRunningBetList(BaseBettingTicketMetaModel metaModel, IDictionary<int, string> currencyList);
+    }
+}

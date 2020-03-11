@@ -1,0 +1,16 @@
+FanexSpName.LOCAL.xml
+FanexSpName.PRO.xml
+FanexSpName.SANDBOX.xml
+FanexSpName.UAT.xml
+\\www\\js\\source
+\\www\\js\\tests
+\\www\\css\\source
+\\www\\webpackconfig
+\\Jasmine
+\\jasmine-specs
+\\Gruntfile.js
+\\GruntFilters.json
+\\karma-new-dev.conf.js
+\\karma-new.conf.js
+\\karma.conf.js
+\\compilerconfig.json

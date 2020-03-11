@@ -1,0 +1,172 @@
+﻿@using Fanex.Athena.Common.Utility.Helpers;
+@using System.Linq;
+@using Fanex.BetList.Core.App_GlobalResources;
+@using Fanex.Athena.Resources;
+
+@model Fanex.Athena.BetList.Model.ViewModel.SystemParlayDetailViewModel
+@{
+    var groupedData = Model.DataList;
+}
+
+@helper RenderFirstRow()
+{
+    <tr style="visibility: hidden; height: auto; border: none">
+        <td style="height: 0; padding: 0; border: none" class="date-cell"></td>
+        <td style="height: 0; padding: 0; border: none" class="event-cell"></td>
+        <td style="height: 0; padding: 0; border: none" class="odds-cell"></td>
+        <td style="height: 0; padding: 0; border: none" class="stake-cell"></td>
+        <td style="height: 0; padding: 0; border: none" class="winloss-cell"></td>
+        <td style="height: 0; padding: 0; border: none" class="status-cell"></td>
+    </tr>
+}
+
+<style type="text/css">
+    .system-parlay-detail .negative {
+        color: #ff0000;
+    }
+
+    .system-parlay-detail .match-group {
+        padding: 3px 0;
+    }
+
+    .system-parlay-detail table {
+        table-layout: fixed;
+    }
+
+    .system-parlay-detail .date-cell {
+        width: 70px;
+    }
+
+    .system-parlay-detail .event-cell {
+        width: 250px;
+    }
+
+    .system-parlay-detail .odds-cell {
+        width: 60px;
+    }
+
+    .system-parlay-detail .stake-cell {
+        width: 60px;
+    }
+
+    .system-parlay-detail .winloss-cell {
+        width: 60px;
+    }
+
+    .system-parlay-detail .status-cell {
+        width: 60px;
+    }
+</style>
+
+<div class="system-parlay-detail">
+    <div id="theaderContainer" class="tcontainer theader-container" style="padding-right: 18px; border: 1px solid #ddd">
+        <table style="text-align: right;white-space: nowrap; font-weight: bold" cellspacing="0" cellpadding="0" border="0">
+            <thead>
+                <tr class="system-parlay-header">
+                    <th class="date-cell">@CoreBetList.date</th>
+                    <th class="event-cell">@CoreBetList.events</th>
+                    <th class="odds-cell">@CoreBetList.odds</th>
+                    <th class="stake-cell">@CoreBetList.stake</th>
+                    <th class="winloss-cell">@CoreBetList.winloss</th>
+                    <th class="status-cell">@CoreBetList.status</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div id="tbodyContainer" class="tcontainer tbody-container" style="overflow: auto; border-right: 1px solid #ddd; border-left: 1px solid #ddd">
+        <table id="tbodyData" style="text-align: right;white-space: nowrap; font-weight: bold; width: 100%;" cellspacing="0" cellpadding="0" border="0">
+            <tbody>
+                @RenderFirstRow()
+                @foreach (var dataByDate in groupedData)
+            {
+                var rowSpan = dataByDate.Count().ToString();
+                var isFirstItem = true;
+
+                var subTotal = dataByDate.Sum(x => x.WinLoss);
+
+                foreach (var dataByMatch in dataByDate)
+                {
+                        <tr>
+                            @if (isFirstItem)
+                    {
+                                <td rowspan="@rowSpan" style="text-align: center; font-weight: normal;">@dataByMatch.Date.ToString("MM/dd/yyyy")</td>
+                                isFirstItem = false;
+                            }
+                            <td style="text-align: left; font-weight: normal; overflow:hidden; text-overflow: ellipsis; white-space: normal">
+                                @foreach (var match in dataByMatch.MatchList)
+                                {
+                                    var homeTeamText = match.HomeTeam + (match.IsNeutral ? " " + ViewResources.ShortedNeutral : string.Empty);
+                                    var matchText = homeTeamText + " -vs- " + match.AwayTeam;
+                                    <div class="match-group" title="@matchText">@matchText</div>
+                                }
+                            </td>
+                            <td>@NumberHelper.DecFormat(dataByMatch.Odds, 4)</td>
+                            <td>@NumberHelper.DecFormat(dataByMatch.Stake)</td>
+                            <td>
+                                <div class="@(dataByMatch.WinLoss < 0 ? "negative" : string.Empty)">@NumberHelper.DecFormat(dataByMatch.WinLoss)</div>
+                            </td>
+                            <td style="text-align: center;">@dataByMatch.Status</td>
+                        </tr>
+                    }
+
+                    <tr class="system-parlay-subtotal">
+                        <td colspan="4">@CoreBetList.subTotal:</td>
+                        <td class="@(subTotal < 0 ? "negative" : string.Empty)">@NumberHelper.DecFormat(subTotal)</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div id="tfooterContainer" class="tcontainer tfooter-container" style="padding-right: 18px; border: 1px solid #ddd">
+        <table style="text-align: right;white-space: nowrap; font-weight: bold" cellspacing="0" cellpadding="0" border="0">
+            <tfoot>
+                @RenderFirstRow()
+                <tr class="system-parlay-outstanding">
+                    <td colspan="4">@CoreBetList.outstanding:</td>
+                    <td class="@(Model.Outstanding < 0 ? "negative" : string.Empty)" style="border-left: none;">
+                        @(Model.Outstanding == 0 ? "0" : NumberHelper.DecFormat(Model.Outstanding))
+                    </td>
+                    <td style="border-left: none;">&nbsp;</td>
+                </tr>
+                @if (Model.DataList.Any())
+            {
+                    <tr class="system-parlay-total">
+                        <td colspan="4">@CoreBetList.total:</td>
+                        <td class="@(Model.Total < 0 ? "negative" : string.Empty)">@NumberHelper.DecFormat(Model.Total)</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                }
+            </tfoot>
+        </table>
+    </div>
+
+    <script type="text/javascript">
+        var PADDING_HEIGHT = 30;
+        var MARGIN_NOTE = 5;
+        var SCROLLBAR_WIDTH = 18;
+
+        function calculateContentSize() {
+            var windowHeightWithoutPadding = window.innerHeight - PADDING_HEIGHT;
+
+            var tfooter = document.getElementById('tfooterContainer');
+            var footerClientRect = tfooter.getBoundingClientRect();
+            var noteBlock = document.getElementsByClassName('note-block');
+            var noteBlockHeight = noteBlock.length > 0 ? noteBlock[0].offsetHeight + MARGIN_NOTE : 0;
+            var contentHeight = footerClientRect.bottom + noteBlockHeight;
+
+            var theader = document.getElementById('theaderContainer');
+            if (contentHeight > windowHeightWithoutPadding) {
+                var maxHeightForBody = windowHeightWithoutPadding - theader.offsetHeight - tfooter.offsetHeight - noteBlockHeight;
+
+                document.getElementById('tbodyContainer').style.maxHeight = maxHeightForBody + 'px';
+            }
+            document.getElementById('tbodyData').style.width = (theader.clientWidth - SCROLLBAR_WIDTH) + 'px';
+        }
+
+        window.onload = function () {
+            calculateContentSize();
+        }
+    </script>
+</div>

@@ -1,0 +1,6 @@
+Url= 'http://10.18.200.209:8088/LRF-TEST'
+cf_username= 'tester01'
+cf_pass= '1234aa'
+cf_licensee= '12Bet'
+cf_language= 'En'
+cf_browser = 'ff'

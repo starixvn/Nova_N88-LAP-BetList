@@ -1,0 +1,601 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CE8FBEBC-3312-4881-8486-42C9F70DDADF}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Fanex.Athena.BetListApi</RootNamespace>
+    <AssemblyName>Fanex.Athena.BetListApi</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <UseIISExpress>true</UseIISExpress>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <JSLintSkip>\Scripts\Plugin\|\Scripts\Library\|\Scripts\Languages\|\Form\|\Scripts\_NewScripts\|\Scripts\jasmine\|\Scripts\jasmine-specs\</JSLintSkip>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
+    <Use64BitIISExpress />
+    <DockerComposeProjectPath>..\..\docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet>Fanex.Athena.BetListApi.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+    <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet>Fanex.Athena.BetListApi.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac, Version=4.9.4.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Autofac.4.9.4\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Autofac.Mvc5.4.0.2\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Dapper.2.0.30\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.BetList.AGCasino, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.BetList.AGCasino.1.0.0.4\lib\net40\Fanex.BetList.AGCasino.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.BetList.Allbet, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.BetList.Allbet.1.4.0\lib\net40\Fanex.BetList.Allbet.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.BetList.BetTrade, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.BetList.Core.2.103.0\lib\net40\Fanex.BetList.BetTrade.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.BetList.CashOut, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.BetList.CashOut.1.2.0\lib\net40\Fanex.BetList.CashOut.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.BetList.ColossusBets, Version=1.0.1.7, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.BetList.ColossusBets.1.0.1.7\lib\net40\Fanex.BetList.ColossusBets.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.BetList.Core, Version=2.103.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.BetList.Core.2.103.0\lib\net40\Fanex.BetList.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.BetList.Core.RemotingRef, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.BetList.Core.RemotingRef.1.1.0\lib\net461\Fanex.BetList.Core.RemotingRef.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.BetList.ESports, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.BetList.ESports.1.0.0\lib\net40\Fanex.BetList.ESports.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.BetList.GlobalGaming, Version=1.0.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.BetList.GlobalGaming.1.0.0.6\lib\net40\Fanex.BetList.GlobalGaming.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.BetList.Keno, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.BetList.Keno.1.2.0\lib\net40\Fanex.BetList.Keno.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.BetList.KenoLottery, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.BetList.KenoLottery.1.2.0\lib\net40\Fanex.BetList.KenoLottery.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.BetList.NumberGame, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.BetList.NumberGame.1.2.0\lib\net40\Fanex.BetList.NumberGame.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.BetList.PokerGames, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.BetList.PokerGames.1.1.2.0\lib\net40\Fanex.BetList.PokerGames.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.BetList.PP, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.BetList.PP.1.3.0\lib\net40\Fanex.BetList.PP.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.BetList.RnGCasino, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.BetList.RnGCasino.1.1.0\lib\net40\Fanex.BetList.RnGCasino.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.BetList.Spadegaming, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.BetList.Spadegaming.1.0.0\lib\net40\Fanex.BetList.Spadegaming.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.BetList.VirtualSports, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.BetList.VirtualSports.1.5.0\lib\net40\Fanex.BetList.VirtualSports.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.BetList.Voidbridge, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.BetList.Voidbridge.1.2.0\lib\net40\Fanex.BetList.Voidbridge.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Data, Version=4.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Data.4.2.0\lib\net461\Fanex.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Data.DbSettingProviderExtension, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Data.DbSettingProviderExtension.1.0.0.1\lib\net40\Fanex.Data.DbSettingProviderExtension.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Data.SqlServer, Version=4.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Data.SqlServer.4.2.0\lib\net461\Fanex.Data.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Logging, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Logging.2.0.0\lib\net461\Fanex.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Logging.Extensions, Version=1.0.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Logging.Extensions.1.0.6\lib\net461\Fanex.Logging.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Logging.Extensions.Database, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Logging.Extensions.Database.1.0.5\lib\net461\Fanex.Logging.Extensions.Database.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Logging.Sentry.RavenClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Logging.Sentry.RavenClient.1.0.0\lib\net461\Fanex.Logging.Sentry.RavenClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.RemotingRef, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.RemotingRef.1.4.0\lib\net461\Fanex.RemotingRef.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Result.Core, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Result.Core-NPOI.2.0.6.2.3.7.2\lib\net40\Fanex.Result.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Result.Core.AllBetCasino, Version=1.0.1.7, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Result.Core.AllBetCasino.1.0.1.7\lib\net40\Fanex.Result.Core.AllBetCasino.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Result.Core.Base, Version=2.3.7.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Result.Core-NPOI.2.0.6.2.3.7.2\lib\net40\Fanex.Result.Core.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Result.Core.Casino, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Result.Core.Casino.1.0.0.0\lib\Fanex.Result.Core.Casino.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Result.Core.Happy5, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Result.Core.Happy5.1.0.0.0\lib\net40\Fanex.Result.Core.Happy5.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Result.Core.NumberGame">
+      <HintPath>..\..\packages\Fanex.Result.Core-NumberGame.1.0.3\lib\net40\Fanex.Result.Core.NumberGame.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Result.Core.PokerGames, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Result.Core.PokerGames.1.0.2.0\lib\net40\Fanex.Result.Core.PokerGames.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Result.Core.PP, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Result.Core.PP.1.0.0.0\lib\Fanex.Result.Core.PP.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Result.Core.Racing, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Result.Core-Racing.1.1.0\lib\net40\Fanex.Result.Core.Racing.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Result.Core.RemotingRef, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Result.Core.RemotingRef.1.0.3\lib\net461\Fanex.Result.Core.RemotingRef.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fanex.Result.Core.Sportsbook, Version=1.2.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Result.Core-Sportsbook.1.2.5\lib\net40\Fanex.Result.Core.Sportsbook.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Result.Core.VirtualGames, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Result.Core.VirtualGames.1.0.0.0-beta04\lib\net40\Fanex.Result.Core.VirtualGames.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Result.Core.Voidbridge, Version=1.0.2.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Result.Core.Voidbridge.1.0.2.1\lib\net40\Fanex.Result.Core.Voidbridge.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IBCCrypt, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Crypt.1.1.0.0\lib\net40\IBCCrypt.dll</HintPath>
+    </Reference>
+    <Reference Include="IBCDBLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.DBLibrary.1.0.0.0\lib\net40\IBCDBLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.0.6\lib\net40\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ILogger, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ILogger.1.0.0.0\lib\net40\ILogger.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCasinoResult, Version=1.0.1.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Result.Core.AllBetCasino.1.0.1.7\lib\net40\LiveCasinoResult.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MessagePack, Version=1.7.3.7, Culture=neutral, PublicKeyToken=b4a0369545f0a1be, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MessagePack.1.7.3.7\lib\net45\MessagePack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Diagnostics.Tracing.EventSource, Version=1.1.28.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Diagnostics.Tracing.EventSource.Redist.1.1.28\lib\net46\Microsoft.Diagnostics.Tracing.EventSource.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Win32.Primitives.4.0.1\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.0.6.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.0.6\lib\net40\NPOI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RazorEngine, Version=3.7.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\RazorEngine.3.7.0\lib\net45\RazorEngine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SharpRaven, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SharpRaven.2.4.0\lib\net45\SharpRaven.dll</HintPath>
+    </Reference>
+    <Reference Include="Sunplus.Core.Common, Version=1.1.4505.19054, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Sunplus.Core.Common.1.1.4505.19054\lib\net40\Sunplus.Core.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="sysglobl" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Diagnostics.DiagnosticSource.4.0.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http, Version=4.1.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Net.Http.4.3.3\lib\net46\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Threading.Tasks.Extensions.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Abstractions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Cors, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Cors.5.2.6\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.6\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.6\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="TplCore, Version=1.0.4854.17253, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\TplCore.1.0.4854.17254\lib\net40\TplCore.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\DIConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="SpNameConfig\FanexSpName.BACKUPMNL.xml">
+      <DependentUpon>FanexSpName.xml.tt</DependentUpon>
+    </Content>
+    <Content Include="SpNameConfig\FanexSpName.LOCAL.xml">
+      <DependentUpon>FanexSpName.xml.tt</DependentUpon>
+    </Content>
+    <Content Include="SpNameConfig\FanexSpName.PRO.xml">
+      <DependentUpon>FanexSpName.xml.tt</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SpNameConfig\FanexSpName.SIT.xml">
+      <DependentUpon>FanexSpName.xml.tt</DependentUpon>
+    </Content>
+    <Content Include="SpNameConfig\FanexSpName.UAT.xml">
+      <DependentUpon>FanexSpName.xml.tt</DependentUpon>
+    </Content>
+    <Content Include="SpNameConfig\FanexSpName.xml">
+      <DependentUpon>FanexSpName.xml.tt</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SpNameConfig\FanexSpName.xml1.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FanexSpName.xml.tt</DependentUpon>
+    </Content>
+    <Content Include="SpNameConfig\FanexSpNameConfig.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="CodeAnalysis\CodeAnalysisConfiguration.xml" />
+    <Content Include="App_Data\Fanex.Result\HorseRacing.xls" />
+    <Content Include="App_Data\Fanex.Result\OtherSport.xls" />
+    <Content Include="App_Data\Fanex.Result\Badminton.xls" />
+    <Content Include="App_Data\Fanex.Result\BaseBall.xls" />
+    <Content Include="App_Data\Fanex.Result\Basketball.xls" />
+    <Content Include="App_Data\Fanex.Result\Billiard.xls" />
+    <Content Include="App_Data\Fanex.Result\GoldDeluxe.xls" />
+    <Content Include="App_Data\Fanex.Result\Hockey.xls" />
+    <Content Include="App_Data\Fanex.Result\LiveCasino.xls" />
+    <Content Include="App_Data\Fanex.Result\MuayThai.xls" />
+    <Content Include="App_Data\Fanex.Result\NumberGame.xls" />
+    <Content Include="App_Data\Fanex.Result\Other.xls" />
+    <Content Include="App_Data\Fanex.Result\Outright.xls" />
+    <Content Include="App_Data\Fanex.Result\Racing.xls" />
+    <Content Include="App_Data\Fanex.Result\Soccer.xls" />
+    <Content Include="App_Data\Fanex.Result\Tennis.xls" />
+    <Content Include="App_Data\Fanex.Result\VSHRacing.xls" />
+    <Content Include="App_Data\Fanex.Result\VSSpeedWay.xls" />
+    <Content Include="App_Data\Fanex.Result\VSTennis.xls" />
+    <Content Include="App_Data\Fanex.Result\VSBasketBall.xls" />
+    <Content Include="App_Data\Fanex.Result\BeachSoccer.xls" />
+    <Content Include="App_Data\Fanex.Result\Kabaddi.xls" />
+    <Content Include="App_Data\Fanex.Result\ESport.xls" />
+    <Content Include="App_Data\Fanex.Result\Happy5.xls" />
+    <Content Include="Fanex.Athena.BetListApi.ruleset" />
+    <None Include="Dockerfile" />
+    <None Include=".dockerignore">
+      <DependentUpon>Dockerfile</DependentUpon>
+    </None>
+    <None Include="SiteConfig\Web.DEV.config" />
+    <None Include="SpNameConfig\FanexSpNameOriginal.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Deployment.ignore" />
+    <None Include="SpNameConfig\FanexSpName.xml.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>FanexSpName.xml1.txt</LastGenOutput>
+    </None>
+    <None Include="SpNameConfig\SpNameConfiguration.ttinclude" />
+    <Content Include="SiteConfig\Web.LOCAL.config">
+      <DependentUpon>Web.config.tt</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SiteConfig\Web.PRO.config">
+      <DependentUpon>Web.config.tt</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SiteConfig\Web.SANDBOX.config">
+      <DependentUpon>Web.config.tt</DependentUpon>
+    </Content>
+    <Content Include="SiteConfig\Web.UAT.config">
+      <DependentUpon>Web.config.tt</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SiteConfig\Web.SIT.config">
+      <DependentUpon>Web.config.tt</DependentUpon>
+    </Content>
+    <Content Include="SiteConfig\WebConfigTransforms\BACKUPMNL.config" />
+    <Content Include="SiteConfig\WebConfigTransforms\LOCAL.config" />
+    <Content Include="SiteConfig\WebConfigTransforms\PRO.config" />
+    <Content Include="SiteConfig\WebConfigTransforms\SANDBOX.config" />
+    <Content Include="SiteConfig\WebConfigTransforms\UAT.config" />
+    <Content Include="SiteConfig\Web.AppSettings.BACKUPMNL.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SiteConfig\Web.AppSettings.LOCAL.config" />
+    <Content Include="SiteConfig\Web.AppSettings.PRO.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SiteConfig\Web.AppSettings.SANDBOX.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SiteConfig\Web.AppSettings.SIT.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SiteConfig\Web.AppSettings.UAT.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SiteConfig\Web.ConnectionStrings.BACKUPMNL.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SiteConfig\Web.ConnectionStrings.DEV.config" />
+    <Content Include="SiteConfig\Web.ConnectionStrings.LOCAL.config" />
+    <Content Include="SiteConfig\Web.ConnectionStrings.PRO.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SiteConfig\Web.ConnectionStrings.SANDBOX.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SiteConfig\Web.ConnectionStrings.SIT.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SiteConfig\Web.ConnectionStrings.UAT.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\SystemParlayDetail\Index.cshtml" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SiteConfig\WebConfigTransforms\SIT.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SiteConfig\Web.config.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Web.config.tt</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="WhoAmI.aspx" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SiteConfig\Web.BACKUPMNL.config">
+      <DependentUpon>Web.config.tt</DependentUpon>
+    </Content>
+    <None Include="SiteConfig\Web.config.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Web.config.txt</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.AppSettings.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.ConnectionStrings.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BetList\Fanex.Athena.BetList.Controller\Fanex.Athena.BetList.Controller.csproj">
+      <Project>{0C22899B-6CE0-4187-9BCF-7F503213F207}</Project>
+      <Name>Fanex.Athena.BetList.Controller</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BetList\Fanex.Athena.BetList.Model\Fanex.Athena.BetList.Model.csproj">
+      <Project>{4956fbd7-5f68-4e7b-af6c-db5fb1f255f0}</Project>
+      <Name>Fanex.Athena.BetList.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Fanex.Athena.Common.Utility\Fanex.Athena.Common.Utility.csproj">
+      <Project>{90F037EA-E730-44D0-8957-5FCA2295D22E}</Project>
+      <Name>Fanex.Athena.Common.Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Result\Fanex.Athena.Result.Controller\Fanex.Athena.Result.Controller.csproj">
+      <Project>{bc358f4a-b85d-43a2-a669-d2d2c9f2eedb}</Project>
+      <Name>Fanex.Athena.Result.Controller</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.14.0.8411\analyzers\Google.Protobuf.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.14.0.8411\analyzers\SonarAnalyzer.CSharp.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.14.0.8411\analyzers\SonarAnalyzer.dll" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+	   Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55049</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:55050</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

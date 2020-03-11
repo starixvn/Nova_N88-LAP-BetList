@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="SonarQube - Sparta / LRF Sonar way" ToolsVersion="15.0">
+  <Include Path="..\..\..\sonarqube\lap.betlistcsharp.ruleset" Action="Default" />
+</RuleSet>

@@ -1,0 +1,20 @@
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="Microsoft.Web.XmlTransform.dll" #>
+<#@ import namespace="System.Xml" #>
+<#@ output extension=".txt" #>
+<#
+string projectPath = Host.ResolveAssemblyReference("$(SolutionDir)") + @"BetlistApiHost\Fanex.Athena.BetListApi\";
+var environments = new string[] {"LOCAL", "UAT", "SIT", "PRO", "BACKUPMNL", "SANDBOX" };
+foreach(var environment in environments)
+{
+ using(var transform = new Microsoft.Web.XmlTransform.XmlTransformation( projectPath + "SiteConfig\\WebConfigTransforms\\" + environment + ".config"))
+ {
+ var document = new XmlDocument();
+ document.Load(projectPath + "Web.config");
+ transform.Apply(document);
+ document.Save(projectPath + "SiteConfig\\Web." + environment + ".config");
+ }
+}
+#>
+

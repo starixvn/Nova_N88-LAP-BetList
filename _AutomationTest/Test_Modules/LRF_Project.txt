@@ -1,0 +1,374 @@
+*** Settings ***
+Suite Setup
+Suite Teardown
+Library           Selenium2Library
+Library           Process
+Library           OperatingSystem
+Library           Screenshot
+Library           Collections
+Library           String
+Library           Dialogs
+Resource          ../Actions/actions.txt
+
+*** Variables ***
+
+*** Test Cases ***
+TM_01_ST_Total Bets(Handicap--Correct Score)
+    [Tags]    TB
+    # set variables
+    ${tm_normal_table}    Set Variable    xpath=//*/div[2]/table
+    ${tm_grid_table}    Set Variable    xpath=//*[@id='BetListGrid']
+    ${tm_type}    Set Variable    ALL
+    ${tm_currency}    Set Variable    ALL
+    ${tm_based}    Set Variable    EUR
+    Open Browser    ${Url}    ${cf_browser}
+    Maximize Browser Window
+    #login
+    login    ${cf_username}    ${cf_pass}
+    #select licensee
+    select licensee icon    ${cf_licensee}
+    comment    Select Total Bets>Handicap/Over Under/Line
+    # Total Bets>Handicap/Over Under/Line
+    select left menu    TOTAL BETS    Handicap/Over Under/Live
+    filtering total bets    ${tm_type}    ${tm_currency}    ${tm_based}
+    check control exist    ${tm_normal_table}
+    : FOR    ${index}    IN RANGE    2    7
+    \    check naviagate of link in table cell    ${tm_normal_table}    4    ${index}
+    # Total Bets>Money Line
+    select left menu    TOTAL BETS    Money Line
+    filtering total bets    ${tm_type}    ${tm_currency}    ${tm_based}
+    check control exist    ${tm_normal_table}
+    : FOR    ${index}    IN RANGE    2    11
+    \    check naviagate of link in table cell    ${tm_normal_table}    2    ${index}
+    # Total Bets>Odd/Even + 1x2 + DND
+    select left menu    TOTAL BETS    Odd/Even + 1x2 + DND
+    filtering total bets    ${tm_type}    ${tm_currency}    ${tm_based}
+    check control exist    ${tm_normal_table}
+    : FOR    ${index}    IN RANGE    2    10
+    \    check naviagate of link in table cell    ${tm_normal_table}    4    ${index}
+    # Total Bets>Correct Score
+    select left menu    TOTAL BETS    Correct Score
+    filtering total bets    ${tm_type}    ${tm_currency}    ${tm_based}
+    check control exist    ${tm_grid_table}
+    : FOR    ${index}    IN RANGE    2    7
+    \    check naviagate of link in table cell    ${tm_grid_table}    4    ${index}
+
+TM_02_ST_Total Bets(Total Goal--FG/LG)
+    [Tags]    TB
+    # set variables
+    ${tm_normal_table}    Set Variable    xpath=//*/div[2]/table
+    ${tm_grid_table}    Set Variable    xpath=//*[@id='BetListGrid']
+    ${tm_type}    Set Variable    ALL
+    ${tm_currency}    Set Variable    ALL
+    ${tm_based}    Set Variable    EUR
+    #main steps
+    # Total Bets>Total Goal
+    select left menu    TOTAL BETS    Total Goal
+    filtering total bets    ${tm_type}    ${tm_currency}    ${tm_based}
+    check control exist    ${tm_normal_table}
+    : FOR    ${index}    IN RANGE    2    7
+    \    check naviagate of link in table cell    ${tm_normal_table}    4    ${index}
+    # Total Bets>Mix Parlay
+    select left menu    TOTAL BETS    Mix Parlay
+    filtering total bets    ${tm_type}    ${tm_currency}    ${tm_based}
+    check control exist    ${tm_grid_table}
+    : FOR    ${index}    IN RANGE    2    7
+    \    check naviagate of link in table cell    ${tm_grid_table}    1    ${index}
+    # system parlay
+    Click element    xpath=//*[@class='content-title']/span[3]
+    : FOR    ${index}    IN RANGE    2    7
+    \    check naviagate of link in table cell    ${tm_grid_table}    1    ${index}
+    # Total Bets>Outright
+    select left menu    TOTAL BETS    Outright
+    filtering total bets    ${tm_type}    ${tm_currency}    ${tm_based}
+    check control exist    ${tm_normal_table}
+    : FOR    ${index}    IN RANGE    2    5
+    \    check naviagate of link in table cell    ${tm_normal_table}    4    ${index}
+    # Total Bets>HT/FT
+    select left menu    TOTAL BETS    HT/FT
+    filtering total bets    ${tm_type}    ${tm_currency}    ${tm_based}
+    check control exist    ${tm_normal_table}
+    : FOR    ${index}    IN RANGE    1    5
+    \    check naviagate of link in table cell    ${tm_normal_table}    4    ${index}
+    # Total Bets>FG/LG
+    select left menu    TOTAL BETS    FG/LG
+    filtering total bets    ${tm_type}    ${tm_currency}    ${tm_based}
+    check control exist    ${tm_normal_table}
+    : FOR    ${index}    IN RANGE    1    5
+    \    check naviagate of link in table cell    ${tm_normal_table}    4    ${index}
+
+TM_03_ST_Total Bets(Clean Sheet--B/O/N)
+    [Tags]    TB
+    # set variables
+    ${tm_normal_table}    Set Variable    xpath=//*/div[2]/table
+    ${tm_grid_table}    Set Variable    xpath=//*[@id='BetListGrid']
+    ${tm_type}    Set Variable    ALL
+    ${tm_currency}    Set Variable    ALL
+    ${tm_based}    Set Variable    EUR
+    #main steps
+    # Total Bets>Clean Sheet    ***special case table = //*/div[2]/div/table
+    select left menu    TOTAL BETS    Clean Sheet
+    filtering total bets    ${tm_type}    ${tm_currency}    ${tm_based}
+    check control exist    xpath=//*/div[2]/div/table
+    : FOR    ${index}    IN RANGE    2    5
+    \    check naviagate of link in table cell    xpath=//*/div[2]/div/table    4    ${index}
+    # Total Bets>Double Chance
+    select left menu    TOTAL BETS    Double Chance
+    filtering total bets    ${tm_type}    ${tm_currency}    ${tm_based}
+    check control exist    ${tm_grid_table}
+    : FOR    ${index}    IN RANGE    2    5
+    \    check naviagate of link in table cell    ${tm_grid_table}    4    ${index}
+    # Total Bets>Home/Draw/Away No Bet
+    select left menu    TOTAL BETS    Home/Draw/Away No Bet
+    filtering total bets    ${tm_type}    ${tm_currency}    ${tm_based}
+    check control exist    ${tm_normal_table}
+    : FOR    ${index}    IN RANGE    2    6
+    \    check naviagate of link in table cell    ${tm_normal_table}    4    ${index}
+    # Total Bets>Both/One/Neither Team To Score
+    select left menu    TOTAL BETS    B/O/N team to score
+    filtering total bets    ${tm_type}    ${tm_currency}    ${tm_based}
+    check control exist    ${tm_grid_table}
+    : FOR    ${index}    IN RANGE    2    5
+    \    check naviagate of link in table cell    ${tm_grid_table}    4    ${index}
+
+TM_04_ST_Total Bets(To win to nill--NG)
+    [Tags]    TB
+    # set variables
+    ${tm_normal_table}    Set Variable    xpath=//*/div[2]/table
+    ${tm_grid_table}    Set Variable    xpath=//*[@id='BetListGrid']
+    ${tm_type}    Set Variable    ALL
+    ${tm_currency}    Set Variable    ALL
+    ${tm_based}    Set Variable    EUR
+    #main steps
+    # Total Bets>To Win To Nil
+    select left menu    TOTAL BETS    To win to nil
+    filtering total bets    ${tm_type}    ${tm_currency}    ${tm_based}
+    check control exist    ${tm_grid_table}
+    : FOR    ${index}    IN RANGE    2    5
+    \    check naviagate of link in table cell    ${tm_grid_table}    4    ${index}
+    # Total Bets>3-Way Handicap
+    select left menu    TOTAL BETS    3-Way Handicap
+    filtering total bets    ${tm_type}    ${tm_currency}    ${tm_based}
+    check control exist    ${tm_grid_table}
+    : FOR    ${index}    IN RANGE    2    5
+    \    check naviagate of link in table cell    ${tm_grid_table}    4    ${index}
+    # Total Bets>Racing
+    select left menu    TOTAL BETS    Racing
+    filtering total bets    ${tm_type}    ${tm_currency}    ${tm_based}
+    check control exist    ${tm_normal_table}
+    : FOR    ${index}    IN RANGE    2    9
+    \    check naviagate of link in table cell    ${tm_normal_table}    4    ${index}
+    # Total Bets>Number Game
+    select left menu    TOTAL BETS    Number Game
+    filtering total bets    ${tm_type}    ${tm_currency}    ${tm_based}
+    check control exist    ${tm_normal_table}
+    : FOR    ${index}    IN RANGE    2    16
+    \    check naviagate of link in table cell    ${tm_normal_table}    4    ${index}
+    Close Browser
+
+TM_05_ST_ForeCast
+    [Tags]    TB
+    [Setup]
+    Open Browser    ${Url}    ${cf_browser}
+    Maximize Browser Window
+    #login
+    login    ${cf_username}    ${cf_pass}
+    #select licensee
+    select licensee icon    ${cf_licensee}
+    # ForeCase>Handicap/Over Under/Line
+    select left menu    FORECAST    Handicap/Over Under/Live
+    filtering forecast    0    ${EMPTY}    ALL    USD
+    : FOR    ${index}    IN RANGE    1    6
+    \    check naviagate of link in table cell    xpath=//*[@id='content-area-3']/table[1]    3    ${index}
+    : FOR    ${index}    IN RANGE    1    4
+    \    check naviagate of link in table cell    xpath=//*[@id='content-area-3']/table[2]/tbody/tr/td[1]/table    3    ${index}
+    : FOR    ${index}    IN RANGE    1    4
+    \    check naviagate of link in table cell    xpath=//*[@id='content-area-3']/table[2]/tbody/tr/td[3]/table    3    ${index}
+    : FOR    ${index}    IN RANGE    1    4
+    \    check naviagate of link in table cell    xpath=//*/div[2]/table    2    ${index}
+    # ForeCase>1x2
+    select left menu    FORECAST    1 X 2
+    filtering forecast-1x2    ALL    EUR    USD    2
+    : FOR    ${index}    IN RANGE    1    4
+    \    check naviagate of link in table cell    xpath=//*/div[2]/table    3    ${index}
+    Close Browser
+
+TM_06_ST_Reports(LBM--MWL)
+    # set variables
+    ${today}    get time    \    Now - 1 day
+    ${today-5}    get time    \    Now - 5 day
+    conver date format    ${today}
+    ${today}    Set Variable    ${output}
+    conver date format    ${today-5}
+    ${today-5}    Set Variable    ${output}
+    ${tm_type}    Set Variable    ALL
+    ${tm_currency}    Set Variable    ALL
+    ${tm_based}    Set Variable    EUR
+    #main steps
+    Open Browser    ${Url}    ${cf_browser}
+    Maximize Browser Window
+    #login
+    login    ${cf_username}    ${cf_pass}
+    #select licensee
+    select licensee icon    ${cf_licensee}
+    # Report >>Last Bets Monitoring
+    select left menu    REPORTS    Last Bets Monitoring
+    Select Window
+    Select Frame    main
+    @{filter_controls}    Create List    id=sports    id=bet-type    id=currency    id=league    id=live-status
+    ...    id=based-currency
+    ${total_controls}    Get Length    ${filter_controls}
+    : FOR    ${index}    IN RANGE    ${total_controls}
+    \    Run Keyword And Continue On Failure    Page Should Contain Element    @{filter_controls}[${index}]
+    : FOR    ${index}    IN RANGE    2    8
+    \    check naviagate of link in table cell    xpath=//*[@id='last-bets-monitoring']    4    ${index}
+    #Reports>>Licensee Win Loss
+    select left menu    REPORTS    Licensee Win Loss
+    filtering licensee win loss    ${today-5}    ${today}    ${tm_currency}    Monthly    No Draws    No
+    ...    Virtual Sports,Sportsbook
+    Click Element    id=btnTurnOverExpand
+    sleep    3s
+    Focus    id=btnLicenseeWLExpand
+    Click Element    id=btnLicenseeWLExpand
+    check control exist    id=ReportGrid
+    Comment    #Reports>>Settled Match Count
+    select left menu    REPORTS    Settled Match Count
+    Select Window
+    Select Frame    main
+    check control exist    xpath=//*[@class='report-content']
+    Comment    #Reports>>Match Win Loss
+    select left menu    REPORTS    Match Win Loss
+    filtering match win loss    ${today}    ${tm_type}    ${tm_currency}    ${tm_based}    All
+    : FOR    ${index}    IN RANGE    1    6
+    \    check naviagate of link in table cell    xpath=//*[@id='data-content']    3    ${index}
+
+TM_07_ST_Reports(WLP--DRWL)
+    # set variables
+    ${today}    get time    \    Now - 1 day
+    ${today-5}    get time    \    Now - 5 day
+    conver date format    ${today}
+    ${today}    Set Variable    ${output}
+    conver date format    ${today-5}
+    ${today-5}    Set Variable    ${output}
+    ${tm_type}    Set Variable    ALL
+    ${tm_currency}    Set Variable    ALL
+    ${tm_based}    Set Variable    EUR
+    #main steps
+    Comment    #Reports>>Win Loss By Products
+    select left menu    REPORTS    Win Loss By Products
+    filtering licensee win loss    ${today-5}    ${today}    EUR    Monthly    No Draws    Yes
+    ...    All
+    check control exist    id=ReportGrid
+    Comment    #Reports>>Win Loss By Bet Type
+    select left menu    REPORTS    Win Loss By Bet Type
+    Select Window
+    Select Frame    main
+    select date range    ${today-5}    ${today}
+    filtering forecast-1x2    ${tm_type}    ${tm_currency}    ${tm_based}    ${EMPTY}
+    check control exist    xpath=//*[@class='report-content']
+    Comment    #Reports>>Racing Commission
+    select left menu    REPORTS    Racing Commission
+    Select Window
+    Select Frame    main
+    select date range    ${today-5}    ${today}
+    filtering forecast-1x2    ${tm_type}    ${tm_currency}    ${tm_based}    ${EMPTY}
+    Page Should Not Contain    Server Error
+    Select Window
+    Select Frame    main
+    ${RC_1}=    Run Keyword And Return Status    Page Should Contain Element    xpath=//*[@id='data-content']/div[1]/div[2]/div/span
+    Run Keyword If    '${RC_1}'=='True'    Click Element    xpath=//*[@id='data-content']/div[1]/div[2]/div/span
+    sleep    3s
+    Page Should Not Contain    Server Error
+    Comment    #Reports>>Daily Racing Win Loss
+    select left menu    REPORTS    Daily Racing Win Loss
+    Select Window
+    Select Frame    main
+    select specific date    ${today-5}
+    filtering forecast-1x2    ${tm_type}    ${tm_currency}    ${tm_based}    ${EMPTY}
+    Page Should Not Contain    Server Error
+    Select Window
+    Select Frame    main
+    ${DR_1}=    Run Keyword And Return Status    Page Should Contain Element    xpath=//*[@id='data-content']/div[2]/div[1]/div/span
+    Run Keyword If    '${DR_1}'=='True'    Click Element    xpath=//*[@id='data-content']/div[2]/div[1]/div/span
+    sleep    3s
+    Page Should Not Contain    Server Error
+
+TM_08_ST_Reports(CB--Turnover)
+    # set variables
+    ${today}    get time    \    Now - 1 day
+    ${today-5}    get time    \    Now - 5 day
+    conver date format    ${today}
+    ${today}    Set Variable    ${output}
+    conver date format    ${today-5}
+    ${today-5}    Set Variable    ${output}
+    ${tm_type}    Set Variable    ALL
+    ${tm_currency}    Set Variable    ALL
+    ${tm_based}    Set Variable    EUR
+    #main steps
+    Comment    #Reports>>Cancelled Bets
+    select left menu    REPORTS    Cancelled Bets
+    Select Window
+    Select Frame    main
+    filtering forecast-1x2    ${tm_type}    ${tm_currency}    ${tm_based}    ${EMPTY}
+    check control exist    id=BetListGrid
+    Page Should Not Contain    Server Error
+    Comment    #Reports>>Daily Bet List
+    select left menu    REPORTS    Daily Bet List
+    filtering daily bet list    ${today-5}    ${tm_currency}    ${tm_based}    All    Lose
+    sleep    3s
+    Page Should Not Contain    Server Error
+    Comment    #Reports>>Live Report
+    select left menu    REPORTS    Live Report
+    Select Window
+    Select Frame    main
+    select date range    ${today-5}    ${today}
+    Select From List By Label    id=CurrencyId    ALL
+    Select From List By Label    id=BaseCurrency    EUR
+    Click Element    xpath=//*[@value='Submit']
+    ${LR_1}=    Run Keyword And Return Status    Page Should Contain Element    xpath=//*/a[1][@class='product-detail-link']
+    Run Keyword If    '${LR_1}'=='True'    Click Element    xpath=//*/a[1][@class='product-detail-link']
+    Page Should Not Contain    Server Error
+    Comment    #Reports>>Turnover
+    select left menu    REPORTS    Turnover
+    Select Window
+    Select Frame    main
+    Select Checkbox    id=ALLProducts
+    Click Element    id=SubmitButton
+    Wait Until Page Contains Element    id=data-content    200s
+    Page Should Not Contain    Server Error
+
+TM_09_ST_Reports(MbWL--Balance)
+    # set variables
+    ${today}    get time    \    Now - 1 day
+    ${today-5}    get time    \    Now - 5 day
+    conver date format    ${today}
+    ${today}    Set Variable    ${output}
+    conver date format    ${today-5}
+    ${today-5}    Set Variable    ${output}
+    ${tm_type}    Set Variable    ALL
+    ${tm_currency}    Set Variable    ALL
+    ${tm_based}    Set Variable    EUR
+    #main steps
+    Comment    #Reports>>Mobile Win Loss
+    select left menu    REPORTS    Mobile Win Loss
+    Select Window
+    Select Frame    main
+    Click Element    xpath=//*[@id='DateControl']/a[1]
+    Select Checkbox    id=ALLProducts
+    Click Element    id=SubmitButton
+    sleep    5s
+    : FOR    ${index}    IN RANGE    1    6
+    \    check naviagate of link in table cell    xpath=//*[@id='ReportGrid']    2    ${index}
+    Comment    #Reports>>Results
+    select left menu    REPORTS    Results
+    Select Window
+    Select Frame    main
+    select specific date    ${today}
+    Click Element    id=SubmitButton
+    Page Should Not Contain    Server Error
+    Comment    #Reports>>Balance
+    select left menu    REPORTS    Balance
+    filtering balance    ${tm_type}    ${tm_currency}    ${tm_based}    November    2013
+    sleep    3s
+    Page Should Not Contain    Server Error
+    [Teardown]    Close All Browsers

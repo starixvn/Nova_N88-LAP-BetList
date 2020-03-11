@@ -1,0 +1,297 @@
+*** Settings ***
+Library           Selenium2Library
+Library           String
+Library           OperatingSystem
+Library           Collections
+Library           String
+Resource          actions.txt
+
+*** Variables ***
+${cf_language}    En
+${cf_licensee}    12Bet
+${cf_pass}        1234aa
+${cf_username}    tester01
+${Url}            http://10.18.200.209:8003/V1/Index.aspx
+${cf_browser}     ie
+
+*** Keywords ***
+check naviagate of link in table cell
+    [Arguments]    ${table}    ${row}    ${column}
+    Select Window
+    Select Frame    id=main
+    # no information
+    ${no_infortable}=    Run Keyword And Return Status    Page Should Contain Element    xpath=//*/td[@class='no-info']
+    Exit For Loop If    '${no_infortable}'=='True'
+    #text link under line
+    ${ac_textlink_underline}=    Run Keyword And Return Status    Page Should Contain Element    ${table}/tbody/tr[${row}]/td[${column}]/span[contains(@style,'underline')]
+    Run Keyword If    '${ac_textlink_underline}'!='${no_infortable}'    Run Keyword If    '${ac_textlink_underline}'=='True'    Click Element    ${table}/tbody/tr[${row}]/td[${column}]/span[contains(@style,'underline')]
+    Run Keyword If    '${ac_textlink_underline}'!='${no_infortable}'    Run Keyword If    '${ac_textlink_underline}'=='True'    Sleep    2s
+    Run Keyword If    '${ac_textlink_underline}'!='${no_infortable}'    Run Keyword If    '${ac_textlink_underline}'=='True'    Page Should Contain Element    xpath=//*[@class='report-table']
+    Run Keyword If    '${ac_textlink_underline}'!='${no_infortable}'    Run Keyword If    '${ac_textlink_underline}'=='True'    Page Should Not Contain    Server Error
+    Run Keyword If    '${ac_textlink_underline}'!='${no_infortable}'    Run Keyword If    '${ac_textlink_underline}'=='True'    Go Back
+    Run Keyword If    '${ac_textlink_underline}'!='${no_infortable}'    Run Keyword If    '${ac_textlink_underline}'=='True'    Sleep    2s
+    #text link
+    ${ac_textlink}=    Run Keyword And Return Status    Page Should Contain Element    ${table}/tbody/tr[${row}]/td[${column}]/a[@class='team'][contains(@href,'javascript')]
+    Run Keyword If    '${ac_textlink}'!='${no_infortable}'    Run Keyword If    '${ac_textlink}'=='True'    Click Element    ${table}/tbody/tr[${row}]/td[${column}]/a[@class='team'][contains(@href,'javascript')]
+    Run Keyword If    '${ac_textlink}'!='${no_infortable}'    Run Keyword If    '${ac_textlink}'=='True'    Sleep    2s
+    Run Keyword If    '${ac_textlink}'!='${no_infortable}'    Run Keyword If    '${ac_textlink}'=='True'    Page Should Contain Element    id=BetListGrid
+    Run Keyword If    '${ac_textlink}'!='${no_infortable}'    Run Keyword If    '${ac_textlink}'=='True'    Page Should Not Contain    Server Error
+    Run Keyword If    '${ac_textlink}'!='${no_infortable}'    Run Keyword If    '${ac_textlink}'=='True'    Go Back
+    Run Keyword If    '${ac_textlink}'!='${no_infortable}'    Run Keyword If    '${ac_textlink}'=='True'    Sleep    2s
+    #number link
+    ${ac_textnumber}=    Run Keyword And Return Status    Page Should Contain Element    ${table}/tbody/tr[${row}]/td[${column}]/a[contains(@class,'forcast-number')]/span
+    # handle Empty cell
+    ${celldata}=    Run Keyword If    '${ac_textnumber}'!='${no_infortable}'    Get Text    ${table}/tbody/tr[${row}]/td[${column}]/a[contains(@class,'forcast-number')]/span
+    ${has_data}=    Set Variable
+    Run Keyword If    '${celldata}'!='${EMPTY}'    Set Test Variable    ${has_data}    True
+    Run Keyword If    '${ac_textnumber}'!='${no_infortable}'    Run Keyword If    '${has_data}'=='True'    Click Element    ${table}/tbody/tr[${row}]/td[${column}]/a[contains(@class,'forcast-number')]
+    Run Keyword If    '${ac_textnumber}'!='${no_infortable}'    Sleep    2s
+    Run Keyword If    '${ac_textnumber}'!='${no_infortable}'    Run Keyword If    '${has_data}'=='True'    Page Should Contain Element    id=BetListGrid
+    Run Keyword If    '${ac_textnumber}'!='${no_infortable}'    Run Keyword If    '${has_data}'=='True'    Page Should Not Contain    Server Error
+    Run Keyword If    '${ac_textnumber}'!='${no_infortable}'    Run Keyword If    '${has_data}'=='True'    Go Back
+    Run Keyword If    '${ac_textnumber}'!='${no_infortable}'    Sleep    2s
+    #Plus button
+    ${ac_plusbutton}=    Run Keyword And Return Status    Page Should Contain Element    ${table}/tbody/tr[${row}]/td[${column}]/a[@class='button-add']
+    Run Keyword If    '${ac_plusbutton}'!='${no_infortable}'    Run Keyword If    '${ac_plusbutton}'=='True'    Click Element    ${table}/tbody/tr[${row}]/td[${column}]/a[@class='button-add']
+    Run Keyword If    '${ac_plusbutton}'!='${no_infortable}'    Run Keyword If    '${ac_plusbutton}'=='True'    Sleep    2s
+    #Plus button--> popup view
+    ${ac_popup_view}=    Run Keyword And Return Status    Page Should Contain Element    xpath=//*/div[3]/div[1]/button/span[2]
+    Run Keyword If    '${ac_plusbutton}'!='${no_infortable}'    Run Keyword If    '${ac_plusbutton}'=='${ac_popup_view}'    Page Should Contain Element    xpath=//*[@class='report-table']/tbody
+    Run Keyword If    '${ac_plusbutton}'!='${no_infortable}'    Run Keyword If    '${ac_plusbutton}'=='${ac_popup_view}'    Click Element    xpath=//*/div[3]/div[1]/button/span[2]
+    #Plus button--> betlist view
+    Run Keyword If    '${ac_plusbutton}'!='${no_infortable}'    Run Keyword If    '${ac_plusbutton}'!='${ac_popup_view}'    Page Should Contain Element    id=gview_BetListGrid
+    Run Keyword If    '${ac_plusbutton}'!='${no_infortable}'    Run Keyword If    '${ac_plusbutton}'!='${ac_popup_view}'    Page Should Not Contain    Server Error
+    Run Keyword If    '${ac_plusbutton}'!='${no_infortable}'    Run Keyword If    '${ac_plusbutton}'!='${ac_popup_view}'    Go Back
+    Run Keyword If    '${ac_plusbutton}'!='${no_infortable}'    Sleep    2s
+    #special case for mixparlay
+    ${ac_mixparlay}=    Run Keyword And Return Status    Page Should Contain Element    ${table}/tbody/tr[${row}]/td[${column}]/a[@id='hidden0']
+    Run Keyword If    '${ac_mixparlay}'!='${no_infortable}'    Run Keyword If    '${ac_mixparlay}'=='True'    Click Element    ${table}/tbody/tr[${row}]/td[${column}]/a[@id='hidden0']
+    Run Keyword If    '${ac_mixparlay}'!='${no_infortable}'    Run Keyword If    '${ac_mixparlay}'=='True'    Page Should Contain Element    xpath=//*[@class='mx-parlay']
+    Run Keyword If    '${ac_mixparlay}'!='${no_infortable}'    Run Keyword If    '${ac_mixparlay}'=='True'    Run Keyword If    '${ac_plusbutton}'!='${no_infortable}'    Run Keyword If
+    ...    '${ac_plusbutton}'!='${ac_popup_view}'
+    Run Keyword If    '${ac_mixparlay}'!='${no_infortable}'    Sleep    2s
+    #ForeCast link
+    ${ac_forecast}=    Run Keyword And Return Status    Page Should Contain Element    ${table}/tbody/tr[${row}]/td[${column}]/span[contains(@class,'bet-list')]
+    Run Keyword If    '${ac_forecast}'!='${no_infortable}'    Run Keyword If    '${ac_forecast}'=='True'    Click Element    ${table}/tbody/tr[${row}]/td[${column}]/span[contains(@class,'bet-list')]
+    Run Keyword If    '${ac_forecast}'!='${no_infortable}'    Run Keyword If    '${ac_forecast}'=='True'    Sleep    2s
+    Run Keyword If    '${ac_forecast}'!='${no_infortable}'    Run Keyword If    '${ac_forecast}'=='True'    Select Window    title=LRF - Bet List
+    Run Keyword If    '${ac_forecast}'!='${no_infortable}'    Run Keyword If    '${ac_forecast}'=='True'    focus    xpath=//*[@class='content-title']
+    Run Keyword If    '${ac_forecast}'!='${no_infortable}'    Run Keyword If    '${ac_forecast}'=='True'    Page Should Contain Element    xpath=//*[@class='content-main']
+    Run Keyword If    '${ac_forecast}'!='${no_infortable}'    Run Keyword If    '${ac_forecast}'=='True'    Run Keyword If    '${ac_mixparlay}'!='${no_infortable}'    Run Keyword If
+    ...    '${ac_mixparlay}'=='True'
+    Run Keyword If    '${ac_forecast}'!='${no_infortable}'    Run Keyword If    '${ac_forecast}'=='True'    Close Window
+    Run Keyword If    '${ac_forecast}'!='${no_infortable}'    Run Keyword If    '${ac_forecast}'=='True'    Sleep    2s
+
+login
+    [Arguments]    ${user}    ${pass}
+    Sleep    4s
+    Input Text    id=txtUserName    ${user}
+    Input Text    id=txtPassWord    ${pass}
+    Comment    Input Text    id=txtCaptcha
+    #manual input capcha
+    Click button    xpath=//*[@value='Login']
+    Sleep    3s
+
+check control exist
+    [Arguments]    ${control}
+    Run Keyword And Continue On Failure    Page Should Contain Element    ${control}
+
+select left menu
+    [Arguments]    ${main}    ${sub}    # ${main} and ${sub}must be matched with showed-label on web
+    Select Window
+    Select Frame    id=menu
+    #special case: duplicated sub name Forecase-total bets
+    ${ac_submenu_status}=    Run Keyword And Return Status    Element Should Be Visible    xpath=//*[contains(@id,'child-menu')][contains(text(),'${sub}')]
+    ${ac_tempt}=    Run Keyword And Return Status    Element Should Be Visible    id=child-menu-link-24
+    ${ac_status_1a}=    Evaluate    '${main}'=='FORECAST'
+    ${ac_status_1b}=    Evaluate    '${sub}'=='Handicap/Over Under/Live'
+    Run Keyword If    '${main}'=='FORECAST'    Run Keyword If    '${sub}'=='Handicap/Over Under/Live'    Run Keyword If    '${ac_tempt}'!='True'    Click Element
+    ...    id=menu-title-2
+    Run Keyword If    '${main}'=='FORECAST'    Run Keyword If    '${sub}'=='Handicap/Over Under/Live'    Run Keyword If    '${ac_tempt}'!='True'    Double Click Element
+    ...    id=child-menu-link-24
+    Run Keyword If    '${main}'=='FORECAST'    Run Keyword If    '${sub}'=='Handicap/Over Under/Live'    Run Keyword If    '${ac_tempt}'=='True'    Double Click Element
+    ...    id=child-menu-link-24
+    Run Keyword If    '${main}'=='FORECAST'    sleep    2s
+    #Main steps
+    Run Keyword If    '${ac_status_1a}'!='${ac_status_1b}'    Run Keyword If    '${ac_submenu_status}'=='True'    Double Click Element    xpath=//*[contains(@id,'child-menu')][contains(text(),'${sub}')]
+    Run Keyword If    '${ac_status_1a}'!='${ac_status_1b}'    Run Keyword If    '${ac_submenu_status}'!='True'    Click Element    xpath=//*[contains(@id,'menu-title')][contains(text(),'${main}')]
+    Run Keyword If    '${ac_status_1a}'!='${ac_status_1b}'    Run Keyword If    '${ac_submenu_status}'!='True'    Double Click Element    xpath=//*[contains(@id,'child-menu')][contains(text(),'${sub}')]
+    Run Keyword If    '${ac_status_1a}'=='False'    Run Keyword If    '${ac_status_1b}'=='False'    Run Keyword If    '${ac_submenu_status}'=='True'    Double Click Element
+    ...    xpath=//*[contains(@id,'child-menu')][contains(text(),'${sub}')]
+    Run Keyword If    '${ac_status_1a}'=='False'    Run Keyword If    '${ac_status_1b}'=='False'    Run Keyword If    '${ac_submenu_status}'!='True'    Click Element
+    ...    xpath=//*[contains(@id,'menu-title')][contains(text(),'${main}')]
+    Run Keyword If    '${ac_status_1a}'=='False'    Run Keyword If    '${ac_status_1b}'=='False'    Run Keyword If    '${ac_submenu_status}'!='True'    Double Click Element
+    ...    xpath=//*[contains(@id,'child-menu')][contains(text(),'${sub}')]
+    sleep    2s
+    Page Should Not Contain    Server Error
+
+select licensee icon
+    [Arguments]    ${licensee_name}
+    Wait Until Page Contains Element    xpath=//*/p/a[contains(text(),'${licensee_name}')]    200s
+    Click Element    xpath=//*/p/a[contains(text(),'${licensee_name}')]
+    Sleep    5s
+
+filtering total bets
+    [Arguments]    ${type}    ${currency}    ${based}
+    Select Window
+    Select Frame    id=main
+    Select From List By Label    id=LicenseeType    ${type}
+    Select From List By Label    id=CurrencyId    ${currency}
+    Select From List By Label    id=BaseCurrency    ${based}
+    Click Element    id=SubmitButton
+    Sleep    3s
+
+filtering forecast
+    [Arguments]    ${league}    ${match}    ${currency}    ${based}
+    Select Window
+    Select Frame    id=main
+    Run Keyword If    '${league}'!='${EMPTY}'    Select From List By Index    xpath=//*[contains(@id,'LeagueId')]    ${league}
+    Run Keyword If    '${league}'!='${EMPTY}'    Sleep    2s
+    Run Keyword If    '${match}'!='${EMPTY}'    Select From List By Index    id=DdlMatchId    ${match}
+    Run Keyword If    '${currency}'!='${EMPTY}'    Select From List By Label    id=CurrencyId    ${currency}
+    Run Keyword If    '${based}'!='${EMPTY}'    Select From List By Label    id=BaseCurrency    ${based}
+    Click Element    id=SubmitButton
+    Sleep    3s
+
+filtering forecast-1x2
+    [Arguments]    ${type}    ${currency}    ${based}    ${league}
+    Select Window
+    Select Frame    id=main
+    Run Keyword If    '${type}'!='${EMPTY}'    Select From List By Label    id=LicenseeType    ${type}
+    Run Keyword If    '${currency}'!='${EMPTY}'    Select From List By Label    id=CurrencyId    ${currency}
+    Run Keyword If    '${based}'!='${EMPTY}'    Select From List By Label    id=BaseCurrency    ${based}
+    Run Keyword If    '${league}'!='${EMPTY}'    Select From List By Index    id=LeagueId    ${league}
+    Click Element    id=SubmitButton
+    Sleep    3s
+
+filtering licensee win loss
+    [Arguments]    ${from}    ${to}    ${currency}    ${report_by}    ${draw_filter}    ${exclude_testdata}
+    ...    ${product}    # Product=All or is separated by comma
+    Select Window
+    Select Frame    main
+    # get products
+    ${SB}=    Run Keyword And Return Status    Should Contain    ${product}    Sportsbook
+    ${RB}=    Run Keyword And Return Status    Should Contain    ${product}    Racing
+    ${NG}=    Run Keyword And Return Status    Should Contain    ${product}    Number Game
+    ${LC}=    Run Keyword And Return Status    Should Contain    ${product}    Live Casino
+    ${VS}=    Run Keyword And Return Status    Should Contain    ${product}    Virtual Sports
+    ${BA}=    Run Keyword And Return Status    Should Contain    ${product}    BA
+    select date range    ${from}    ${to}
+    Select From List By Label    id=CurrencyId    ${currency}
+    Run Keyword If    '${report_by}'=='Daily'    Select Checkbox    xpath=//*/input[1][@name='reportby']    ELSE    Select Checkbox    xpath=//*/input[2][@name='reportby']
+    Run Keyword If    '${draw_filter}'=='Normal'    Select Checkbox    xpath=//*/input[1][@name='drawfilter']    ELSE IF    '${draw_filter}'=='No Draws'    Select Checkbox
+    ...    xpath=//*/input[2][@name='drawfilter']    ELSE    Select Checkbox    xpath=//*/input[3][@name='drawfilter']
+    Run Keyword If    '${exclude_testdata}'=='Yes'    Select Checkbox    xpath=//*/input[1][@name='IsExcludedTestData']    ELSE    Select Checkbox    xpath=//*/input[2][@name='IsExcludedTestData']
+    Run Keyword If    '${product}'=='All'    Click Element    id=ALLProducts
+    Run Keyword If    '${SB}'=='True'    Select Checkbox    xpath=//*[@data-product-code='SB'][@type='checkbox']
+    Run Keyword If    '${RB}'=='True'    Select Checkbox    xpath=//*[@data-product-code='RB'][@type='checkbox']
+    Run Keyword If    '${NG}'=='True'    Select Checkbox    xpath=//*[@data-product-code='NG'][@type='checkbox']
+    Run Keyword If    '${BA}'=='True'    Select Checkbox    xpath=//*[@data-product-code='BA'][@type='checkbox']
+    Run Keyword If    '${LC}'=='True'    Select Checkbox    xpath=//*[@data-product-code='LC'][@type='checkbox']
+    Run Keyword If    '${VS}'=='True'    Select Checkbox    xpath=//*[@data-product-code='VS'][@type='checkbox']
+    Click Element    id=SubmitButton
+    sleep    4s
+
+filtering match win loss
+    [Arguments]    ${date}    ${type}    ${currency}    ${based}    ${product}
+    Select Window
+    Select Frame    main
+    # get products
+    ${SB}=    Run Keyword And Return Status    Should Contain    ${product}    Sportsbook
+    ${RB}=    Run Keyword And Return Status    Should Contain    ${product}    Racing
+    ${NG}=    Run Keyword And Return Status    Should Contain    ${product}    Number Game
+    ${LC}=    Run Keyword And Return Status    Should Contain    ${product}    Live Casino
+    ${VS}=    Run Keyword And Return Status    Should Contain    ${product}    Virtual Sports
+    ${BA}=    Run Keyword And Return Status    Should Contain    ${product}    BA
+    select specific date    ${date}
+    Select From List By Label    id=LicenseeType    ${type}
+    Select From List By Label    id=CurrencyId    ${currency}
+    Select From List By Label    id=BaseCurrency    ${based}
+    Run Keyword If    '${product}'=='All'    Click Element    id=ALLProducts
+    Run Keyword If    '${SB}'=='True'    Select Checkbox    xpath=//*[@data-product-code='SB'][@type='checkbox']
+    Run Keyword If    '${RB}'=='True'    Select Checkbox    xpath=//*[@data-product-code='RB'][@type='checkbox']
+    Run Keyword If    '${NG}'=='True'    Select Checkbox    xpath=//*[@data-product-code='NG'][@type='checkbox']
+    Run Keyword If    '${BA}'=='True'    Select Checkbox    xpath=//*[@data-product-code='BA'][@type='checkbox']
+    Run Keyword If    '${LC}'=='True'    Select Checkbox    xpath=//*[@data-product-code='LC'][@type='checkbox']
+    Run Keyword If    '${VS}'=='True'    Select Checkbox    xpath=//*[@data-product-code='VS'][@type='checkbox']
+    Click Element    id=SubmitButton
+    sleep    3s
+
+select date range
+    [Arguments]    ${from}    ${to}    # format = mmm/dd/yyyy \ (ex:Oct/05/2013)
+    # split specific date
+    ${dd1}=    Get Slice From List    ${from}    4    6
+    ${dd11}=    Get Slice From List    ${dd1}    0    1
+    ${dd12}=    Get Slice From List    ${dd1}    1    2
+    Run Keyword If    '${dd11}'=='0'    Set Test Variable    ${dd1}    ${dd12}
+    ${mm1}=    Get Slice From List    ${from}    0    3
+    ${yyyy1}=    Get Slice From List    ${from}    7    11
+    ${dd2}=    Get Slice From List    ${to}    4    6
+    ${dd21}=    Get Slice From List    ${dd2}    0    1
+    ${dd22}=    Get Slice From List    ${dd2}    1    2
+    Run Keyword If    '${dd21}'=='0'    Set Test Variable    ${dd2}    ${dd22}
+    ${mm2}=    Get Slice From List    ${to}    0    3
+    ${yyyy2}=    Get Slice From List    ${to}    7    11
+    Click Element    id=FromDate
+    sleep    3s
+    ${dd11}=    Get Slice From List    ${dd1}    0    1
+    #From date
+    Select From List By Label    xpath=//*/div[1]/div[1]/div/div/select[1][@data-handler='selectMonth']    ${mm1}
+    Select From List By Value    xpath=//*/div[1]/div[1]/div/div/select[2][@data-handler='selectYear']    ${yyyy1}
+    Click Element    xpath=//*/div[1]/div[1]/table[1]/tbody/tr/td/a[text()='${dd1}']
+    # to date
+    Select From List By Label    xpath=//*/div[2]/div[1]/div/div/select[1][@data-handler='selectMonth']    ${mm2}
+    Select From List By Value    xpath=//*/div[2]/div[1]/div/div/select[2][@data-handler='selectYear']    ${yyyy2}
+    Click Element    xpath=//*/div[2]/div[1]/table[1]/tbody/tr/td/a[text()='${dd2}']
+    Click Element    xpath=//*/button[text()='OK']
+
+select specific date
+    [Arguments]    ${date}
+    # split specific date
+    ${dd1}=    Get Slice From List    ${date}    4    6
+    ${dd11}=    Get Slice From List    ${dd1}    0    1
+    ${dd12}=    Get Slice From List    ${dd1}    1    2
+    Run Keyword If    '${dd11}'=='0'    Set Test Variable    ${dd1}    ${dd12}
+    Click Element    xpath=//*[contains(@id,'Date')]
+    sleep    3s
+    ${mm1}=    Get Slice From List    ${date}    0    3
+    ${yyyy1}=    Get Slice From List    ${date}    7    11
+    Select From List By Label    xpath=//*/div/div/select[1][@data-handler='selectMonth']    ${mm1}
+    Select From List By Value    xpath=//*/div/div/select[2][@data-handler='selectYear']    ${yyyy1}
+    Click Element    xpath=//*/table/tbody/tr/td/a[text()='${dd1}']
+
+conver date format
+    [Arguments]    ${input}    # format input = yyyy-mm-dd
+    ${yyyy}=    Get Slice From List    ${input}    0    4
+    ${mm}=    Get Slice From List    ${input}    5    7
+    ${dd}=    Get Slice From List    ${input}    8    10
+    ${mm}=    Set Variable If    '${mm}'=='01'    Jan    '${mm}'=='02'    Feb    '${mm}'=='03'
+    ...    Mar    '${mm}'=='04'    Apr    '${mm}'=='05'    May    '${mm}'=='06'
+    ...    Jun    '${mm}'=='07'    Jul    '${mm}'=='08'    Aug    '${mm}'=='09'
+    ...    Sep    '${mm}'=='10'    Oct    '${mm}'=='11'    Nov    '${mm}'=='12'
+    ...    Dec
+    Set Test Variable    ${output}    ${mm}/${dd}/${yyyy}
+
+filtering daily bet list
+    [Arguments]    ${date}    ${currency}    ${based}    ${product}    ${status}
+    Select Window
+    Select Frame    id=main
+    Run Keyword If    '${date}'!='${EMPTY}'    select specific date    ${date}
+    Run Keyword If    '${currency}'!='${EMPTY}'    Select From List By Label    id=CurrencyId    ${currency}
+    Run Keyword If    '${based}'!='${EMPTY}'    Select From List By Label    id=BaseCurrency    ${based}
+    Run Keyword If    '${product}'!='${EMPTY}'    Select From List By Label    id=ProductCode    ${product}
+    Run Keyword If    '${status}'!='${EMPTY}'    Select From List By Label    id=DailyBetListStatus    ${status}
+    Click Element    id=SubmitButton
+    Sleep    3s
+
+filtering balance
+    [Arguments]    ${type}    ${currency}    ${based}    ${month}    ${year}
+    Select Window
+    Select Frame    id=main
+    Select From List By Label    id=LicenseeType    ${type}
+    Select From List By Label    id=CurrencyId    ${currency}
+    Select From List By Label    id=BaseCurrency    ${based}
+    Select From List By Label    id=Month    ${month}
+    Select From List By Label    id=Year    ${year}
+    Click Element    id=SubmitButton
+    Sleep    3s

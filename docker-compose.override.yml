@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  fanex.athena.betlistapi:
+    ports:
+      - "80"
+networks:
+  - default:
+    external:
+      name: "nat"
