@@ -208,10 +208,6 @@
     <value>基礎貨幣</value>
     <comment>84932</comment>
   </data>
-  <data name="BettingTicketCenter" xml:space="preserve">
-    <value>注單中心</value>
-    <comment>80941</comment>
-  </data>
   <data name="China" xml:space="preserve">
     <value>中國</value>
   </data>
@@ -251,5 +247,9 @@
   <data name="HKOdds" xml:space="preserve">
     <value>中國盤</value>
     <comment>125845</comment>
+  </data>
+  <data name="BetHistory" xml:space="preserve">
+    <value>Bet History</value>
+    <comment>80941</comment>
   </data>
 </root>

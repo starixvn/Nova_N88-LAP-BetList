@@ -39,7 +39,7 @@
                 ? string.Empty
                 : $", {ViewResources.BaseCurrency}: {baseCurrencyText}";
 
-            return ViewResources.BettingTicketCenter + date + baseCurrency;
+            return ViewResources.BetHistory + date + baseCurrency;
         }
 
         protected internal virtual ExcelResult ExportExcel(BettingTicketCenterExcelModel excelModel)
