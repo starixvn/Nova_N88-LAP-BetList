@@ -92,6 +92,9 @@
     <Reference Include="Fanex.BetList.BetTrade, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.BetList.Core.2.103.0\lib\net40\Fanex.BetList.BetTrade.dll</HintPath>
     </Reference>
+    <Reference Include="Fanex.BetList.CardClub, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.BetList.CardClub.1.0.1.0\lib\net40\Fanex.BetList.CardClub.dll</HintPath>
+    </Reference>
     <Reference Include="Fanex.BetList.CashOut, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.BetList.CashOut.1.2.0\lib\net40\Fanex.BetList.CashOut.dll</HintPath>
     </Reference>
@@ -126,10 +129,6 @@
       <HintPath>..\..\packages\Fanex.BetList.NumberGame.1.2.0\lib\net40\Fanex.BetList.NumberGame.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.BetList.PokerGames, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.BetList.PokerGames.1.1.2.0\lib\net40\Fanex.BetList.PokerGames.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Fanex.BetList.PP, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.BetList.PP.1.3.0\lib\net40\Fanex.BetList.PP.dll</HintPath>
     </Reference>
@@ -139,6 +138,9 @@
     </Reference>
     <Reference Include="Fanex.BetList.Spadegaming, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.BetList.Spadegaming.1.0.0\lib\net40\Fanex.BetList.Spadegaming.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.BetList.VirtualGames, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.BetList.VirtualGames.1.0.0\lib\net40\Fanex.BetList.VirtualGames.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.BetList.VirtualSports, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.BetList.VirtualSports.1.5.0\lib\net40\Fanex.BetList.VirtualSports.dll</HintPath>
@@ -217,7 +219,7 @@
       <HintPath>..\..\packages\Fanex.Result.Core-Sportsbook.1.2.5\lib\net40\Fanex.Result.Core.Sportsbook.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core.VirtualGames, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Result.Core.VirtualGames.1.0.0.0-beta04\lib\net40\Fanex.Result.Core.VirtualGames.dll</HintPath>
+      <HintPath>..\..\packages\Fanex.Result.Core.VirtualGames.1.0.0.0\lib\net40\Fanex.Result.Core.VirtualGames.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core.Voidbridge, Version=1.0.2.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Result.Core.Voidbridge.1.0.2.1\lib\net40\Fanex.Result.Core.Voidbridge.dll</HintPath>
