@@ -1,10 +1,4 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="ColossusBetDetailMetaModel.cs" company="Microsoft">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Athena.BetList.Model.MetaModel
+﻿namespace Fanex.Athena.BetList.Model.MetaModel
 {
     public class ColossusBetDetailMetaModel
     {

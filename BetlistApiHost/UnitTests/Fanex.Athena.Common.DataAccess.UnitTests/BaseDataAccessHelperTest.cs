@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
-using Fanex.Athena.BetList.DataAccess;
 using Fanex.Athena.Common.DataAccess.Interfaces;
 using Fanex.Athena.UnitTest.Common.Helpers;
 using Fanex.Data;

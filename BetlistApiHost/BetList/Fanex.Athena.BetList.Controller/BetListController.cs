@@ -1,10 +1,4 @@
-﻿// --------------------------------------------------------------------------
-// <copyright file="ApiBetListBaseController.cs" company="">
-// Copyright (c) . All rights reserved.
-// </copyright>
-// --------------------------------------------------------------------------
-
-namespace Fanex.Athena.BetList.Controller
+﻿namespace Fanex.Athena.BetList.Controller
 {
     using System;
     using System.Linq;
@@ -118,12 +112,6 @@ namespace Fanex.Athena.BetList.Controller
 
         [HttpPost]
         public async Task<ExcelResult> ExportExcel(BetListExcelMetaModel metaModel)
-        {
-            return await ProcessExportExcel(metaModel).ConfigureAwait(false);
-        }
-
-        [HttpPost]
-        public async Task<ExcelResult> ExportExcelLiveReport(LiveReportBetListMetaModel metaModel)
         {
             return await ProcessExportExcel(metaModel).ConfigureAwait(false);
         }

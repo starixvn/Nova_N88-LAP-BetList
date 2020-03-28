@@ -183,8 +183,6 @@
     <Compile Include="BetListController.cs" />
     <Compile Include="CustomActionResult\JsonNetResult.cs" />
     <Compile Include="ExchangeWinLossBetListController.cs" />
-    <Compile Include="LastBetMonitoringBetListController.cs" />
-    <Compile Include="LiveReportBetListController.cs" />
     <Compile Include="BaseController.cs" />
     <Compile Include="MixParlayBetListController.cs" />
     <Compile Include="OutstandingDailyStatementBetListController.cs" />

@@ -3,14 +3,11 @@
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
-    using System.Threading.Tasks;
 
     using Athena.BetList.DataAccess;
     using Athena.BetList.Model.DTO;
 
     using Common.DataAccess.UnitTests;
-
-    using Fanex.Athena.Common.DataAccess.Interfaces;
 
     using NSubstitute;
 

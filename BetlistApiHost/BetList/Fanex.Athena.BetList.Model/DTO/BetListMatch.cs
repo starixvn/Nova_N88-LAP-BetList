@@ -1,15 +1,7 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="BetListMatch.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-namespace Fanex.Athena.BetList.Model.DTO
+﻿namespace Fanex.Athena.BetList.Model.DTO
 {
     using System;
 
-    /// <summary>
-    /// BetListMatch class.
-    /// </summary>
     public class BetListMatch
     {
         public int SportType { get; set; }

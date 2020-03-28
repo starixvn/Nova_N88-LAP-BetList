@@ -1,10 +1,4 @@
-﻿// --------------------------------------------------------------------------
-// <copyright file="BaseApiController.cs" company="">
-// Copyright (c) . All rights reserved.
-// </copyright>
-// --------------------------------------------------------------------------
-
-namespace Fanex.Athena.BetList.Controller
+﻿namespace Fanex.Athena.BetList.Controller
 {
     using System.Web.Mvc;
     using System.Web.SessionState;

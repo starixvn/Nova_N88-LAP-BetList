@@ -1,10 +1,4 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="WinLossByLeagueBetListDetailMetaModel.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Athena.BetList.Model.MetaModel
+﻿namespace Fanex.Athena.BetList.Model.MetaModel
 {
     public class WinLossByLeagueBetListMetaModel : BetListExcelMetaModel
     {

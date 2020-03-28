@@ -1,10 +1,4 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="IBetListDataAccess.cs" company="Microsoft">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Athena.BetList.DataAccess.Interfaces
+﻿namespace Fanex.Athena.BetList.DataAccess.Interfaces
 {
     using System.Threading.Tasks;
     using Fanex.Athena.BetList.Model.DTO;

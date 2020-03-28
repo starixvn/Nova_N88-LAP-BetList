@@ -1,10 +1,4 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="LrfTicket.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Athena.BetList.Model.DTO
+﻿namespace Fanex.Athena.BetList.Model.DTO
 {
     using System;
     using Fanex.BetList.Core.Entities;

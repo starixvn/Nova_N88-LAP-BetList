@@ -1,12 +1,5 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="CashOutBetListDetailMetaModel.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-namespace Fanex.Athena.BetList.Model.MetaModel
+﻿namespace Fanex.Athena.BetList.Model.MetaModel
 {
-    using System.Collections.Generic;
-
     public class CashOutBetListDetailMetaModel
     {
         public string BaseCurrency { get; set; }

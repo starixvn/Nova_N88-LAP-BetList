@@ -118,12 +118,10 @@
     <Compile Include="Interfaces\ICashOutBetListDataAccess.cs" />
     <Compile Include="Interfaces\IColossusBetBetListDataAccess.cs" />
     <Compile Include="Interfaces\IExchangeBetListDataAccess.cs" />
-    <Compile Include="Interfaces\ILastBetsMonitoringBetListDataAccess.cs" />
     <Compile Include="ColossusBetBetListDataAccess.cs" />
     <Compile Include="Interfaces\IPlayerAdminBetListDataAccess.cs" />
     <Compile Include="Interfaces\ISingleMatchParlayDetailDataAccess.cs" />
     <Compile Include="Interfaces\ISystemParlayDetailDataAccess.cs" />
-    <Compile Include="LastBetsMonitoringBetListDataAccess.cs" />
     <Compile Include="BaseBetListDataAccess.cs" />
     <Compile Include="Interfaces\IBetListDataAccess.cs" />
     <Compile Include="PlayerAdminBetListDataAccess.cs" />

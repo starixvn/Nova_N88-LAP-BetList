@@ -1,17 +1,10 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="ColossusBetBetListDataAccess.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Athena.BetList.DataAccess
+﻿namespace Fanex.Athena.BetList.DataAccess
 {
     using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Threading.Tasks;
     using Common.Utility.Helpers;
-    using Fanex.Athena.Common.DataAccess.Interfaces;
     using Fanex.BetList.ColossusBets.Builder;
     using Fanex.BetList.Core.Entities;
     using Fanex.Common.Extensions;

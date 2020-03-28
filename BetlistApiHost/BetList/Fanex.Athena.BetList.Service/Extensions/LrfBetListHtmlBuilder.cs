@@ -1,10 +1,4 @@
-﻿// --------------------------------------------------------------------------
-// <copyright file="LrfBetListHtmlBuilder.cs" company="">
-// Copyright (c) . All rights reserved.
-// </copyright>
-// --------------------------------------------------------------------------
-
-namespace Fanex.Athena.BetList.Service.Extensions
+﻿namespace Fanex.Athena.BetList.Service.Extensions
 {
     using System;
     using System.Collections.Generic;

@@ -1,17 +1,8 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="ResultPopupMetalModel.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Athena.Result.Model.MetaModel
+﻿namespace Fanex.Athena.Result.Model.MetaModel
 {
     using System;
     using System.ComponentModel.DataAnnotations;
 
-    /// <summary>
-    /// ResultPopupMetalModel class.
-    /// </summary>
     [Serializable]
     public class ResultPopupMetaModel
     {

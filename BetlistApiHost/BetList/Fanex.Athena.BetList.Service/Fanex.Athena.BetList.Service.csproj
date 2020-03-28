@@ -124,10 +124,8 @@
     <Compile Include="Helpers\BetListHelper.cs" />
     <Compile Include="Interfaces\IBetListByProductService.cs" />
     <Compile Include="Interfaces\IExchangeBetListService.cs" />
-    <Compile Include="Interfaces\ILastBetsMonitoringBetListService.cs" />
     <Compile Include="Interfaces\ISystemParlayDetailService.cs" />
     <Compile Include="Interfaces\ITicketBuilderService.cs" />
-    <Compile Include="LastBetsMonitoringBetListService.cs" />
     <Compile Include="BetListService.cs" />
     <Compile Include="Interfaces\IBetListService.cs" />
     <Compile Include="Extensions\LrfBetListHtmlBuilder.cs" />
