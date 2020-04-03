@@ -270,4 +270,13 @@
     <value>Bet History</value>
     <comment>80941</comment>
   </data>
+  <data name="ESportsApp" xml:space="preserve">
+    <value>E-Sports App</value>
+  </data>
+  <data name="ESportsDesktop" xml:space="preserve">
+    <value>E-Sports Desktop</value>
+  </data>
+  <data name="ESportsMobile" xml:space="preserve">
+    <value>E-Sports Mobile</value>
+  </data>
 </root>

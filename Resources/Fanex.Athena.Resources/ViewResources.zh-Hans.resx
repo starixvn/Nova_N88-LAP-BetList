@@ -257,4 +257,13 @@
     <value>Bet History</value>
     <comment>80941</comment>
   </data>
+  <data name="ESportsApp" xml:space="preserve">
+    <value>电子竞技App</value>
+  </data>
+  <data name="ESportsDesktop" xml:space="preserve">
+    <value>电子竞技 桌机</value>
+  </data>
+  <data name="ESportsMobile" xml:space="preserve">
+    <value>电子竞技 手机</value>
+  </data>
 </root>
