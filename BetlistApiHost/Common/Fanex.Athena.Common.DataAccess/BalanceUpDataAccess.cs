@@ -1,10 +1,8 @@
 ﻿namespace Fanex.Athena.Common.DataAccess
 {
     using System;
-    using System.Threading.Tasks;
     using Fanex.Common.Extensions;
     using Interfaces;
-    using Logging;
     using Model.DTO;
     using Utility.Services.Interfaces;
 

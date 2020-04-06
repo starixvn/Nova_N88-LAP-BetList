@@ -1,18 +1,9 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="TicketResult.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Athena.BetList.Model.DTO
+﻿namespace Fanex.Athena.BetList.Model.DTO
 {
     using System.Collections.Generic;
     using Common.Utility.Collections;
     using Fanex.BetList.Core.Entities;
 
-    /// <summary>
-    /// TicketResult class.
-    /// </summary>
     public class TicketResult
     {
         [System.CLSCompliant(false)]

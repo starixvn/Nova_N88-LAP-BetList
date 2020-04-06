@@ -6,8 +6,6 @@
     using System.Threading.Tasks;
     using Common.Constant;
     using DataAccess.Interfaces;
-    using Fanex.Athena.Common.DataAccess.Interfaces;
-    using Fanex.Athena.Common.Model.DTO;
     using Fanex.BetList.Core.Builder;
     using Fanex.BetList.Core.Builder.StatusBuilder;
     using Fanex.BetList.Core.Entities;

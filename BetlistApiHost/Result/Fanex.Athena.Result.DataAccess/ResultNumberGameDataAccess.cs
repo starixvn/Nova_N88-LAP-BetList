@@ -1,10 +1,4 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="ResultDataAccess.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Athena.Result.DataAccess
+﻿namespace Fanex.Athena.Result.DataAccess
 {
     using System;
     using System.Collections.Generic;

@@ -1,6 +1,5 @@
 ﻿namespace Fanex.Athena.Common.Utility.Helpers
 {
-    using Fanex.Data;
     using System;
     using System.Collections.Generic;
     using System.Collections.Specialized;
@@ -8,6 +7,7 @@
     using System.Linq;
     using System.Text;
     using System.Web;
+    using Fanex.Data;
 
     public static class LogMessageHelper
     {

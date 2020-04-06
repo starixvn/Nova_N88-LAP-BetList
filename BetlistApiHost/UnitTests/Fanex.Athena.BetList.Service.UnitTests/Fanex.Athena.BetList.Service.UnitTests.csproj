@@ -147,7 +147,6 @@
     <Compile Include="Extensions\LrfBetListHtmlBuilderTest.cs" />
     <Compile Include="Extensions\TicketHelperExtensionTest.cs" />
     <Compile Include="Helpers\BetListHelperTest.cs" />
-    <Compile Include="LastBetsMonitoringBetListServiceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

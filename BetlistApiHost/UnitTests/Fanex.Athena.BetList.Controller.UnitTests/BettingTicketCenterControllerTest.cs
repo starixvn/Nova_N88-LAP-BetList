@@ -8,8 +8,6 @@
     using Excel.Model;
     using Fanex.Athena.BetList.DataAccess.Interfaces;
     using Fanex.Athena.BetList.Service.Interfaces;
-    using Fanex.BetList.Core.Builder;
-    using Fanex.BetList.Core.Entities;
     using Model.DTO;
     using Model.MetaModel;
     using NSubstitute;

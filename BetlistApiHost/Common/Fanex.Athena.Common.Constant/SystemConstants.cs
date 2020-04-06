@@ -3,9 +3,6 @@
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public static class SystemConstants
     {
         public const int SheetSizeExcel = 65000;

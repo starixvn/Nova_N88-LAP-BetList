@@ -88,20 +88,20 @@ namespace Fanex.Athena.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bet History.
+        /// </summary>
+        public static string BetHistory {
+            get {
+                return ResourceManager.GetString("BetHistory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bet List.
         /// </summary>
         public static string BetList {
             get {
                 return ResourceManager.GetString("BetList", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Betting Ticket Center.
-        /// </summary>
-        public static string BettingTicketCenter {
-            get {
-                return ResourceManager.GetString("BettingTicketCenter", resourceCulture);
             }
         }
         

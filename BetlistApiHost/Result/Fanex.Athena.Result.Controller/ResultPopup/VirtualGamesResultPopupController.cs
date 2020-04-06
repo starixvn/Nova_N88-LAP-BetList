@@ -13,9 +13,15 @@
         }
 
         [HttpPost]
-        public string Index(string gameId, string platform, string languageCode)
+        public string GetDetailResult(string gamePlayId, string languageCode, string platform = "d")
         {
-            return _resultApi.GetDetailResult(gameId, platform, languageCode);
+            return _resultApi.GetDetailResult(gamePlayId, platform, languageCode);
+        }
+
+        [HttpPost]
+        public string GetResultPage(string languageCode, string platform = "d")
+        {
+            return _resultApi.GetResult(platform, languageCode);
         }
     }
 }

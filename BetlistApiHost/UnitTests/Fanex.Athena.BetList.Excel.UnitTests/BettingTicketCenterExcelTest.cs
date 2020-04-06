@@ -70,7 +70,7 @@ namespace Fanex.Athena.BetList.Excel.UnitTests
             // Assert
             Assert.Multiple(() =>
             {
-                _builder.Received(1).CreateSheet(ViewResources.BettingTicketCenter, model.Option);
+                _builder.Received(1).CreateSheet(ViewResources.BetHistory, model.Option);
                 _builder.Received(1).AddTitle(model.Title, model.Option);
                 _builder.Received(1).AddHeader(model.Option);
                 _builder.Received(1).AddNoInfoRow(model.Option);

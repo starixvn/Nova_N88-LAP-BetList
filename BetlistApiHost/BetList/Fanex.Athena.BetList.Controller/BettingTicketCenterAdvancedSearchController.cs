@@ -46,7 +46,7 @@
         {
             if (metaModel.IsExport)
             {
-                var totalRow = await _dataAccess.GetTotalRowForMultipleCustomersAsync(metaModel).ConfigureAwait(false);
+                var totalRow = await _dataAccess.GetTotalRowForMultipleCustomersAsync(metaModel);
                 if (totalRow > MaxRowSupportExportExcel)
                 {
                     return Json(new
@@ -55,24 +55,22 @@
                     });
                 }
 
-                return await Export(metaModel, totalRow).ConfigureAwait(false);
+                return await Export(metaModel, totalRow);
             }
 
-            var ticketResult = await _dataAccess.GetBetListForMultipleCustomersAsync(metaModel
-                ).ConfigureAwait(false);
+            var ticketResult = await _dataAccess.GetBetListForMultipleCustomersAsync(metaModel);
 
             return ReturnData(ticketResult, GetBetListOption(metaModel.HasPlayerCom), metaModel);
         }
 
-        private async Task<ActionResult> Export(AdvancedSearchBetListMetaModel metaModel,
-            int totalRow)
+        private async Task<ActionResult> Export(AdvancedSearchBetListMetaModel metaModel, int totalRow)
         {
             var title = GetTitle(metaModel);
             var totalText = $"{ViewResources.Totalin} {metaModel.BaseCurrencyName}";
 
             if (totalRow <= MaxRowPerFile)
             {
-                var normalTicketResult = await _dataAccess.GetBetListForMultipleCustomersAsync(metaModel).ConfigureAwait(false);
+                var normalTicketResult = await _dataAccess.GetBetListForMultipleCustomersAsync(metaModel);
                 if (normalTicketResult.MainTicketList.Count == 0)
                 {
                     return new HttpStatusCodeResult(System.Net.HttpStatusCode.NoContent);
@@ -81,11 +79,9 @@
                 return ExportXls(normalTicketResult, title, metaModel.HasPlayerCom, totalText);
             }
 
-            var ticketResult = await _dataAccess.GetBetListForMultipleCustomersAsync(metaModel, MaxRowPerFile
-                ).ConfigureAwait(false);
+            var ticketResult = await _dataAccess.GetBetListForMultipleCustomersAsync(metaModel, MaxRowPerFile);
 
-            var zipFile = _zipBuilder.BuildZip(HttpContext.Response,
-                ticketResult, title, metaModel.HasPlayerCom, totalText);
+            var zipFile = _zipBuilder.BuildZip(HttpContext.Response, ticketResult, title, metaModel.HasPlayerCom, totalText);
 
             return zipFile == null ? null : ZipContentResult(zipFile);
         }
@@ -106,7 +102,7 @@
         protected FileContentResult ZipContentResult(MemoryStream stream)
         {
             var bytes = stream.ToArray();
-            return File(bytes, "application/zip", "BettingTicketsCenter_AdvancedSearch.zip");
+            return File(bytes, "application/zip", "BetHistory_AdvancedSearch.zip");
         }
 
         private static BettingTicketCenterOption GetBetListOption(bool hasPlayerComm) => new BettingTicketCenterOption

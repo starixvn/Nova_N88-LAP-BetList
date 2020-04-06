@@ -1,10 +1,4 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="IBetListService.cs" company="Microsoft">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Athena.BetList.Service.Interfaces
+﻿namespace Fanex.Athena.BetList.Service.Interfaces
 {
     using System.Threading.Tasks;
     using Fanex.Athena.BetList.Model.DTO;

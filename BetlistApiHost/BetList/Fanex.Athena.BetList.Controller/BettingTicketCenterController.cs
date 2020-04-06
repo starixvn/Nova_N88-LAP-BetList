@@ -27,9 +27,7 @@
         [HttpPost]
         public async Task<ActionResult> GetBySingleCustomer(SingleCustomersBetListMetaModel metaModel)
         {
-            var ticketResult = await _dataAccess.GetBetListForSingleCustomerAsync(metaModel
-              ).ConfigureAwait(false);
-
+            var ticketResult = await _dataAccess.GetBetListForSingleCustomerAsync(metaModel);
             var option = new BettingTicketCenterOption
             {
                 ShowTotal = true,
@@ -52,9 +50,7 @@
         [HttpPost]
         public async Task<ActionResult> GetByRefno(RefNoBetListMetaModel metaModel)
         {
-            var ticketResult = await _dataAccess.GetBetListByRefnoAsync(metaModel
-             ).ConfigureAwait(false);
-
+            var ticketResult = await _dataAccess.GetBetListByRefnoAsync(metaModel);
             var option = new BettingTicketCenterOption
             {
                 ShowLicenseeWl = true,
@@ -76,8 +72,7 @@
         [HttpPost]
         public async Task<ActionResult> GetByRunning(BaseBettingTicketMetaModel metaModel)
         {
-            var ticketResult = await _dataAccess.GetRunningBetListAsync(metaModel).ConfigureAwait(false);
-
+            var ticketResult = await _dataAccess.GetRunningBetListAsync(metaModel);
             var option = new BettingTicketCenterOption
             {
                 ShowTotal = true,

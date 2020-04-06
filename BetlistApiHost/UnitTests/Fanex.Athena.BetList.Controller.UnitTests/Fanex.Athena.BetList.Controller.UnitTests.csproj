@@ -116,8 +116,6 @@
     <Compile Include="CustomActionResult\JsonNetResultTest.cs" />
     <Compile Include="CustomActionResult\ExcelResultTest.cs" />
     <Compile Include="ExchangeWinLossBetListControllerTest.cs" />
-    <Compile Include="LastBetsMonitoringBetListControllerTest.cs" />
-    <Compile Include="LiveReportBetListControllerTest.cs" />
     <Compile Include="MixParlayBetListControllerTest.cs" />
     <Compile Include="OutstandingDailyStatementBetListControllerTest.cs" />
     <Compile Include="PlayerAdminBetListControllerTest.cs" />

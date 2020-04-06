@@ -29,7 +29,7 @@
             }
             else
             {
-                _builder.CreateSheet(ViewResources.BettingTicketCenter, excelModel.Option);
+                _builder.CreateSheet(ViewResources.BetHistory, excelModel.Option);
                 _builder.AddTitle(excelModel.Title, excelModel.Option);
                 _builder.AddHeader(excelModel.Option);
                 _builder.AddNoInfoRow(excelModel.Option);

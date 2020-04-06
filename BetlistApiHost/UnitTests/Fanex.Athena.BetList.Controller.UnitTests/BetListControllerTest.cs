@@ -337,27 +337,6 @@
             }
         }
 
-        [Test]
-        public async Task ExportExcelLiveReport_WhenCall_CallExportExcel()
-        {
-            using (var controller = CreateController())
-            {
-                // Arrange
-                var metaModel = FakeHelper.Create<LiveReportBetListMetaModel>();
-
-                var ticketResult = new TicketResult();
-                _betListService.GetBetListData(metaModel).Returns(ticketResult);
-
-                controller.When(x => x.Export(Arg.Any<LiveReportBetListMetaModel>(), ticketResult)).DoNotCallBase();
-
-                // Action
-                await controller.ExportExcelLiveReport(metaModel);
-
-                // Assert
-                controller.Received().Export(metaModel, ticketResult);
-            }
-        }
-
         private BetListController CreateController()
         {
             return Substitute.ForPartsOf<BetListController>(_cacheRefAdapter, _betListService, _ticketBuilderService);
