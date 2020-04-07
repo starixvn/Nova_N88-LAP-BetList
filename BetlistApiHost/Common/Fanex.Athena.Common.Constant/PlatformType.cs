@@ -21,6 +21,9 @@
             { "c", "MobileLiteVersion" },
             { "t", "DeepLink" },
             { "0", "NativeApp" },
+            { "1", "ESportsDesktop" },
+            { "2", "ESportsMobile" },
+            { "3", "ESportsApp" },
             { "v", "BetfromOthers" }
         };
 
