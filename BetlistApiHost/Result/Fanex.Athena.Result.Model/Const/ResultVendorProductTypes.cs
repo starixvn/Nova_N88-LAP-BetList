@@ -5,5 +5,7 @@
         public const int Keno = 1;
 
         public const int Lottery = 28;
+
+        public const int Table = 40;
     }
 }
