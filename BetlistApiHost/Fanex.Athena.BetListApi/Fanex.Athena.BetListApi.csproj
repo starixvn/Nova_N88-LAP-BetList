@@ -90,10 +90,10 @@
       <HintPath>..\..\packages\Fanex.BetList.Allbet.1.4.0\lib\net40\Fanex.BetList.Allbet.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.BetList.BetTrade, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.BetList.Core.2.103.0\lib\net40\Fanex.BetList.BetTrade.dll</HintPath>
+      <HintPath>..\..\packages\Fanex.BetList.Core.2.106.0\lib\net40\Fanex.BetList.BetTrade.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.BetList.CardClub, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.BetList.CardClub.1.0.1.0\lib\net40\Fanex.BetList.CardClub.dll</HintPath>
+    <Reference Include="Fanex.BetList.CardClub, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.BetList.CardClub.1.0.2.0\lib\net40\Fanex.BetList.CardClub.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.BetList.CashOut, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.BetList.CashOut.1.2.0\lib\net40\Fanex.BetList.CashOut.dll</HintPath>
@@ -102,12 +102,11 @@
       <HintPath>..\..\packages\Fanex.BetList.ColossusBets.1.0.1.7\lib\net40\Fanex.BetList.ColossusBets.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.BetList.Core, Version=2.103.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.BetList.Core.2.103.0\lib\net40\Fanex.BetList.Core.dll</HintPath>
+    <Reference Include="Fanex.BetList.Core, Version=2.106.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.BetList.Core.2.106.0\lib\net40\Fanex.BetList.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.BetList.Core.RemotingRef, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.BetList.Core.RemotingRef.1.1.0\lib\net461\Fanex.BetList.Core.RemotingRef.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Fanex.BetList.Core.RemotingRef, Version=1.1.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.BetList.Core.RemotingRef.1.1.0.1\lib\net461\Fanex.BetList.Core.RemotingRef.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.BetList.ESports, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.BetList.ESports.1.0.0\lib\net40\Fanex.BetList.ESports.dll</HintPath>
@@ -138,6 +137,9 @@
     </Reference>
     <Reference Include="Fanex.BetList.Spadegaming, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.BetList.Spadegaming.1.0.0\lib\net40\Fanex.BetList.Spadegaming.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.BetList.TableGames, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.BetList.TableGames.1.0.0.0\lib\net40\Fanex.BetList.TableGames.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.BetList.VirtualGames, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.BetList.VirtualGames.1.0.0\lib\net40\Fanex.BetList.VirtualGames.dll</HintPath>
@@ -174,9 +176,8 @@
     <Reference Include="Fanex.Logging.Sentry.RavenClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Logging.Sentry.RavenClient.1.0.0\lib\net461\Fanex.Logging.Sentry.RavenClient.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.RemotingRef, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.RemotingRef.1.4.0\lib\net461\Fanex.RemotingRef.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Fanex.RemotingRef, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.RemotingRef.1.5.0\lib\net461\Fanex.RemotingRef.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Result.Core-NPOI.2.0.6.2.3.7.4\lib\net40\Fanex.Result.Core.dll</HintPath>

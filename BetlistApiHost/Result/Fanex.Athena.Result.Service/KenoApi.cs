@@ -17,6 +17,8 @@
         private const string KENOGAMENAME = "Keno";
         private const string LOTTERYSERVICENAME = "LotteryApi";
         private const string LOTTERYGAMENAME = "Lottery";
+        private const string TABLESERVICENAME = "TableApi";
+        private const string TABLEGAMENAME = "Table";
 
         private readonly IWebClientService _webClient;
 
@@ -67,12 +69,42 @@
 
         private static string GetServiceName(int vendorProductId)
         {
-            return vendorProductId == ResultVendorProductTypes.Keno ? KENOSERVICENAME : LOTTERYSERVICENAME;
+            string serviceName = "";
+
+            switch (vendorProductId)
+            {
+                case ResultVendorProductTypes.Lottery:
+                    serviceName = LOTTERYSERVICENAME;
+                    break;
+                case ResultVendorProductTypes.Table:
+                    serviceName = TABLESERVICENAME;
+                    break;
+                default:
+                    serviceName = KENOSERVICENAME;
+                    break;
+            }
+
+            return serviceName;
         }
 
         private static string GetGameName(int vendorProductId)
         {
-            return vendorProductId == ResultVendorProductTypes.Keno ? KENOGAMENAME : LOTTERYGAMENAME;
+            string gameName = "";
+
+            switch (vendorProductId)
+            {
+                case ResultVendorProductTypes.Lottery:
+                    gameName = LOTTERYGAMENAME;
+                    break;
+                case ResultVendorProductTypes.Table:
+                    gameName = TABLEGAMENAME;
+                    break;
+                default:
+                    gameName = KENOGAMENAME;
+                    break;
+            }
+
+            return gameName;
         }
 
         protected internal virtual KenoAuthorization Authorize(KenoResultMetaModel setting, string userId)

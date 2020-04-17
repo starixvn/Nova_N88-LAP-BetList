@@ -58,6 +58,7 @@
             }
         }
 
+        [TestCase(ResultVendorProductTypes.Table, "TableResultUrl")]
         [TestCase(ResultVendorProductTypes.Keno, "KenoResultUrl")]
         [TestCase(ResultVendorProductTypes.Lottery, "LotteryResultUrl")]
         public void GetKenoResultUrl_WhenCall_PassCorrectParams(int vendorProductId, string expectedResultUrl)

@@ -72,10 +72,30 @@
                 ExtendTokenUrl = _appSettings.GetValue("KenoExtendTokenUrl"),
                 VenderKey = _appSettings.GetValue("KenoVenderKey"),
                 Vendor = _appSettings.GetValue("KenoVendor"),
-                ResultUrl = vendorProductId == ResultVendorProductTypes.Keno ? _appSettings.GetValue("KenoResultUrl") : _appSettings.GetValue("LotteryResultUrl"),
+                ResultUrl = _appSettings.GetValue(GetResultUrl(vendorProductId)),
                 KickOutUrl = Url.Action("AccessDenied", "Utility", null, Request.Url.Scheme),
                 VendorProduct = vendorProductId
             };
+        }
+
+        private static string GetResultUrl(int vendorProduct)
+        {
+            string resultUrl = "";
+
+            switch (vendorProduct)
+            {
+                case ResultVendorProductTypes.Lottery:
+                    resultUrl = "LotteryResultUrl";
+                    break;
+                case ResultVendorProductTypes.Table:
+                    resultUrl = "TableResultUrl";
+                    break;
+                default:
+                    resultUrl = "KenoResultUrl";
+                    break;
+            }
+
+            return resultUrl;
         }
     }
 }
