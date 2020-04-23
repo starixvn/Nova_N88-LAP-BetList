@@ -96,7 +96,7 @@
             AssertTicketResult(result, expectSummaryResult);
         }
 
-        [TestCase("Lrf_BetList_CustomerList_Mem")]
+        [TestCase("Lrf_BetList_SelWinLossByDate_Mem")]
         public async Task GetBetListData_CallSpHaveOnlyOriginalOutPutParam_GetSummaryFromOriginalOutputParams(string uspName)
         {
             // Arrange
