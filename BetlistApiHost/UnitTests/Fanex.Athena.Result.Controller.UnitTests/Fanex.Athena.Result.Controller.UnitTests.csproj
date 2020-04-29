@@ -48,13 +48,13 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Result.Core, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.Result.Core-NPOI.2.0.6.2.3.7.4\lib\net40\Fanex.Result.Core.dll</HintPath>
+      <HintPath>..\..\..\packages\Fanex.Result.Core-NPOI.2.0.6.2.3.7.5\lib\net40\Fanex.Result.Core.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core.AllBetCasino, Version=1.0.1.7, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Result.Core.AllBetCasino.1.0.1.7\lib\net40\Fanex.Result.Core.AllBetCasino.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.Result.Core.Base, Version=2.3.7.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.Result.Core-NPOI.2.0.6.2.3.7.4\lib\net40\Fanex.Result.Core.Base.dll</HintPath>
+    <Reference Include="Fanex.Result.Core.Base, Version=2.3.7.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Fanex.Result.Core-NPOI.2.0.6.2.3.7.5\lib\net40\Fanex.Result.Core.Base.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core.Casino, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Result.Core.Casino.1.0.0.0\lib\Fanex.Result.Core.Casino.dll</HintPath>
@@ -79,7 +79,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Result.Core.Sportsbook, Version=1.2.6.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.Result.Core-Sportsbook.1.2.6.1\lib\net40\Fanex.Result.Core.Sportsbook.dll</HintPath>
+      <HintPath>..\..\..\packages\Fanex.Result.Core-Sportsbook.1.2.6.2\lib\net40\Fanex.Result.Core.Sportsbook.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core.Voidbridge, Version=1.0.2.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Result.Core.Voidbridge.1.0.2.1\lib\net40\Fanex.Result.Core.Voidbridge.dll</HintPath>
