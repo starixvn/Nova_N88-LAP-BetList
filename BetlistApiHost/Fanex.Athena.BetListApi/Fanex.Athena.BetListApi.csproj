@@ -185,9 +185,8 @@
     <Reference Include="Fanex.Result.Core, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Result.Core-NPOI.2.0.6.2.3.7.6\lib\net40\Fanex.Result.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.Result.Core.AllBetCasino, Version=1.0.1.7, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Result.Core.AllBetCasino.1.0.1.7\lib\net40\Fanex.Result.Core.AllBetCasino.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Fanex.Result.Core.AllBetCasino, Version=1.0.1.9, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Result.Core.AllBetCasino.1.0.1.9\lib\net40\Fanex.Result.Core.AllBetCasino.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core.Base, Version=2.3.7.6, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Result.Core-NPOI.2.0.6.2.3.7.6\lib\net40\Fanex.Result.Core.Base.dll</HintPath>
@@ -242,9 +241,8 @@
     <Reference Include="ILogger, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\ILogger.1.0.0.0\lib\net40\ILogger.dll</HintPath>
     </Reference>
-    <Reference Include="LiveCasinoResult, Version=1.0.1.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Result.Core.AllBetCasino.1.0.1.7\lib\net40\LiveCasinoResult.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="LiveCasinoResult, Version=1.0.1.8, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Result.Core.AllBetCasino.1.0.1.9\lib\net40\LiveCasinoResult.dll</HintPath>
     </Reference>
     <Reference Include="MessagePack, Version=1.7.3.7, Culture=neutral, PublicKeyToken=b4a0369545f0a1be, processorArchitecture=MSIL">
       <HintPath>..\..\packages\MessagePack.1.7.3.7\lib\net45\MessagePack.dll</HintPath>
