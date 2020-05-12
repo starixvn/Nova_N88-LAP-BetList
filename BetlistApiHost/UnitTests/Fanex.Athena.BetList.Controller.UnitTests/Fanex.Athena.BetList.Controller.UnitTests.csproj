@@ -44,10 +44,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.BetList.BetTrade, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.BetList.Core.2.110.0\lib\net40\Fanex.BetList.BetTrade.dll</HintPath>
+      <HintPath>..\..\..\packages\Fanex.BetList.Core.2.110.3\lib\net40\Fanex.BetList.BetTrade.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.BetList.Core, Version=2.110.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.BetList.Core.2.110.0\lib\net40\Fanex.BetList.Core.dll</HintPath>
+    <Reference Include="Fanex.BetList.Core, Version=2.110.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Fanex.BetList.Core.2.110.3\lib\net40\Fanex.BetList.Core.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Logging, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Logging.2.0.0\lib\net461\Fanex.Logging.dll</HintPath>
