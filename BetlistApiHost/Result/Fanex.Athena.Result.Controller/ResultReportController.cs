@@ -211,7 +211,8 @@ namespace Fanex.Athena.Result.Controller
                 IsOutright = metalModel.IsOutRight.HasValue && metalModel.IsOutRight.Value > 0,
                 IsParlayPopUp = IsPalayBetType(metalModel.Bettype),
                 IsPopUp = true,
-                LanguageCode = Thread.CurrentThread.CurrentUICulture.Name
+                LanguageCode = Thread.CurrentThread.CurrentUICulture.Name,
+                IsPopupOpenFromBetList = true
             };
 
             if (setting.IsParlayPopUp)
