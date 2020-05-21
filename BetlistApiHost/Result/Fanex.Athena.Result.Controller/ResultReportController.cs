@@ -228,7 +228,6 @@ namespace Fanex.Athena.Result.Controller
                 var singleMatchParlayData = await _resultService.GetPopUpSingleMatchParlayAsync(metalModel.MatchId, metalModel.BetId?.ToString()).ConfigureAwait(false);
                 if (singleMatchParlayData != null)
                 {
-                    setting.IsPopupOpenFromBetList = true;
                     _htmlResult = _resultService.HtmlParser(new List<Sportsbook> { singleMatchParlayData }, setting);
                 }
             }
