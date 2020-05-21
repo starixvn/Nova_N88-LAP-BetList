@@ -18,6 +18,7 @@
     using Fanex.Result.Core.Casino;
     using Fanex.Result.Core.PokerGames;
     using Fanex.Result.Core.PP;
+    using Fanex.Result.Core.SexyGaming;
     using Fanex.Result.Core.VirtualGames;
     using Fanex.Result.Core.Voidbridge;
 
@@ -55,6 +56,7 @@
             builder.RegisterInstance(Logger.Log).As<Logging.ILogger>();
             builder.Register(x => new CasinoResult("SpadegamingResultConfigs")).Keyed<ICasinoResult>("SG");
             builder.RegisterType<VirtualGamesResult>().As<IVirtualGamesResult>();
+            builder.RegisterType<SexyGamingResultBuilder>().As<ISexyGamingResultBuilder>();
         }
 
         private static Assembly[] GetAssemblies()

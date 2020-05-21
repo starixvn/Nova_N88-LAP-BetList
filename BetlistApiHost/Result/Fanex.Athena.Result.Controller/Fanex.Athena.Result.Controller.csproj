@@ -83,6 +83,9 @@
       <HintPath>..\..\..\packages\Fanex.Result.Core-Racing.1.1.0\lib\net40\Fanex.Result.Core.Racing.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Fanex.Result.Core.SexyGaming, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Fanex.Result.Core.SexyGaming.1.0.0.0\lib\net40\Fanex.Result.Core.SexyGaming.dll</HintPath>
+    </Reference>
     <Reference Include="Fanex.Result.Core.Sportsbook, Version=1.2.6.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Result.Core-Sportsbook.1.2.6.2\lib\net40\Fanex.Result.Core.Sportsbook.dll</HintPath>
     </Reference>
@@ -178,6 +181,7 @@
     <Compile Include="ResultPopup\AllBetResultPopupController.cs" />
     <Compile Include="ResultPopup\GlobalGamingResultPopupController.cs" />
     <Compile Include="ResultPopup\CardClubResultPopupController.cs" />
+    <Compile Include="ResultPopup\SexyGamingResultPopupController.cs" />
     <Compile Include="ResultPopup\SGResultPopupController.cs" />
     <Compile Include="ResultPopup\RNGResultPopupBaseController.cs" />
     <Compile Include="ResultPopup\VirtualGamesResultPopupController.cs" />
