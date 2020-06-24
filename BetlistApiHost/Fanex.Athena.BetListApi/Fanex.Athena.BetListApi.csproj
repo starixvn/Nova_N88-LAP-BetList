@@ -188,13 +188,13 @@
       <HintPath>..\..\packages\Fanex.RemotingRef.1.5.0\lib\net461\Fanex.RemotingRef.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Result.Core-NPOI.2.0.6.2.3.7.7-PHAIO51-02\lib\net40\Fanex.Result.Core.dll</HintPath>
+      <HintPath>..\..\packages\Fanex.Result.Core-NPOI.2.0.6.2.3.7.7-PHAIO51-03\lib\net40\Fanex.Result.Core.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core.AllBetCasino, Version=1.0.1.9, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Result.Core.AllBetCasino.1.0.1.9\lib\net40\Fanex.Result.Core.AllBetCasino.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core.Base, Version=2.3.7.7, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Result.Core-NPOI.2.0.6.2.3.7.7-PHAIO51-02\lib\net40\Fanex.Result.Core.Base.dll</HintPath>
+      <HintPath>..\..\packages\Fanex.Result.Core-NPOI.2.0.6.2.3.7.7-PHAIO51-03\lib\net40\Fanex.Result.Core.Base.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core.Casino, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Result.Core.Casino.1.0.0.0\lib\Fanex.Result.Core.Casino.dll</HintPath>
