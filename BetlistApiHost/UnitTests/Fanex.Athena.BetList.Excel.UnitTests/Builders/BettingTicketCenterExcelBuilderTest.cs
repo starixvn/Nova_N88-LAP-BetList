@@ -281,7 +281,8 @@
             _excelBuilder.InitializeFonts();
 
             var totalText = FakeHelper.Create<string>();
-            var option = new BettingTicketCenterOption {
+            var option = new BettingTicketCenterOption
+            {
                 ShowExternalId = showExternalId,
                 ShowSystemId = showSystemId,
                 ShowLicenseeWl = showLicenseeWL,
@@ -355,7 +356,7 @@
                 new BettingTicketCenterOption { ShowWinLoss = true, IsAllowedCustomerComm = isAllowedCustomerComm });
 
             // Assert
-             _builder.Received(1).AddCell(Arg.Is<HSSFRichTextString>(x => x.String == expected), Arg.Any<ICellStyle>());
+            _builder.Received(1).AddCell(Arg.Is<HSSFRichTextString>(x => x.String == expected), Arg.Any<ICellStyle>());
         }
 
         [TestCase(12.345, "12.35")]
@@ -436,6 +437,9 @@
         [TestCase("1", "ESportsDesktop")]
         [TestCase("2", "ESportsMobile")]
         [TestCase("3", "ESportsApp")]
+        [TestCase("4", "ESportsDesktop")]
+        [TestCase("5", "ESportsMobile")]
+        [TestCase("6", "ESportsApp")]
         [TestCase("v", "BetfromOthers")]
         public void AssignRowData_AddPlatfromCell_IndexIsOdd_BuildCorrectCellWithOddCellStyle(string betFrom, string platformName)
         {
