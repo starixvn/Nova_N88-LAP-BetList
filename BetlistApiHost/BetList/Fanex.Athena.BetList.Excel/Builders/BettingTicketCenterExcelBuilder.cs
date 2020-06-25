@@ -290,11 +290,15 @@ namespace Fanex.Athena.BetList.Excel.Builders
 
         private ICellStyle CreateCellStyle(HorizontalAlignment align, bool isEvenCell)
         {
+            const int VerticalAlignmentTop = 0;
             var cellStyle = _builder.CreateCellStyle();
+
             cellStyle.CloneStyleFrom(isEvenCell ? _builder.EvenCellStyle : _builder.OddCellStyle);
             cellStyle.Alignment = align;
             cellStyle.SetFont(_builder.RTFHelper.NormalFont);
             cellStyle.WrapText = true;
+            cellStyle.VerticalAlignment = VerticalAlignmentTop;
+
             return cellStyle;
         }
 
