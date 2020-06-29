@@ -24,6 +24,9 @@
             { "1", "ESportsDesktop" },
             { "2", "ESportsMobile" },
             { "3", "ESportsApp" },
+            { "4", "ESportsDesktop" },
+            { "5", "ESportsMobile" },
+            { "6", "ESportsApp" },
             { "v", "BetfromOthers" }
         };
 
