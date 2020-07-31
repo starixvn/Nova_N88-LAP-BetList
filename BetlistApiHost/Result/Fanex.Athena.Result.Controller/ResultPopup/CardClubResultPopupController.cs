@@ -13,9 +13,9 @@ namespace Fanex.Athena.Result.Controller.ResultPopup
         }
 
         [HttpPost]
-        public string Index(string custId, string gameRoundId, string gameId, string languageCode)
+        public string Index(string custId, string gameRoundId, string gameId, string siteId, string languageCode)
         {
-            return _resultApi.GetResult(custId, gameRoundId, gameId, languageCode);
+            return _resultApi.GetResult(custId, gameRoundId, gameId, siteId, languageCode);
         }
     }
 }

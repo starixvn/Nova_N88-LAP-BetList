@@ -84,7 +84,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Result.Core.SabaClub, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.Result.Core.SabaClub.1.0.0.1-beta03\lib\Fanex.Result.Core.SabaClub.dll</HintPath>
+      <HintPath>..\..\..\packages\Fanex.Result.Core.SabaClub.1.0.0.1\lib\Fanex.Result.Core.SabaClub.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core.SexyGaming, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Result.Core.SexyGaming.1.0.0.1\lib\net40\Fanex.Result.Core.SexyGaming.dll</HintPath>
