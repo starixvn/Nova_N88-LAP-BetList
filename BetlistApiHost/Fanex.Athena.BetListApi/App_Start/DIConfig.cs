@@ -18,6 +18,7 @@
     using Fanex.Result.Core.Casino;
     using Fanex.Result.Core.PokerGames;
     using Fanex.Result.Core.PP;
+    using Fanex.Result.Core.SabaClub;
     using Fanex.Result.Core.SexyGaming;
     using Fanex.Result.Core.VirtualGames;
     using Fanex.Result.Core.Voidbridge;
@@ -52,6 +53,7 @@
             builder.RegisterType<VoidbridgeApiImp>().As<VoidbridgeApi>();
             builder.RegisterType<AllbetResultBuilder>().As<IAllbetResultBuilder>();
             builder.RegisterType<PokerGamesResult>().As<IPokerGamesResult>();
+            builder.RegisterType<SabaClubResult>().As<ISabaClubResult>();
             builder.RegisterType<RemotingRefService>().As<IRemotingRefService>().SingleInstance();
             builder.RegisterInstance(Logger.Log).As<Logging.ILogger>();
             builder.Register(x => new CasinoResult("SpadegamingResultConfigs")).Keyed<ICasinoResult>("SG");
