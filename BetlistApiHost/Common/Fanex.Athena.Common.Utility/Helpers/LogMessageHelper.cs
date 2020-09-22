@@ -45,7 +45,7 @@
             builder.AppendLine();
             builder.AppendLine("DATABASE INFO");
 
-            var dbInfo = GetObjectDbExceptionInfo(exception);
+            var dbInfo = GetDbExceptionInfo(exception);
 
             foreach (var item in dbInfo)
             {
@@ -57,7 +57,7 @@
         {
             builder.AppendLine();
             builder.AppendLine("EXCEPTION INFO");
-
+            builder.AppendLine($"Message: {exception.Message}");
             builder.AppendLine($"Source: {exception.Source}");
             builder.AppendLine($"TargetSite: {exception.TargetSite}");
             builder.AppendLine($"StackTrace: {exception.StackTrace}");
@@ -68,24 +68,39 @@
             }
         }
 
-        private static IDictionary<string, object> GetObjectDbExceptionInfo(Exception ex)
+        private static IDictionary<string, object> GetDbExceptionInfo(Exception exception)
         {
-            if (ex is ObjectDbException)
-            {
-                var dbException = ex as ObjectDbException;
-                var connString = new SqlConnectionStringBuilder(dbException.ConnectionString);
+            var dbInfo = new Dictionary<string, object>();
+            BindSqlExceptionInfo(exception, dbInfo);
+            BindFanexDataExceptionInfo(exception, dbInfo);
+            return dbInfo;
+        }
 
-                return new Dictionary<string, object>
-                {
-                    ["Server"] = connString.DataSource,
-                    [nameof(dbException.DbName)] = dbException.DbName,
-                    [nameof(connString.UserID)] = connString.UserID,
-                    [nameof(dbException.SpName)] = dbException.SpName,
-                    ["Parameters"] = GetParameters(dbException.Parameters),
-                    [nameof(dbException.CommandTimeout)] = dbException.CommandTimeout
-                };
+        private static void BindFanexDataExceptionInfo(Exception exception, IDictionary<string, object> dbInfo)
+        {
+            if (exception is ObjectDbException fanexDataException)
+            {
+                BindSqlExceptionInfo(exception.InnerException, dbInfo);
+
+                var connString = new SqlConnectionStringBuilder(fanexDataException.ConnectionString);
+
+                dbInfo["Server"] = connString.DataSource;
+                dbInfo["DbName"] = fanexDataException.DbName;
+                dbInfo["SpName"] = fanexDataException.SpName;
+                dbInfo["UserId"] = connString.UserID;
+                dbInfo["Parameters"] = GetParameters(fanexDataException.Parameters);
+                dbInfo["CommandTimeout"] = fanexDataException.CommandTimeout;
             }
-            return new Dictionary<string, object>();
+        }
+
+        private static void BindSqlExceptionInfo(Exception exception, IDictionary<string, object> dbInfo)
+        {
+            if (exception is SqlException sqlException)
+            {
+                dbInfo["Server"] = sqlException.Server;
+                dbInfo["SpName"] = sqlException.Procedure;
+                dbInfo["Line"] = sqlException.LineNumber;
+            }
         }
 
         private static string GetParameters(IDictionary<string, object> parameters)
