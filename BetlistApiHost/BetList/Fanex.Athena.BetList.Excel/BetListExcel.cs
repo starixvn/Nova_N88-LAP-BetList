@@ -203,17 +203,20 @@
 
         private void InitializeCellStyles(IBetListExcelBuilder builder)
         {
+            const int VerticalAlignmentTop = 0;
             _oddCellStyleLeftAligned = builder.CreateCellStyle();
             _oddCellStyleLeftAligned.CloneStyleFrom(builder.OddCellStyle);
             _oddCellStyleLeftAligned.Alignment = HorizontalAlignment.Left;
             _oddCellStyleLeftAligned.SetFont(builder.RTFHelper.NormalFont);
             _oddCellStyleLeftAligned.WrapText = true;
+            _oddCellStyleLeftAligned.VerticalAlignment = VerticalAlignmentTop;
 
             _evenCellStyleLeftAligned = builder.CreateCellStyle();
             _evenCellStyleLeftAligned.CloneStyleFrom(builder.EvenCellStyle);
             _evenCellStyleLeftAligned.Alignment = HorizontalAlignment.Left;
             _evenCellStyleLeftAligned.SetFont(builder.RTFHelper.NormalFont);
             _evenCellStyleLeftAligned.WrapText = true;
+            _evenCellStyleLeftAligned.VerticalAlignment = VerticalAlignmentTop;
         }
 
         protected internal virtual void InitializeFonts(IBetListExcelBuilder builder)
