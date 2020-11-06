@@ -26,6 +26,7 @@
         private const string LcolorColumn = "lcolor";
         private const string IsFavorColumn = "IsFavor";
         private const string LeagueIdColumn = "leagueid";
+        private const string Status = "status";
 
         private readonly IBalanceUpDataAccess _balanceUpDataAccess;
 
@@ -488,7 +489,8 @@
                                     Favourite = reader[IsFavorColumn] != DBNull.Value ? reader.ToString(IsFavorColumn) : string.Empty,
                                     RowCount = reader.ToInt("rowcount"),
                                     SCROfMatch = reader.ToString("SCR"),
-                                    TFOfMatch = reader.ToString("TF")
+                                    TFOfMatch = reader.ToString("TF"),
+                                    Status = reader.HasColumn(Status) ? reader[Status]?.ToString() : null
                                 });
             }
 
