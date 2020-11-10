@@ -1,6 +1,5 @@
 ﻿namespace Fanex.Athena.BetList.Controller
 {
-    using System.Collections.Generic;
     using System.IO;
     using System.Threading.Tasks;
     using System.Web.Mvc;
