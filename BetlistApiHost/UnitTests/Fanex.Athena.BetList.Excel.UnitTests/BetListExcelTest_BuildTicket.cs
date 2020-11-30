@@ -75,7 +75,7 @@ namespace Fanex.Athena.BetList.Excel.UnitTests
                 _builder.Received(1).AddTrans(ticket, _ticketHelper);
                 _builder.Received(1).AddChoice(ticket, _ticketHelper, ticketResult.TicketDataList);
                 _builder.Received(1).AddOdds(ticket, ticketResult.TicketDataList, _ticketHelper.GetValidOddsTypeNameById);
-                _builder.Received(1).AddStake(ticket);
+                _builder.Received(1).AddStake(ticket, _ticketHelper);
                 _builder.Received(1).AddStatus(ticket, _ticketHelper, ticketResult.TicketDataList, false);
             });
         }
