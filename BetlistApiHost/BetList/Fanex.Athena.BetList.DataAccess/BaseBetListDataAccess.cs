@@ -36,7 +36,7 @@
                 IDictionary<int, string> currencyList,
                 long custId = 0)
         {
-            var currencyId = reader.GetInt("currencyid");
+            var currencyId = reader.GetInt("currency");
             var ticket = new LrfTicket
             {
                 CurrencyId = currencyId,

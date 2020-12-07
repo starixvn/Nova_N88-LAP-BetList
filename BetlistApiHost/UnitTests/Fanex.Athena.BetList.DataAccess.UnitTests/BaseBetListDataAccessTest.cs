@@ -109,6 +109,7 @@
             dataList.Add("homeid", ticket.HomeId);
             dataList.Add("matchid", ticket.MatchId);
             dataList.Add("custid", ticket.CustId);
+            dataList.Add("currency", ticket.CurrencyId);
             dataList.Add("livehomescore", ticket.LiveHomeScore);
             dataList.Add("liveawayscore", ticket.LiveAwayScore);
             dataList.Add("SpecialLevel", ticket.SpecialLevel);
@@ -122,7 +123,6 @@
             dataList.Add("hdp1", ticket.Handicap1);
             dataList.Add("hdp2", ticket.Handicap2);
             dataList.Add("transdesc", ticket.TransDesc);
-            dataList.Add("currencyid", ticket.CurrencyId);
 
             dataList.Add("betdaqid", ticket.BetdaqId);
             dataList.Add("extrainfo", ticket.ExtraInfo);
