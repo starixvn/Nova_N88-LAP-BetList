@@ -20,7 +20,7 @@
         private IBetListHTMLBuilder _betlistHtmlBuilder;
 
         private ITicketHelper _ticketHelper;
-        private  ITicketBuilderService _ticketBuilderService;
+        private ITicketBuilderService _ticketBuilderService;
         [SetUp]
         public void SetUp()
         {
@@ -38,7 +38,7 @@
             _betlistHtmlBuilder = null;
             _ticketBuilderService = null;
         }
-     
+
 
         [Test]
         public void BuildTicketText_IsCombinationMixParlay_ReturnCustomOddText()
@@ -115,7 +115,7 @@
             _betlistHtmlBuilder.BuildStatus(ticket, _ticketHelper, ticketResult.TicketDataList, false).Returns(expectedTicketText.Status);
             _betlistHtmlBuilder.BuildChoice(ticket, _ticketHelper, ticketResult.TicketDataList, false).Returns(expectedTicketText.Choice);
             _betlistHtmlBuilder.BuildOdds(ticket, ticketResult.TicketDataList, Arg.Any<GetCachePropertyById>()).Returns(expectedTicketText.Odds);
-            _betlistHtmlBuilder.BuildStake(ticket).Returns(expectedTicketText.Stake);
+            _betlistHtmlBuilder.BuildStake(ticket, _ticketHelper).Returns(expectedTicketText.Stake);
 
             // Action
             var result = _ticketBuilderService.BuildTicketText(ticketResult, metaModel, 0);
@@ -185,7 +185,7 @@
 
             // Action
             var result = _ticketBuilderService.BuildSumWinLoss(ticketResult, FakeHelper.Create<bool>());
-            
+
             // Assert
             Assert.Multiple(() =>
             {

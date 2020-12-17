@@ -194,7 +194,7 @@
             builder.AddTrans(ticket, _ticketHelper);
             builder.AddChoice(ticket, _ticketHelper, ticketResult.TicketDataList);
             builder.AddOdds(ticket, ticketResult.TicketDataList, _ticketHelper.GetValidOddsTypeNameById);
-            builder.AddStake(ticket);
+            builder.AddStake(ticket, _ticketHelper);
             builder.AddCustomerWL(ticket, _showingOption.CustomerCommVisible, _winLossFont);
             builder.AddBetEffective(ticket, _winLossFont);
             builder.AddLicenseeWL(ticket, _licenseeId == LicenseeIdentity.OneTwoBet, _negativeWinLossFont, _winLossFont);

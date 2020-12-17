@@ -132,7 +132,7 @@
                 _betListHTMLBuilder.BuildOdds(originalTicket, null, Arg.Any<GetCachePropertyById>()).Returns(odds);
 
                 var stake = FakeHelper.Create<string>();
-                _betListHTMLBuilder.BuildStake(originalTicket).Returns(stake);
+                _betListHTMLBuilder.BuildStake(originalTicket, _ticketHelper).Returns(stake);
 
                 var winloss = "-";
 
