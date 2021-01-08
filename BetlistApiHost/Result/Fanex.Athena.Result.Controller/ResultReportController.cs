@@ -81,10 +81,7 @@ namespace Fanex.Athena.Result.Controller
                     await GetData(metalModel).ConfigureAwait(false);
                 }
 
-                if (_excelStream == null)
-                {
-                    _excelStream = ExportNoneData(metalModel);
-                }
+                _excelStream = _excelStream ?? ExportNoneData(metalModel);
 
                 _excelStream.WriteTo(response.OutputStream);
             }
