@@ -16,6 +16,7 @@
     using Fanex.RemotingRef;
     using Fanex.Result.Core.AllBetCasino;
     using Fanex.Result.Core.Casino;
+    using Fanex.Result.Core.LinkedGames;
     using Fanex.Result.Core.PokerGames;
     using Fanex.Result.Core.PP;
     using Fanex.Result.Core.SabaClub;
@@ -59,6 +60,7 @@
             builder.Register(x => new CasinoResult("SpadegamingResultConfigs")).Keyed<ICasinoResult>("SG");
             builder.RegisterType<VirtualGamesResult>().As<IVirtualGamesResult>();
             builder.RegisterType<SexyGamingResultBuilder>().As<ISexyGamingResultBuilder>();
+            builder.RegisterType<LinkedGamesResult>().As<ILinkedGamesResult>();
         }
 
         private static Assembly[] GetAssemblies()
