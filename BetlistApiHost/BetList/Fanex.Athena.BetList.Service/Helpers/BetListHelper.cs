@@ -85,5 +85,10 @@
                             ViewResources.MixParlay :
                             tickerHelper.GetBetTypeNameById(ticket.BetTypeId);
         }
+
+        public static bool IsContribution(int bettype)
+        {
+            return bettype == (int)BetType.SBCContribution;
+        }
     }
 }

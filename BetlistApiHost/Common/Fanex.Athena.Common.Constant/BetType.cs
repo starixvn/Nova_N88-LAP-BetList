@@ -255,6 +255,8 @@
 
         NumberGameHappy5OddEven = 8102,
 
-        SingleMatchParlay = 38
+        SingleMatchParlay = 38,
+
+        SBCContribution = 1698
     }
 }

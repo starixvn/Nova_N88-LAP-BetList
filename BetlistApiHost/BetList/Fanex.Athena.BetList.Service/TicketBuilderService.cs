@@ -13,7 +13,6 @@ namespace Fanex.Athena.BetList.Service
 {
     public class TicketBuilderService : ITicketBuilderService
     {
-
         private readonly IBetListHTMLBuilder _betlistHtmlBuilder;
 
         private readonly ITicketHelper _ticketHelper;
@@ -60,6 +59,11 @@ namespace Fanex.Athena.BetList.Service
                     Live = _betlistHtmlBuilder.BuildLiveStatus(ticket)
                 };
 
+                if (BetListHelper.IsContribution(ticket.BetTypeId))
+                {
+                    BuildContributionTicket(ticketText);
+                }
+
                 ticketTextList.Add(ticketText);
             }
 
@@ -101,6 +105,11 @@ namespace Fanex.Athena.BetList.Service
                     BetEffective = _betlistHtmlBuilder.BuildBetEffective(ticket)
                 };
 
+                if (BetListHelper.IsContribution(ticket.BetTypeId))
+                {
+                    BuildContributionTicket(ticketText);
+                }
+
                 ticketTextList.Add(ticketText);
             }
 
@@ -111,6 +120,14 @@ namespace Fanex.Athena.BetList.Service
         {
             var ticket = new LrfTicket { Winlost = ticketResult.SumWinLoss, PlayerComm = ticketResult.SumPlayerComm };
             return _betlistHtmlBuilder.BuildCustomerWL(ticket, isAllowedCustomerComm);
+        }
+
+        private static void BuildContributionTicket(TicketText ticketText)
+        {
+            const string HyphenTextHTML = "<div class='underdog'>-</div>";
+
+            ticketText.LicenseeWL = HyphenTextHTML;
+            ticketText.WinLoss = HyphenTextHTML;
         }
     }
 }
