@@ -27,7 +27,8 @@
             { "4", "ESportsDesktop" },
             { "5", "ESportsMobile" },
             { "6", "ESportsApp" },
-            { "v", "BetfromOthers" }
+            { "v", "BetfromOthers" },
+            { "7", "BetfromOthers" }
         };
 
         public static string GetPlatformName(string code)
