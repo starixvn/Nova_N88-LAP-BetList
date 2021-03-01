@@ -133,7 +133,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.BetList.SabaClub, Version=1.0.0.7, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.BetList.SabaClub.1.0.0.7-slotgame-01\lib\net40\Fanex.BetList.SabaClub.dll</HintPath>
+      <HintPath>..\..\packages\Fanex.BetList.SabaClub.1.0.0.7\lib\net40\Fanex.BetList.SabaClub.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.BetList.SexyGaming, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.BetList.SexyGaming.1.0.0.2\lib\net40\Fanex.BetList.SexyGaming.dll</HintPath>
