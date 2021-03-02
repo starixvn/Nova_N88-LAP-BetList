@@ -21,8 +21,9 @@
             { "Lrf_BetList_LicenseeBonus_Detail", (db, metalModel) => CreateBonusDetailParameters(db, metalModel) },
             { "Lrf_BetList_RNG_Detail", (db, metalModel) => CreateCasinoDetailParameters(db, metalModel) },
             { "Lrf_BetList_LC_Detail", (db, metalModel) => CreateCasinoDetailParameters(db, metalModel) },
-
+            { "Lrf_BetList_Jackpot_Detail", (db, metalModel) => CreateJackpotWonDetailParameters(db, metalModel) },
         };
+
         public static void CreateBetListParameters(IObjectDb db, BetListMetaModel metaModel)
         {
             NonBaseCurrencySpNameActionMap[metaModel.UspKey](db, metaModel);
@@ -72,6 +73,14 @@
             CreateProductListParameters(db, metaModel.ProductCodeList);
         }
 
+        private static void CreateJackpotWonDetailParameters(IObjectDb db, BetListMetaModel metaModel)
+        {
+            db.SetParameterValue(AgentListColumn, metaModel.AgentListXml);
+            db.SetParameterValue("TransId", metaModel.TransId);
+            db.SetParameterValue("CustId", metaModel.CustId);
+            db.SetParameterValue("BaseCurrency", metaModel.BaseCurrency);
+        }
+
         private static void CreateCasinoDetailParameters(IObjectDb db, BetListMetaModel metaModel)
         {
             db.SetParameterValue(nameof(metaModel.BaseCurrency), metaModel.BaseCurrency);
@@ -100,7 +109,6 @@
                 db.SetParameterValue(name, null);
             }
         }
-
 
         private static void CreateProductListParameters(IObjectDb db, string productCodeList, IEnumerable<string> supportedProducts = null)
         {
