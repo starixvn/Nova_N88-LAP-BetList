@@ -295,6 +295,15 @@ namespace Fanex.Athena.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mobile Euro.
+        /// </summary>
+        public static string MobileEuro {
+            get {
+                return ResourceManager.GetString("MobileEuro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mobile Lite Version.
         /// </summary>
         public static string MobileLiteVersion {

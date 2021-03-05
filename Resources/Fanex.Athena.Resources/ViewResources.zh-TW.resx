@@ -252,4 +252,7 @@
     <value>Bet History</value>
     <comment>80941</comment>
   </data>
+  <data name="MobileEuro" xml:space="preserve">
+    <value>手機歐洲版</value>
+  </data>
 </root>

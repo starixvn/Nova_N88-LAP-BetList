@@ -15,10 +15,12 @@
             { "u", "Euro" },
             { "m", "Wap" },
             { "l", "Mobile" },
+            { "_", "Mobile" },
             { "r", "Tablet" },
             { "x", "NewAsia" },
             { "o", "MobileApp" },
             { "c", "MobileLiteVersion" },
+            { "@", "MobileLiteVersion" },
             { "t", "DeepLink" },
             { "0", "NativeApp" },
             { "1", "ESportsDesktop" },
@@ -27,6 +29,7 @@
             { "4", "ESportsDesktop" },
             { "5", "ESportsMobile" },
             { "6", "ESportsApp" },
+            { "%", "MobileEuro" },
             { "v", "BetfromOthers" },
             { "7", "BetfromOthers" }
         };
