@@ -272,4 +272,7 @@
   <data name="ESportsMobile" xml:space="preserve">
     <value>电子竞技 手机</value>
   </data>
+  <data name="MobileEuro" xml:space="preserve">
+    <value>手机欧洲版</value>
+  </data>
 </root>
