@@ -107,11 +107,13 @@
     <Compile Include="Interfaces\IColossusBetBetListDataAccess.cs" />
     <Compile Include="Interfaces\IExchangeBetListDataAccess.cs" />
     <Compile Include="ColossusBetBetListDataAccess.cs" />
+    <Compile Include="Interfaces\IIPDataAccess.cs" />
     <Compile Include="Interfaces\IPlayerAdminBetListDataAccess.cs" />
     <Compile Include="Interfaces\ISingleMatchParlayDetailDataAccess.cs" />
     <Compile Include="Interfaces\ISystemParlayDetailDataAccess.cs" />
     <Compile Include="BaseBetListDataAccess.cs" />
     <Compile Include="Interfaces\IBetListDataAccess.cs" />
+    <Compile Include="IPDataAccess.cs" />
     <Compile Include="PlayerAdminBetListDataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SingleMatchParlayDetailDataAccess.cs" />

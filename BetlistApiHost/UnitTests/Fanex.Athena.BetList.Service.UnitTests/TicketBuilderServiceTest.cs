@@ -21,14 +21,17 @@
 
         private ITicketHelper _ticketHelper;
         private ITicketBuilderService _ticketBuilderService;
+        private IIPService _ipService;
         [SetUp]
         public void SetUp()
         {
             _betlistHtmlBuilder = Substitute.For<IBetListHTMLBuilder>();
             _ticketHelper = Substitute.For<ITicketHelper>();
+            _ipService = Substitute.For<IIPService>();
             _ticketBuilderService = new TicketBuilderService(
                 _betlistHtmlBuilder,
-                _ticketHelper);
+                _ticketHelper,
+                _ipService);
         }
 
         [TearDown]
@@ -37,6 +40,7 @@
             _ticketHelper = null;
             _betlistHtmlBuilder = null;
             _ticketBuilderService = null;
+            _ipService = null;
         }
 
 

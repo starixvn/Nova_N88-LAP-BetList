@@ -27,13 +27,14 @@
         public BettingTicketCenterAdvancedSearchController(
             IAppSettings appSettings,
             IBettingTicketCenterAdvancedSearchDataAccess dataAccess,
+            IIPService ipService,
             ITicketBuilderService ticketBuilderService,
             IBettingTicketCenterZipBuilder zipBuilder,
             IBettingTicketCenterExcel bettingTicketCenterExcel) : base(ticketBuilderService, bettingTicketCenterExcel)
         {
             _appSettings = appSettings;
             _dataAccess = dataAccess;
-            _zipBuilder = zipBuilder ?? new BettingTicketCenterZipBuilder(_appSettings, null, bettingTicketCenterExcel);
+            _zipBuilder = zipBuilder ?? new BettingTicketCenterZipBuilder(_appSettings, null, bettingTicketCenterExcel, ipService);
         }
 
         private int MaxRowSupportExportExcel => int.Parse(_appSettings.GetValue("MaxRowSupportExportExcel"));
@@ -59,7 +60,7 @@
 
             var ticketResult = await _dataAccess.GetBetListForMultipleCustomersAsync(metaModel);
 
-            return ReturnData(ticketResult, GetBetListOption(metaModel.HasPlayerCom), metaModel);
+            return ReturnData(ticketResult, GetBetListOption(metaModel.HasPlayerCom, metaModel.IsShowIpvn), metaModel);
         }
 
         private async Task<ActionResult> Export(AdvancedSearchBetListMetaModel metaModel, int totalRow)
@@ -75,7 +76,7 @@
                     return new HttpStatusCodeResult(System.Net.HttpStatusCode.NoContent);
                 }
 
-                return ExportXls(normalTicketResult, title, metaModel.HasPlayerCom, totalText);
+                return ExportXls(normalTicketResult, title, metaModel.HasPlayerCom, metaModel.IsShowIpvn, totalText);
             }
 
             var ticketResult = await _dataAccess.GetBetListForMultipleCustomersAsync(metaModel, MaxRowPerFile);
@@ -85,12 +86,12 @@
             return zipFile == null ? null : ZipContentResult(zipFile);
         }
 
-        private ExcelResult ExportXls(TicketResult ticketResult, string title, bool hasPlayerComm, string totalText)
+        private ExcelResult ExportXls(TicketResult ticketResult, string title, bool hasPlayerComm, bool isShowIpvn, string totalText)
         {
             var excelModel = new BettingTicketCenterExcelModel
             {
                 Data = ticketResult,
-                Option = GetBetListOption(hasPlayerComm),
+                Option = GetBetListOption(hasPlayerComm, isShowIpvn),
                 Title = title,
                 TotalText = totalText
             };
@@ -104,7 +105,7 @@
             return File(bytes, "application/zip", "BetHistory_AdvancedSearch.zip");
         }
 
-        private static BettingTicketCenterOption GetBetListOption(bool hasPlayerComm) => new BettingTicketCenterOption
+        private static BettingTicketCenterOption GetBetListOption(bool hasPlayerComm, bool isShowIpvn) => new BettingTicketCenterOption
         {
             ShowTotal = true,
             ShowSumStake = true,
@@ -112,7 +113,8 @@
             ShowWinLoss = true,
             ShowExternalId = true,
             ShowSystemId = true,
-            IsAllowedCustomerComm = hasPlayerComm
+            IsAllowedCustomerComm = hasPlayerComm,
+            IsShowIpvn = isShowIpvn
         };
 
     }

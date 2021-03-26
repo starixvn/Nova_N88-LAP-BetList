@@ -17,19 +17,25 @@ namespace Fanex.Athena.BetList.Service
 
         private readonly ITicketHelper _ticketHelper;
 
+        private readonly IIPService _ipService;
+
         [CLSCompliant(false)]
         public TicketBuilderService(
             IBetListHTMLBuilder betlistHtmlBuilder,
-            ITicketHelper ticketHelper)
+            ITicketHelper ticketHelper,
+            IIPService ipService)
         {
             _betlistHtmlBuilder = betlistHtmlBuilder;
             _ticketHelper = ticketHelper;
+            _ipService = ipService;
         }
 
         public IList<TicketText> BuildTicketText(TicketResult ticketResult, ICommonValueMetaModel metaModel, bool isAllowedCustomerComm)
         {
             var startIndex = ((metaModel.PageIndex - 1) * metaModel.PageSize) + 1;
             var ticketTextList = new List<TicketText>();
+            _ticketHelper.IsVnIp = _ipService.IsVNIP;
+
             foreach (var ticket in ticketResult.MainTicketList)
             {
                 if (ticket.BetTypeId == (int)BetType.CombinationMixParlay)
@@ -81,6 +87,7 @@ namespace Fanex.Athena.BetList.Service
             var ticketTextList = new List<TicketText>();
 
             _ticketHelper.IsShowOddsWithChoice = showOdds;
+            _ticketHelper.IsVnIp = _ipService.IsVNIP;
 
             foreach (var ticket in ticketResult.MainTicketList)
             {

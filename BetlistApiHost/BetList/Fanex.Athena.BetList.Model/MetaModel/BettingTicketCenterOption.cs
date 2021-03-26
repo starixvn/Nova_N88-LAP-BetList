@@ -15,5 +15,7 @@
         public bool ShowSystemId { get; set; }
 
         public bool ShowExternalId { get; set; }
+
+        public bool IsShowIpvn { get; set; }
     }
 }

@@ -3,6 +3,7 @@
   <Function Name="Common">
     <Setting Key="Lrf_SelBalanceUpDay" SpName="Lrf_SelBalanceUpDay" DbName="DBEXT.bodb02.bodbLicenseeNet" />
     <Setting Key="Lrf_CurrencySel" SpName="Lrf_CurrencySel" DbName="DBEXT.bodb02.bodbLicenseeNet" />
+    <Setting Key="Lrf_GetAllIPVN" SpName="Lrf_GetAllIPVN" DbName="DBCUST.IPDB.bodbLicenseeNet" />
   </Function>
   <Function Name="Report">
     <Setting Key="Lrf_Result_Outright" SpName="Lrf_Result_Outright" DbName="DBEXT.bodb02.bodbLicenseeNet" />
