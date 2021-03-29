@@ -55,7 +55,7 @@
 
         private IFont _winLossFont;
 
-        public BetListExcel(BetListShowingOption showingOption, int licenseeId, IEnumerable<int> hiddenColumnIndexes, bool isShowSumStake = false, bool isShowIpvn = false)
+        public BetListExcel(BetListShowingOption showingOption, int licenseeId, IEnumerable<int> hiddenColumnIndexes, bool isShowSumStake = false, bool isShowIpvn = false, IIPService ipService = null)
         {
             _appSettings = new AppSettings();
             _licenseeId = licenseeId;
@@ -64,6 +64,7 @@
             _isShowIpvn = isShowIpvn;
             _showingOption = showingOption;
             _hiddenColumnIndexes = hiddenColumnIndexes;
+            _ipService = ipService;
         }
 
         protected internal BetListExcel(

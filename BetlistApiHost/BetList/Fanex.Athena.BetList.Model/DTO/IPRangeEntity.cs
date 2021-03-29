@@ -4,6 +4,5 @@
     {
         public long IPFrom { get; set; }
         public long IPTo { get; set; }
-        public bool? IsManual { get; set; }
     }
 }

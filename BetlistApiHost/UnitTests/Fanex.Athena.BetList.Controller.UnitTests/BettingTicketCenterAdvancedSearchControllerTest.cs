@@ -33,6 +33,8 @@
 
         private  ITicketBuilderService _ticketBuilderService;
 
+        private IIPService _ipService;
+
         [SetUp]
         public void SetUp()
         {
@@ -41,6 +43,7 @@
             _dataAccess = Substitute.For<IBettingTicketCenterAdvancedSearchDataAccess>();
             _zipBuilder = Substitute.For<IBettingTicketCenterZipBuilder>();
             _bettingTicketCenterExcel = Substitute.For<IBettingTicketCenterExcel>();
+            _ipService = Substitute.For<IIPService>();
         }
 
         [TearDown]
@@ -51,6 +54,7 @@
             _zipBuilder = null;
             _bettingTicketCenterExcel = null;
             _ticketBuilderService = null;
+            _ipService = null;
         }
 
         [Test]

@@ -47,6 +47,8 @@ namespace Fanex.Athena.BetList.Service
                         ticket.CustId);
                 }
 
+                _ticketHelper.IsVnIp = _ipService.IsVNIP;
+
                 var ticketText = new TicketText
                 {
                     Index = startIndex++,

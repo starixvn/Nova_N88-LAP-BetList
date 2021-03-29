@@ -26,12 +26,14 @@
 
         private readonly ITicketBuilderService _ticketBuilderService;
 
-        public BetListController(ICacheRefAdapter cacheRefAdapter, IBetListService betListService, ITicketBuilderService ticketBuilderService)
+        private readonly IIPService _ipService;
+
+        public BetListController(ICacheRefAdapter cacheRefAdapter, IBetListService betListService, ITicketBuilderService ticketBuilderService, IIPService ipService)
         {
             _cacheRefAdapter = cacheRefAdapter;
             _betListService = betListService;
             _ticketBuilderService = ticketBuilderService;
-
+            _ipService = ipService;
         }
 
         [HttpGet]
@@ -124,7 +126,7 @@
 
         protected internal virtual ExcelResult Export(BetListExcelMetaModel metaModel, TicketResult ticketResult)
         {
-            var excel = new BetListExcel(metaModel.ShowingOption, metaModel.LicenseeId, metaModel.HiddenColumns, metaModel.IsShowSumStake, metaModel.IsShowIpvn);
+            var excel = new BetListExcel(metaModel.ShowingOption, metaModel.LicenseeId, metaModel.HiddenColumns, metaModel.IsShowSumStake, metaModel.IsShowIpvn, _ipService);
 
             var workbook = excel.Export(ticketResult, metaModel.Title, metaModel.StartIndex);
 
