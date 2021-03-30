@@ -32,6 +32,7 @@
 
         private IBetListHTMLBuilder _betlistHtmlBuilder;
         private ITicketBuilderService _ticketBuilderService;
+        private IIPService _ipService;
 
         [SetUp]
         public void SetUp()
@@ -41,7 +42,7 @@
             _ticketHelper = Substitute.For<ITicketHelper>();
             _betlistHtmlBuilder = Substitute.For<IBetListHTMLBuilder>();
             _ticketBuilderService = Substitute.For<ITicketBuilderService>();
-
+            _ipService = Substitute.For<IIPService>();
         }
 
         [TearDown]
@@ -262,7 +263,7 @@
 
         private MixParlayBetListController CreateController()
         {
-            return new MixParlayBetListController(_cacheRefAdapter, _betListService, _ticketHelper, _betlistHtmlBuilder, _ticketBuilderService);
+            return new MixParlayBetListController(_cacheRefAdapter, _betListService, _ticketHelper, _ipService, _betlistHtmlBuilder, _ticketBuilderService);
         }
     }
 }

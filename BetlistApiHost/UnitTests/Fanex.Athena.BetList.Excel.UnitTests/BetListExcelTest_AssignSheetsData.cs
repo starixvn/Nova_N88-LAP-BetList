@@ -1,5 +1,6 @@
 ﻿using Fanex.Athena.BetList.Model.DTO;
 using Fanex.Athena.BetList.Model.MetaModel;
+using Fanex.Athena.BetList.Service.Interfaces;
 using Fanex.Athena.Common.Constant;
 using Fanex.Athena.Common.Utility.Services.Interfaces;
 using Fanex.Athena.Resources;
@@ -16,12 +17,14 @@ namespace Fanex.Athena.BetList.Excel.UnitTests
     {
         private ITicketHelper _ticketHelper;
         private IBetListExcelBuilder _builder;
+        private IIPService _ipService;
 
         [SetUp]
         public void Setup()
         {
             _ticketHelper = Substitute.For<ITicketHelper>();
             _builder = Substitute.For<IBetListExcelBuilder>();
+            _ipService = Substitute.For<IIPService>();
         }
 
         [Test]
@@ -156,6 +159,7 @@ namespace Fanex.Athena.BetList.Excel.UnitTests
             var betListExcel = Substitute.ForPartsOf<BetListExcel>(
                 Substitute.For<IAppSettings>(),
                 _ticketHelper,
+                _ipService,
                 showingOption ?? new BetListShowingOption(),
                 LicenseeIdentity.OneTwoBet,
                 hiddenColumnIndexes ?? new int[] { },

@@ -219,6 +219,7 @@
             var controller = Substitute.ForPartsOf<BettingTicketCenterAdvancedSearchController>(
                 _appSettings,
                 _dataAccess,
+                _ipService,
                 _ticketBuilderService,
                 _zipBuilder,
                 _bettingTicketCenterExcel);

@@ -21,6 +21,7 @@
 
         private IBetListService _betListService;
         private ITicketBuilderService _ticketBuilderService;
+        private IIPService _ipService;
 
         [SetUp]
         public void SetUp()
@@ -28,7 +29,7 @@
             _cacheRefAdapter = Substitute.For<ICacheRefAdapter>();
             _betListService = Substitute.For<IBetListService>();
             _ticketBuilderService = Substitute.For<ITicketBuilderService>();
-
+            _ipService = Substitute.For<IIPService>();
         }
 
         [TearDown]
@@ -339,7 +340,7 @@
 
         private BetListController CreateController()
         {
-            return Substitute.ForPartsOf<BetListController>(_cacheRefAdapter, _betListService, _ticketBuilderService);
+            return Substitute.ForPartsOf<BetListController>(_cacheRefAdapter, _betListService, _ticketBuilderService, _ipService);
         }
     }
 }
