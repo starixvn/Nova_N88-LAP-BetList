@@ -6,5 +6,7 @@
 
         public int CustId { get; set; }
 
+        public bool IsShowIpvn { get; set; }
+
     }
 }

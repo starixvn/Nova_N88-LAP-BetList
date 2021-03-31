@@ -68,7 +68,7 @@
                 _betListService.GetMixParlayDetailTicket(metaModel).Returns(ticketResult);
 
                 var ticketText = FakeHelper.CreateMany<TicketText>(2).ToList();
-                _ticketBuilderService.BuildTicketText(ticketResult: ticketResult, showOdds: true).Returns(ticketText);
+                _ticketBuilderService.BuildTicketText(ticketResult: ticketResult, showOdds: true, isShowIpvn: true).Returns(ticketText);
 
                 // Action
                 var result = (await controller.Detail(metaModel)).Data;

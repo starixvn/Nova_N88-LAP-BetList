@@ -47,7 +47,7 @@ namespace Fanex.Athena.BetList.Controller
         public async Task<JsonResult> Detail(MixParlayDetailMetaModel metaModel)
         {
             var ticketResult = await _betListService.GetMixParlayDetailTicket(metaModel).ConfigureAwait(false);
-            var result = _ticketBuilderService.BuildTicketText(ticketResult: ticketResult, showOdds: true);
+            var result = _ticketBuilderService.BuildTicketText(ticketResult: ticketResult, showOdds: true, isShowIpvn: metaModel.IsShowIpvn);
             BetListHelper.ClearData(ticketResult);
             return Json(result);
         }
@@ -100,7 +100,7 @@ namespace Fanex.Athena.BetList.Controller
             return Json(result);
         }
 
-        protected internal virtual IList<string> BuildParlayDetailTickets(TicketResult ticketResult, bool showOdds = false)
+        protected internal virtual IList<string> BuildParlayDetailTickets(TicketResult ticketResult, bool showOdds = false, bool isShowIpvn = false)
         {
             var ticketTextList = new List<string>();
 
@@ -109,7 +109,7 @@ namespace Fanex.Athena.BetList.Controller
 
             foreach (var ticket in ticketResult.MainTicketList)
             {
-                var statusTemplate = _betlistHtmlBuilder.CreateStatusBuilder(ticket.BetTypeId).Render(ticket, _ticketHelper, ticketResult.TicketDataList, isShowVNIP: false);
+                var statusTemplate = _betlistHtmlBuilder.CreateStatusBuilder(ticket.BetTypeId).Render(ticket, _ticketHelper, ticketResult.TicketDataList, isShowVNIP: isShowIpvn);
                 statusTemplate.ShowIP = null;
                 statusTemplate.StatusResult = null;
 

@@ -14,7 +14,8 @@
            BetListMetaModel metaModel = null,
            int startIndex = 1,
            bool showOdds = false,
-           bool isAllowedCustomerComm = false);
+           bool isAllowedCustomerComm = false,
+           bool isShowIpvn = false);
 
         string BuildSumWinLoss(TicketResult ticketResult, bool isAllowedCustomerComm);
     }

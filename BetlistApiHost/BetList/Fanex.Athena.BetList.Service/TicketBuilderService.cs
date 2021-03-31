@@ -62,7 +62,7 @@ namespace Fanex.Athena.BetList.Service
                     Stake = _betlistHtmlBuilder.BuildStake(ticket, _ticketHelper),
                     LicenseeWL = _betlistHtmlBuilder.BuildLicenseeWL(ticket),
                     WinLoss = _betlistHtmlBuilder.BuildCustomerWL(ticket, isAllowedCustomerComm),
-                    Status = _betlistHtmlBuilder.BuildLrfStatus(ticket, _ticketHelper, ticketResult.TicketDataList, new BetListMetaModel()),
+                    Status = _betlistHtmlBuilder.BuildStatus(ticket, _ticketHelper, ticketResult.TicketDataList, metaModel.IsShowIpvn),
                     Platform = PlatformType.GetPlatformName(ticket.BetFrom),
                     Live = _betlistHtmlBuilder.BuildLiveStatus(ticket)
                 };
@@ -83,7 +83,8 @@ namespace Fanex.Athena.BetList.Service
             BetListMetaModel metaModel = null,
             int startIndex = 1,
             bool showOdds = false,
-            bool isAllowedCustomerComm = false)
+            bool isAllowedCustomerComm = false,
+            bool isShowIpvn = false)
         {
             var baseCurrency = metaModel == null ? string.Empty : metaModel.BaseCurrency;
             var ticketTextList = new List<TicketText>();
@@ -105,7 +106,7 @@ namespace Fanex.Athena.BetList.Service
                     ExternalId = ticket.ExternalId,
                     SystemId = ticket.UserName,
                     TransTime = _betlistHtmlBuilder.BuildTrans(ticket),
-                    Status = _betlistHtmlBuilder.BuildLrfStatus(ticket, _ticketHelper, ticketResult.TicketDataList, metaModel),
+                    Status = _betlistHtmlBuilder.BuildStatus(ticket, _ticketHelper, ticketResult.TicketDataList, (metaModel != null) && metaModel.IsShowIpvn || isShowIpvn),
                     Choice = _betlistHtmlBuilder.BuildChoice(ticket, _ticketHelper, ticketResult.TicketDataList, false),
                     Odds = _betlistHtmlBuilder.BuildOdds(ticket, ticketResult.TicketDataList, _ticketHelper.GetValidOddsTypeNameById),
                     Stake = _betlistHtmlBuilder.BuildStake(ticket, _ticketHelper),

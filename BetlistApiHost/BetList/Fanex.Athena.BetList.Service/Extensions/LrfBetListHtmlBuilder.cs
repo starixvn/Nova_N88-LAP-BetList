@@ -22,34 +22,7 @@
             BetListMetaModel metaModel,
             bool isShowIpvn = false)
         {
-            const string StatusTemp = "<div class='status'>{0}</div>";
-            var statusText = GetStatusText(ticket.Status);
-            var statusNormalText = string.Format(StatusTemp, statusText);
-
-            // If Sport type is keno, doesn't show "Result" link.
-            if (ticket.SportTypeId == (int)SportType.Keno)
-            {
-                return statusNormalText;
-            }
-
-            switch (ticket.BetTypeId)
-            {
-                case (int)BetType.CasinoGames:
-                    const string CasinoHandTemplate =
-                        "<div id='casino-hand-history-{0}' class='result casino-hand-history-link' url-param='{1}' onclick='BetList.ViewCasinoHandHistory({0});'>{2}</div>";
-                    return statusNormalText + string.Format(
-                        CasinoHandTemplate,
-                        ticket.RefNo,
-                        GetCasinoHandHistoryParam(ticket, metaModel),
-                        ViewResources.Results);
-
-                case (int)BetType.P2PGames:
-                case (int)BetType.MiniGames:
-                    return statusNormalText;
-
-                default:
-                    return builder.BuildStatus(ticket, ticketHelper, ticketData, isShowIpvn);
-            }
+            return builder.BuildStatus(ticket, ticketHelper, ticketData, isShowIpvn);
         }
 
         // when updating this, remember to update Fanex.Athena.Excel.BetList.LrfBetListExcelBuilder as well
@@ -95,21 +68,23 @@
         {
             const string PatternStatusBetlist = "<label style='color:{0}'>{1}</label>";
             const string PatternIp = "<div class='ip'><br><div class='iplink'>{0}</div></div>";
+            string ipHtml = isShowIp ? string.Format(PatternIp, ticket.IP) : string.Empty;
+
             if (ticket.BetTypeId == (int)BetType.MixParlay || ticket.BetTypeId == (int)BetType.CombinationMixParlay)
             {
                 switch (ticket.LiveHomeScore)
                 {
                     case LiveStatusTypes.Live:
-                        return string.Format(PatternStatusBetlist, "#cc0033", ViewResources.Live);
+                        return string.Format(PatternStatusBetlist, "#cc0033", ViewResources.Live) + ipHtml;
 
                     case LiveStatusTypes.Mix:
-                        return string.Format(PatternStatusBetlist, "#0033ff", ViewResources.MixLiveAndNoneLive);
+                        return string.Format(PatternStatusBetlist, "#0033ff", ViewResources.MixLiveAndNoneLive) + ipHtml;
 
                     default:
-                        return string.Format(PatternStatusBetlist, "#000", ViewResources.NoneLive);
+                        return string.Format(PatternStatusBetlist, "#000", ViewResources.NoneLive) + ipHtml;
                 }
             }
-            string ipHtml = isShowIp ? string.Format(PatternIp, ticket.IP) : string.Empty;
+
             return ticket.IsLive
                 ? string.Format(PatternStatusBetlist, "#cc0033", ViewResources.Live) + ipHtml
                 : string.Format(PatternStatusBetlist, "#000", ViewResources.NoneLive) + ipHtml;
@@ -121,28 +96,6 @@
         }
 
         #region Private Utility
-
-        /// <summary>
-        /// Get Casino Hand History Parameter.
-        /// </summary>
-        /// <param name="ticket">LRF Ticket object.</param>
-        /// <param name="metaModel">Meta model object.</param>
-        /// <returns>Parameter for Casino Hand History.</returns>
-        private static string GetCasinoHandHistoryParam(LrfTicket ticket, BetListMetaModel metaModel)
-        {
-            var param = string.Empty;
-            param += "?RefNo=" + ticket.RefNo;
-            param += "&FromDate=" + metaModel.FromDate;
-            param += "&ToDate=" + metaModel.ToDate;
-            param += "&SystemId=" + (string.IsNullOrEmpty(ticket.UserName) ? metaModel.SystemId : ticket.UserName);
-            param += "&ExternalId=" + (string.IsNullOrEmpty(ticket.ExternalId) ? metaModel.ExternalId : ticket.ExternalId);
-            param += "&CustId=" + (ticket.CustId == 0 ? metaModel.CustId : ticket.CustId);
-            param += "&CurrencyId=" + metaModel.CurrencyId;
-            param += "&CurrencyName=" + metaModel.CurrencyName;
-            param += "&BaseCurrency=" + metaModel.BaseCurrency;
-            return param;
-        }
-
         /// <summary>
         /// Format licensee win lost, show red text if the licensee win lost is negative.
         /// </summary>

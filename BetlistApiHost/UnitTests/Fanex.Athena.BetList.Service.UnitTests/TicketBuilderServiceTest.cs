@@ -100,6 +100,7 @@
                 MainTicketList = new SortableList<LrfTicket> { ticket }
             };
             var metaModel = FakeHelper.Create<BetListMetaModel>();
+            metaModel.IsShowIpvn = false;
 
             var expectedTicketText = new TicketText
             {
