@@ -7,6 +7,7 @@ using Fanex.Athena.BetList.DataAccess.Interfaces;
 using Fanex.Athena.BetList.Model.DTO;
 using Fanex.Athena.BetList.Model.MetaModel;
 using Fanex.Athena.BetList.Service.Extensions;
+using Fanex.Athena.BetList.Service.Interfaces;
 using Fanex.Athena.Common.Constant;
 using Fanex.Athena.Resources;
 using Fanex.BetList.Core.Builder;
@@ -22,14 +23,18 @@ namespace Fanex.Athena.BetList.Controller
 
         private readonly IBetListHTMLBuilder _betListHTMLBuilder;
 
+        private readonly IIPService _ipService;
+
         public CashOutBetListController(
             ICashOutBetListDataAccess cashOutBetListDataAccess,
             ITicketHelper ticketHelper,
+            IIPService ipService,
             IBetListHTMLBuilder betListHTMLBuilder)
         {
             _cashOutBetListDataAccess = cashOutBetListDataAccess;
             _ticketHelper = ticketHelper;
             _betListHTMLBuilder = betListHTMLBuilder;
+            _ipService = ipService;
         }
 
         [HttpPost]
@@ -43,8 +48,8 @@ namespace Fanex.Athena.BetList.Controller
                     IsCashOutBetTicket(metaModel.BetdaqId, metaModel.BetType);
             }
 
-            viewModel.OriginalTicketText = BuildOriginalTicketText(viewModel.OriginalTicket, metaModel.HasPlayerComm);
-            viewModel.CashOutTicketTextList = BuildCashOutTicketTextList(viewModel.CashOutTicketList, metaModel.TransId);
+            viewModel.OriginalTicketText = BuildOriginalTicketText(viewModel.OriginalTicket, metaModel.HasPlayerComm, metaModel.IsShowIpvn);
+            viewModel.CashOutTicketTextList = BuildCashOutTicketTextList(viewModel.CashOutTicketList, metaModel.TransId, metaModel.IsShowIpvn);
 
             viewModel.IsCashOut = metaModel.IsCashOut;
             return Json(viewModel);
@@ -56,7 +61,7 @@ namespace Fanex.Athena.BetList.Controller
             return betdaqid == 1 && !cashOutBetTypes.Contains(bettype);
         }
 
-        private IList<CashOutTicketText> BuildCashOutTicketTextList(IEnumerable<CashOutTicket> dataList, long transId)
+        private IList<CashOutTicketText> BuildCashOutTicketTextList(IEnumerable<CashOutTicket> dataList, long transId, bool isShowIpvn = false)
         {
             if (dataList == null || !dataList.Any())
             {
@@ -65,6 +70,7 @@ namespace Fanex.Athena.BetList.Controller
 
             var ticketTextList = new List<CashOutTicketText>();
             _ticketHelper.HideStatusCashOutHistory = true;
+            _ticketHelper.IsVnIp = _ipService.IsVNIP;
             foreach (var ticket in dataList)
             {
                 var betListTicket = new LrfTicket
@@ -72,7 +78,7 @@ namespace Fanex.Athena.BetList.Controller
                     BetTypeId = ticket.BetType,
                     Status = ticket.Status
                 };
-                var statusHtml = _betListHTMLBuilder.CreateStatusBuilder(ticket.BetType).Render(betListTicket, _ticketHelper, null, true);
+                var statusHtml = _betListHTMLBuilder.CreateStatusBuilder(ticket.BetType).Render(betListTicket, _ticketHelper, null, isShowIpvn);
                 statusHtml.StatusResult = null;
                 var ticketText = new CashOutTicketText
                 {
@@ -90,7 +96,7 @@ namespace Fanex.Athena.BetList.Controller
             return ticketTextList;
         }
 
-        private TicketText BuildOriginalTicketText(LrfTicket ticket, bool hasPlayerComm)
+        private TicketText BuildOriginalTicketText(LrfTicket ticket, bool hasPlayerComm, bool isShowIpvn = false)
         {
             if (ticket == null)
             {
@@ -98,8 +104,9 @@ namespace Fanex.Athena.BetList.Controller
             }
 
             _ticketHelper.HideStatusCashOutHistory = true;
+            _ticketHelper.IsVnIp = _ipService.IsVNIP;
 
-            var statusHtml = _betListHTMLBuilder.CreateStatusBuilder(ticket.BetTypeId).Render(ticket, _ticketHelper, null, true);
+            var statusHtml = _betListHTMLBuilder.CreateStatusBuilder(ticket.BetTypeId).Render(ticket, _ticketHelper, null, isShowIpvn);
             statusHtml.StatusResult = null;
             return new TicketText
             {

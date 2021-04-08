@@ -70,6 +70,8 @@
                 var ticketText = FakeHelper.CreateMany<TicketText>(2).ToList();
                 _ticketBuilderService.BuildTicketText(ticketResult: ticketResult, showOdds: true, isShowIpvn: true).Returns(ticketText);
 
+                metaModel.IsShowIpvn = true;
+
                 // Action
                 var result = (await controller.Detail(metaModel)).Data;
 

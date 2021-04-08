@@ -6,6 +6,7 @@
     using System.Threading.Tasks;
     using Common.Constant;
     using DataAccess.Interfaces;
+    using Fanex.Athena.BetList.Service.Interfaces;
     using Fanex.BetList.Core.Builder;
     using Fanex.BetList.Core.Builder.StatusBuilder;
     using Fanex.BetList.Core.Entities;
@@ -26,12 +27,15 @@
 
         private IBetListHTMLBuilder _betListHTMLBuilder;
 
+        private IIPService _ipService;
+
         [SetUp]
         public void SetUp()
         {
             _cashOutBetListDataAccess = Substitute.For<ICashOutBetListDataAccess>();
             _ticketHelper = Substitute.For<ITicketHelper>();
             _betListHTMLBuilder = Substitute.For<IBetListHTMLBuilder>();
+            _ipService = Substitute.For<IIPService>();
         }
 
         [TearDown]
@@ -134,6 +138,8 @@
                 var stake = FakeHelper.Create<string>();
                 _betListHTMLBuilder.BuildStake(originalTicket, _ticketHelper).Returns(stake);
 
+                metaModel.IsShowIpvn = true;
+
                 var winloss = "-";
 
                 // Action
@@ -177,6 +183,8 @@
                 var status = Substitute.For<IStatus>();
                 status.Render(Arg.Any<LrfTicket>(), _ticketHelper, null, true).Returns(statusHtml);
                 _betListHTMLBuilder.CreateStatusBuilder(cashOutTicket.BetType).Returns(status);
+
+                metaModel.IsShowIpvn = true;
 
                 var expectedTranstime = ViewResources.RefNo + ": " + cashOutTicket.TransId + Environment.NewLine + "<div class='time'>" + cashOutTicket.TransDate + "</div>";
 
@@ -226,6 +234,8 @@
                 var status = Substitute.For<IStatus>();
                 status.Render(originalTicket, _ticketHelper, null, true).Returns(statusHtml);
                 _betListHTMLBuilder.CreateStatusBuilder(originalTicket.BetTypeId).Returns(status);
+
+                metaModel.IsShowIpvn = true;
 
                 // Action
                 var result = (CashOutBetListDetailViewModel)(await controller.Detail(metaModel)).Data;
@@ -289,6 +299,8 @@
                 status.Render(originalTicket, _ticketHelper, null, true).Returns(statusHtml);
                 _betListHTMLBuilder.CreateStatusBuilder(originalTicket.BetTypeId).Returns(status);
 
+                metaModel.IsShowIpvn = true;
+
                 // Action
                 var result = (CashOutBetListDetailViewModel)(await controller.Detail(metaModel)).Data;
 
@@ -351,6 +363,8 @@
                 status.Render(originalTicket, _ticketHelper, null, true).Returns(statusHtml);
                 _betListHTMLBuilder.CreateStatusBuilder(originalTicket.BetTypeId).Returns(status);
 
+                metaModel.IsShowIpvn = true;
+
                 // Action
                 var result = (CashOutBetListDetailViewModel)(await controller.Detail(metaModel)).Data;
 
@@ -361,7 +375,7 @@
 
         private CashOutBetListController CreateController()
         {
-            return new CashOutBetListController(_cashOutBetListDataAccess, _ticketHelper, _betListHTMLBuilder);
+            return new CashOutBetListController(_cashOutBetListDataAccess, _ticketHelper, _ipService, _betListHTMLBuilder);
         }
     }
 }
