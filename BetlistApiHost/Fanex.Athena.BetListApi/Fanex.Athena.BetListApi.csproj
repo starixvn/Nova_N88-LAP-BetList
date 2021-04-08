@@ -389,6 +389,7 @@
     <Content Include="App_Data\Fanex.Result\ESport.xls" />
     <Content Include="App_Data\Fanex.Result\Happy5.xls" />
     <Content Include="Fanex.Athena.BetListApi.ruleset" />
+    <Content Include="App_Data\Fanex.Result\Cricket.xls" />
     <None Include="Dockerfile" />
     <None Include=".dockerignore">
       <DependentUpon>Dockerfile</DependentUpon>
