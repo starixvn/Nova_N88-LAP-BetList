@@ -273,7 +273,8 @@
                 fromdate = metalModel.FromDate,
                 sporttype = metalModel.SportId,
                 leagueid = metalModel.LeagueId,
-                movebetsday = balanceUp.MoveBetsDay
+                movebetsday = balanceUp.MoveBetsDay,
+                isshowall = !_appSettings.IsProduction
             };
 
             using (var db = this.GetObjectDb(UspName))
@@ -366,6 +367,7 @@
                 BetID = reader.HasColumn("betcheck") ? reader.ToString("betcheck") : string.Empty,
             };
         }
+
         #region Binding
 
         /// <summary>
@@ -392,6 +394,7 @@
                         AwayValue = reader["AwayValue"].ToString(),
                         ResultStatusID = resultStatusId == DBNull.Value ? 0 : int.Parse(resultStatusId.ToString()),
                         SettlementStatusID = settlementStatusId == DBNull.Value ? 0 : int.Parse(settlementStatusId.ToString()),
+                        BettypeId = reader.HasColumn("BetType") ? reader.ToInt("BetType") : 0,
                         OtherInfo = reader["OtherInfo"].ToString()
                     });
                 }

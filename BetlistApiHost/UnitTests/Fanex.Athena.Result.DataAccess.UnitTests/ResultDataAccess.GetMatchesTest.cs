@@ -26,7 +26,8 @@
                 fromdate = _metaModel.FromDate,
                 sporttype = _metaModel.SportId,
                 leagueid = _metaModel.LeagueId,
-                movebetsday = _balance.MoveBetsDay
+                movebetsday = _balance.MoveBetsDay,
+                isshowall = true
             };
 
             // Action
