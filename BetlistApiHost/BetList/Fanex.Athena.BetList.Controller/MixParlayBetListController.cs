@@ -25,11 +25,13 @@ namespace Fanex.Athena.BetList.Controller
 
         private readonly IBetListHTMLBuilder _betlistHtmlBuilder;
         private readonly ITicketBuilderService _ticketBuilderService;
+        private readonly IIPService _ipService;
 
         public MixParlayBetListController(
             ICacheRefAdapter cacheRefAdapter,
             IBetListService betListService,
             ITicketHelper ticketHelper,
+            IIPService ipService,
             IBetListHTMLBuilder betlistHtmlBuilder,
              ITicketBuilderService ticketBuilderService)
         {
@@ -38,14 +40,14 @@ namespace Fanex.Athena.BetList.Controller
             _ticketHelper = ticketHelper;
             _betlistHtmlBuilder = betlistHtmlBuilder;
             _ticketBuilderService = ticketBuilderService;
-
+            _ipService = ipService;
         }
 
         [HttpPost]
         public async Task<JsonResult> Detail(MixParlayDetailMetaModel metaModel)
         {
             var ticketResult = await _betListService.GetMixParlayDetailTicket(metaModel).ConfigureAwait(false);
-            var result = _ticketBuilderService.BuildTicketText(ticketResult: ticketResult, showOdds: true);
+            var result = _ticketBuilderService.BuildTicketText(ticketResult: ticketResult, showOdds: true, isShowIpvn: metaModel.IsShowIpvn);
             BetListHelper.ClearData(ticketResult);
             return Json(result);
         }
@@ -98,15 +100,16 @@ namespace Fanex.Athena.BetList.Controller
             return Json(result);
         }
 
-        protected internal virtual IList<string> BuildParlayDetailTickets(TicketResult ticketResult, bool showOdds = false)
+        protected internal virtual IList<string> BuildParlayDetailTickets(TicketResult ticketResult, bool showOdds = false, bool isShowIpvn = false)
         {
             var ticketTextList = new List<string>();
 
             _ticketHelper.IsShowOddsWithChoice = showOdds;
+            _ticketHelper.IsVnIp = _ipService.IsVNIP;
 
             foreach (var ticket in ticketResult.MainTicketList)
             {
-                var statusTemplate = _betlistHtmlBuilder.CreateStatusBuilder(ticket.BetTypeId).Render(ticket, _ticketHelper, ticketResult.TicketDataList, isShowVNIP: false);
+                var statusTemplate = _betlistHtmlBuilder.CreateStatusBuilder(ticket.BetTypeId).Render(ticket, _ticketHelper, ticketResult.TicketDataList, isShowVNIP: isShowIpvn);
                 statusTemplate.ShowIP = null;
                 statusTemplate.StatusResult = null;
 

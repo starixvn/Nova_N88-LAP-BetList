@@ -93,6 +93,7 @@
     <Compile Include="DTO\ExchangeBetListResult.cs" />
     <Compile Include="DTO\ExchangeTicketDetail.cs" />
     <Compile Include="DTO\GroupTicketResult.cs" />
+    <Compile Include="DTO\IPRangeEntity.cs" />
     <Compile Include="DTO\LrfTicket.cs" />
     <Compile Include="DTO\BetListMatch.cs" />
     <Compile Include="DTO\ColossusBetDetail.cs" />

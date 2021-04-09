@@ -84,7 +84,7 @@
                 "leagueid", "awayid", "homeid", "matchid", "custid", "currencyid", "livehomescore", "liveawayscore",
                 "SpecialLevel", "StatusId", "transid", "betid", "winlostdate", "transdate",
                 "odds", "modds", "hdp1", "hdp2", "transdesc", "currency", "betdaqid", "extrainfo", "originalbettype",
-                "refcode", "wallettype", "oddsspread", "SettlementStatus", "eventdate"
+                "refcode", "wallettype", "oddsspread", "SettlementStatus", "eventdate", "ip"
             };
             var result = columns.ToDictionary(x => x, y => y);
             result.Add("playerCommCol", "playercomm");
@@ -138,6 +138,7 @@
             ticket.BetCheck = reader.GetString("betcheck");
             ticket.TransDesc = reader.GetString("transdesc");
             ticket.ExtraInfo = reader.GetString("extrainfo");
+            ticket.IP = reader.GetString("ip");
         }
 
         private static void ReadBooleanData(LrfTicket ticket, ISafeDataReader reader)

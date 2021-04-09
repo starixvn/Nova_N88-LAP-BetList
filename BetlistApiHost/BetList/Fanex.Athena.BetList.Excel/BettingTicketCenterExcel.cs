@@ -4,6 +4,7 @@
     using System.Linq;
     using Builders;
     using Common.Constant;
+    using Fanex.Athena.BetList.Service.Interfaces;
     using Model;
     using NPOI.SS.UserModel;
     using Resources;
@@ -14,9 +15,9 @@
 
         private bool disposed;
 
-        public BettingTicketCenterExcel(IBettingTicketCenterExcelBuilder builder)
+        public BettingTicketCenterExcel(IBettingTicketCenterExcelBuilder builder, IIPService ipService)
         {
-            _builder = builder ?? new BettingTicketCenterExcelBuilder(null, null);
+            _builder = builder ?? new BettingTicketCenterExcelBuilder(null, null, ipService);
         }
 
         public virtual IWorkbook Export(BettingTicketCenterExcelModel excelModel)

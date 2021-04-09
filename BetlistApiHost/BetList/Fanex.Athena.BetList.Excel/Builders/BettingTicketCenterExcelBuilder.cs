@@ -2,6 +2,7 @@
 using Fanex.Athena.BetList.Model.DTO;
 using Fanex.Athena.BetList.Model.MetaModel;
 using Fanex.Athena.BetList.Service.Extensions;
+using Fanex.Athena.BetList.Service.Interfaces;
 using Fanex.Athena.Common.Constant;
 using Fanex.Athena.Common.Utility.Helpers;
 using Fanex.Athena.Resources;
@@ -25,6 +26,8 @@ namespace Fanex.Athena.BetList.Excel.Builders
 
         private readonly ITicketHelper _ticketHelper;
 
+        private readonly IIPService _ipService;
+
         private bool disposed;
 
         private IBetListExcelBuilder _builder;
@@ -46,10 +49,11 @@ namespace Fanex.Athena.BetList.Excel.Builders
 
         private IFont _mixLiveFont;
 
-        public BettingTicketCenterExcelBuilder(IBetListExcelBuilder builder, ITicketHelper ticketHelper)
+        public BettingTicketCenterExcelBuilder(IBetListExcelBuilder builder, ITicketHelper ticketHelper, IIPService ipService)
         {
             _builder = builder ?? new BetListExcelBuilder();
             _ticketHelper = ticketHelper ?? new TicketHelper();
+            _ipService = ipService;
         }
 
         public IWorkbook GetWorkbook()
@@ -214,7 +218,8 @@ namespace Fanex.Athena.BetList.Excel.Builders
                 _builder.AddLicenseeWL(ticket, licenseeId == LicenseeIdentity.OneTwoBet, _negativeWinLossFont, _winLossFont);
             }
 
-            _builder.AddStatus(ticket, _ticketHelper, ticketResult.TicketDataList, false);
+            _ticketHelper.IsVnIp = _ipService.IsVNIP;
+            _builder.AddStatus(ticket, _ticketHelper, ticketResult.TicketDataList, option.IsShowIpvn);
             AddPlatfromCell(ticket);
             AddLiveCell(ticket);
         }

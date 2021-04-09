@@ -6,6 +6,7 @@ using Fanex.Athena.BetList.Excel.Model;
 using Fanex.Athena.BetList.Model.DTO;
 using Fanex.Athena.BetList.Model.MetaModel;
 using Fanex.Athena.BetList.Service.Helpers;
+using Fanex.Athena.BetList.Service.Interfaces;
 using Fanex.Athena.Common.Utility.Services;
 using Fanex.Athena.Common.Utility.Services.Interfaces;
 using Ionic.Zip;
@@ -21,20 +22,24 @@ namespace Fanex.Athena.BetList.Controller.Utility
         private readonly ITempFileService _tempFileService;
         private IBettingTicketCenterExcel _bettingTicketCenterExcel;
 
+        private readonly IIPService _ipService;
+
         public BettingTicketCenterZipBuilder(
             IAppSettings appSettings,
             ITempFileService tempFileService,
-            IBettingTicketCenterExcel bettingTicketCenterExcel
+            IBettingTicketCenterExcel bettingTicketCenterExcel,
+            IIPService ipService
             )
         {
             _appSettings = appSettings ?? new AppSettings();
+            _ipService = ipService;
             _tempFileService = tempFileService ?? new TempFileService(_appSettings, null);
-            _bettingTicketCenterExcel = bettingTicketCenterExcel ?? new BettingTicketCenterExcel(null);
+            _bettingTicketCenterExcel = bettingTicketCenterExcel ?? new BettingTicketCenterExcel(null, _ipService);
         }
 
         public IBettingTicketCenterExcel ExcelBuilder
         {
-            get { return _bettingTicketCenterExcel ?? new BettingTicketCenterExcel(null); }
+            get { return _bettingTicketCenterExcel ?? new BettingTicketCenterExcel(null, _ipService); }
             set { _bettingTicketCenterExcel = value; }
         }
 

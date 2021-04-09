@@ -8,6 +8,7 @@
     using Common.Constant;
     using Common.Utility.Services;
     using Common.Utility.Services.Interfaces;
+    using Fanex.Athena.BetList.Service.Interfaces;
     using Fanex.BetList.Core.Builder;
     using Fanex.BetList.Core.Entities;
     using Fanex.BetList.Core.TicketHelper;
@@ -35,9 +36,13 @@
 
         private readonly ITicketHelper _ticketHelper;
 
+        private readonly IIPService _ipService;
+
         private readonly IAppSettings _appSettings;
 
         private readonly bool _isShowSumStake;
+
+        private readonly bool _isShowIpvn;
 
         private readonly BetListShowingOption _showingOption;
 
@@ -50,19 +55,22 @@
 
         private IFont _winLossFont;
 
-        public BetListExcel(BetListShowingOption showingOption, int licenseeId, IEnumerable<int> hiddenColumnIndexes, bool isShowSumStake = false)
+        public BetListExcel(BetListShowingOption showingOption, int licenseeId, IEnumerable<int> hiddenColumnIndexes, bool isShowSumStake = false, bool isShowIpvn = false, IIPService ipService = null)
         {
             _appSettings = new AppSettings();
             _licenseeId = licenseeId;
             _ticketHelper = new TicketHelper();
             _isShowSumStake = isShowSumStake;
+            _isShowIpvn = isShowIpvn;
             _showingOption = showingOption;
             _hiddenColumnIndexes = hiddenColumnIndexes;
+            _ipService = ipService;
         }
 
         protected internal BetListExcel(
             IAppSettings appSettings,
             ITicketHelper ticketHelper,
+            IIPService  ipService,
             BetListShowingOption showingOption,
             int licenseeId,
             IEnumerable<int> hiddenColumnIndexes,
@@ -71,6 +79,7 @@
             _appSettings = appSettings;
             _licenseeId = licenseeId;
             _ticketHelper = ticketHelper;
+            _ipService = ipService;
             _isShowSumStake = isShowSumStake;
             _showingOption = showingOption;
             _hiddenColumnIndexes = hiddenColumnIndexes;
@@ -149,6 +158,7 @@
             }
 
             _ticketHelper.Index = startIndex;
+            _ticketHelper.IsVnIp = _ipService.IsVNIP;
             var numOfSheets = (int)Math.Ceiling((double)ticketResult.MainTicketList.Count / SystemConstants.SheetSizeExcel);
             for (int sheetIndex = 0; sheetIndex < numOfSheets; sheetIndex++)
             {
@@ -198,7 +208,7 @@
             builder.AddCustomerWL(ticket, _showingOption.CustomerCommVisible, _winLossFont);
             builder.AddBetEffective(ticket, _winLossFont);
             builder.AddLicenseeWL(ticket, _licenseeId == LicenseeIdentity.OneTwoBet, _negativeWinLossFont, _winLossFont);
-            builder.AddStatus(ticket, _ticketHelper, ticketResult.TicketDataList, false);
+            builder.AddStatus(ticket, _ticketHelper, ticketResult.TicketDataList, _isShowIpvn);
         }
 
         private void InitializeCellStyles(IBetListExcelBuilder builder)

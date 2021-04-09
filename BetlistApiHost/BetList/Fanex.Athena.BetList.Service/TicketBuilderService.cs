@@ -17,19 +17,25 @@ namespace Fanex.Athena.BetList.Service
 
         private readonly ITicketHelper _ticketHelper;
 
+        private readonly IIPService _ipService;
+
         [CLSCompliant(false)]
         public TicketBuilderService(
             IBetListHTMLBuilder betlistHtmlBuilder,
-            ITicketHelper ticketHelper)
+            ITicketHelper ticketHelper,
+            IIPService ipService)
         {
             _betlistHtmlBuilder = betlistHtmlBuilder;
             _ticketHelper = ticketHelper;
+            _ipService = ipService;
         }
 
         public IList<TicketText> BuildTicketText(TicketResult ticketResult, ICommonValueMetaModel metaModel, bool isAllowedCustomerComm)
         {
             var startIndex = ((metaModel.PageIndex - 1) * metaModel.PageSize) + 1;
             var ticketTextList = new List<TicketText>();
+            _ticketHelper.IsVnIp = _ipService.IsVNIP;
+
             foreach (var ticket in ticketResult.MainTicketList)
             {
                 if (ticket.BetTypeId == (int)BetType.CombinationMixParlay)
@@ -40,6 +46,8 @@ namespace Fanex.Athena.BetList.Service
                         ticket,
                         ticket.CustId);
                 }
+
+                _ticketHelper.IsVnIp = _ipService.IsVNIP;
 
                 var ticketText = new TicketText
                 {
@@ -54,7 +62,7 @@ namespace Fanex.Athena.BetList.Service
                     Stake = _betlistHtmlBuilder.BuildStake(ticket, _ticketHelper),
                     LicenseeWL = _betlistHtmlBuilder.BuildLicenseeWL(ticket),
                     WinLoss = _betlistHtmlBuilder.BuildCustomerWL(ticket, isAllowedCustomerComm),
-                    Status = _betlistHtmlBuilder.BuildLrfStatus(ticket, _ticketHelper, ticketResult.TicketDataList, new BetListMetaModel()),
+                    Status = _betlistHtmlBuilder.BuildStatus(ticket, _ticketHelper, ticketResult.TicketDataList, metaModel.IsShowIpvn),
                     Platform = PlatformType.GetPlatformName(ticket.BetFrom),
                     Live = _betlistHtmlBuilder.BuildLiveStatus(ticket)
                 };
@@ -75,12 +83,14 @@ namespace Fanex.Athena.BetList.Service
             BetListMetaModel metaModel = null,
             int startIndex = 1,
             bool showOdds = false,
-            bool isAllowedCustomerComm = false)
+            bool isAllowedCustomerComm = false,
+            bool isShowIpvn = false)
         {
             var baseCurrency = metaModel == null ? string.Empty : metaModel.BaseCurrency;
             var ticketTextList = new List<TicketText>();
 
             _ticketHelper.IsShowOddsWithChoice = showOdds;
+            _ticketHelper.IsVnIp = _ipService.IsVNIP;
 
             foreach (var ticket in ticketResult.MainTicketList)
             {
@@ -96,7 +106,7 @@ namespace Fanex.Athena.BetList.Service
                     ExternalId = ticket.ExternalId,
                     SystemId = ticket.UserName,
                     TransTime = _betlistHtmlBuilder.BuildTrans(ticket),
-                    Status = _betlistHtmlBuilder.BuildLrfStatus(ticket, _ticketHelper, ticketResult.TicketDataList, metaModel),
+                    Status = _betlistHtmlBuilder.BuildStatus(ticket, _ticketHelper, ticketResult.TicketDataList, (metaModel != null) && metaModel.IsShowIpvn || isShowIpvn),
                     Choice = _betlistHtmlBuilder.BuildChoice(ticket, _ticketHelper, ticketResult.TicketDataList, false),
                     Odds = _betlistHtmlBuilder.BuildOdds(ticket, ticketResult.TicketDataList, _ticketHelper.GetValidOddsTypeNameById),
                     Stake = _betlistHtmlBuilder.BuildStake(ticket, _ticketHelper),

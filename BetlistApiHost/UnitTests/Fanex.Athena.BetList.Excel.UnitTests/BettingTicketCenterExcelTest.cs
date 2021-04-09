@@ -2,6 +2,7 @@
 using Fanex.Athena.BetList.Excel.Model;
 using Fanex.Athena.BetList.Model.DTO;
 using Fanex.Athena.BetList.Model.MetaModel;
+using Fanex.Athena.BetList.Service.Interfaces;
 using Fanex.Athena.Resources;
 using Fanex.Athena.UnitTest.Common.Helpers;
 using NPOI.SS.UserModel;
@@ -14,13 +15,15 @@ namespace Fanex.Athena.BetList.Excel.UnitTests
     internal class BettingTicketCenterExcelTest
     {
         private IBettingTicketCenterExcelBuilder _builder;
+        private IIPService _ipService;
         private BettingTicketCenterExcel _excel;
 
         [SetUp]
         public void Setup()
         {
             _builder = Substitute.For<IBettingTicketCenterExcelBuilder>();
-            _excel = Substitute.ForPartsOf<BettingTicketCenterExcel>(_builder);
+            _ipService = Substitute.For<IIPService>();
+            _excel = Substitute.ForPartsOf<BettingTicketCenterExcel>(_builder, _ipService);
         }
 
         [Test]

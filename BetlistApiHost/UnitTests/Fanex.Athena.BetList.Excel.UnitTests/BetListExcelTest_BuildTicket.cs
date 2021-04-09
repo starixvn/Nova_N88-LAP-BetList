@@ -1,6 +1,7 @@
 ﻿using Fanex.Athena.BetList.Model.DTO;
 using Fanex.Athena.BetList.Model.MetaModel;
 using Fanex.Athena.BetList.Service.Extensions;
+using Fanex.Athena.BetList.Service.Interfaces;
 using Fanex.Athena.Common.Constant;
 using Fanex.Athena.Common.Utility.Services.Interfaces;
 using Fanex.BetList.Core.Builder;
@@ -16,6 +17,7 @@ namespace Fanex.Athena.BetList.Excel.UnitTests
     {
         private ITicketHelper _ticketHelper;
         private IBetListExcelBuilder _builder;
+        private IIPService _ipService;
         private BetListExcel _betListExcel;
 
         [SetUp]
@@ -23,6 +25,7 @@ namespace Fanex.Athena.BetList.Excel.UnitTests
         {
             _ticketHelper = Substitute.For<ITicketHelper>();
             _builder = Substitute.For<IBetListExcelBuilder>();
+            _ipService = Substitute.For<IIPService>();
             _betListExcel = CreateBetListExcel();
             _betListExcel.InitializeFonts(_builder);
         }
@@ -85,6 +88,7 @@ namespace Fanex.Athena.BetList.Excel.UnitTests
             var betListExcel = Substitute.ForPartsOf<BetListExcel>(
                 Substitute.For<IAppSettings>(),
                 _ticketHelper,
+                _ipService,
                 new BetListShowingOption(),
                 LicenseeIdentity.OneTwoBet,
                 new int[] { },

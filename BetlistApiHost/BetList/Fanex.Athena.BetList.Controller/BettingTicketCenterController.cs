@@ -36,7 +36,8 @@
                 ShowWinLoss = true,
                 ShowExternalId = true,
                 ShowSystemId = true,
-                IsAllowedCustomerComm = metaModel.HasPlayerCom
+                IsAllowedCustomerComm = metaModel.HasPlayerCom,
+                IsShowIpvn = metaModel.IsShowIpvn
             };
 
             if (metaModel.IsExport)
@@ -58,7 +59,8 @@
                 ShowTotal = false,
                 ShowExternalId = true,
                 ShowSystemId = true,
-                IsAllowedCustomerComm = metaModel.HasPlayerCom
+                IsAllowedCustomerComm = metaModel.HasPlayerCom,
+                IsShowIpvn = metaModel.IsShowIpvn
             };
 
             if (metaModel.IsExport)
@@ -79,7 +81,8 @@
                 ShowSumStake = true,
                 IsAllowedCustomerComm = false,
                 ShowExternalId = true,
-                ShowSystemId = true
+                ShowSystemId = true,
+                IsShowIpvn = metaModel.IsShowIpvn
             };
 
             if (metaModel.IsExport)

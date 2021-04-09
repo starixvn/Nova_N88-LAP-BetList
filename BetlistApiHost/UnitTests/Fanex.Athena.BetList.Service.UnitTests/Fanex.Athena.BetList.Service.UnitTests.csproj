@@ -81,6 +81,7 @@
   <ItemGroup>
     <Compile Include="BetListServiceTest.cs" />
     <Compile Include="BetListByProductServiceTest.cs" />
+    <Compile Include="IPServiceTest.cs" />
     <Compile Include="SystemParlayDetailServiceTest.cs" />
     <Compile Include="TicketBuilderServiceTest.cs" />
     <Compile Include="ExchangeBetListServiceTest.cs" />

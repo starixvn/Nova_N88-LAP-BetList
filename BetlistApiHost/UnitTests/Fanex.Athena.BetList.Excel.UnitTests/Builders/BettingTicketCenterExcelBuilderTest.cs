@@ -4,6 +4,7 @@
     using Athena.BetList.Model.DTO;
     using Common.Constant;
     using Fanex.Athena.BetList.Model.MetaModel;
+    using Fanex.Athena.BetList.Service.Interfaces;
     using Fanex.BetList.Core.Builder;
     using Fanex.BetList.Core.Entities;
     using NPOI.HSSF.UserModel;
@@ -22,6 +23,7 @@
 
         private ITicketHelper _ticketHelper;
         private IBetListExcelBuilder _builder;
+        private IIPService _ipService;
 
         private ICellStyle _oddStyle;
         private ICellStyle _evenStyle;
@@ -33,10 +35,12 @@
         {
             _ticketHelper = Substitute.For<ITicketHelper>();
             _builder = Substitute.For<IBetListExcelBuilder>();
+            _ipService = Substitute.For<IIPService>();
 
             _excelBuilder = Substitute.ForPartsOf<BettingTicketCenterExcelBuilder>(
                 _builder,
-                _ticketHelper);
+                _ticketHelper,
+                _ipService);
 
             _oddStyle = Substitute.For<ICellStyle>();
             _oddStyle.FillBackgroundColor = 2;
@@ -328,9 +332,13 @@
             var lastRow = FakeHelper.Create<int>();
             _builder.LastContentRow.Returns(lastRow);
             _excelBuilder.InitializeFonts();
+            var option = new BettingTicketCenterOption
+            {
+                ShowWinLoss = true
+            };
 
             // Action
-            _excelBuilder.AddFooter(0, original, 0, 0, FakeHelper.Create<string>(), FakeHelper.Create<BettingTicketCenterOption>(x => x.ShowWinLoss, true));
+            _excelBuilder.AddFooter(0, original, 0, 0, FakeHelper.Create<string>(), option);
 
             // Assert
             _builder.Received(1).AddCell(Arg.Is<HSSFRichTextString>(x => x.String == expected), Arg.Any<ICellStyle>());

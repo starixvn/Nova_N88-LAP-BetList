@@ -32,6 +32,7 @@
 
         private IBetListHTMLBuilder _betlistHtmlBuilder;
         private ITicketBuilderService _ticketBuilderService;
+        private IIPService _ipService;
 
         [SetUp]
         public void SetUp()
@@ -41,7 +42,7 @@
             _ticketHelper = Substitute.For<ITicketHelper>();
             _betlistHtmlBuilder = Substitute.For<IBetListHTMLBuilder>();
             _ticketBuilderService = Substitute.For<ITicketBuilderService>();
-
+            _ipService = Substitute.For<IIPService>();
         }
 
         [TearDown]
@@ -67,7 +68,9 @@
                 _betListService.GetMixParlayDetailTicket(metaModel).Returns(ticketResult);
 
                 var ticketText = FakeHelper.CreateMany<TicketText>(2).ToList();
-                _ticketBuilderService.BuildTicketText(ticketResult: ticketResult, showOdds: true).Returns(ticketText);
+                _ticketBuilderService.BuildTicketText(ticketResult: ticketResult, showOdds: true, isShowIpvn: true).Returns(ticketText);
+
+                metaModel.IsShowIpvn = true;
 
                 // Action
                 var result = (await controller.Detail(metaModel)).Data;
@@ -262,7 +265,7 @@
 
         private MixParlayBetListController CreateController()
         {
-            return new MixParlayBetListController(_cacheRefAdapter, _betListService, _ticketHelper, _betlistHtmlBuilder, _ticketBuilderService);
+            return new MixParlayBetListController(_cacheRefAdapter, _betListService, _ticketHelper, _ipService, _betlistHtmlBuilder, _ticketBuilderService);
         }
     }
 }
