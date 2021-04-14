@@ -2,7 +2,7 @@
 {
     public class SingleCustomersBetListMetaModel : BaseBettingTicketMetaModel
     {
-        public int Platform { get; set; }
+        public string Platform { get; set; }
 
         public string LiveStatus { get; set; }
 

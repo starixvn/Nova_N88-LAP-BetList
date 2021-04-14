@@ -28,13 +28,14 @@
             { "a", DesktopChina },
             { "z", DesktopChina },
             { "9", DesktopOthers },
+            { ">", DesktopOthers },
             { "l", MobileStandard },
-            { "_", MobileStandard },
             { "%", MobileEuro },
             { "c", MobileCompact },
             { "@", MobileCompact },
             { "7", MobileOthers },
             { "8", MobileOthers },
+            { "_", MobileOthers },
             { "1", ESportsDesktop },
             { "4", ESportsDesktop },
             { "2", ESportsMobile },
@@ -42,6 +43,7 @@
             { "3", ESportsApp },
             { "6", ESportsApp },
             { "o", MobileApp },
+            { "~", MobileApp },
             { "0", NativeApp },
             { "r", Tablet },
             { "t", DeepLink },
@@ -50,7 +52,8 @@
             { "d", BetfromOthers },
             { "g", BetfromOthers },
             { "e", BetfromOthers },
-            { "u", BetfromOthers }
+            { "u", BetfromOthers },
+            { "^", BetfromOthers }
         };
 
         public static string GetPlatformName(string code)
