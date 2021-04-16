@@ -209,16 +209,19 @@
     <value>Base Currency</value>
     <comment>84932</comment>
   </data>
-  <data name="China" xml:space="preserve">
-    <value>China</value>
+  <data name="DesktopChina" xml:space="preserve">
+    <value>Desktop China</value>
     <comment>#50939</comment>
+  </data>
+  <data name="DesktopOthers" xml:space="preserve">
+    <value>Desktop Others</value>
   </data>
   <data name="Asia" xml:space="preserve">
     <value>Asia</value>
     <comment>#50939</comment>
   </data>
-  <data name="NewAsia" xml:space="preserve">
-    <value>New Asia</value>
+  <data name="DesktopNewAsia" xml:space="preserve">
+    <value>Desktop New Asia</value>
     <comment>#85203</comment>
   </data>
   <data name="Euro" xml:space="preserve">
@@ -228,16 +231,19 @@
   <data name="Wap" xml:space="preserve">
     <value>WAP</value>
   </data>
-  <data name="Mobile" xml:space="preserve">
-    <value>Mobile</value>
+  <data name="MobileStandard" xml:space="preserve">
+    <value>Mobile Standard</value>
   </data>
   <data name="MobileApp" xml:space="preserve">
-    <value>Mobile App</value>
+    <value>Mobile APP</value>
     <comment>104587</comment>
   </data>
-  <data name="MobileLiteVersion" xml:space="preserve">
-    <value>Mobile Lite Version</value>
+  <data name="MobileCompact" xml:space="preserve">
+    <value>Mobile Compact</value>
     <comment>106088</comment>
+  </data>
+  <data name="MobileOthers" xml:space="preserve">
+    <value>Mobile Others</value>
   </data>
   <data name="Tablet" xml:space="preserve">
     <value>Tablet</value>
@@ -263,7 +269,7 @@
     <comment>125845</comment>
   </data>
   <data name="NativeApp" xml:space="preserve">
-    <value>Native App</value>
+    <value>Native APP</value>
     <comment>125824</comment>
   </data>
   <data name="BetHistory" xml:space="preserve">
@@ -271,7 +277,7 @@
     <comment>80941</comment>
   </data>
   <data name="ESportsApp" xml:space="preserve">
-    <value>E-Sports App</value>
+    <value>E-Sports APP</value>
   </data>
   <data name="ESportsDesktop" xml:space="preserve">
     <value>E-Sports Desktop</value>
