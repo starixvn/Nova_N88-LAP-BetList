@@ -4,6 +4,8 @@
     {
         public string Title { get; set; }
 
+        public string Note { get; set; }
+
         public BetListShowingOption ShowingOption { get; set; }
 
         public int[] HiddenColumns { get; set; }

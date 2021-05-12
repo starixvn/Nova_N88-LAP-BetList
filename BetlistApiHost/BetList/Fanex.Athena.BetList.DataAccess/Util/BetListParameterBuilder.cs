@@ -16,6 +16,7 @@
         private static readonly Dictionary<string, Action<IObjectDb, BetListMetaModel>> NonBaseCurrencySpNameActionMap =
             new Dictionary<string, Action<IObjectDb, BetListMetaModel>>(StringComparer.OrdinalIgnoreCase)
         {
+            { "N88_BetList_WinLossAnalysis", (db, metalModel) => CreateWLAnalysisBetlistParameters(db, metalModel) },
             { "Lrf_BetList_SelWinLossByDate_Mem", (db, metalModel) => CreateCustomerWlBetlistParameters(db, metalModel) },
             { "Lrf_BetList_SelWinloss_Mem", (db, metalModel) => CreateLicenseeWLBetlistParameters(db, metalModel) },
             { "Lrf_BetList_LicenseeBonus_Detail", (db, metalModel) => CreateBonusDetailParameters(db, metalModel) },
@@ -71,6 +72,22 @@
             CreateBetListPagingParameters(db, metaModel);
             CreateSummaryOutputParameters(db);
             CreateProductListParameters(db, metaModel.ProductCodeList);
+        }
+
+        private static void CreateWLAnalysisBetlistParameters(IObjectDb db, BetListMetaModel metaModel)
+        {
+            db.SetParameterValue(nameof(metaModel.BaseCurrency), metaModel.BaseCurrency);
+            db.SetParameterValue(CustIdColumn, metaModel.CustId);
+
+            db.SetParameterValue(nameof(metaModel.FilterBy), metaModel.FilterBy);
+            db.SetParameterValue(nameof(metaModel.TimeZone), metaModel.TimeZone);
+            db.SetParameterValue(nameof(metaModel.ProductId), metaModel.ProductId);
+            db.SetParameterValue(nameof(metaModel.ExcludeDrawTicket), metaModel.ExcludeDrawTicket);
+
+            CreateBetListDateRangeParameters(db, metaModel);
+            CreateBetlistBUParameters(db, metaModel);
+            CreateBetListPagingParameters(db, metaModel);
+            CreateSummaryOutputParameters(db);
         }
 
         private static void CreateJackpotWonDetailParameters(IObjectDb db, BetListMetaModel metaModel)
