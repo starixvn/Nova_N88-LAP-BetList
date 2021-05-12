@@ -84,13 +84,13 @@ namespace Fanex.Athena.BetList.Excel.UnitTests
             var ticketResult = new TicketResult();
             var ticket = new LrfTicket();
             ticketResult.MainTicketList.Add(ticket);
-            betListExcel.When(x => x.AssignSheetsData(_builder, ticketResult, Title, Arg.Any<int>())).DoNotCallBase();
+            betListExcel.When(x => x.AssignSheetsData(_builder, ticketResult, Title, Arg.Any<string>(), Arg.Any<int>())).DoNotCallBase();
 
             // Action
             betListExcel.Build(_builder, ticketResult, Title);
 
             // Assert
-            betListExcel.Received(1).AssignSheetsData(_builder, ticketResult, Title, Arg.Any<int>());
+            betListExcel.Received(1).AssignSheetsData(_builder, ticketResult, Title, Arg.Any<string>(), Arg.Any<int>());
         }
 
         [Test]
