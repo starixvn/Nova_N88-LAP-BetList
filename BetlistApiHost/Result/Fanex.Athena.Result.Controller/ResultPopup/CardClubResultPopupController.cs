@@ -1,21 +1,21 @@
 namespace Fanex.Athena.Result.Controller.ResultPopup
 {
+    using Fanex.Result.Core.CardClub;
     using System.Web.Mvc;
-    using Fanex.Result.Core.SabaClub;
 
-    public class SabaClubResultPopupController : BaseResultController
+    public class CardClubResultPopupController : BaseResultController
     {
-        private readonly ISabaClubResult _resultApi;
+        private readonly ICardClubResult _resultApi;
 
-        public SabaClubResultPopupController(ISabaClubResult resultApi)
+        public CardClubResultPopupController(ICardClubResult resultApi)
         {
             _resultApi = resultApi;
         }
 
         [HttpPost]
-        public string Index(string custId, string gameRoundId, string gameId, string siteId, string languageCode)
+        public string Index(string custId, string gameTypeId, string transId3rd, string languageCode)
         {
-            return _resultApi.GetResult(custId, gameRoundId, gameId, siteId, languageCode);
+            return _resultApi.GetResult(custId, gameTypeId, transId3rd, languageCode);
         }
     }
 }

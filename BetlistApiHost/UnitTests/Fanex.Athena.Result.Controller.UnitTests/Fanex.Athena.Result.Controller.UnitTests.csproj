@@ -56,6 +56,9 @@
     <Reference Include="Fanex.Result.Core.Base, Version=2.3.8.3, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Result.Core-NPOI.2.0.6.2.3.8.4\lib\net40\Fanex.Result.Core.Base.dll</HintPath>
     </Reference>
+    <Reference Include="Fanex.Result.Core.CardClub, Version=1.0.1.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Fanex.Result.Core.CardClub.1.0.1.1\lib\net40\Fanex.Result.Core.CardClub.dll</HintPath>
+    </Reference>
     <Reference Include="Fanex.Result.Core.Casino, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Result.Core.Casino.1.0.0.0\lib\Fanex.Result.Core.Casino.dll</HintPath>
     </Reference>
@@ -67,10 +70,6 @@
     </Reference>
     <Reference Include="Fanex.Result.Core.NumberGame, Version=1.0.3.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Result.Core-NumberGame.1.0.3.2-beta01\lib\net40\Fanex.Result.Core.NumberGame.dll</HintPath>
-    </Reference>
-    <Reference Include="Fanex.Result.Core.PokerGames, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.Result.Core.PokerGames.1.0.2.0\lib\net40\Fanex.Result.Core.PokerGames.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Result.Core.PP, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Result.Core.PP.1.0.0.0\lib\Fanex.Result.Core.PP.dll</HintPath>
