@@ -178,7 +178,7 @@
                 "#", ViewResources.ExternalId, ViewResources.SystemId, ViewResources.TransTime, ViewResources.Choice, ViewResources.Odds, ViewResources.Stake,
                 CustomerWLHeader, ViewResources.EffectiveBettingValue, ViewResources.LicenseeWL + "/" + ViewResources.Comm, ViewResources.Status
             };
-            var columWidths = new short[] { 1500, 4800, 5800, 5400, 15500, 2600, 4200, 4200, 5400, 5400, 3400 };
+            var columWidths = new short[] { 1500, 4800, 5800, 5400, 15500, 2600, 4200, 4200, 5400, 5400, 4000 };
             var cellList = Enumerable.Range(0, captions.Length).Select(x => new CellAddress(0, x)).ToArray();
             _builder.AddCell(null, null).ReturnsForAnyArgs(cellList[0], cellList.Skip(1).ToArray());
 
