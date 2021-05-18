@@ -1,6 +1,6 @@
 ﻿namespace Fanex.Athena.Result.Controller.UnitTests
 {
-    using Fanex.Result.Core.PokerGames;
+    using Fanex.Result.Core.CardClub;
     using NSubstitute;
     using NUnit.Framework;
     using ResultPopup;
@@ -18,9 +18,9 @@
             const string LanguageCode = "en-US";
             const string ExpectedResult = "aaaaaaaaaaaa";
 
-            var resultApi = Substitute.For<IPokerGamesResult>();
+            var resultApi = Substitute.For<ICardClubResult>();
 
-            resultApi.GetResult(CustId, GameTypeId, TransId3rd, Fanex.Result.Core.PokerGames.Models.ViewerLevel.Member, LanguageCode)
+            resultApi.GetResult(CustId, GameTypeId, TransId3rd, LanguageCode)
                 .Returns(ExpectedResult);
             using (var controller = new CardClubResultPopupController(resultApi))
             {
