@@ -128,7 +128,7 @@
         {
             var excel = new BetListExcel(metaModel.ShowingOption, metaModel.LicenseeId, metaModel.HiddenColumns, metaModel.IsShowSumStake, metaModel.IsShowIpvn, _ipService);
 
-            var workbook = excel.Export(ticketResult, metaModel.Title, metaModel.StartIndex);
+            var workbook = excel.Export(ticketResult, metaModel.Title, metaModel.Note, metaModel.StartIndex);
 
             return new ExcelResult(workbook);
         }

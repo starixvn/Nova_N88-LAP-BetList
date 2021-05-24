@@ -3,6 +3,7 @@
   <Function Name="Common">
     <Setting Key="Lrf_SelBalanceUpDay" SpName="Lrf_SelBalanceUpDay" DbName="DBEXT.bodb02.bodbLicenseeNet" />
     <Setting Key="Lrf_CurrencySel" SpName="Lrf_CurrencySel" DbName="DBEXT.bodb02.bodbLicenseeNet" />
+    <Setting Key="Lrf_GetAllIPVN" SpName="Lrf_GetAllIPVN" DbName="DBCUST.IPDB.bodbLicenseeNet" />
   </Function>
   <Function Name="ResultReport">
     <Setting Key="Lrf_Result_Outright" SpName="Lrf_Result_Outright" DbName="DBEXT.bodb02.bodbLicenseeNet" />
@@ -32,6 +33,9 @@
     <Setting Key="Lrf_BetList_Licensee_TotalRows" SpName="Lrf_BetList_Licensee_TotalRows" DbName="DBEXT.bodb02.bodbLicenseeNet" />
     <Setting Key="Lrf_BetList_Running_Mem" SpName="Lrf_BetList_Running_Mem"  DbName="DBBOF.bodb02.bodbLicenseeNet" />
     <Setting Key="Lrf_BetList_Statement_Mem" SpName="Lrf_BetList_Statement_Mem"  DbName="DBACC.bodb02.bodbLicenseeNet" />
+    <!-- Based TpBetRecord -->
+    <Setting Key="N88_BetList_WinLossAnalysis" SpName="N88_BetList_WinLossAnalysis" DbName="DBACC.bodb02.bodbLicenseeNet" />
+    <!-- end-->
   </Function>
   <Function Name="TicketDetail">
     <Setting Key="Lrf_BetList_SelCombinationParlayDetail" SpName="Lrf_BetList_SelCombinationParlayDetail" DbName="DBACC.bodb02.bodbLicenseeNet" />
@@ -48,3 +52,5 @@
     <Setting Key="Acc_CustomerSelSiteByCustId" SpName="Acc_CustomerSelSiteByCustId" DbName="DBCUST.CustDB.bodbLicenseeNet" />
   </Misc>
 </Functions>
+
+		

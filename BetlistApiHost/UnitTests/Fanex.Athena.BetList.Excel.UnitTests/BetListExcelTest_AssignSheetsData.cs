@@ -39,7 +39,7 @@ namespace Fanex.Athena.BetList.Excel.UnitTests
             ticketResult.MainTicketList.Add(new LrfTicket { Stake = 100 });
 
             // Action
-            betListExcel.AssignSheetsData(_builder, ticketResult, Title, 0);
+            betListExcel.AssignSheetsData(_builder, ticketResult, Title, string.Empty, 0);
 
             // Assert
             _builder.Received(1).AddCell(
@@ -65,7 +65,7 @@ namespace Fanex.Athena.BetList.Excel.UnitTests
             ticketResult.MainTicketList.Add(new LrfTicket { Stake = 0 });
 
             // Action
-            betListExcel.AssignSheetsData(_builder, ticketResult, Title, 0);
+            betListExcel.AssignSheetsData(_builder, ticketResult, Title, string.Empty, 0);
 
             // Assert
             Assert.Multiple(() =>
@@ -97,7 +97,7 @@ namespace Fanex.Athena.BetList.Excel.UnitTests
             var ticketResult = CreateTicketResult();
 
             // Action
-            betListExcel.AssignSheetsData(_builder, ticketResult, Title, 0);
+            betListExcel.AssignSheetsData(_builder, ticketResult, Title, string.Empty, 0);
 
             // Assert
             Assert.Multiple(() =>
@@ -143,7 +143,7 @@ namespace Fanex.Athena.BetList.Excel.UnitTests
             var ticketResult = CreateTicketResult();
 
             // Action
-            betListExcel.AssignSheetsData(_builder, ticketResult, Title, 0);
+            betListExcel.AssignSheetsData(_builder, ticketResult, Title, string.Empty, 0);
 
             // Assert
             _builder.Received(1).AddCell(

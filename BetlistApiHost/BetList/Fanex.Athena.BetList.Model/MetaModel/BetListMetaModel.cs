@@ -37,8 +37,6 @@ namespace Fanex.Athena.BetList.Model.MetaModel
 
         public string SortOrder { get; set; }
 
-        public bool IsExportExcel { get; set; }
-
         public int PageSize { get; set; }
 
         public int PageIndex { get; set; }
@@ -59,41 +57,17 @@ namespace Fanex.Athena.BetList.Model.MetaModel
 
         public DateTime BalanceUpDay { get; set; }
 
-        public int MatchId { get; set; }
-
-        public int LeagueId { get; set; }
-
-        public int BetType { get; set; }
-
-        public string MultipleBettype { get; set; }
-
-        public string BetTeam { get; set; }
-
-        public int? LiveIndicator { get; set; }
-
-        public string RaceNo { get; set; }
-
         public int DrawFilter { get; set; }
 
         public long TransId { get; set; }
 
         public long TransType { get; set; }
 
-        public int PlatformType { get; set; }
-
-        public string BetChoice { get; set; }
-
-        public string Handicap { get; set; }
-
         public long RefCode { get; set; }
 
-        public virtual bool IsValid
-        {
-            get
-            {
-                return FromDate <= ToDate
-                    && !string.IsNullOrWhiteSpace(ProductCodeList);
-            }
-        }
+        public byte FilterBy { get; set; }
+        public int TimeZone { get; set; }
+        public int ProductId { get; set; }
+        public bool ExcludeDrawTicket { get; set; }
     }
 }

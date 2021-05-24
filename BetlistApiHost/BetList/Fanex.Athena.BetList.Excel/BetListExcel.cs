@@ -85,10 +85,10 @@
             _hiddenColumnIndexes = hiddenColumnIndexes;
         }
 
-        public IWorkbook Export(TicketResult ticketResult, string title, int startIndex = 1)
+        public IWorkbook Export(TicketResult ticketResult, string title, string note = null, int startIndex = 1)
         {
             var builder = this.CreateExcelBuilder();
-            Build(builder, ticketResult, title, startIndex);
+            Build(builder, ticketResult, title, note, startIndex);
             var workbook = builder.GetBetList();
             ProcessUi(workbook);
             return workbook;
@@ -122,7 +122,34 @@
             builder.MergeCell(new CellRangeAddress(0, 0, 0, NumberOfColumn - 1));
         }
 
-        protected internal virtual void Build(IBetListExcelBuilder builder, TicketResult ticketResult, string title, int startIndex = 1)
+        private static void AddNote(IBetListExcelBuilder builder, string note)
+        {
+            if(string.IsNullOrWhiteSpace(note))
+            {
+                return;
+            }
+
+            var font = builder.CreateFont();
+            font.Color = HSSFColor.Black.Index;
+
+            var noteStyle = builder.CreateCellStyle();
+            noteStyle.VerticalAlignment = VerticalAlignment.Center;
+            noteStyle.SetFont(font);
+            noteStyle.WrapText = true;
+
+            const int noteRowIndex = 1;
+            const int blankRowIndex = 2;
+
+            builder.AddCell(new HSSFRichTextString(note), noteStyle);
+            builder.MergeCell(new CellRangeAddress(noteRowIndex, noteRowIndex, 0, NumberOfColumn - 1));
+
+            builder.AddCell(new HSSFRichTextString(string.Empty), noteStyle);
+            builder.MergeCell(new CellRangeAddress(blankRowIndex, blankRowIndex, 0, NumberOfColumn - 1));
+
+            builder.MergeCell(new CellRangeAddress(noteRowIndex, blankRowIndex, 0, NumberOfColumn - 1));
+        }
+
+        protected internal virtual void Build(IBetListExcelBuilder builder, TicketResult ticketResult, string title, string note = null, int startIndex = 1)
         {
             InitializeFonts(builder);
             InitializeCellStyles(builder);
@@ -130,18 +157,19 @@
             // Content
             if (ticketResult.MainTicketList.Any())
             {
-                AssignSheetsData(builder, ticketResult, title, startIndex);
+                AssignSheetsData(builder, ticketResult, title, note, startIndex);
             }
             else
             {
                 builder.BuildWorksheet(ViewResources.BetList, NumberOfColumn);
                 AddTitle(builder, title);
+                AddNote(builder, note);
                 AddHeader(builder);
                 AddNoInfoRow(builder);
             }
         }
 
-        protected internal virtual void AssignSheetsData(IBetListExcelBuilder builder, TicketResult ticketResult, string title, int startIndex)
+        protected internal virtual void AssignSheetsData(IBetListExcelBuilder builder, TicketResult ticketResult, string title, string note, int startIndex)
         {
             var sumStake = _isShowSumStake ? ticketResult.MainTicketList.Sum(x => x.Stake) : 0;
 
@@ -164,6 +192,7 @@
             {
                 builder.BuildWorksheet(ViewResources.Page + (sheetIndex + 1), NumberOfColumn);
                 AddTitle(builder, title);
+                AddNote(builder, note);
                 AddHeader(builder);
 
                 var endIndex = Math.Min((sheetIndex + 1) * SystemConstants.SheetSizeExcel, ticketResult.MainTicketList.Count);
