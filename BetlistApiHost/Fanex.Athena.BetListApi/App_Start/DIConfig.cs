@@ -24,6 +24,7 @@
     using Fanex.Result.Core.Voidbridge;
     using Fanex.Result.Core.SportsLottery;
     using Fanex.Result.Core.CardClub;
+    using Fanex.Result.Core.VGaming;
 
     public static class DIConfig
     {
@@ -63,6 +64,7 @@
             builder.RegisterType<SexyGamingResultBuilder>().As<ISexyGamingResultBuilder>();
             builder.RegisterType<LinkedGamesResult>().As<ILinkedGamesResult>();
             builder.RegisterType<SportsLotteryResult>().As<ISportsLotteryResult>();
+            builder.RegisterType<VGamingResult>().As<IVGamingResult>();
         }
 
         private static Assembly[] GetAssemblies()

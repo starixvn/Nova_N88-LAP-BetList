@@ -95,6 +95,9 @@
     <Reference Include="Fanex.Result.Core.SportsLottery, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Result.Core.SportsLottery.1.0.0\lib\net461\Fanex.Result.Core.SportsLottery.dll</HintPath>
     </Reference>
+    <Reference Include="Fanex.Result.Core.VGaming, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Fanex.Result.Core.VGaming.1.0.0\lib\net40\Fanex.Result.Core.VGaming.dll</HintPath>
+    </Reference>
     <Reference Include="Fanex.Result.Core.VirtualGames, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Result.Core.VirtualGames.1.0.0.0\lib\net40\Fanex.Result.Core.VirtualGames.dll</HintPath>
     </Reference>
@@ -139,6 +142,7 @@
   <ItemGroup>
     <Compile Include="BaseResultController.cs" />
     <Compile Include="ResultPopup\AllBetResultPopupController.cs" />
+    <Compile Include="ResultPopup\VGamingResultPopupController.cs" />
     <Compile Include="ResultPopup\SportsLotteryResultPopupController.cs" />
     <Compile Include="ResultPopup\Happy5LinkedGamesResultPopupController.cs" />
     <Compile Include="ResultPopup\CardClubResultPopupController.cs" />
