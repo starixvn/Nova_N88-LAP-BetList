@@ -13,7 +13,7 @@
     public class BettingTicketCenterDataAccess : BaseBetListDataAccess, IBettingTicketCenterDataAccess
     {
         private readonly IBalanceUpDataAccess _balanceUpDataAccess;
-       
+
         public BettingTicketCenterDataAccess(IBalanceUpDataAccess balanceUpDataAccess,
             ICurrencyDataAccess currencyService) : base(currencyService)
         {
@@ -50,7 +50,6 @@
 
         public async Task<TicketResult> GetBetListByRefnoAsync(RefNoBetListMetaModel metaModel)
         {
-
             const string UspKey = "Lrf_BetList_RefNo_Mem";
 
             var ticketResult = new TicketResult();
@@ -68,7 +67,7 @@
 
                 using (var reader = await db.ExecuteReaderAsync().ConfigureAwait(false))
                 {
-                    ticketResult.MainTicketList.AddRange(ReadBetListTicket(reader, currencyList));
+                    ticketResult.MainTicketList.AddRange(ReadBetListTicket(reader, currencyList, 0, metaModel.LastXDays));
                     ticketResult.TotalRows = ticketResult.MainTicketList.Count;
                 }
             }

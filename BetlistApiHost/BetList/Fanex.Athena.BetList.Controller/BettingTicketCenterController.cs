@@ -19,7 +19,7 @@
             IBettingTicketCenterDataAccess dataAccess,
             ITicketBuilderService ticketBuilderService,
             IBettingTicketCenterExcel bettingTicketCenterExcel)
-            : base (ticketBuilderService, bettingTicketCenterExcel)
+            : base(ticketBuilderService, bettingTicketCenterExcel)
         {
             _dataAccess = dataAccess;
         }
@@ -52,6 +52,7 @@
         public async Task<ActionResult> GetByRefno(RefNoBetListMetaModel metaModel)
         {
             var ticketResult = await _dataAccess.GetBetListByRefnoAsync(metaModel);
+
             var option = new BettingTicketCenterOption
             {
                 ShowLicenseeWl = true,
