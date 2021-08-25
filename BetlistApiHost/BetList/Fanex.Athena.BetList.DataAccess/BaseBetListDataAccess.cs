@@ -18,6 +18,7 @@
     public class BaseBetListDataAccess : BaseDataAccess
     {
         private readonly ICurrencyDataAccess _currencyDataAccess;
+
         protected BaseBetListDataAccess(ICurrencyDataAccess currenyDataAccess)
         {
             _currencyDataAccess = currenyDataAccess;
@@ -27,7 +28,6 @@
         {
             return await _currencyDataAccess.GetCurrencyListAsync().ConfigureAwait(false);
         }
-
 
         [CLSCompliant(false)]
         protected internal static LrfTicket MapTicket(
@@ -56,7 +56,8 @@
         protected internal virtual SortableList<LrfTicket> ReadBetListTicket(
             IDataReader dataReader,
             IDictionary<int, string> currencyList,
-            long custId = 0)
+            long custId = 0,
+            DateTime? lastXDays = (DateTime?)null)
         {
             var columns = GetColumns();
             var tickets = new SortableList<LrfTicket>();
@@ -64,7 +65,12 @@
             var reader = this.GetSafeDataReader(dataReader, columns.Select(x => x.Value).ToList());
             while (reader.Read())
             {
-                tickets.Add(MapTicket(reader, columns, currencyList, custId));
+                var ticket = MapTicket(reader, columns, currencyList, custId);
+
+                if (!lastXDays.HasValue || ticket.WinlostDate >= lastXDays.GetValueOrDefault())
+                {
+                    tickets.Add(ticket);
+                }
             }
 
             return tickets;
