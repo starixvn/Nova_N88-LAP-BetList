@@ -31,7 +31,7 @@
 
         private IBettingTicketCenterExcel _bettingTicketCenterExcel;
 
-        private  ITicketBuilderService _ticketBuilderService;
+        private ITicketBuilderService _ticketBuilderService;
 
         private IIPService _ipService;
 
@@ -200,7 +200,7 @@
                     controller.HttpContext.Response,
                     ticketResult,
                     Arg.Any<string>(),
-                    Arg.Any<bool>(),
+                    Arg.Any<AdvancedSearchBetListMetaModel>(),
                     Arg.Any<string>()).Returns(x => null);
 
                 // Action

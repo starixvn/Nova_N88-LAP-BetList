@@ -43,14 +43,14 @@ namespace Fanex.Athena.BetList.Controller.Utility
             set { _bettingTicketCenterExcel = value; }
         }
 
-        public MemoryStream BuildZip(HttpResponseBase response, GroupTicketResult ticketResult, string title, bool hasPlayerComm, string totalText)
+        public MemoryStream BuildZip(HttpResponseBase response, GroupTicketResult ticketResult, string title, AdvancedSearchBetListMetaModel metaModel, string totalText)
         {
             var excelFiles = new List<string>();
 
             for (int i = 0; i < ticketResult.DataPath.Count; i++)
             {
                 var contentData = _tempFileService.ReadString(ticketResult.DataPath[i]);
-                var excelModel = CreateExcelModel(ticketResult, contentData, title, hasPlayerComm, totalText);
+                var excelModel = CreateExcelModel(ticketResult, contentData, title, metaModel, totalText);
                 if (excelModel != null)
                 {
                     var workbook = ExcelBuilder.Export(excelModel);
@@ -65,7 +65,6 @@ namespace Fanex.Athena.BetList.Controller.Utility
                     ExcelBuilder.Dispose();
                     ExcelBuilder = null;
                 }
-
             }
 
             CleanDataFile(ticketResult.DataPath);
@@ -76,7 +75,7 @@ namespace Fanex.Athena.BetList.Controller.Utility
             GroupTicketResult groupData,
             string contentData,
             string title,
-            bool hasPlayerComm,
+            AdvancedSearchBetListMetaModel metaModel,
             string totalText)
         {
             if (string.IsNullOrEmpty(contentData))
@@ -105,7 +104,8 @@ namespace Fanex.Athena.BetList.Controller.Utility
                     ShowWinLoss = true,
                     ShowExternalId = true,
                     ShowSystemId = true,
-                    IsAllowedCustomerComm = hasPlayerComm
+                    IsAllowedCustomerComm = metaModel.HasPlayerCom,
+                    IsShowIpvn = metaModel.IsShowIpvn
                 },
                 Title = title,
                 TotalText = totalText
