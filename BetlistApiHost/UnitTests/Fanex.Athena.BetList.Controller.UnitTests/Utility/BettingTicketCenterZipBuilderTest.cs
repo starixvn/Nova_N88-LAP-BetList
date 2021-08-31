@@ -5,6 +5,7 @@
     using Common.Utility.Services.Interfaces;
     using Excel;
     using Excel.Model;
+    using Fanex.Athena.BetList.Model.MetaModel;
     using Fanex.Athena.BetList.Service.Interfaces;
     using Model.DTO;
     using NPOI.SS.UserModel;
@@ -60,9 +61,10 @@
             _tempFileService.ReadString(DataPath).Returns("{\"MainTicketList\":[{\"ExternalId\":\"ThienPham2\"}],\"TicketDataList\":[]}");
             var workbook = Substitute.For<IWorkbook>();
             _bettingTicketCenterExcel.Export(Arg.Any<BettingTicketCenterExcelModel>()).Returns(workbook);
+            var model = new AdvancedSearchBetListMetaModel();
 
             // Action
-            var result = _zipBuilder.BuildZip(httpResponse, ticketResult, null, false, null);
+            var result = _zipBuilder.BuildZip(httpResponse, ticketResult, null, model, null);
 
             // Assert
             Assert.Multiple(() =>
@@ -78,7 +80,5 @@
                 Assert.That(result, Is.Not.Null);
             });
         }
-
-
     }
 }
