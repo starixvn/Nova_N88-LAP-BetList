@@ -49,13 +49,13 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Fanex.Result.Core, Version=2.2.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.Result.Core-NPOI.2.0.6.2.3.8.6-BeachVolleyball-01\lib\net40\Fanex.Result.Core.dll</HintPath>
+      <HintPath>..\..\..\packages\Fanex.Result.Core-NPOI.2.0.6.2.3.8.8\lib\net40\Fanex.Result.Core.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core.AllBetCasino, Version=1.0.1.9, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Result.Core.AllBetCasino.1.0.1.9\lib\net40\Fanex.Result.Core.AllBetCasino.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.Result.Core.Base, Version=2.3.8.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.Result.Core-NPOI.2.0.6.2.3.8.6-BeachVolleyball-01\lib\net40\Fanex.Result.Core.Base.dll</HintPath>
+    <Reference Include="Fanex.Result.Core.Base, Version=2.3.8.8, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Fanex.Result.Core-NPOI.2.0.6.2.3.8.8\lib\net40\Fanex.Result.Core.Base.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core.CardClub, Version=1.0.1.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Result.Core.CardClub.1.0.1.1\lib\net40\Fanex.Result.Core.CardClub.dll</HintPath>
@@ -66,12 +66,11 @@
     <Reference Include="Fanex.Result.Core.GlobalGaming, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Result.Core.GlobalGaming.1.0.0.4\lib\net40\Fanex.Result.Core.GlobalGaming.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.Result.Core.Happy5, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.Result.Core.Happy5.1.0.0.0\lib\net40\Fanex.Result.Core.Happy5.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Fanex.Result.Core.Happy5, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Fanex.Result.Core.Happy5.1.0.2\lib\net40\Fanex.Result.Core.Happy5.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.Result.Core.LinkedGames, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.Result.Core.LinkedGames.1.0.0\lib\net40\Fanex.Result.Core.LinkedGames.dll</HintPath>
+    <Reference Include="Fanex.Result.Core.LinkedGames, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Fanex.Result.Core.LinkedGames.1.0.1\lib\net40\Fanex.Result.Core.LinkedGames.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core.NumberGame, Version=1.0.3.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Result.Core-NumberGame.1.0.3.2-beta01\lib\net40\Fanex.Result.Core.NumberGame.dll</HintPath>
