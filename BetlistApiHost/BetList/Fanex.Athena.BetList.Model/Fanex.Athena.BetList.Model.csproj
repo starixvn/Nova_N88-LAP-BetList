@@ -75,6 +75,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="TplCore, Version=1.0.4854.17253, Culture=neutral, processorArchitecture=MSIL">
@@ -93,7 +94,8 @@
     <Compile Include="DTO\ExchangeBetListResult.cs" />
     <Compile Include="DTO\ExchangeTicketDetail.cs" />
     <Compile Include="DTO\GroupTicketResult.cs" />
-    <Compile Include="DTO\IPRangeEntity.cs" />
+    <Compile Include="DTO\IPV4RangeEntity.cs" />
+    <Compile Include="DTO\IPV6RangeEntity.cs" />
     <Compile Include="DTO\LrfTicket.cs" />
     <Compile Include="DTO\BetListMatch.cs" />
     <Compile Include="DTO\ColossusBetDetail.cs" />
