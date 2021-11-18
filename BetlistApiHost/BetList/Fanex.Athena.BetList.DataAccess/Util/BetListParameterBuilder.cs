@@ -105,6 +105,7 @@
             db.SetParameterValue("refno", metaModel.TransId);
             db.SetParameterValue(CustIdColumn, metaModel.CustId);
             db.SetParameterValue("transtype", metaModel.TransType);
+            CreateBetlistBUParameters(db, metaModel);
         }
 
         private static void CreateBonusDetailParameters(IObjectDb db, BetListMetaModel metaModel)

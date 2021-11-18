@@ -7,7 +7,8 @@ namespace Fanex.Athena.BetList.Service.Interfaces
     [CLSCompliant(false)]
     public interface IIPService
     {
-        IList<IPRangeEntity> GetIPVN();
+        Tuple<IList<IPV4RangeEntity>, IList<IPV6RangeEntity>> GetIPVN();
+
         bool IsVNIP(string ipAddress);
     }
 }
