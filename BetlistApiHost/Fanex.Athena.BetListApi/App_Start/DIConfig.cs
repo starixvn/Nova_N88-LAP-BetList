@@ -25,6 +25,8 @@
     using Fanex.Result.Core.SportsLottery;
     using Fanex.Result.Core.CardClub;
     using Fanex.Result.Core.VGaming;
+    using Fanex.Athena.BetList.Service.Interfaces;
+    using Fanex.Athena.BetList.Service;
 
     public static class DIConfig
     {
@@ -40,6 +42,7 @@
 
             // static services
             builder.RegisterInstance(new CustomMemoryCache()).As<ICustomMemoryCache>();
+            builder.RegisterType<IPService>().As<IIPService>().SingleInstance();
 
             builder.RegisterControllers(controllerAss).WithAttributeFiltering();
 
