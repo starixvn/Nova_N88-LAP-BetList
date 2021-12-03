@@ -1,8 +1,6 @@
 ﻿using Fanex.Athena.BetList.DataAccess.Interfaces;
 using Fanex.Athena.BetList.Model.DTO;
-using Fanex.Athena.BetList.Service.Constants;
 using Fanex.Athena.BetList.Service.Interfaces;
-using Fanex.Athena.Common.Utility.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,40 +13,17 @@ namespace Fanex.Athena.BetList.Service
 {
     public class IPService : IIPService
     {
-        private const int CacheTimeout = 3600;
-        private readonly IIPDataAccess _ipDataAccess;
-        private readonly IMemoryCacheService _cache;
-
         private static double IP32Bits = 16_777_216.0;
         private static double IPMaxRange = 65536.0;
         private static double IPMaxBytes = 256.0;
         private static int IpIndex2 = 2;
         private static int IpIndex3 = 3;
 
-        public IPService(IIPDataAccess ipDataAccess, IMemoryCacheService cache)
+        private readonly Lazy<Tuple<IList<IPV4RangeEntity>, IList<IPV6RangeEntity>>> VNIPRanges;
+
+        public IPService(IIPDataAccess ipDataAccess)
         {
-            _ipDataAccess = ipDataAccess;
-            _cache = cache;
-        }
-
-        public Tuple<IList<IPV4RangeEntity>, IList<IPV6RangeEntity>> GetIPVN()
-        {
-            Tuple<IList<IPV4RangeEntity>, IList<IPV6RangeEntity>> ipsFromCaching = _cache.Get<Tuple<IList<IPV4RangeEntity>, IList<IPV6RangeEntity>>>(SessionKey.VNIPList);
-            if (ipsFromCaching != null && ipsFromCaching.Item1.Any() && ipsFromCaching.Item2.Any())
-            {
-                return ipsFromCaching;
-            }
-
-            var ipsFromDB = _ipDataAccess.GetVNIPs();
-
-            _cache.Set(SessionKey.VNIPList, ipsFromDB, CacheTimeout);
-
-            return ipsFromDB;
-        }
-
-        public bool IsAlwaysIpvn(string ipAddress)
-        {
-            return true;
+            VNIPRanges = new Lazy<Tuple<IList<IPV4RangeEntity>, IList<IPV6RangeEntity>>>(() => ipDataAccess.GetVNIPs());
         }
 
         public bool IsVNIP(string ipAddress)
@@ -57,7 +32,7 @@ namespace Fanex.Athena.BetList.Service
             {
                 return false;
             }
-            var ipVnRange = GetIPVN();
+            var ipVnRange = VNIPRanges.Value;
 
             var isIpv6 = IsIPV6(ipAddress);
 

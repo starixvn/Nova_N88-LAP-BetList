@@ -513,6 +513,10 @@
       <Project>{4956fbd7-5f68-4e7b-af6c-db5fb1f255f0}</Project>
       <Name>Fanex.Athena.BetList.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BetList\Fanex.Athena.BetList.Service\Fanex.Athena.BetList.Service.csproj">
+      <Project>{20dee0ca-7487-4fa5-9af3-3d1e02f1faaf}</Project>
+      <Name>Fanex.Athena.BetList.Service</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Common\Fanex.Athena.Common.Utility\Fanex.Athena.Common.Utility.csproj">
       <Project>{90F037EA-E730-44D0-8957-5FCA2295D22E}</Project>
       <Name>Fanex.Athena.Common.Utility</Name>
