@@ -39,7 +39,7 @@
             { "8", MobileOthers },
             { "_", MobileOthers },
             { "$", MobileOthers },
-            { "#", MobileOthers },
+            { ".", MobileOthers },
             { "1", ESportsDesktop },
             { "4", ESportsDesktop },
             { "2", ESportsMobile },
