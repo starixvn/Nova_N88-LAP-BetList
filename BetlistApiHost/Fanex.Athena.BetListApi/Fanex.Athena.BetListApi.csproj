@@ -119,8 +119,8 @@
       <HintPath>..\..\packages\Fanex.BetList.Keno.1.2.0\lib\net40\Fanex.BetList.Keno.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.BetList.KenoLottery, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.BetList.KenoLottery.1.3.0\lib\net40\Fanex.BetList.KenoLottery.dll</HintPath>
+    <Reference Include="Fanex.BetList.KenoLottery, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.BetList.KenoLottery.1.4.0\lib\net40\Fanex.BetList.KenoLottery.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.BetList.NumberGame, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.BetList.NumberGame.1.6.0-happy5-01\lib\net40\Fanex.BetList.NumberGame.dll</HintPath>
