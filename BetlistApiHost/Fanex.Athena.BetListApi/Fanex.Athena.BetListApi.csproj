@@ -200,9 +200,6 @@
     <Reference Include="Fanex.Result.Core.Happy5, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Result.Core.Happy5.1.0.2\lib\net40\Fanex.Result.Core.Happy5.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.Result.Core.LinkedGames, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Result.Core.LinkedGames.1.0.1\lib\net40\Fanex.Result.Core.LinkedGames.dll</HintPath>
-    </Reference>
     <Reference Include="Fanex.Result.Core.NumberGame, Version=1.0.3.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Result.Core-NumberGame.1.0.3.2-beta01\lib\net40\Fanex.Result.Core.NumberGame.dll</HintPath>
     </Reference>
@@ -221,9 +218,6 @@
     </Reference>
     <Reference Include="Fanex.Result.Core.Sportsbook, Version=1.2.7.8, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Result.Core-Sportsbook.1.2.7.8-TimeMachine-01\lib\net40\Fanex.Result.Core.Sportsbook.dll</HintPath>
-    </Reference>
-    <Reference Include="Fanex.Result.Core.SportsLottery, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Result.Core.SportsLottery.1.0.0\lib\net461\Fanex.Result.Core.SportsLottery.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core.ThirdParty, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Result.Core.ThirdPartyResult.1.0.0.1\lib\net461\Fanex.Result.Core.ThirdParty.dll</HintPath>
