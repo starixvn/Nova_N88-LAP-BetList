@@ -1,9 +1,12 @@
 ﻿namespace Fanex.Athena.Result.Controller.UnitTests
 {
-    using Fanex.Result.Core.CardClub;
+    using Fanex.Athena.Result.Controller.MetaModel;
+    using Fanex.Athena.Result.Controller.ResultPopup;
+    using Fanex.Athena.UnitTest.Common.Helpers;
+    using Fanex.Result.Core.ThirdParty;
+    using Fanex.Result.Core.ThirdParty.Models;
     using NSubstitute;
     using NUnit.Framework;
-    using ResultPopup;
 
     [TestFixture]
     public class CardClubResultPopupControllerTest
@@ -12,23 +15,23 @@
         public void Index_WhenCall_ReturnResultFromApi()
         {
             // Arrange
-            const string CustId = "123";
-            const string GameTypeId = "345";
-            const string TransId3rd = "789";
-            const string LanguageCode = "en-US";
-            const string ExpectedResult = "aaaaaaaaaaaa";
+            var metaModel = FakeHelper.Create<ThirdPartyMetaModel>();
+            var resultApi = Substitute.For<IThirdPartyResult>();
+            var request = new ResultRequest(metaModel.CustId, metaModel.TransId3rd, metaModel.GameId3rd, metaModel.CurrencyId, metaModel.SiteId, metaModel.LanguageCode)
+            {
+                BetTypeId = metaModel.BetTypeId
+            };
 
-            var resultApi = Substitute.For<ICardClubResult>();
-
-            resultApi.GetResult(CustId, GameTypeId, TransId3rd, LanguageCode)
-                .Returns(ExpectedResult);
-            using (var controller = new CardClubResultPopupController(resultApi))
+            using (var controller = new VoidbridgeResultPopupController(resultApi))
             {
                 // Action
-                var result = controller.Index(CustId, GameTypeId, TransId3rd, LanguageCode);
+                var result = controller.Index(metaModel);
 
                 // Assert
-                Assert.That(result, Is.EqualTo(ExpectedResult));
+                resultApi.Received().GetResultGET(Arg.Is<ResultRequest>(rq => rq.CustId == request.CustId
+                    && rq.TranId3rd == request.TranId3rd
+                    && rq.GameId3rd == request.GameId3rd
+                    && rq.SiteId == request.SiteId));
             }
         }
     }
