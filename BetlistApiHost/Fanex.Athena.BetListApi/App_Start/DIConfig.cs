@@ -15,15 +15,9 @@
     using Fanex.Logging;
     using Fanex.RemotingRef;
     using Fanex.Result.Core.AllBetCasino;
-    using Fanex.Result.Core.Casino;
-    using Fanex.Result.Core.LinkedGames;
-    using Fanex.Result.Core.PP;
     using Fanex.Result.Core.SabaClub;
     using Fanex.Result.Core.SexyGaming;
     using Fanex.Result.Core.VirtualGames;
-    using Fanex.Result.Core.Voidbridge;
-    using Fanex.Result.Core.SportsLottery;
-    using Fanex.Result.Core.CardClub;
     using Fanex.Result.Core.VGaming;
     using Fanex.Athena.BetList.Service.Interfaces;
     using Fanex.Athena.BetList.Service;
@@ -55,18 +49,12 @@
             builder.RegisterType<TicketHelper>().As<ITicketHelper>().InstancePerRequest();
             builder.RegisterType<BetListHTMLBuilder>().As<IBetListHTMLBuilder>().InstancePerRequest();
             builder.RegisterType<BetListExcelBuilder>().As<IBetListExcelBuilder>().InstancePerRequest();
-            builder.RegisterType<PPResult>().As<IPPResult>();
-            builder.RegisterType<VoidbridgeApiImp>().As<VoidbridgeApi>();
             builder.RegisterType<AllbetResultBuilder>().As<IAllbetResultBuilder>();
-            builder.RegisterType<CardClubResult>().As<ICardClubResult>();
             builder.RegisterType<SabaClubResult>().As<ISabaClubResult>();
             builder.RegisterType<RemotingRefService>().As<IRemotingRefService>().SingleInstance();
             builder.RegisterInstance(Logger.Log).As<Logging.ILogger>();
-            builder.Register(x => new CasinoResult("SpadegamingResultConfigs")).Keyed<ICasinoResult>("SG");
             builder.RegisterType<VirtualGamesResult>().As<IVirtualGamesResult>();
             builder.RegisterType<SexyGamingResultBuilder>().As<ISexyGamingResultBuilder>();
-            builder.RegisterType<LinkedGamesResult>().As<ILinkedGamesResult>();
-            builder.RegisterType<SportsLotteryResult>().As<ISportsLotteryResult>();
             builder.RegisterType<VGamingResult>().As<IVGamingResult>();
         }
 

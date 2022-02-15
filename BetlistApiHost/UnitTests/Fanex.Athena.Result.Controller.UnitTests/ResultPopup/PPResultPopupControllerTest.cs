@@ -1,10 +1,13 @@
-﻿namespace Fanex.Athena.Result.Controller.UnitTests
-{
-    using Fanex.Result.Core.PP;
-    using NSubstitute;
-    using NUnit.Framework;
-    using ResultPopup;
+﻿using Fanex.Athena.Result.Controller.MetaModel;
+using Fanex.Athena.Result.Controller.ResultPopup;
+using Fanex.Athena.UnitTest.Common.Helpers;
+using Fanex.Result.Core.ThirdParty;
+using Fanex.Result.Core.ThirdParty.Models;
+using NSubstitute;
+using NUnit.Framework;
 
+namespace Fanex.Athena.Result.Controller.UnitTests
+{
     [TestFixture]
     public class PPResultPopupControllerTest
     {
@@ -12,22 +15,23 @@
         public void Index_WhenCall_ReturnResultFromApi()
         {
             // Arrange
-            const string CustId = "123";
-            const string GamePlayId = "345";
-            const string LanguageCode = "en-US";
-            const string ExpectedResult = "aaaaaaaaaaaa";
+            var metaModel = FakeHelper.Create<ThirdPartyMetaModel>();
+            var resultApi = Substitute.For<IThirdPartyResult>();
+            var request = new ResultRequest(metaModel.CustId, metaModel.TransId3rd, metaModel.GameId3rd, metaModel.CurrencyId, metaModel.SiteId, metaModel.LanguageCode)
+            {
+                BetTypeId = metaModel.BetTypeId
+            };
 
-            var resultApi = Substitute.For<IPPResult>();
-
-            resultApi.GetPPResult(CustId, GamePlayId, LanguageCode)
-                .Returns(ExpectedResult);
             using (var controller = new PPResultPopupController(resultApi))
             {
                 // Action
-                var result = controller.Index(CustId, GamePlayId, LanguageCode);
+                var result = controller.Index(metaModel);
 
                 // Assert
-                Assert.That(result, Is.EqualTo(ExpectedResult));
+                resultApi.Received().GetResultGET(Arg.Is<ResultRequest>(rq => rq.CustId == request.CustId
+                    && rq.TranId3rd == request.TranId3rd
+                    && rq.GameId3rd == request.GameId3rd
+                    && rq.SiteId == request.SiteId));
             }
         }
     }
