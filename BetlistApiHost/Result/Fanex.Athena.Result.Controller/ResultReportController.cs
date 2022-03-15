@@ -13,6 +13,7 @@ namespace Fanex.Athena.Result.Controller
     using Common.Model.DTO;
     using Common.Utility.Services.Interfaces;
     using Fanex.Result.Core.Base;
+    using Fanex.Result.Core.LeapGaming.DTO;
     using Fanex.Result.Core.Sportsbook.DTO;
     using Model.MetaModel;
     using Resources;
@@ -264,6 +265,13 @@ namespace Fanex.Athena.Result.Controller
             }
         }
 
+        private void GetLeapGamingPopUpData(ResultPopupMetaModel metalModel, ResultSetting setting)
+        {
+            var leapgamings = new List<LeapGaming> { new LeapGaming { TransDesc = metalModel.TransDesc } };
+
+            _htmlResult = _resultService.HtmlParser(leapgamings, setting);
+        }
+
         private async Task GetOtherNormalPopUpData(ResultPopupMetaModel metalModel, ResultSetting setting)
         {
             var data = await _resultService.GetPopUpMatchAsync(metalModel).ConfigureAwait(false);
@@ -290,6 +298,12 @@ namespace Fanex.Athena.Result.Controller
             if (sportType == SportType.Happy5)
             {
                 await GetHappy5PopUpData(metalModel, setting).ConfigureAwait(false);
+                return;
+            }
+
+            if (sportType == SportType.LeapGamingVirtualSports)
+            {
+                GetLeapGamingPopUpData(metalModel, setting);
                 return;
             }
 
@@ -356,6 +370,7 @@ namespace Fanex.Athena.Result.Controller
         #endregion spots list
 
         #region main-page
+
         private async Task<int> GetSportId(DateTime fromDate, int licenseeId)
         {
             var sports = await _resultService.GetSportsAsync(fromDate, licenseeId).ConfigureAwait(false);
