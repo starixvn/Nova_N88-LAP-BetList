@@ -38,5 +38,7 @@
         public int Handicap2 { get; set; }
 
         public string LanguageCode { get; set; }
+
+        public string TransDesc { get; set; }
     }
 }

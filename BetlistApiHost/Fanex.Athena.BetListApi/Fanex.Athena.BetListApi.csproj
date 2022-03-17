@@ -122,6 +122,9 @@
     <Reference Include="Fanex.BetList.KenoLottery, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.BetList.KenoLottery.1.4.0\lib\net40\Fanex.BetList.KenoLottery.dll</HintPath>
     </Reference>
+    <Reference Include="Fanex.BetList.LeapGaming, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.BetList.LeapGaming.1.0.2-beta-01\lib\net40\Fanex.BetList.LeapGaming.dll</HintPath>
+    </Reference>
     <Reference Include="Fanex.BetList.NumberGame, Version=1.6.0.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.BetList.NumberGame.1.6.0.2\lib\net40\Fanex.BetList.NumberGame.dll</HintPath>
     </Reference>
@@ -199,6 +202,9 @@
     </Reference>
     <Reference Include="Fanex.Result.Core.Happy5, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Result.Core.Happy5.1.0.2\lib\net40\Fanex.Result.Core.Happy5.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Result.Core.LeapGaming, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Result.Core-LeapGaming.1.0.0.2\lib\net40\Fanex.Result.Core.LeapGaming.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core.NumberGame, Version=1.0.3.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Result.Core-NumberGame.1.0.3.2-beta01\lib\net40\Fanex.Result.Core.NumberGame.dll</HintPath>
