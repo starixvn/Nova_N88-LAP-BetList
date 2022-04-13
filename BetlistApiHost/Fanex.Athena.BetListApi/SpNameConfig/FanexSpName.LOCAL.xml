@@ -33,6 +33,7 @@
     <Setting Key="Lrf_BetList_Licensee_TotalRows" SpName="Lrf_BetList_Licensee_TotalRows" DbName="DBEXT.bodb02.bodbLicenseeNet" />
     <Setting Key="Lrf_BetList_Running_Mem" SpName="Lrf_BetList_Running_Mem"  DbName="DBBOF.bodb02.bodbLicenseeNet" />
     <Setting Key="Lrf_BetList_Statement_Mem" SpName="Lrf_BetList_Statement_Mem"  DbName="DBACC.bodb02.bodbLicenseeNet" />
+    <Setting Key="Lrf_BetList_CashOut_History" SpName="Lrf_BetList_CashOut_History" DbName="DBACC.bodb02.bodbLicenseeNet" />
     <!-- Based TpBetRecord -->
     <Setting Key="N88_BetList_WinLossAnalysis" SpName="N88_BetList_WinLossAnalysis" DbName="DBACC.bodb02.bodbLicenseeNet" />
     <!-- end-->
@@ -52,5 +53,4 @@
     <Setting Key="Acc_CustomerSelSiteByCustId" SpName="Acc_CustomerSelSiteByCustId" DbName="DBCUST.CustDB.bodbLicenseeNet" />
   </Misc>
 </Functions>
-
 		

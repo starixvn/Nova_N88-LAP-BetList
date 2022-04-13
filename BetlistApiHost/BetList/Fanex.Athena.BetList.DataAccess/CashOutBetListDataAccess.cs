@@ -58,6 +58,41 @@
             }
         }
 
+        public async Task<CashOutHistoryDetailViewModel> GetHistoryDetail(
+            CashOutHistoryDetailMetaModel metaModel)
+        {
+            const string UspKey = "Lrf_BetList_CashOut_History";
+
+            var balanceUpData = _balanceUpDataAccess.GetBalanceUp();
+
+            using (var db = GetObjectDb(UspKey))
+            {
+                var param = new
+                {
+                    metaModel.TransId,
+                    metaModel.CustId,
+                    WinLostDate = metaModel.Date,
+                    Currency = metaModel.CurrencyId,
+                    metaModel.BaseCurrency,
+                    balanceUpData.BalanceUpDay
+                };
+                using (var reader = await db.ExecuteReaderAsync(param).ConfigureAwait(false))
+                {
+                    var result = new CashOutHistoryDetailViewModel
+                    {
+                        TransId = metaModel.TransId,
+                        Currency = metaModel.Currency,
+                        BaseCurrency = metaModel.BaseCurrency
+                    };
+                    if (reader.Read())
+                    {
+                        result = ReadCashOutHistoryTicket(reader, result);
+                    }
+                    return result;
+                }
+            }
+        }
+
         private static IEnumerable<CashOutTicket> ReadCashOutTickets(IDataReader reader)
         {
             var result = new SortableList<CashOutTicket>();
@@ -81,6 +116,15 @@
 
                 result.Add(item);
             }
+
+            return result;
+        }
+
+        private static CashOutHistoryDetailViewModel ReadCashOutHistoryTicket(IDataReader reader, CashOutHistoryDetailViewModel result)
+        {
+            result.TransId = reader.ToLong("TransId");
+            result.CashoutExtraInfo = reader.ToString("CashoutExtraInfo");
+            result.Rate = reader.ToDecimal("Rate");
 
             return result;
         }

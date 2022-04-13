@@ -7,5 +7,7 @@
     public interface ICashOutBetListDataAccess
     {
         Task<CashOutBetListDetailViewModel> GetDetail(CashOutBetListDetailMetaModel metaModel);
+
+        Task<CashOutHistoryDetailViewModel> GetHistoryDetail(CashOutHistoryDetailMetaModel metaModel);
     }
 }
