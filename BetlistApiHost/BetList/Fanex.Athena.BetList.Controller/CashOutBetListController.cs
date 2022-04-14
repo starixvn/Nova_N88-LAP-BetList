@@ -55,6 +55,15 @@ namespace Fanex.Athena.BetList.Controller
             return Json(viewModel);
         }
 
+        [HttpPost]
+        public async Task<JsonResult> History(CashOutHistoryDetailMetaModel metaModel)
+        {
+            var viewModel = await _cashOutBetListDataAccess.GetHistoryDetail(metaModel
+              ).ConfigureAwait(false);
+
+            return Json(viewModel);
+        }
+
         private static bool IsCashOutBetTicket(long betdaqid, int bettype)
         {
             var cashOutBetTypes = new[] { 900, 912 };
