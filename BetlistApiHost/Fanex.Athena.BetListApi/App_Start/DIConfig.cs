@@ -17,7 +17,6 @@
     using Fanex.Result.Core.AllBetCasino;
     using Fanex.Result.Core.SabaClub;
     using Fanex.Result.Core.SexyGaming;
-    using Fanex.Result.Core.VirtualGames;
     using Fanex.Result.Core.VGaming;
     using Fanex.Athena.BetList.Service.Interfaces;
     using Fanex.Athena.BetList.Service;
@@ -53,7 +52,6 @@
             builder.RegisterType<SabaClubResult>().As<ISabaClubResult>();
             builder.RegisterType<RemotingRefService>().As<IRemotingRefService>().SingleInstance();
             builder.RegisterInstance(Logger.Log).As<Logging.ILogger>();
-            builder.RegisterType<VirtualGamesResult>().As<IVirtualGamesResult>();
             builder.RegisterType<SexyGamingResultBuilder>().As<ISexyGamingResultBuilder>();
             builder.RegisterType<VGamingResult>().As<IVGamingResult>();
         }
