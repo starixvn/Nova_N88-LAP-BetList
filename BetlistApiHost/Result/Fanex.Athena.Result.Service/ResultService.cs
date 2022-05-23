@@ -8,6 +8,7 @@
     using DataAccess;
     using Fanex.Result.Core;
     using Fanex.Result.Core.Base;
+    using Fanex.Result.Core.Bitcoin.DTO;
     using Fanex.Result.Core.Happy5.DTO;
     using Fanex.Result.Core.NumberGame.DTO;
     using Fanex.Result.Core.Racing.DTO;
@@ -123,6 +124,11 @@
         public async Task<IList<Happy5>> GetPopUpHappy5MatchesAsync(int matchId)
         {
             return await this._numberGameDataAccess.GetPopUpHappy5MatchAsync(matchId).ConfigureAwait(false);
+        }
+
+        public async Task<IList<Bitcoin>> GetPopUpBitcoinMatchesAsync(int matchId)
+        {
+            return await this._dataAccess.GetPopUpMatches3rdAsync<Bitcoin>(matchId).ConfigureAwait(false);
         }
 
         #endregion Popup

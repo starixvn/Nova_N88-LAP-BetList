@@ -31,7 +31,8 @@
                 matchid = metaModel.MatchId,
                 raceno = expectedRaceNo,
                 bettype = metaModel.Bettype,
-                betid = metaModel.BetId
+                betid = metaModel.BetId,
+                transdesc = metaModel.TransDesc
             };
 
             // Action

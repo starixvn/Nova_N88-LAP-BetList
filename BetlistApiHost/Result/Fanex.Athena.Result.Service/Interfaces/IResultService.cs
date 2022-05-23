@@ -6,6 +6,7 @@
     using System.Threading.Tasks;
     using Common.Model.DTO;
     using Fanex.Result.Core.Base;
+    using Fanex.Result.Core.Bitcoin.DTO;
     using Fanex.Result.Core.Happy5.DTO;
     using Fanex.Result.Core.NumberGame.DTO;
     using Fanex.Result.Core.Racing.DTO;
@@ -71,6 +72,8 @@
         Task<IList<NumberGame>> GetPopUpNumberGameMatchsAsync(int matchId);
 
         Task<IList<Happy5>> GetPopUpHappy5MatchesAsync(int matchId);
+
+        Task<IList<Bitcoin>> GetPopUpBitcoinMatchesAsync(int matchId);
 
         Task<Sportsbook> GetPopUpSingleMatchParlayAsync(int matchId, string marketId);
 

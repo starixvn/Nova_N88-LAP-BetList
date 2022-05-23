@@ -37,6 +37,8 @@
 
         Task<Sportsbook> GetSportsbookGameDetailAsync(int matchId);
 
+        Task<IList<T>> GetPopUpMatches3rdAsync<T>(int matchId);
+
         Task<Sportsbook> GetPopUpSingleMatchParlayAsync(int matchId, string marketId);
 
         #endregion Popup
