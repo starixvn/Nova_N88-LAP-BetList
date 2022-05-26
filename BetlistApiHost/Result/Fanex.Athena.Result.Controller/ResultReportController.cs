@@ -265,6 +265,15 @@ namespace Fanex.Athena.Result.Controller
             }
         }
 
+        private async Task GetBitcoinPopUpData(ResultPopupMetaModel metalModel, ResultSetting setting)
+        {
+            var dataBitcoin = await _resultService.GetPopUpBitcoinMatchesAsync(metalModel.MatchId).ConfigureAwait(false);
+            if (dataBitcoin != null)
+            {
+                _htmlResult = _resultService.HtmlParser(dataBitcoin, setting);
+            }
+        }
+
         private void GetLeapGamingPopUpData(ResultPopupMetaModel metalModel, ResultSetting setting)
         {
             var leapgamings = new List<LeapGaming> { new LeapGaming { TransDesc = metalModel.TransDesc } };
@@ -304,6 +313,12 @@ namespace Fanex.Athena.Result.Controller
             if (sportType == SportType.LeapGamingVirtualSports)
             {
                 GetLeapGamingPopUpData(metalModel, setting);
+                return;
+            }
+
+            if (sportType == SportType.Bitcoin)
+            {
+                await GetBitcoinPopUpData(metalModel, setting).ConfigureAwait(false);
                 return;
             }
 
