@@ -85,7 +85,7 @@
       <HintPath>..\..\..\packages\Fanex.Result.Core.SexyGaming.1.0.0.1\lib\net40\Fanex.Result.Core.SexyGaming.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core.Sportsbook, Version=1.2.8.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.Result.Core-Sportsbook.1.2.8.6-esport-02\lib\net40\Fanex.Result.Core.Sportsbook.dll</HintPath>
+      <HintPath>..\..\..\packages\Fanex.Result.Core-Sportsbook.1.2.8.6\lib\net40\Fanex.Result.Core.Sportsbook.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core.ThirdParty, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Result.Core.ThirdPartyResult.1.0.0.1\lib\net461\Fanex.Result.Core.ThirdParty.dll</HintPath>
