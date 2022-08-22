@@ -83,7 +83,7 @@
       <HintPath>..\..\..\packages\Fanex.Result.Core-Racing.1.1.0.1\lib\net40\Fanex.Result.Core.Racing.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core.Sportsbook, Version=1.2.8.7, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.Result.Core-Sportsbook.1.2.8.7-volleyball-04\lib\net40\Fanex.Result.Core.Sportsbook.dll</HintPath>
+      <HintPath>..\..\..\packages\Fanex.Result.Core-Sportsbook.1.2.8.7\lib\net40\Fanex.Result.Core.Sportsbook.dll</HintPath>
     </Reference>
     <Reference Include="IBCCrypt, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Crypt.1.1.0.0\lib\net40\IBCCrypt.dll</HintPath>
