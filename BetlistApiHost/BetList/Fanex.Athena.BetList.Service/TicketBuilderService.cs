@@ -112,7 +112,8 @@ namespace Fanex.Athena.BetList.Service
                     Stake = _betlistHtmlBuilder.BuildStake(ticket, _ticketHelper),
                     LicenseeWL = _betlistHtmlBuilder.BuildLicenseeWL(ticket),
                     WinLoss = _betlistHtmlBuilder.BuildCustomerWL(ticket, isAllowedCustomerComm),
-                    BetEffective = _betlistHtmlBuilder.BuildBetEffective(ticket)
+                    BetEffective = _betlistHtmlBuilder.BuildBetEffective(ticket),
+                    TransId = ticket.TransId.ToString()
                 };
 
                 if (BetListHelper.IsContribution(ticket.BetTypeId))

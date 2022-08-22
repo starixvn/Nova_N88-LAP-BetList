@@ -31,5 +31,7 @@
         public string Platform { get; set; }
 
         public string Live { get; set; }
+
+        public string TransId { get; set; }
     }
 }

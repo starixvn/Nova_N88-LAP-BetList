@@ -29,7 +29,7 @@
             LrfTicket ticket,
             long custid)
         {
-            const string FormatDetail = @"showCombMPDetail({0},{1},{2},{3},&quot;{4}&quot;,&quot;{5}&quot;)";
+            const string FormatDetail = @"showCombMPDetail(&quot;{0}&quot;,&quot;{1}&quot;,{2},{3},&quot;{4}&quot;,&quot;{5}&quot;)";
             var comboName = tickerHelper.GetCombinationMPOfferName(ticket.BetTeam);
             var betTypeName = GetBetTypeName(tickerHelper, ticket);
             if (!string.IsNullOrEmpty(comboName))
