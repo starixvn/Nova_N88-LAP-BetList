@@ -101,7 +101,7 @@
             const long Custid = 3;
             const string BaseCurrency = "USD";
 
-            var expected = $"showCombMPDetail(1,RefNoTest,2,3,&quot;{expectedBetTeam}&quot;,&quot;USD&quot;)";
+            var expected = $"showCombMPDetail(&quot;1&quot;,&quot;RefNoTest&quot;,2,3,&quot;{expectedBetTeam}&quot;,&quot;USD&quot;)";
 
             // Action
             var result = BetListHelper.GenerateClientDetailSystemParlayFunction(tickerHelper, BaseCurrency, ticket, Custid);
@@ -127,7 +127,7 @@
             const long Custid = 3;
             const string BaseCurrency = "USD";
 
-            var expected = $"showCombMPDetail(1,RefNoTest,2,3,&quot;Mix Parlay&quot;,&quot;USD&quot;)";
+            var expected = $"showCombMPDetail(&quot;1&quot;,&quot;RefNoTest&quot;,2,3,&quot;Mix Parlay&quot;,&quot;USD&quot;)";
 
             // Action
             var result = BetListHelper.GenerateClientDetailSystemParlayFunction(tickerHelper, BaseCurrency, ticket, Custid);
