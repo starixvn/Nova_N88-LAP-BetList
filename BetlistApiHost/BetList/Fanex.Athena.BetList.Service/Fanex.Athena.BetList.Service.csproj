@@ -60,11 +60,11 @@
     <Reference Include="Fanex.BetList.Core, Version=2.111.4.7, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.BetList.Core.2.111.4.7\lib\net40\Fanex.BetList.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.BetList.PP, Version=1.4.0.7, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.BetList.PP.1.4.0.7-newtransid-01\lib\net40\Fanex.BetList.PP.dll</HintPath>
+    <Reference Include="Fanex.BetList.PP, Version=1.4.0.9, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Fanex.BetList.PP.1.4.0.9\lib\net40\Fanex.BetList.PP.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.BetList.Voidbridge, Version=1.2.0.7, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.BetList.Voidbridge.1.2.0.7-newtransid-01\lib\net40\Fanex.BetList.Voidbridge.dll</HintPath>
+    <Reference Include="Fanex.BetList.Voidbridge, Version=1.2.0.8, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Fanex.BetList.Voidbridge.1.2.0.8\lib\net40\Fanex.BetList.Voidbridge.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Data, Version=4.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Data.4.2.0\lib\net461\Fanex.Data.dll</HintPath>
