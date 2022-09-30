@@ -37,6 +37,8 @@
 
         public async Task<TicketResult> GetMixParlayDetailTicket(MixParlayDetailMetaModel metaModel)
         {
+            AssignBalanceUpDates(metaModel);
+
             return await _betlistDataAccess.GetMixParlayDetailTicket(metaModel);
         }
 
@@ -47,7 +49,7 @@
             return await _betlistDataAccess.GetBetListData(metaModel).ConfigureAwait(false);
         }
 
-        private void AssignBalanceUpDates(BetListMetaModel metaModel)
+        private void AssignBalanceUpDates(IBalanceUpMetaModel metaModel)
         {
             var balanceUp = _balanceUpDataAccess.GetBalanceUp();
             metaModel.MoveBetsDay = balanceUp.MoveBetsDay;
