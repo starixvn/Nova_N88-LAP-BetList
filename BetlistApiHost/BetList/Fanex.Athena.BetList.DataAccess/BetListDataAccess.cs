@@ -16,7 +16,6 @@
     {
         public BetListDataAccess(ICurrencyDataAccess currencyDataAccess) : base(currencyDataAccess)
         {
-
         }
 
         public async Task<TicketResult> GetMixParlayDetailTicket(MixParlayDetailMetaModel metaModel)
@@ -27,6 +26,9 @@
             {
                 db.SetParameterValue("TransId", metaModel.TransId);
                 db.SetParameterValue("CustId", metaModel.CustId);
+                db.SetParameterValue("MoveBetsDay", metaModel.MoveBetsDay);
+                db.SetParameterValue("BalanceUpDay", metaModel.BalanceUpDay);
+
                 using (var reader = await db.ExecuteReaderAsync().ConfigureAwait(false))
                 {
                     var result = new TicketResult();
