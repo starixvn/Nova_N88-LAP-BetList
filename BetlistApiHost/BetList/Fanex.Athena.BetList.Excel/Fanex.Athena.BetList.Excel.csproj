@@ -87,6 +87,9 @@
     <Reference Include="Fanex.BetList.NumberGame, Version=1.7.0.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.BetList.NumberGame.1.7.0.2-newtransid-02\lib\net40\Fanex.BetList.NumberGame.dll</HintPath>
     </Reference>
+    <Reference Include="Fanex.BetList.PlayerTips, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Fanex.BetList.PlayerTips.1.0.0\lib\net40\Fanex.BetList.PlayerTips.dll</HintPath>
+    </Reference>
     <Reference Include="Fanex.BetList.RnGCasino, Version=1.1.0.6, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.BetList.RnGCasino.1.1.0.6-newtransid-01\lib\net40\Fanex.BetList.RnGCasino.dll</HintPath>
     </Reference>
