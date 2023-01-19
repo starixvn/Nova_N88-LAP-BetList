@@ -1,11 +1,11 @@
-﻿using Fanex.Athena.BetList.Excel.Builders;
+﻿using BetListNPOI.SS.UserModel;
+using Fanex.Athena.BetList.Excel.Builders;
 using Fanex.Athena.BetList.Excel.Model;
 using Fanex.Athena.BetList.Model.DTO;
 using Fanex.Athena.BetList.Model.MetaModel;
 using Fanex.Athena.BetList.Service.Interfaces;
 using Fanex.Athena.Resources;
 using Fanex.Athena.UnitTest.Common.Helpers;
-using NPOI.SS.UserModel;
 using NSubstitute;
 using NUnit.Framework;
 

@@ -1,4 +1,5 @@
-﻿using Fanex.Athena.BetList.Model.DTO;
+﻿using BetListNPOI.SS.UserModel;
+using Fanex.Athena.BetList.Model.DTO;
 using Fanex.Athena.BetList.Model.MetaModel;
 using Fanex.Athena.BetList.Service.Extensions;
 using Fanex.Athena.BetList.Service.Interfaces;
@@ -6,7 +7,6 @@ using Fanex.Athena.Common.Constant;
 using Fanex.Athena.Common.Utility.Services.Interfaces;
 using Fanex.BetList.Core.Builder;
 using Fanex.BetList.Core.Entities;
-using NPOI.SS.UserModel;
 using NSubstitute;
 using NUnit.Framework;
 

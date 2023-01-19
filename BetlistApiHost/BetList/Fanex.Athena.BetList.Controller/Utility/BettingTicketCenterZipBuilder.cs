@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Web;
+using BetListNPOI.SS.UserModel;
 using Fanex.Athena.BetList.Excel;
 using Fanex.Athena.BetList.Excel.Model;
 using Fanex.Athena.BetList.Model.DTO;
@@ -11,7 +12,6 @@ using Fanex.Athena.Common.Utility.Services;
 using Fanex.Athena.Common.Utility.Services.Interfaces;
 using Ionic.Zip;
 using Newtonsoft.Json;
-using NPOI.SS.UserModel;
 
 namespace Fanex.Athena.BetList.Controller.Utility
 {
@@ -117,8 +117,7 @@ namespace Fanex.Athena.BetList.Controller.Utility
             using (var stream = new FileStream(dataFilePath, FileMode.CreateNew, FileAccess.Write))
             using (var bufferStream = new BufferedStream(stream))
             {
-                workbook.Write(bufferStream);
-                workbook.Clear();
+                workbook.Write(bufferStream, true);
             }
         }
 

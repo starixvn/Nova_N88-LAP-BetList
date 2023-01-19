@@ -2,15 +2,15 @@
 {
     using Athena.BetList.Excel.Builders;
     using Athena.BetList.Model.DTO;
+    using BetListNPOI.HSSF.UserModel;
+    using BetListNPOI.HSSF.Util;
+    using BetListNPOI.SS.UserModel;
+    using BetListNPOI.SS.Util;
     using Common.Constant;
     using Fanex.Athena.BetList.Model.MetaModel;
     using Fanex.Athena.BetList.Service.Interfaces;
     using Fanex.BetList.Core.Builder;
     using Fanex.BetList.Core.Entities;
-    using NPOI.HSSF.UserModel;
-    using NPOI.HSSF.Util;
-    using NPOI.SS.UserModel;
-    using NPOI.SS.Util;
     using NSubstitute;
     using NUnit.Framework;
     using Resources;

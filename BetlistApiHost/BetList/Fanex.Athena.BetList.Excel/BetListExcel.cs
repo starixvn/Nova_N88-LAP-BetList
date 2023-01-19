@@ -5,6 +5,10 @@
     using System.Linq;
     using Athena.BetList.Model.DTO;
     using Athena.BetList.Model.MetaModel;
+    using BetListNPOI.HSSF.UserModel;
+    using BetListNPOI.HSSF.Util;
+    using BetListNPOI.SS.UserModel;
+    using BetListNPOI.SS.Util;
     using Common.Constant;
     using Common.Utility.Services;
     using Common.Utility.Services.Interfaces;
@@ -13,10 +17,6 @@
     using Fanex.BetList.Core.Entities;
     using Fanex.BetList.Core.TicketHelper;
     using Helpers;
-    using NPOI.HSSF.UserModel;
-    using NPOI.HSSF.Util;
-    using NPOI.SS.UserModel;
-    using NPOI.SS.Util;
     using Resources;
     using Service.Extensions;
 
@@ -70,7 +70,7 @@
         protected internal BetListExcel(
             IAppSettings appSettings,
             ITicketHelper ticketHelper,
-            IIPService  ipService,
+            IIPService ipService,
             BetListShowingOption showingOption,
             int licenseeId,
             IEnumerable<int> hiddenColumnIndexes,
@@ -124,7 +124,7 @@
 
         private static void AddNote(IBetListExcelBuilder builder, string note)
         {
-            if(string.IsNullOrWhiteSpace(note))
+            if (string.IsNullOrWhiteSpace(note))
             {
                 return;
             }
