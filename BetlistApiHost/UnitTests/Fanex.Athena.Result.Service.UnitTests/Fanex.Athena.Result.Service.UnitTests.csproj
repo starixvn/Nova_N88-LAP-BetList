@@ -96,7 +96,6 @@
     <Compile Include="KenoApiTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResultServiceTest.cs" />
-    <Compile Include="RNGCasinoSingleWalletServiceTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Fanex.Athena.Common.Model\Fanex.Athena.Common.Model.csproj">

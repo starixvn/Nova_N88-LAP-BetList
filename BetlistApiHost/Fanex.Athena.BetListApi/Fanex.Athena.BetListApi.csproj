@@ -254,17 +254,8 @@
     <Reference Include="Fanex.Result.Core.VGaming, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Result.Core.VGaming.1.0.0\lib\net40\Fanex.Result.Core.VGaming.dll</HintPath>
     </Reference>
-    <Reference Include="IBCCrypt, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Crypt.1.1.0.0\lib\net40\IBCCrypt.dll</HintPath>
-    </Reference>
-    <Reference Include="IBCDBLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.DBLibrary.1.0.0.0\lib\net40\IBCDBLibrary.dll</HintPath>
-    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib, Version=1.3.3.11, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <HintPath>..\..\packages\SharpZipLib.1.3.3\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
-    </Reference>
-    <Reference Include="ILogger, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\ILogger.1.0.0.0\lib\net40\ILogger.dll</HintPath>
     </Reference>
     <Reference Include="LiveCasinoResult, Version=1.0.1.8, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Result.Core.AllBetCasino.1.0.1.9\lib\net40\LiveCasinoResult.dll</HintPath>

@@ -20,37 +20,16 @@
 
         private IResultService _resultService;
 
-        private IRNGCasinoSingleWalletService _rngCasinoSingleWalletService;
-
         [SetUp]
         public void SetUp()
         {
             _resultService = Substitute.For<IResultService>();
-            _rngCasinoSingleWalletService = Substitute.For<IRNGCasinoSingleWalletService>();
         }
 
         [TearDown]
         public void TearDown()
         {
             _resultService.ClearReceivedCalls();
-        }
-
-        [Test]
-        public void ShowRngCasinoSingleWalletResult_WhenCall_ReturnCorrectResult()
-        {
-            using (var controller = CreateController())
-            {
-                // Arrange
-                const string RefNo = "hohoho";
-                const string ExpectedData = "huhuhu";
-                _rngCasinoSingleWalletService.GetResultInfo(RefNo).Returns(ExpectedData);
-
-                // Action
-                var result = controller.ShowRngCasinoSingleWalletResult(RefNo) as JsonResult;
-
-                // Assert
-                Assert.That(result.Data, Is.EqualTo(ExpectedData));
-            }
         }
 
         [Test]
@@ -107,7 +86,6 @@
         {
             var controller = new ResultReportController(
                 _resultService,
-                _rngCasinoSingleWalletService,
                 Substitute.For<ICacheRefAdapter>());
             controller.ControllerContext = MvcHelper.CreateControllerContext();
             controller.Url = MvcHelper.CreateUrlHelper(controller.ControllerContext.HttpContext);

@@ -79,9 +79,6 @@
     <Reference Include="Fanex.Result.Core.Base, Version=2.3.9.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Result.Core-NPOI.2.0.6.2.3.9.1-beta-01\lib\net40\Fanex.Result.Core.Base.dll</HintPath>
     </Reference>
-    <Reference Include="IBCFile, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.File.1.0.0\lib\net40\IBCFile.dll</HintPath>
-    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib, Version=1.3.3.11, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\SharpZipLib.1.3.3\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
@@ -109,9 +106,6 @@
     </Reference>
     <Reference Include="SixLabors.ImageSharp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\SixLabors.ImageSharp.2.1.3\lib\netstandard2.0\SixLabors.ImageSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="SPSRemoting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\SPSRemoting.1.0.0\lib\net40\SPSRemoting.dll</HintPath>
     </Reference>
     <Reference Include="Sunplus.Core.Common">
       <HintPath>..\..\..\packages\Sunplus.Core.Common.1.1.4505.19054\lib\net40\Sunplus.Core.Common.dll</HintPath>
