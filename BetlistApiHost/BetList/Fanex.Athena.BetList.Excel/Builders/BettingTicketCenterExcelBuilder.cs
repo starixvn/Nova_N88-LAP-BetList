@@ -1,4 +1,8 @@
 ﻿using System;
+using BetListNPOI.HSSF.UserModel;
+using BetListNPOI.HSSF.Util;
+using BetListNPOI.SS.UserModel;
+using BetListNPOI.SS.Util;
 using Fanex.Athena.BetList.Model.DTO;
 using Fanex.Athena.BetList.Model.MetaModel;
 using Fanex.Athena.BetList.Service.Extensions;
@@ -9,10 +13,6 @@ using Fanex.Athena.Resources;
 using Fanex.BetList.Core.Builder;
 using Fanex.BetList.Core.Entities;
 using Fanex.BetList.Core.TicketHelper;
-using NPOI.HSSF.UserModel;
-using NPOI.HSSF.Util;
-using NPOI.SS.UserModel;
-using NPOI.SS.Util;
 
 namespace Fanex.Athena.BetList.Excel.Builders
 {

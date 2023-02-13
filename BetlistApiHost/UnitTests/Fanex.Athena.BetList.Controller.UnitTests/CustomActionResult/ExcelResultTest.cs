@@ -1,7 +1,7 @@
 ﻿namespace Fanex.Athena.BetList.Controller.UnitTests.CustomActionResult
 {
+    using BetListNPOI.SS.UserModel;
     using Controller.CustomActionResult;
-    using NPOI.SS.UserModel;
     using NSubstitute;
     using NUnit.Framework;
     using UnitTest.Common.Helpers;
@@ -19,7 +19,7 @@
             (new ExcelResult(hssfWorkbook)).ExecuteResult(context);
 
             // Assert
-            hssfWorkbook.Received(1).Write(context.HttpContext.Response.OutputStream);
+            hssfWorkbook.Received(1).Write(context.HttpContext.Response.OutputStream, true);
         }
     }
 }

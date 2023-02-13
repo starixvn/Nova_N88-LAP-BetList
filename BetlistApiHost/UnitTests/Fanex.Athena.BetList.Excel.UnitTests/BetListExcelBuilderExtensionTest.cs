@@ -3,11 +3,11 @@
     using System.Linq;
     using Athena.BetList.Excel;
     using Athena.BetList.Model.DTO;
+    using BetListNPOI.SS.UserModel;
+    using BetListNPOI.SS.Util;
     using Common.Constant;
     using Fanex.BetList.Core.Builder;
     using Fanex.BetList.Core.Entities;
-    using NPOI.SS.UserModel;
-    using NPOI.SS.Util;
     using NSubstitute;
     using NUnit.Framework;
     using Resources;
@@ -179,7 +179,7 @@
                 CustomerWLHeader, ViewResources.EffectiveBettingValue, ViewResources.LicenseeWL + "/" + ViewResources.Comm, ViewResources.Status
             };
             var columWidths = new short[] { 1500, 4800, 5800, 5400, 15500, 2600, 4200, 4200, 5400, 5400, 4000 };
-            var cellList = Enumerable.Range(0, captions.Length).Select(x => new CellAddress(0, x)).ToArray();
+            var cellList = Enumerable.Range(0, captions.Length).Select(x => new Fanex.BetList.Core.Entities.CellAddress(0, x)).ToArray();
             _builder.AddCell(null, null).ReturnsForAnyArgs(cellList[0], cellList.Skip(1).ToArray());
 
             // Action

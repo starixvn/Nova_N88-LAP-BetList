@@ -1,6 +1,6 @@
 ﻿using Fanex.Athena.BetList.Model.MetaModel;
 using Fanex.Athena.BetList.Model.DTO;
-using NPOI.SS.UserModel;
+using BetListNPOI.SS.UserModel;
 
 namespace Fanex.Athena.BetList.Excel.Builders
 {

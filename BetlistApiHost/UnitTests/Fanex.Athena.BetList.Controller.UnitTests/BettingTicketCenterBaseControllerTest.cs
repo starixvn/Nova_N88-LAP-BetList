@@ -2,6 +2,7 @@
 {
     using System.Threading.Tasks;
     using System.Web.Mvc;
+    using BetListNPOI.SS.UserModel;
     using Excel;
     using Fanex.Athena.BetList.DataAccess.Interfaces;
     using Fanex.Athena.BetList.Excel.Model;
@@ -11,7 +12,6 @@
     using Fanex.Athena.UnitTest.Common.Extensions;
     using Model.DTO;
     using Model.MetaModel;
-    using NPOI.SS.UserModel;
     using NSubstitute;
     using NUnit.Framework;
     using UnitTest.Common.Helpers;

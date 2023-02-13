@@ -2,11 +2,11 @@
 {
     using System;
     using System.Linq;
+    using BetListNPOI.SS.UserModel;
     using Builders;
     using Common.Constant;
     using Fanex.Athena.BetList.Service.Interfaces;
     using Model;
-    using NPOI.SS.UserModel;
     using Resources;
 
     public class BettingTicketCenterExcel : IBettingTicketCenterExcel
