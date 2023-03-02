@@ -99,13 +99,15 @@
             return new BetListExcelBuilder();
         }
 
-        private static void AddNoInfoRow(IBetListExcelBuilder builder)
+        private static void AddNoInfoRow(IBetListExcelBuilder builder, string note = null)
         {
+            const int NoteContentRow = 2;
+            var NoInfoRowIndex = string.IsNullOrWhiteSpace(note) ? ContentRowIndex : ContentRowIndex + NoteContentRow;
             var titleStyle = builder.CreateCellStyle();
             titleStyle.Alignment = HorizontalAlignment.Center;
 
             builder.AddCell(new HSSFRichTextString(ViewResources.NoInfo), titleStyle);
-            builder.MergeCell(new CellRangeAddress(ContentRowIndex, ContentRowIndex, 0, NumberOfColumn - 1));
+            builder.MergeCell(new CellRangeAddress(NoInfoRowIndex, NoInfoRowIndex, 0, NumberOfColumn - 1));
         }
 
         private static void AddTitle(IBetListExcelBuilder builder, string title)
@@ -145,8 +147,6 @@
 
             builder.AddCell(new HSSFRichTextString(string.Empty), noteStyle);
             builder.MergeCell(new CellRangeAddress(blankRowIndex, blankRowIndex, 0, NumberOfColumn - 1));
-
-            builder.MergeCell(new CellRangeAddress(noteRowIndex, blankRowIndex, 0, NumberOfColumn - 1));
         }
 
         protected internal virtual void Build(IBetListExcelBuilder builder, TicketResult ticketResult, string title, string note = null, int startIndex = 1)
@@ -165,7 +165,7 @@
                 AddTitle(builder, title);
                 AddNote(builder, note);
                 AddHeader(builder);
-                AddNoInfoRow(builder);
+                AddNoInfoRow(builder, note);
             }
         }
 
