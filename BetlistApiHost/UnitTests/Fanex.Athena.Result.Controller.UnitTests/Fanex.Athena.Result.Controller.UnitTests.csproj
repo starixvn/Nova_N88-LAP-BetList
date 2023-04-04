@@ -50,9 +50,6 @@
     <Reference Include="Fanex.Result.Core, Version=2.2.0.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Result.Core-NPOI.2.0.6.2.3.9.1\lib\net40\Fanex.Result.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.Result.Core.AllBetCasino, Version=1.0.1.9, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.Result.Core.AllBetCasino.1.0.1.9\lib\net40\Fanex.Result.Core.AllBetCasino.dll</HintPath>
-    </Reference>
     <Reference Include="Fanex.Result.Core.Base, Version=2.3.9.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Result.Core-NPOI.2.0.6.2.3.9.1\lib\net40\Fanex.Result.Core.Base.dll</HintPath>
     </Reference>
@@ -71,9 +68,6 @@
     <Reference Include="Fanex.Result.Core.Racing, Version=1.1.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Result.Core-Racing.1.1.0.1\lib\net40\Fanex.Result.Core.Racing.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.Result.Core.SexyGaming, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.Result.Core.SexyGaming.1.0.0.3\lib\net40\Fanex.Result.Core.SexyGaming.dll</HintPath>
-    </Reference>
     <Reference Include="Fanex.Result.Core.Sportsbook, Version=1.2.9.4, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Result.Core-Sportsbook.1.2.9.4\lib\net40\Fanex.Result.Core.Sportsbook.dll</HintPath>
     </Reference>
@@ -82,9 +76,6 @@
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
-    </Reference>
-    <Reference Include="LiveCasinoResult, Version=1.0.1.8, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.Result.Core.AllBetCasino.1.0.1.9\lib\net40\LiveCasinoResult.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="NSubstitute, Version=3.1.0.0, Culture=neutral, PublicKeyToken=92dd2e9066daa5ca, processorArchitecture=MSIL">
@@ -118,11 +109,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="ResultPopup\SexyGamingResultPopupControllerTest.cs" />
     <Compile Include="ResultPopup\CardClubResultPopupControllerTest.cs" />
-    <Compile Include="ResultPopup\SGResultPopupControllerTest.cs" />
-    <Compile Include="ResultPopup\VoidbridgeResultPopupControllerTest.cs" />
-    <Compile Include="ResultPopup\AllBetResultPopupControllerTest.cs" />
     <Compile Include="ResultReportControllerTest.ResultExcel.cs" />
     <Compile Include="ResultPopup\PPResultPopupControllerTest.cs" />
     <Compile Include="ResultKenoReportControllerTest.cs" />

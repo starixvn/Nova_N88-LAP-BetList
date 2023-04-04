@@ -6,8 +6,6 @@
     {
         bool IsProduction { get; }
 
-        IEnumerable<int> FakeLicenseeList { get; }
-
         string TempFilePath { get; }
 
         string GetValue(string key);

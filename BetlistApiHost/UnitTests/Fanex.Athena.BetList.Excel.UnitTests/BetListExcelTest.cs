@@ -140,7 +140,6 @@ namespace Fanex.Athena.BetList.Excel.UnitTests
             // Arrange
             const int HiddenColumnIndex = 100;
             const int ColumnSystemIdIndex = 2;
-            _appSettings.FakeLicenseeList.Returns(new[] { LicenseeId });
             var betListExcel = CreateBetListExcel(hiddenColumns: new[] { HiddenColumnIndex });
             var sheet = Substitute.For<ISheet>();
             var workbook = Substitute.For<IWorkbook>();
@@ -162,11 +161,9 @@ namespace Fanex.Athena.BetList.Excel.UnitTests
         private BetListExcel CreateBetListExcel(BetListShowingOption showingOption = null, int[] hiddenColumns = null)
         {
             var betListExcel = Substitute.ForPartsOf<BetListExcel>(
-                _appSettings,
                 _ticketHelper,
                 _ipService,
                 showingOption ?? new BetListShowingOption(),
-                LicenseeId,
                 hiddenColumns,
                 false);
             betListExcel.CreateExcelBuilder().Returns(_builder);

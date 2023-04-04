@@ -151,14 +151,12 @@
         public static IBetListExcelBuilder AddLicenseeWL(
             this IBetListExcelBuilder builder,
             LrfTicket ticket,
-            bool is12Bet,
             IFont redFont,
             IFont blackFont)
         {
             var isRunning = BetListHelper.IsRunning(ticket.Status);
             var isBoughtTicket = BetListHelper.IsBoughtTicket(ticket.BetTypeId);
-            var isColossusBetBettype = BetListHelper.IsColossusBet(ticket.BetTypeId);
-            if (isBoughtTicket || isColossusBetBettype)
+            if (isBoughtTicket)
             {
                 var licenseeWl = isRunning
                                     ? "-"

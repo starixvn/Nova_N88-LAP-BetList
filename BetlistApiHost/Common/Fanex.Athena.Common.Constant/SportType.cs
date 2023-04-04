@@ -293,12 +293,6 @@
         /// </summary>
         Keno = 202,
 
-        AllBet = 211,
-
-        Voidbridge = 212,
-
-        FishingWorld = 219,
-
         Lottery = 220,
 
         Exchange = 221,

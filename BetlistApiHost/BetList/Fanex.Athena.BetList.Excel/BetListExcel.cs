@@ -32,13 +32,9 @@
 
         private readonly IEnumerable<int> _hiddenColumnIndexes;
 
-        private readonly int _licenseeId;
-
         private readonly ITicketHelper _ticketHelper;
 
         private readonly IIPService _ipService;
-
-        private readonly IAppSettings _appSettings;
 
         private readonly bool _isShowSumStake;
 
@@ -55,10 +51,8 @@
 
         private IFont _winLossFont;
 
-        public BetListExcel(BetListShowingOption showingOption, int licenseeId, IEnumerable<int> hiddenColumnIndexes, bool isShowSumStake = false, bool isShowIpvn = false, IIPService ipService = null)
+        public BetListExcel(BetListShowingOption showingOption, IEnumerable<int> hiddenColumnIndexes, bool isShowSumStake = false, bool isShowIpvn = false, IIPService ipService = null)
         {
-            _appSettings = new AppSettings();
-            _licenseeId = licenseeId;
             _ticketHelper = new TicketHelper();
             _isShowSumStake = isShowSumStake;
             _isShowIpvn = isShowIpvn;
@@ -68,16 +62,12 @@
         }
 
         protected internal BetListExcel(
-            IAppSettings appSettings,
             ITicketHelper ticketHelper,
             IIPService ipService,
             BetListShowingOption showingOption,
-            int licenseeId,
             IEnumerable<int> hiddenColumnIndexes,
             bool isShowSumStake = false)
         {
-            _appSettings = appSettings;
-            _licenseeId = licenseeId;
             _ticketHelper = ticketHelper;
             _ipService = ipService;
             _isShowSumStake = isShowSumStake;
@@ -236,7 +226,7 @@
             builder.AddStake(ticket, _ticketHelper);
             builder.AddCustomerWL(ticket, _showingOption.CustomerCommVisible, _winLossFont);
             builder.AddBetEffective(ticket, _winLossFont);
-            builder.AddLicenseeWL(ticket, _licenseeId == LicenseeIdentity.OneTwoBet, _negativeWinLossFont, _winLossFont);
+            builder.AddLicenseeWL(ticket, _negativeWinLossFont, _winLossFont);
             builder.AddStatus(ticket, _ticketHelper, ticketResult.TicketDataList, _isShowIpvn);
         }
 
@@ -274,7 +264,7 @@
             if (_hiddenColumnIndexes != null)
             {
                 var columns = _hiddenColumnIndexes;
-                if (_appSettings.FakeLicenseeList.Contains(_licenseeId) && !_hiddenColumnIndexes.Contains(ColumnSystemIdIndex))
+                if (!_hiddenColumnIndexes.Contains(ColumnSystemIdIndex))
                 {
                     columns = columns.Concat(new[] { ColumnSystemIdIndex });
                 }

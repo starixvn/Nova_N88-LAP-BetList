@@ -126,7 +126,7 @@
 
         protected internal virtual ExcelResult Export(BetListExcelMetaModel metaModel, TicketResult ticketResult)
         {
-            var excel = new BetListExcel(metaModel.ShowingOption, metaModel.LicenseeId, metaModel.HiddenColumns, metaModel.IsShowSumStake, metaModel.IsShowIpvn, _ipService);
+            var excel = new BetListExcel(metaModel.ShowingOption, metaModel.HiddenColumns, metaModel.IsShowSumStake, metaModel.IsShowIpvn, _ipService);
 
             var workbook = excel.Export(ticketResult, metaModel.Title, metaModel.Note, metaModel.StartIndex);
 

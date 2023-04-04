@@ -16,23 +16,13 @@
 
         public const string AGC = "AGC";
 
-        public const string PTCS = "PTCS";
-
-        public const string GD = "GD";
-
         public const string VG = "VG";
-
-        public const string BT = "BT";
 
         public const string VB = "VB";
 
         public const string AB = "AB";
 
-        public const string FW = "FW";
-
         public const string CO = "CO";
-
-        public const string CB = "CB";
 
         public const string VS2 = "VS2";
 

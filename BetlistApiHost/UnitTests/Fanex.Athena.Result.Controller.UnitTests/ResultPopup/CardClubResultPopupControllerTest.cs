@@ -22,7 +22,7 @@
                 BetTypeId = metaModel.BetTypeId
             };
 
-            using (var controller = new VoidbridgeResultPopupController(resultApi))
+            using (var controller = new CardClubResultPopupController(resultApi))
             {
                 // Action
                 var result = controller.Index(metaModel);
