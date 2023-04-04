@@ -41,8 +41,8 @@
 	<Function Name="TicketDetail">
 		<Setting Key="Lrf_BetList_SelCombinationParlayDetail" SpName="Lrf_BetList_SelCombinationParlayDetail" DbName="DBACC.bodb02.bodbLicenseeNet" />
 		<Setting Key="Lrf_BetList_SelParlayDetail" SpName="Lrf_BetList_SelParlayDetail" DbName="DBACC.bodb02.bodbLicenseeNet" />
-		<Setting Key="Lrf_BetList_RNG_Detail" SpName="Lrf_BetList_RNG_Detail" DbName="DBEXT.bodb02.bodbLicenseeNet" />
-		<Setting Key="Lrf_BetList_LC_Detail" SpName="Lrf_BetList_LC_Detail" DbName="DBEXT.bodb02.bodbLicenseeNet" />
+		<Setting Key="Lrf_BetList_RNG_Detail" SpName="Lrf_BetList_RNG_Detail" DbName="DBACC.bodb02.bodbLicenseeNet" />
+		<Setting Key="Lrf_BetList_LC_Detail" SpName="Lrf_BetList_LC_Detail" DbName="DBACC.bodb02.bodbLicenseeNet" />
 		<Setting Key="Lrf_BetList_CashOut_Detail" SpName="Lrf_BetList_CashOut_Detail" DbName="DBACC.bodb02.bodbLicenseeNet" />
 		<Setting Key="Lrf_BetList_LicenseeBonus_Detail" SpName="Lrf_BetList_LicenseeBonus_Detail" DbName="DBACC.bodb02.bodbLicenseeNet" />
 		<Setting Key="Lrf_BetList_BetBuilder_Detail" SpName="Lrf_BetList_BetBuilder_Detail"  DbName="DBACC.bodb02.bodbLicenseeNet" />
