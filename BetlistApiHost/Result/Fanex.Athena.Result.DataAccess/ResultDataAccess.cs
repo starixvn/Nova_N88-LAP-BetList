@@ -393,7 +393,7 @@
                 SettlementStatus = reader.ToByte("SettlementStatus"),
                 Bettype = reader.HasColumn("bettype") ? reader.ToInt("bettype") : 0,
                 BetID = reader.HasColumn("betcheck") ? reader.ToString("betcheck") : string.Empty,
-                NoHTScore = reader.ToBool("NoHTScore")
+                NoHTScore = reader.HasColumn("NoHTScore") && reader.ToBool("NoHTScore")
             };
         }
 
