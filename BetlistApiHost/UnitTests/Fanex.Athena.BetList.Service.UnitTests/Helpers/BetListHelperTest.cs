@@ -31,29 +31,6 @@
             Assert.That(result, Is.False);
         }
 
-        [TestCase(18000)]
-        [TestCase(18001)]
-        [TestCase(18007)]
-        public void IsColossusBet_IsColossusBetBetType_ReturnTrue(int betType)
-        {
-            // Action
-            var result = BetListHelper.IsColossusBet(betType);
-
-            // Assert
-            Assert.That(result, Is.True);
-        }
-
-        [TestCase(17999)]
-        [TestCase(18008)]
-        public void IsColossusBet_IsNotColossusBetBetType_ReturnFalse(int betType)
-        {
-            // Action
-            var result = BetListHelper.IsColossusBet(betType);
-
-            // Assert
-            Assert.That(result, Is.False);
-        }
-
         [TestCase("waiting")]
         [TestCase("WAITING")]
         [TestCase("running")]

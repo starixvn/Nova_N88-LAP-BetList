@@ -167,8 +167,6 @@
     <Compile Include="BettingTicketsCenterDataAccessTest.GetBetListForSingleCustomer.cs" />
     <Compile Include="BettingTicketsCenterDataAccessTest.GetRunningBetList.cs" />
     <Compile Include="CashOutBetListDataAccessTest.cs" />
-    <Compile Include="ColossusBetBetListDataAccessTest.cs" />
-    <Compile Include="DailyStatementBetListDataAccessTest.cs" />
     <Compile Include="ExchangeBetListDataAccessTest.cs" />
     <Compile Include="ExchangeBetListDataAccessTest_GetTicketDetailList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

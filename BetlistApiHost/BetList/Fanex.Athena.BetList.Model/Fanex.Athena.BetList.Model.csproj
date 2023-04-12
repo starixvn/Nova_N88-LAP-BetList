@@ -160,7 +160,6 @@
     <Compile Include="DTO\BetListTotalData.cs" />
     <Compile Include="DTO\CashOutTicketText.cs" />
     <Compile Include="DTO\CashOutTicket.cs" />
-    <Compile Include="DTO\DailyStatement.cs" />
     <Compile Include="DTO\ExchangeBetList.cs" />
     <Compile Include="DTO\ExchangeSumWinLoss.cs" />
     <Compile Include="DTO\ExchangeTicket.cs" />
@@ -171,7 +170,6 @@
     <Compile Include="DTO\IPV6RangeEntity.cs" />
     <Compile Include="DTO\LrfTicket.cs" />
     <Compile Include="DTO\BetListMatch.cs" />
-    <Compile Include="DTO\ColossusBetDetail.cs" />
     <Compile Include="DTO\SingleMatchParlayDetail.cs" />
     <Compile Include="DTO\SystemParlayDetailData.cs" />
     <Compile Include="DTO\SystemParlayDetailItem.cs" />
@@ -202,13 +200,11 @@
     <Compile Include="MetaModel\SingleMatchParlayDetailMetaModel.cs" />
     <Compile Include="MetaModel\WinLossByLeagueBetListMetaModel.cs" />
     <Compile Include="MetaModel\CashOutBetListDetailMetaModel.cs" />
-    <Compile Include="MetaModel\ColossusBetDetailMetaModel.cs" />
     <Compile Include="MetaModel\SystemParlayDetailMetaModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\BetListResultViewModel.cs" />
     <Compile Include="ViewModel\CashOutBetListDetailViewModel.cs" />
     <Compile Include="ViewModel\CashOutHistoryDetailViewModel.cs" />
-    <Compile Include="ViewModel\ColossusBetDetailViewModel.cs" />
     <Compile Include="ViewModel\ExchangeBetListViewModel.cs" />
     <Compile Include="ViewModel\SystemParlayDetailViewModel.cs" />
   </ItemGroup>

@@ -45,30 +45,6 @@
             Assert.That(result, Is.EqualTo(ExpectedHtml));
         }
 
-        [TestCase(18000)]
-        [TestCase(18007)]
-        public void BuildLicenseeWL_ColossusBetTicket_NegativeValue_SeparateWLandComm(BetType betType)
-        {
-            // Arrange
-            var ticket = new LrfTicket
-            {
-                BetTypeId = (int)betType,
-                Status = BetStatus.Won,
-                Comm = 1,
-                LicenseeWL = -2
-            };
-
-            const string ExpectedHtml = "<div class ='lic-win-loss'>"
-                + "<span class='negative-number'>-2.00</span>"
-                + "<br/>1.00</div>";
-
-            // Action
-            var result = _betListBuilder.BuildLicenseeWL(ticket);
-
-            // Assert
-            Assert.That(result, Is.EqualTo(ExpectedHtml));
-        }
-
         [Test]
         public void BuildLicenseeWL_RemainingRunningTicket_ShowHyphenCharacter()
         {

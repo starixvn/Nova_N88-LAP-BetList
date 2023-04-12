@@ -183,12 +183,10 @@
     <Compile Include="BettingTicketCenterControllerTest.cs" />
     <Compile Include="BettingTicketCenterAdvancedSearchControllerTest.cs" />
     <Compile Include="CashOutBetListControllerTest.cs" />
-    <Compile Include="ColossusBetBetListControllerTest.cs" />
     <Compile Include="CustomActionResult\JsonNetResultTest.cs" />
     <Compile Include="CustomActionResult\ExcelResultTest.cs" />
     <Compile Include="ExchangeWinLossBetListControllerTest.cs" />
     <Compile Include="MixParlayBetListControllerTest.cs" />
-    <Compile Include="OutstandingDailyStatementBetListControllerTest.cs" />
     <Compile Include="PlayerAdminBetListControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SingleMatchParlayBetListControllerTest.cs" />

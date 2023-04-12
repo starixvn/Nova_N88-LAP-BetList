@@ -215,7 +215,7 @@ namespace Fanex.Athena.BetList.Excel.Builders
 
             if (option.ShowLicenseeWl)
             {
-                _builder.AddLicenseeWL(ticket, licenseeId == LicenseeIdentity.OneTwoBet, _negativeWinLossFont, _winLossFont);
+                _builder.AddLicenseeWL(ticket, _negativeWinLossFont, _winLossFont);
             }
 
             _ticketHelper.IsVnIp = _ipService.IsVNIP;

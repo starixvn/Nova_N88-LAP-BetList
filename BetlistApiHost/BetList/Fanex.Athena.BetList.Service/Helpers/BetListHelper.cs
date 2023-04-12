@@ -8,10 +8,6 @@
 
     public static class BetListHelper
     {
-        private const int MinColossusBetBetType = 18000;
-
-        private const int MaxColossusBetBetType = 18007;
-
         public static void ClearData(TicketResult ticketResult)
         {
             ticketResult.MainTicketList.Clear();
@@ -50,11 +46,6 @@
         public static bool IsBoughtTicket(int bettype)
         {
             return bettype == (int)BetType.BetTradeBought || bettype == (int)BetType.CashOutBought;
-        }
-
-        public static bool IsColossusBet(int bettype)
-        {
-            return bettype >= MinColossusBetBetType && bettype <= MaxColossusBetBetType;
         }
 
         public static bool IsRunning(string status)

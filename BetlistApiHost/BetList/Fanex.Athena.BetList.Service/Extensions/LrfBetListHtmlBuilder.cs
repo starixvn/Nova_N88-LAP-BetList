@@ -35,7 +35,7 @@
                 return "-";
             }
 
-            return BetListHelper.IsBoughtTicket(ticket.BetTypeId) || BetListHelper.IsColossusBet(ticket.BetTypeId)
+            return BetListHelper.IsBoughtTicket(ticket.BetTypeId)
                 ? $"<div class ='lic-win-loss'>{FormatLicenseeWl(ticket.LicenseeWL)}<br/>{string.Format("{0:#,##0.00}", ticket.Comm)}</div>"
                 : $"<div class='lic-win-loss'>{FormatLicenseeWl(ticket.LicenseeWL + ticket.Comm)}</div>";
         }
@@ -96,6 +96,7 @@
         }
 
         #region Private Utility
+
         /// <summary>
         /// Format licensee win lost, show red text if the licensee win lost is negative.
         /// </summary>

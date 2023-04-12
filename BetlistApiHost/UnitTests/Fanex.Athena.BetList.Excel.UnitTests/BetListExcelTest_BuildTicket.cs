@@ -86,11 +86,9 @@ namespace Fanex.Athena.BetList.Excel.UnitTests
         private BetListExcel CreateBetListExcel()
         {
             var betListExcel = Substitute.ForPartsOf<BetListExcel>(
-                Substitute.For<IAppSettings>(),
                 _ticketHelper,
                 _ipService,
                 new BetListShowingOption(),
-                LicenseeIdentity.OneTwoBet,
                 new int[] { },
                 false);
             betListExcel.CreateExcelBuilder().Returns(_builder);

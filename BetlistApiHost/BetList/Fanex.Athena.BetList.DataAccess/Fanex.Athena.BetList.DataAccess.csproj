@@ -69,9 +69,6 @@
     <Reference Include="Enums.NET, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7ea1c1650d506225, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Enums.NET.4.0.0\lib\net45\Enums.NET.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.BetList.ColossusBets, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.BetList.ColossusBets.2.0.0\lib\net461\Fanex.BetList.ColossusBets.dll</HintPath>
-    </Reference>
     <Reference Include="Fanex.BetList.Core, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.BetList.Core.3.0.0.1\lib\net461\Fanex.BetList.Core.dll</HintPath>
     </Reference>
@@ -176,16 +173,12 @@
     <Compile Include="BettingTicketCenterDataAccess.cs" />
     <Compile Include="BetListDataAccess.cs" />
     <Compile Include="CashOutBetListDataAccess.cs" />
-    <Compile Include="DailyStatementBetListDataAccess.cs" />
     <Compile Include="ExchangeBetListDataAccess.cs" />
     <Compile Include="Interfaces\IBetListByProductDataAccess.cs" />
     <Compile Include="Interfaces\IBettingTicketCenterAdvancedSearchDataAccess.cs" />
     <Compile Include="Interfaces\IBettingTicketCenterDataAccess.cs" />
-    <Compile Include="Interfaces\IDailyStatementBetListDataAccess.cs" />
     <Compile Include="Interfaces\ICashOutBetListDataAccess.cs" />
-    <Compile Include="Interfaces\IColossusBetBetListDataAccess.cs" />
     <Compile Include="Interfaces\IExchangeBetListDataAccess.cs" />
-    <Compile Include="ColossusBetBetListDataAccess.cs" />
     <Compile Include="Interfaces\IIPDataAccess.cs" />
     <Compile Include="Interfaces\IPlayerAdminBetListDataAccess.cs" />
     <Compile Include="Interfaces\ISingleMatchParlayDetailDataAccess.cs" />

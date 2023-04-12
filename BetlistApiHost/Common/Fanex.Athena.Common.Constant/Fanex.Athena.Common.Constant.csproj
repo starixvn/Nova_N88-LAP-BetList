@@ -39,7 +39,6 @@
   <ItemGroup>
     <Compile Include="BetType.cs" />
     <Compile Include="FormatKey.cs" />
-    <Compile Include="LicenseeIdentity.cs" />
     <Compile Include="LiveStatusTypes.cs" />
     <Compile Include="OddsType.cs" />
     <Compile Include="PlatformType.cs" />

@@ -157,11 +157,9 @@ namespace Fanex.Athena.BetList.Excel.UnitTests
             int[] hiddenColumnIndexes = null)
         {
             var betListExcel = Substitute.ForPartsOf<BetListExcel>(
-                Substitute.For<IAppSettings>(),
                 _ticketHelper,
                 _ipService,
                 showingOption ?? new BetListShowingOption(),
-                LicenseeIdentity.OneTwoBet,
                 hiddenColumnIndexes ?? new int[] { },
                 isShowSumStake);
             betListExcel.CreateExcelBuilder().Returns(_builder);
