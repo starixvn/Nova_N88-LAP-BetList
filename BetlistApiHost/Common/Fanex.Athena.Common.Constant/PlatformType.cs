@@ -37,6 +37,7 @@
             { "@", MobileCompact },
             { "7", MobileOthers },
             { "8", MobileOthers },
+            { "#", MobileOthers },
             { "_", MobileOthers },
             { "$", MobileOthers },
             { ".", MobileOthers },
