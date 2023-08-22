@@ -8,8 +8,9 @@
         private const string DesktopNewAsia = "DesktopNewAsia";
         private const string DesktopChina = "DesktopChina";
         private const string DesktopOthers = "DesktopOthers";
+        private const string DesktopGalaxy = "DesktopGalaxy";
         private const string MobileStandard = "MobileStandard";
-        private const string MobileEuro = "MobileEuro";
+        private const string MobileGalaxy = "MobileGalaxy";
         private const string MobileCompact = "MobileCompact";
         private const string MobileOthers = "MobileOthers";
         private const string ESportsDesktop = "ESportsDesktop";
@@ -20,6 +21,7 @@
         private const string Tablet = "Tablet";
         private const string DeepLink = "DeepLink";
         private const string Wap = "Wap";
+        private const string ChatRoom = "ChatRoom";
         private const string BetfromOthers = "BetfromOthers";
 
         private static IDictionary<string, string> _platforms = new Dictionary<string, string>
@@ -30,9 +32,11 @@
             { "[", DesktopChina },
             { "9", DesktopOthers },
             { ">", DesktopOthers },
+            { "W001", DesktopGalaxy },
             { "l", MobileStandard },
             { "]", MobileStandard },
-            { "%", MobileEuro },
+            { "%", MobileGalaxy },
+            { "W002", MobileGalaxy },
             { "c", MobileCompact },
             { "@", MobileCompact },
             { "7", MobileOthers },
@@ -54,6 +58,7 @@
             { "r", Tablet },
             { "t", DeepLink },
             { "m", Wap },
+            { "A000", ChatRoom },
             { "v", BetfromOthers },
             { "d", BetfromOthers },
             { "g", BetfromOthers },

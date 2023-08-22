@@ -285,7 +285,13 @@
   <data name="ESportsMobile" xml:space="preserve">
     <value>E-Sports Mobile</value>
   </data>
-  <data name="MobileEuro" xml:space="preserve">
-    <value>Mobile Euro</value>
+  <data name="MobileGalaxy" xml:space="preserve">
+    <value>Mobile Galaxy</value>
+  </data>
+  <data name="ChatRoom" xml:space="preserve">
+    <value>Chat Room</value>
+  </data>
+  <data name="DesktopGalaxy" xml:space="preserve">
+    <value>Desktop Galaxy</value>
   </data>
 </root>
