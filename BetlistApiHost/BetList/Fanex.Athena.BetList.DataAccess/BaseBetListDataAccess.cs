@@ -88,7 +88,7 @@
                 "username", "refno", "matchcode", "status", "betteam", "betstatus", "showtime", "oddstype",
                 "nickname", "race", "betfrom", "betcheck", "liveindicator", "isneutral", "sporttype", "bettype",
                 "leagueid", "awayid", "homeid", "matchid", "custid", "currencyid", "livehomescore", "liveawayscore",
-                "SpecialLevel", "StatusId", "transid", "betid", "winlostdate", "transdate",
+                "SpecialLevel", "StatusId", "transid", "betid", "winlostdate", "transdate", "JackpotInfo",
                 "odds", "modds", "hdp1", "hdp2", "transdesc", "currency", "betdaqid", "extrainfo", "originalbettype",
                 "refcode", "wallettype", "oddsspread", "SettlementStatus", "eventdate", "ip", "siteId"
             };
@@ -146,6 +146,7 @@
             ticket.ExtraInfo = reader.GetString("extrainfo");
             ticket.IP = reader.GetString("ip");
             ticket.SiteId = reader.GetString("siteId");
+            ticket.JackpotInfo = reader.GetString("JackpotInfo");
         }
 
         private static void ReadBooleanData(LrfTicket ticket, ISafeDataReader reader)
