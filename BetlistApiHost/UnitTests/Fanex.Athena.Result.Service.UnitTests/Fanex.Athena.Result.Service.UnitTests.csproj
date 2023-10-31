@@ -65,7 +65,7 @@
       <HintPath>..\..\..\packages\Fanex.Result.Core-Racing.1.1.0.1\lib\net40\Fanex.Result.Core.Racing.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core.Sportsbook, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.Result.Core-Sportsbook.1.3.0-basketball-03\lib\net40\Fanex.Result.Core.Sportsbook.dll</HintPath>
+      <HintPath>..\..\..\packages\Fanex.Result.Core-Sportsbook.1.3.0-basketball-07\lib\net40\Fanex.Result.Core.Sportsbook.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
