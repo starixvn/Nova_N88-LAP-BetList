@@ -136,8 +136,8 @@
     <Reference Include="Fanex.BetList.PlayerTips, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.BetList.PlayerTips.2.0.0\lib\net461\Fanex.BetList.PlayerTips.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.BetList.PP, Version=2.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.BetList.PP.2.0.0.1\lib\net461\Fanex.BetList.PP.dll</HintPath>
+    <Reference Include="Fanex.BetList.PP, Version=2.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.BetList.PP.2.0.0.2\lib\net461\Fanex.BetList.PP.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.BetList.RnGCasino, Version=2.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.BetList.RnGCasino.2.0.0.1\lib\net461\Fanex.BetList.RnGCasino.dll</HintPath>
