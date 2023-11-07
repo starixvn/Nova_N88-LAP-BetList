@@ -10,6 +10,7 @@
         private const string DesktopOthers = "DesktopOthers";
         private const string DesktopGalaxy = "DesktopGalaxy";
         private const string MobileStandard = "MobileStandard";
+        private const string MobileEuro = "MobileEuro"; 
         private const string MobileGalaxy = "MobileGalaxy";
         private const string MobileCompact = "MobileCompact";
         private const string MobileOthers = "MobileOthers";
@@ -35,7 +36,7 @@
             { "W001", DesktopGalaxy },
             { "l", MobileStandard },
             { "]", MobileStandard },
-            { "%", MobileGalaxy },
+            { "%", MobileEuro },
             { "W002", MobileGalaxy },
             { "c", MobileCompact },
             { "@", MobileCompact },
