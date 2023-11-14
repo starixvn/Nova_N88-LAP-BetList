@@ -65,7 +65,9 @@
             { "g", BetfromOthers },
             { "e", BetfromOthers },
             { "u", BetfromOthers },
-            { "^", BetfromOthers }
+            { "^", BetfromOthers },
+            { "A001", BetfromOthers },
+            { "A002", BetfromOthers }
         };
 
         public static string GetPlatformName(string code)
