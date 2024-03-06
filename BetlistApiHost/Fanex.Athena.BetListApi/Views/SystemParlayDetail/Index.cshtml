@@ -2,12 +2,11 @@
 @using System.Linq;
 @using Fanex.BetList.Core.App_GlobalResources;
 @using Fanex.Athena.Resources;
-
+@using Fanex.BetList.Core.Entities;
 @model Fanex.Athena.BetList.Model.ViewModel.SystemParlayDetailViewModel
 @{
     var groupedData = Model.DataList;
 }
-
 @helper RenderFirstRow()
 {
     <tr style="visibility: hidden; height: auto; border: none">
@@ -20,7 +19,20 @@
     </tr>
 }
 
+@helper RenderOddsOfParlayBoostBonus(decimal odds, decimal mOdds, string boostRate, bool showBoostRate = false)
+{
+    <div class="oddstype">
+        <span class="underdog strikethrough">@odds</span><br>
+        <span class="underdog">@mOdds</span>
+        @if (showBoostRate)
+        {
+            <br><span class="boostrate"><span class="icon-boost"></span>@boostRate</span>
+        }
+    </div>
+}
+
 <style type="text/css">
+
     .system-parlay-detail .negative {
         color: #ff0000;
     }
@@ -42,7 +54,7 @@
     }
 
     .system-parlay-detail .odds-cell {
-        width: 60px;
+        width: 70px;
     }
 
     .system-parlay-detail .stake-cell {
@@ -57,7 +69,6 @@
         width: 60px;
     }
 </style>
-
 <div class="system-parlay-detail">
     <div id="theaderContainer" class="tcontainer theader-container" style="padding-right: 18px; border: 1px solid #ddd">
         <table style="text-align: right;white-space: nowrap; font-weight: bold" cellspacing="0" cellpadding="0" border="0">
@@ -73,22 +84,22 @@
             </thead>
         </table>
     </div>
-    <div id="tbodyContainer" class="tcontainer tbody-container" style="overflow: auto; border-right: 1px solid #ddd; border-left: 1px solid #ddd">
+    <div id="tbodyContainer" class="tcontainer tbody-container" style="border-right: 1px solid #ddd; border-left: 1px solid #ddd">
         <table id="tbodyData" style="text-align: right;white-space: nowrap; font-weight: bold; width: 100%;" cellspacing="0" cellpadding="0" border="0">
             <tbody>
                 @RenderFirstRow()
                 @foreach (var dataByDate in groupedData)
-            {
-                var rowSpan = dataByDate.Count().ToString();
-                var isFirstItem = true;
-
-                var subTotal = dataByDate.Sum(x => x.WinLoss);
-
-                foreach (var dataByMatch in dataByDate)
                 {
+                    var rowSpan = dataByDate.Count().ToString();
+                    var isFirstItem = true;
+
+                    var subTotal = dataByDate.Sum(x => x.WinLoss);
+
+                    foreach (var dataByMatch in dataByDate)
+                    {
                         <tr>
                             @if (isFirstItem)
-                    {
+                            {
                                 <td rowspan="@rowSpan" style="text-align: center; font-weight: normal;">@dataByMatch.Date.ToString("MM/dd/yyyy")</td>
                                 isFirstItem = false;
                             }
@@ -100,7 +111,74 @@
                                     <div class="match-group" title="@matchText">@matchText</div>
                                 }
                             </td>
-                            <td>@NumberHelper.DecFormat(dataByMatch.Odds, 4)</td>
+                            <td>
+                                @if (Model.IsParlayBoost)
+                                {
+                                    switch (dataByMatch.StatusId)
+                                    {
+                                        case BetStatusId.Running:
+                                        case BetStatusId.Waiting:
+                                        case BetStatusId.Won:
+                                            @RenderOddsOfParlayBoostBonus(@dataByMatch.Odds, @dataByMatch.MOdds, @dataByMatch.BoostRate, true);
+                                            break;
+                                        case BetStatusId.Draw:
+                                        case BetStatusId.Refund:
+                                            @NumberHelper.DecFormat(@dataByMatch.MOdds, 4)
+                                            break;
+                                        case BetStatusId.Lost:
+                                            if (dataByMatch.MOdds > 0)
+                                            {
+                                                @RenderOddsOfParlayBoostBonus(@dataByMatch.Odds, @dataByMatch.MOdds, @dataByMatch.BoostRate);
+                                            }
+                                            else
+                                            {
+                                                @NumberHelper.DecFormat(dataByMatch.Odds, 4)
+                                            }
+                                            break;
+                                        default:
+                                            @NumberHelper.DecFormat(dataByMatch.MOdds, 4)
+                                            break;
+                                    }
+                                }
+                                else
+                                {
+
+                                    switch (dataByMatch.StatusId)
+                                    {
+                                        case BetStatusId.Running:
+                                        case BetStatusId.Waiting:
+                                            @NumberHelper.DecFormat(dataByMatch.Odds, 4)
+                                            break;
+                                        case BetStatusId.Draw:
+                                        case BetStatusId.Refund:
+                                            @NumberHelper.DecFormat(1, 4)
+                                            break;
+                                        case BetStatusId.Lost:
+                                            if (dataByMatch.MOdds > 0)
+                                            {
+                                                @RenderOddsOfParlayBoostBonus(@dataByMatch.Odds, @dataByMatch.MOdds, @dataByMatch.BoostRate);
+                                            }
+                                            else
+                                            {
+                                                @NumberHelper.DecFormat(dataByMatch.Odds, 4)
+                                            }
+                                            break;
+                                        case BetStatusId.Won:
+                                            if (dataByMatch.Odds != dataByMatch.MOdds)
+                                            {
+                                                @RenderOddsOfParlayBoostBonus(@dataByMatch.Odds, @dataByMatch.MOdds, @dataByMatch.BoostRate);
+                                            }
+                                            else
+                                            {
+                                                @NumberHelper.DecFormat(dataByMatch.Odds, 4)
+                                            }
+                                            break;
+                                        default:
+                                            @NumberHelper.DecFormat(dataByMatch.Odds, 4)
+                                            break;
+                                    }
+                                }
+                            </td>
                             <td>@NumberHelper.DecFormat(dataByMatch.Stake)</td>
                             <td>
                                 <div class="@(dataByMatch.WinLoss < 0 ? "negative" : string.Empty)">@NumberHelper.DecFormat(dataByMatch.WinLoss)</div>
@@ -118,7 +196,6 @@
             </tbody>
         </table>
     </div>
-
     <div id="tfooterContainer" class="tcontainer tfooter-container" style="padding-right: 18px; border: 1px solid #ddd">
         <table style="text-align: right;white-space: nowrap; font-weight: bold" cellspacing="0" cellpadding="0" border="0">
             <tfoot>
@@ -131,7 +208,7 @@
                     <td style="border-left: none;">&nbsp;</td>
                 </tr>
                 @if (Model.DataList.Any())
-            {
+                {
                     <tr class="system-parlay-total">
                         <td colspan="4">@CoreBetList.total:</td>
                         <td class="@(Model.Total < 0 ? "negative" : string.Empty)">@NumberHelper.DecFormat(Model.Total)</td>
@@ -141,27 +218,13 @@
             </tfoot>
         </table>
     </div>
-
     <script type="text/javascript">
         var PADDING_HEIGHT = 30;
         var MARGIN_NOTE = 5;
         var SCROLLBAR_WIDTH = 18;
 
         function calculateContentSize() {
-            var windowHeightWithoutPadding = window.innerHeight - PADDING_HEIGHT;
-
-            var tfooter = document.getElementById('tfooterContainer');
-            var footerClientRect = tfooter.getBoundingClientRect();
-            var noteBlock = document.getElementsByClassName('note-block');
-            var noteBlockHeight = noteBlock.length > 0 ? noteBlock[0].offsetHeight + MARGIN_NOTE : 0;
-            var contentHeight = footerClientRect.bottom + noteBlockHeight;
-
             var theader = document.getElementById('theaderContainer');
-            if (contentHeight > windowHeightWithoutPadding) {
-                var maxHeightForBody = windowHeightWithoutPadding - theader.offsetHeight - tfooter.offsetHeight - noteBlockHeight;
-
-                document.getElementById('tbodyContainer').style.maxHeight = maxHeightForBody + 'px';
-            }
             document.getElementById('tbodyData').style.width = (theader.clientWidth - SCROLLBAR_WIDTH) + 'px';
         }
 

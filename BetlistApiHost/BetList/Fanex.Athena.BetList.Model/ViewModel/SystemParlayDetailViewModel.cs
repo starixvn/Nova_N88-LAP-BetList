@@ -14,5 +14,7 @@
         public decimal Total { get; set; }
 
         public bool ShowPlayerComm { get; set; }
+
+        public bool IsParlayBoost { get; set; }
     }
 }

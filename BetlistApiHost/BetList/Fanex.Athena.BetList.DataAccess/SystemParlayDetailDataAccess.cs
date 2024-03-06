@@ -57,6 +57,7 @@
 
                 return new SystemParlayDetailData
                 {
+                    IsParlayBoost = Converter.ToBool(db.GetParameterValue("IsParlayBoost")),
                     Outstanding = Converter.ToDecimal(db.GetParameterValue("outstanding")),
                     TicketList = ticketList,
                     SerialList = serialList
@@ -81,6 +82,7 @@
             return new SystemParlayDetailTicket
             {
                 Comm = Converter.ToDecimal(row["comm"]),
+                Odds = Converter.ToDecimal(row["odds"]),
                 MOdds = Converter.ToDecimal(row["modds"]),
                 PlayerComm = Converter.ToDecimal(row["playercomm"]),
                 Serial = Convert.ToInt64(row["serial"]),
@@ -88,7 +90,8 @@
                 Status = Converter.ToString2(row["status"]),
                 StatusId = Converter.ToInt(row["statusid"]),
                 WinLost = Converter.ToDecimal(row["winlost"]),
-                WinLostDate = Converter.ToDateTime(row["winlostdate"])
+                WinLostDate = Converter.ToDateTime(row["winlostdate"]),
+                ExtraValue = Converter.ToDecimal(row["extravalue"])
             };
         }
 

@@ -12,6 +12,7 @@
     using Fanex.Athena.Common.Utility.Services.Interfaces;
     using Fanex.BetList.Core.App_GlobalResources;
     using Fanex.BetList.Core.Entities;
+    using Fanex.BetList.Core.Utils;
 
     [CLSCompliant(false)]
     public class SystemParlayDetailService : ISystemParlayDetailService
@@ -47,6 +48,7 @@
             {
                 DataList = ticketList,
                 Outstanding = data.Outstanding,
+                IsParlayBoost = data.IsParlayBoost,
                 Total = data.TicketList.Sum(x => x.WinLost)
             };
 
@@ -59,21 +61,23 @@
         {
             return data.TicketList
                 .OrderBy(t =>
-            {
-                var statusId = t.StatusId.ToString();
-                return _statusOrder.ContainsKey(statusId) ? _statusOrder[statusId] : UnknowStatusOrder;
-            })
+                {
+                    var statusId = t.StatusId.ToString();
+                    return _statusOrder.ContainsKey(statusId) ? _statusOrder[statusId] : UnknowStatusOrder;
+                })
             .GroupJoin(data.SerialList,
                 t => t.Serial,
                 s => s.Serial,
                 (ticket, serialList) => new SystemParlayDetailItem
                 {
                     Date = ticket.WinLostDate,
-                    Odds = ticket.MOdds,
+                    MOdds = ticket.MOdds,
+                    Odds = ticket.Odds,
                     Stake = ticket.Stake,
                     WinLoss = ticket.WinLost,
                     PlayerComm = ticket.PlayerComm,
                     Status = GetBetListStatusName(ticket.StatusId),
+                    BoostRate = ConvertByBetType.FormatBoostRate(ticket.ExtraValue),
                     MatchList = serialList.Select(x => new SystemParlayDetailMatch
                     {
                         HomeTeam = ticketHelper.GetTeamNameById(x.HomeId),

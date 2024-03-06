@@ -6,6 +6,8 @@
     {
         public decimal Comm { get; set; }
 
+        public decimal Odds { get; set; }
+
         public decimal MOdds { get; set; }
 
         public decimal PlayerComm { get; set; }
@@ -21,6 +23,8 @@
         public long TransId { get; set; }
 
         public decimal WinLost { get; set; }
+
+        public decimal ExtraValue { get; set; }
 
         public DateTime WinLostDate { get; set; }
     }
