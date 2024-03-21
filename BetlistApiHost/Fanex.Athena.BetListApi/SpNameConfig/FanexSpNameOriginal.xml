@@ -1,51 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Functions SiteId="31" SiteName="LRF">
 	<Function Name="Common">
-		<Setting Key="Lrf_SelBalanceUpDay" SpName="Lrf_SelBalanceUpDay" DbName="DBEXT.bodb02.bodbLicenseeNet" />
-		<Setting Key="Lrf_CurrencySel" SpName="Lrf_CurrencySel" DbName="DBEXT.bodb02.bodbLicenseeNet" />
-		<Setting Key="Lrf_GetAllIPVN" SpName="Lrf_GetAllIPVN" DbName="DBCUST.IPDB.bodbLicenseeNet" />
+		<Setting Key="Lrf_SelBalanceUpDay" SpName="Lrf_SelBalanceUpDay" DbName="DBEXT.bodb02.wsv_lap" />
+		<Setting Key="Lrf_CurrencySel" SpName="Lrf_CurrencySel" DbName="DBEXT.bodb02.wsv_lap" />
+		<Setting Key="Lrf_GetAllIPVN" SpName="Lrf_GetAllIPVN" DbName="DBCUST.IPDB.wsv_lap" />
 	</Function>
 	<Function Name="ResultReport">
-		<Setting Key="Lrf_Result_Outright" SpName="Lrf_Result_Outright" DbName="DBEXT.bodb02.bodbLicenseeNet" />
-		<Setting Key="Lrf_Result_SportSelByDate" SpName="Lrf_Result_SportSelByDate" DbName="DBEXT.bodb02.bodbLicenseeNet" />
-		<Setting Key="Lrf_Result_RaceSelByMeeting" SpName="Lrf_Result_RaceSelByMeeting" DbName="DBEXT.bodb02.bodbLicenseeNet" />
-		<Setting Key="Lrf_Result_MatchSelByLeague" SpName="Lrf_Result_MatchSelByLeague" DbName="DBEXT.bodb02.bodbLicenseeNet" />
-		<Setting Key="Lrf_Result_MatchSelByLeague_Detail" SpName="Lrf_Result_MatchSelByLeague_Detail" DbName="DBEXT.bodb02.bodbLicenseeNet" />
-		<Setting Key="Lrf_Result_MatchSelNumberGameByLeague" SpName="Lrf_Result_MatchSelNumberGameByLeague" DbName="DBEXT.bodb02.bodbLicenseeNet" />
-		<Setting Key="Lrf_Result_LeagueSelByDate" SpName="Lrf_Result_LeagueSelByDate" DbName="DBEXT.bodb02.bodbLicenseeNet" />
+		<Setting Key="Lrf_Result_Outright" SpName="Lrf_Result_Outright" DbName="DBEXT.bodb02.wsv_lap" />
+		<Setting Key="Lrf_Result_SportSelByDate" SpName="Lrf_Result_SportSelByDate" DbName="DBEXT.bodb02.wsv_lap" />
+		<Setting Key="Lrf_Result_RaceSelByMeeting" SpName="Lrf_Result_RaceSelByMeeting" DbName="DBEXT.bodb02.wsv_lap" />
+		<Setting Key="Lrf_Result_MatchSelByLeague" SpName="Lrf_Result_MatchSelByLeague" DbName="DBEXT.bodb02.wsv_lap" />
+		<Setting Key="Lrf_Result_MatchSelByLeague_Detail" SpName="Lrf_Result_MatchSelByLeague_Detail" DbName="DBEXT.bodb02.wsv_lap" />
+		<Setting Key="Lrf_Result_MatchSelNumberGameByLeague" SpName="Lrf_Result_MatchSelNumberGameByLeague" DbName="DBEXT.bodb02.wsv_lap" />
+		<Setting Key="Lrf_Result_LeagueSelByDate" SpName="Lrf_Result_LeagueSelByDate" DbName="DBEXT.bodb02.wsv_lap" />
 	</Function>
 	<Function Name="TicketResult">
-		<Setting Key="Lrf_BetList_SelMatchResult" SpName="Lrf_BetList_SelMatchResult" DbName="DBEXT.bodb02.bodbLicenseeNet" />
-		<Setting Key="Lrf_BetList_SelMatchResultParlay" SpName="Lrf_BetList_SelMatchResultParlay" DbName="DBACC.bodb02.bodbLicenseeNet" />
-		<Setting Key="Lrf_BetList_SelMatchResultNumberGame" SpName="Lrf_BetList_SelMatchResultNumberGame" DbName="DBEXT.bodb02.bodbLicenseeNet" />
-		<Setting Key="Lrf_TicketResult_BetBuilder" SpName="Lrf_TicketResult_BetBuilder" DbName="DBACC.bodb02.bodbLicenseeNet" />
-		<Setting Key="Lrf_BetList_Match3rdResultSel" SpName="Lrf_BetList_Match3rdResultSel" DbName="DBEXT.bodb02.bodbLicenseeNet" />
+		<Setting Key="Lrf_BetList_SelMatchResult" SpName="Lrf_BetList_SelMatchResult" DbName="DBEXT.bodb02.wsv_lap" />
+		<Setting Key="Lrf_BetList_SelMatchResultParlay" SpName="Lrf_BetList_SelMatchResultParlay" DbName="DBACC.bodb02.wsv_lap" />
+		<Setting Key="Lrf_BetList_SelMatchResultNumberGame" SpName="Lrf_BetList_SelMatchResultNumberGame" DbName="DBEXT.bodb02.wsv_lap" />
+		<Setting Key="Lrf_TicketResult_BetBuilder" SpName="Lrf_TicketResult_BetBuilder" DbName="DBACC.bodb02.wsv_lap" />
+		<Setting Key="Lrf_BetList_Match3rdResultSel" SpName="Lrf_BetList_Match3rdResultSel" DbName="DBEXT.bodb02.wsv_lap" />
 	</Function>
 	<Function Name="BetList">
-		<Setting Key="Lrf_BetList_SelWinLossByDate_Mem" SpName="Lrf_BetList_SelWinLossByDate_Mem" DbName="DBACC.bodb02.bodbLicenseeNet" />
-		<Setting Key="Lrf_BetList_SelWinloss_Mem" SpName="Lrf_BetList_SelWinloss_Mem" DbName="DBACC.bodb02.bodbLicenseeNet" />
-		<Setting Key="Lrf_BetList_Exchange_Mem" SpName="Lrf_BetList_Exchange_Mem" DbName="DBEXT.bodb02.bodbLicenseeNet" />
-		<Setting Key="Lrf_BetList_Exchange_Detail" SpName="Lrf_BetList_Exchange_Detail" DbName="DBEXT.bodb02.bodbLicenseeNet" />
-		<Setting Key="Lrf_BetList_RefNo_Mem" SpName="Lrf_BetList_RefNo_Mem" DbName="DBACC.bodb02.bodbLicenseeNet" />
-		<Setting Key="Lrf_BetList_Running" SpName="Lrf_BetList_Running" DbName="DBBOF.bodb02.bodbLicenseeNet" />
-		<Setting Key="Lrf_BetList_Mem" SpName="Lrf_BetList_Mem" DbName="DBACC.bodb02.bodbLicenseeNet" />
-		<Setting Key="Lrf_BetList_Licensee" SpName="Lrf_BetList_Licensee" DbName="DBEXT.bodb02.bodbLicenseeNet" />
-		<Setting Key="Lrf_BetList_Licensee_TotalRows" SpName="Lrf_BetList_Licensee_TotalRows" DbName="DBEXT.bodb02.bodbLicenseeNet" />
-		<Setting Key="Lrf_BetList_Running_Mem" SpName="Lrf_BetList_Running_Mem"  DbName="DBBOF.bodb02.bodbLicenseeNet" />
-		<Setting Key="Lrf_BetList_Statement_Mem" SpName="Lrf_BetList_Statement_Mem"  DbName="DBACC.bodb02.bodbLicenseeNet" />
-		<Setting Key="Lrf_BetList_CashOut_History" SpName="Lrf_BetList_CashOut_History" DbName="DBACC.bodb02.bodbLicenseeNet" />
+		<Setting Key="Lrf_BetList_SelWinLossByDate_Mem" SpName="Lrf_BetList_SelWinLossByDate_Mem" DbName="DBACC.bodb02.wsv_lap" />
+		<Setting Key="Lrf_BetList_SelWinloss_Mem" SpName="Lrf_BetList_SelWinloss_Mem" DbName="DBACC.bodb02.wsv_lap" />
+		<Setting Key="Lrf_BetList_Exchange_Mem" SpName="Lrf_BetList_Exchange_Mem" DbName="DBEXT.bodb02.wsv_lap" />
+		<Setting Key="Lrf_BetList_Exchange_Detail" SpName="Lrf_BetList_Exchange_Detail" DbName="DBEXT.bodb02.wsv_lap" />
+		<Setting Key="Lrf_BetList_RefNo_Mem" SpName="Lrf_BetList_RefNo_Mem" DbName="DBACC.bodb02.wsv_lap" />
+		<Setting Key="Lrf_BetList_Running" SpName="Lrf_BetList_Running" DbName="DBBOF.bodb02.wsv_lap" />
+		<Setting Key="Lrf_BetList_Mem" SpName="Lrf_BetList_Mem" DbName="DBACC.bodb02.wsv_lap" />
+		<Setting Key="Lrf_BetList_Licensee" SpName="Lrf_BetList_Licensee" DbName="DBEXT.bodb02.wsv_lap" />
+		<Setting Key="Lrf_BetList_Licensee_TotalRows" SpName="Lrf_BetList_Licensee_TotalRows" DbName="DBEXT.bodb02.wsv_lap" />
+		<Setting Key="Lrf_BetList_Running_Mem" SpName="Lrf_BetList_Running_Mem"  DbName="DBBOF.bodb02.wsv_lap" />
+		<Setting Key="Lrf_BetList_Statement_Mem" SpName="Lrf_BetList_Statement_Mem"  DbName="DBACC.bodb02.wsv_lap" />
+		<Setting Key="Lrf_BetList_CashOut_History" SpName="Lrf_BetList_CashOut_History" DbName="DBACC.bodb02.wsv_lap" />
 		<!-- Based TpBetRecord -->
-		<Setting Key="N88_BetList_WinLossAnalysis" SpName="N88_BetList_WinLossAnalysis" DbName="DBACC.bodb02.bodbLicenseeNet" />
+		<Setting Key="N88_BetList_WinLossAnalysis" SpName="N88_BetList_WinLossAnalysis" DbName="DBACC.bodb02.wsv_lap" />
 		<!-- end-->
 	</Function>
 	<Function Name="TicketDetail">
-		<Setting Key="Lrf_BetList_SelCombinationParlayDetail" SpName="Lrf_BetList_SelCombinationParlayDetail" DbName="DBACC.bodb02.bodbLicenseeNet" />
-		<Setting Key="Lrf_BetList_SelParlayDetail" SpName="Lrf_BetList_SelParlayDetail" DbName="DBACC.bodb02.bodbLicenseeNet" />
-		<Setting Key="Lrf_BetList_RNG_Detail" SpName="Lrf_BetList_RNG_Detail" DbName="DBACC.bodb02.bodbLicenseeNet" />
-		<Setting Key="Lrf_BetList_LC_Detail" SpName="Lrf_BetList_LC_Detail" DbName="DBACC.bodb02.bodbLicenseeNet" />
-		<Setting Key="Lrf_BetList_CashOut_Detail" SpName="Lrf_BetList_CashOut_Detail" DbName="DBACC.bodb02.bodbLicenseeNet" />
-		<Setting Key="Lrf_BetList_LicenseeBonus_Detail" SpName="Lrf_BetList_LicenseeBonus_Detail" DbName="DBACC.bodb02.bodbLicenseeNet" />
-		<Setting Key="Lrf_BetList_BetBuilder_Detail" SpName="Lrf_BetList_BetBuilder_Detail"  DbName="DBACC.bodb02.bodbLicenseeNet" />
-		<Setting Key="Lrf_BetList_Jackpot_Detail" SpName="Lrf_BetList_Jackpot_Detail" DbName="DBACC.bodb02.bodbLicenseeNet" />
+		<Setting Key="Lrf_BetList_SelCombinationParlayDetail" SpName="Lrf_BetList_SelCombinationParlayDetail" DbName="DBACC.bodb02.wsv_lap" />
+		<Setting Key="Lrf_BetList_SelParlayDetail" SpName="Lrf_BetList_SelParlayDetail" DbName="DBACC.bodb02.wsv_lap" />
+		<Setting Key="Lrf_BetList_RNG_Detail" SpName="Lrf_BetList_RNG_Detail" DbName="DBACC.bodb02.wsv_lap" />
+		<Setting Key="Lrf_BetList_LC_Detail" SpName="Lrf_BetList_LC_Detail" DbName="DBACC.bodb02.wsv_lap" />
+		<Setting Key="Lrf_BetList_CashOut_Detail" SpName="Lrf_BetList_CashOut_Detail" DbName="DBACC.bodb02.wsv_lap" />
+		<Setting Key="Lrf_BetList_LicenseeBonus_Detail" SpName="Lrf_BetList_LicenseeBonus_Detail" DbName="DBACC.bodb02.wsv_lap" />
+		<Setting Key="Lrf_BetList_BetBuilder_Detail" SpName="Lrf_BetList_BetBuilder_Detail"  DbName="DBACC.bodb02.wsv_lap" />
+		<Setting Key="Lrf_BetList_Jackpot_Detail" SpName="Lrf_BetList_Jackpot_Detail" DbName="DBACC.bodb02.wsv_lap" />
 	</Function>
 </Functions>
