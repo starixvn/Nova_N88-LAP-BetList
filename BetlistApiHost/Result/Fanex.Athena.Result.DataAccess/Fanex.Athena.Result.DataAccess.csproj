@@ -63,8 +63,8 @@
     <Reference Include="Fanex.Data, Version=4.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Data.4.2.0\lib\net461\Fanex.Data.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.RemotingRef, Version=1.5.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.RemotingRef.1.5.3\lib\net461\Fanex.RemotingRef.dll</HintPath>
+    <Reference Include="Fanex.RemotingRef, Version=1.5.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Fanex.RemotingRef.1.5.4\lib\net461\Fanex.RemotingRef.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core.Base, Version=3.0.0.4, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Result.Core-NPOI.2.0.6.3.0.0.4\lib\net461\Fanex.Result.Core.Base.dll</HintPath>

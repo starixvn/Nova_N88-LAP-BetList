@@ -37,8 +37,8 @@
       <HintPath>..\..\..\packages\Castle.Core.4.3.1\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.RemotingRef, Version=1.5.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.RemotingRef.1.5.3\lib\net461\Fanex.RemotingRef.dll</HintPath>
+    <Reference Include="Fanex.RemotingRef, Version=1.5.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Fanex.RemotingRef.1.5.4\lib\net461\Fanex.RemotingRef.dll</HintPath>
     </Reference>
     <Reference Include="MessagePack, Version=2.4.0.0, Culture=neutral, PublicKeyToken=b4a0369545f0a1be, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\MessagePack.2.4.35\lib\netstandard2.0\MessagePack.dll</HintPath>

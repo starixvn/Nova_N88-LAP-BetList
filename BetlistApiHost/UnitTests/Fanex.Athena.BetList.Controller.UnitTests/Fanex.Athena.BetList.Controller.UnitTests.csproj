@@ -65,7 +65,7 @@
       <HintPath>..\..\..\packages\Enums.NET.4.0.1\lib\net45\Enums.NET.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.BetList.Core, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.BetList.Core.3.0.2.6\lib\net461\Fanex.BetList.Core.dll</HintPath>
+      <HintPath>..\..\..\packages\Fanex.BetList.Core.3.0.2.9\lib\net461\Fanex.BetList.Core.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Logging, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Logging.2.0.0\lib\net461\Fanex.Logging.dll</HintPath>
