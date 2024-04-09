@@ -17,7 +17,10 @@ namespace Fanex.Athena.Result.Controller.ResultPopup
         [HttpPost]
         public string Index(ThirdPartyMetaModel metaModel)
         {
-            var request = new ResultRequest(metaModel.CustId, metaModel.TransId3rd, metaModel.GameId3rd, metaModel.CurrencyId, metaModel.SiteId, metaModel.LanguageCode);
+            var request = new ResultRequest(metaModel.CustId, metaModel.TransId3rd, metaModel.GameId3rd, metaModel.CurrencyId, metaModel.SiteId, metaModel.LanguageCode)
+            {
+                BetTypeId = metaModel.BetTypeId
+            };
 
             return _resultApi.GetResultGET(request);
         }
