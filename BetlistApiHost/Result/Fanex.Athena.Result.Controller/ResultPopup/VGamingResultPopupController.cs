@@ -1,21 +1,25 @@
 namespace Fanex.Athena.Result.Controller.ResultPopup
 {
-    using Fanex.Result.Core.VGaming;
     using System.Web.Mvc;
+    using Fanex.Athena.Result.Controller.MetaModel;
+    using Fanex.Result.Core.ThirdParty.Models;
+    using Fanex.Result.Core.ThirdParty;
 
     public class VGamingResultPopupController : BaseResultController
     {
-        private readonly IVGamingResult _resultApi;
+        private readonly IThirdPartyResult _resultApi;
 
-        public VGamingResultPopupController(IVGamingResult resultApi)
+        public VGamingResultPopupController(IThirdPartyResult resultApi = null)
         {
-            _resultApi = resultApi;
+            _resultApi = resultApi ?? new ThirdPartyResult("VGamingConfigs");
         }
 
         [HttpPost]
-        public string Index(string custId, string gameRoundId, string gameId, string siteId, int sportType, string currencyName, string languageCode)
+        public string Index(ThirdPartyMetaModel metaModel)
         {
-            return _resultApi.GetResult(custId, gameRoundId, gameId, siteId, sportType, currencyName, languageCode);
+            var request = new ResultRequest(metaModel.CustId, metaModel.TransId3rd, metaModel.GameId3rd, metaModel.CurrencyId, metaModel.SiteId, metaModel.LanguageCode);
+
+            return _resultApi.GetResultGET(request);
         }
     }
 }

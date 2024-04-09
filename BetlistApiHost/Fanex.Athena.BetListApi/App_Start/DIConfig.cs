@@ -14,7 +14,6 @@
     using Fanex.BetList.Core.TicketHelper;
     using Fanex.Logging;
     using Fanex.RemotingRef;
-    using Fanex.Result.Core.VGaming;
     using Fanex.Athena.BetList.Service.Interfaces;
     using Fanex.Athena.BetList.Service;
 
@@ -47,7 +46,6 @@
             builder.RegisterType<BetListExcelBuilder>().As<IBetListExcelBuilder>().InstancePerRequest();
             builder.RegisterType<RemotingRefService>().As<IRemotingRefService>().SingleInstance();
             builder.RegisterInstance(Logger.Log).As<Logging.ILogger>();
-            builder.RegisterType<VGamingResult>().As<IVGamingResult>();
         }
 
         private static Assembly[] GetAssemblies()
