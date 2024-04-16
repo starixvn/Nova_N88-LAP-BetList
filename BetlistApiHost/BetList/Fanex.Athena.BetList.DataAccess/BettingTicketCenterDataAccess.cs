@@ -53,22 +53,26 @@
             const string UspKey = "Lrf_BetList_RefNo_Mem";
 
             var ticketResult = new TicketResult();
-            var currencyList = await this.GetCurrencyListAsync();
 
-            using (var db = GetObjectDb(UspKey))
+            if (long.TryParse(metaModel.RefNo, out long refno))
             {
-                var balanceUp = _balanceUpDataAccess.GetBalanceUp();
-                db.SetParameterValue("AgentList", metaModel.AgentListXml);
-                db.SetParameterValue("UserName", metaModel.UserName);
-                db.SetParameterValue("RefNo", metaModel.RefNo);
-                db.SetParameterValue("MoveBetsDay", balanceUp.MoveBetsDay);
-                db.SetParameterValue("BalanceUpDay", balanceUp.BalanceUpDay);
-                db.SetParameterValue("BaseCurrency", metaModel.BaseCurrency);
+                var currencyList = await this.GetCurrencyListAsync();
 
-                using (var reader = await db.ExecuteReaderAsync().ConfigureAwait(false))
+                using (var db = GetObjectDb(UspKey))
                 {
-                    ticketResult.MainTicketList.AddRange(ReadBetListTicket(reader, currencyList, 0, metaModel.LastXDays));
-                    ticketResult.TotalRows = ticketResult.MainTicketList.Count;
+                    var balanceUp = _balanceUpDataAccess.GetBalanceUp();
+                    db.SetParameterValue("AgentList", metaModel.AgentListXml);
+                    db.SetParameterValue("UserName", metaModel.UserName);
+                    db.SetParameterValue("RefNo", refno);
+                    db.SetParameterValue("MoveBetsDay", balanceUp.MoveBetsDay);
+                    db.SetParameterValue("BalanceUpDay", balanceUp.BalanceUpDay);
+                    db.SetParameterValue("BaseCurrency", metaModel.BaseCurrency);
+
+                    using (var reader = await db.ExecuteReaderAsync().ConfigureAwait(false))
+                    {
+                        ticketResult.MainTicketList.AddRange(ReadBetListTicket(reader, currencyList, 0, metaModel.LastXDays));
+                        ticketResult.TotalRows = ticketResult.MainTicketList.Count;
+                    }
                 }
             }
 
