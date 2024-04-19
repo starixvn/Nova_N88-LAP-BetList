@@ -37,8 +37,12 @@
             DataAccess.GetObjectDb(Arg.Is(BetListByRefnoUspKey)).Returns(ObjectDb);
             ObjectDb.ExecuteReaderAsync().Returns(Reader);
             Reader.Read().Returns(false);
+            long refno = 123456789;
 
-            var metaModel = new RefNoBetListMetaModel();
+            var metaModel = new RefNoBetListMetaModel
+            {
+                RefNo = refno.ToString()
+            };
 
             // Action
             await DataAccess.GetBetListByRefnoAsync(metaModel);
@@ -48,7 +52,7 @@
             {
                 ObjectDb.Received(1).SetParameterValue("AgentList", metaModel.AgentListXml);
                 ObjectDb.Received(1).SetParameterValue("UserName", metaModel.UserName);
-                ObjectDb.Received(1).SetParameterValue("RefNo", metaModel.RefNo);
+                ObjectDb.Received(1).SetParameterValue("RefNo", refno);
                 ObjectDb.Received(1).SetParameterValue("MoveBetsDay", BalanceUp.MoveBetsDay);
                 ObjectDb.Received(1).SetParameterValue("BalanceUpDay", BalanceUp.BalanceUpDay);
                 ObjectDb.Received(1).SetParameterValue("BaseCurrency", metaModel.BaseCurrency);

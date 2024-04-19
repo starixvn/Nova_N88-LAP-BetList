@@ -50,7 +50,7 @@
             // Arrange
             var metaModel = new RefNoBetListMetaModel
             {
-                RefNo = FakeHelper.Create<int>()
+                RefNo = FakeHelper.Create<string>()
             };
             var ticketResult = new TicketResult();
             var ticket = new LrfTicket { BetTypeId = (int)BetType.CombinationMixParlay, Status = BetStatus.Lose };
@@ -69,7 +69,7 @@
             // Arrange
             var metaModel = new RefNoBetListMetaModel
             {
-                RefNo = FakeHelper.Create<int>()
+                RefNo = FakeHelper.Create<string>()
             };
             var ticketResult = new TicketResult();
             var ticket = new LrfTicket { BetTypeId = (int)BetType.Handicap, Status = BetStatus.Won };
