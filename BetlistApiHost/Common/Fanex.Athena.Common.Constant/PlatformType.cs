@@ -10,7 +10,7 @@
         private const string DesktopOthers = "DesktopOthers";
         private const string DesktopGalaxy = "DesktopGalaxy";
         private const string MobileStandard = "MobileStandard";
-        private const string MobileEuro = "MobileEuro"; 
+        private const string MobileEuro = "MobileEuro";
         private const string MobileGalaxy = "MobileGalaxy";
         private const string MobileCompact = "MobileCompact";
         private const string MobileOthers = "MobileOthers";
@@ -34,10 +34,12 @@
             { "9", DesktopOthers },
             { ">", DesktopOthers },
             { "W001", DesktopGalaxy },
+            { "W003", DesktopGalaxy },
             { "l", MobileStandard },
             { "]", MobileStandard },
             { "%", MobileEuro },
             { "W002", MobileGalaxy },
+            { "W004", MobileGalaxy },
             { "c", MobileCompact },
             { "@", MobileCompact },
             { "7", MobileOthers },
@@ -60,6 +62,7 @@
             { "t", DeepLink },
             { "m", Wap },
             { "A000", ChatRoom },
+            { "A003", ChatRoom },
             { "v", BetfromOthers },
             { "d", BetfromOthers },
             { "g", BetfromOthers },
@@ -67,7 +70,7 @@
             { "u", BetfromOthers },
             { "^", BetfromOthers },
             { "A001", BetfromOthers },
-            { "A002", BetfromOthers }
+            { "A002", BetfromOthers },
         };
 
         public static string GetPlatformName(string code)
