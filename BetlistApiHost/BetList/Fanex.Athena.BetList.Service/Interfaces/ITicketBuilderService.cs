@@ -7,8 +7,11 @@
 
     public interface ITicketBuilderService
     {
+        IList<TicketText> BuildBookedBetTicketText(TicketResult ticketResult, ICommonValueMetaModel metaModel);
+
         IList<TicketText> BuildTicketText(TicketResult ticketResult, ICommonValueMetaModel metaModel,
             bool isAllowedCustomerComm);
+
         List<TicketText> BuildTicketText(
            TicketResult ticketResult,
            BetListMetaModel metaModel = null,

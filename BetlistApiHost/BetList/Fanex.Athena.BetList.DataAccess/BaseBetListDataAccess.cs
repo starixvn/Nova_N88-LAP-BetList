@@ -90,7 +90,7 @@
                 "leagueid", "awayid", "homeid", "matchid", "custid", "currencyid", "livehomescore", "liveawayscore",
                 "SpecialLevel", "StatusId", "transid", "betid", "winlostdate", "transdate", "JackpotInfo",
                 "odds", "modds", "hdp1", "hdp2", "transdesc", "currency", "betdaqid", "extrainfo", "originalbettype",
-                "refcode", "wallettype", "oddsspread", "SettlementStatus", "eventdate", "ip", "siteId"
+                "refcode", "wallettype", "oddsspread", "SettlementStatus", "eventdate", "ip", "siteId", "oddslower", "oddsupper", "reason"
             };
             var result = columns.ToDictionary(x => x, y => y);
             result.Add("playerCommCol", "playercomm");
@@ -147,6 +147,7 @@
             ticket.IP = reader.GetString("ip");
             ticket.SiteId = reader.GetString("siteId");
             ticket.JackpotInfo = reader.GetString("JackpotInfo");
+            ticket.Reason = reader.GetString("reason");
         }
 
         private static void ReadBooleanData(LrfTicket ticket, ISafeDataReader reader)
@@ -200,6 +201,10 @@
             ticket.OddsSpread = reader.GetDecimal("oddsspread");
 
             ticket.SettlementStatus = reader.GetByte("SettlementStatus");
+
+            // Booked Bet
+            ticket.OddsLower = reader.GetDecimal("oddslower");
+            ticket.OddsUpper = reader.GetDecimal("oddsupper");
         }
     }
 }

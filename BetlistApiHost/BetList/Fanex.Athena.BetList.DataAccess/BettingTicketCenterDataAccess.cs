@@ -7,6 +7,7 @@
     using Common.Constant;
     using Common.DataAccess.Interfaces;
     using Data;
+    using Fanex.Athena.Common.Utility.Helpers;
     using Fanex.Common;
     using Interfaces;
 
@@ -152,6 +153,43 @@
             db.SetParameterValue("SumComm", null);
             db.SetParameterValue("SumPlayerComm", null);
             AddSortParameter(db, metaModel.SortBy, metaModel.SortOrder);
+        }
+
+        public async Task<TicketResult> GetBetListForBookedBetAsync(BookedBetBetListMetaModel metaModel)
+        {
+            const string UspKey = "Lrf_BetList_BookedBets";
+
+            var ticketResult = new TicketResult();
+            var currencyList = await this.GetCurrencyListAsync();
+            using (var db = GetObjectDb(UspKey))
+            {
+                db.SetParameterValue("FromDate", metaModel.FromDate);
+                db.SetParameterValue("ToDate", metaModel.ToDate);
+                db.SetParameterValue("AgentList", metaModel.AgentListXml);
+                db.SetParameterValue("SearchText", SqlHelper.ToSqlTextSearch(metaModel.SearchText));
+                db.SetParameterValue("SearchOption", metaModel.SearchOption);
+                db.SetParameterValue("StatusIdList", metaModel.Status);
+                db.SetParameterValue("Platform", metaModel.Platform);
+                db.SetParameterValue("BaseCurrency", metaModel.BaseCurrency);
+                db.SetParameterValue("ConvertToBaseCur", metaModel.IsConvertAll);
+                db.SetParameterValue("PageSize", metaModel.IsExport ? int.MaxValue - 1 : metaModel.PageSize);
+                db.SetParameterValue("PageIndex", metaModel.IsExport ? 1 : metaModel.PageIndex);
+
+                db.SetParameterValue("TotalRows", null);
+                db.SetParameterValue("SumStake", null);
+                AddSortParameter(db, metaModel.SortBy, metaModel.SortOrder);
+
+                using (var reader = await db.ExecuteReaderAsync().ConfigureAwait(false))
+                {
+                    ticketResult.MainTicketList.AddRange(ReadBetListTicket(reader, currencyList));
+                }
+
+                var outSqlParams = db.GetOutputParams();
+                ticketResult.SumStake = Converter.ToDecimal(outSqlParams["SumStake"]);
+                ticketResult.TotalRows = Converter.ToInt(outSqlParams["TotalRows"]);
+            }
+
+            return ticketResult;
         }
     }
 }

@@ -134,6 +134,7 @@
     <Compile Include="Extensions\DictionaryExtension.cs" />
     <Compile Include="Attributes\JsonNetModelBinderAttribute.cs" />
     <Compile Include="Helpers\LogMessageHelper.cs" />
+    <Compile Include="Helpers\SqlHelper.cs" />
     <Compile Include="Services\CacheRefAdapter.cs" />
     <Compile Include="Collections\PropertyComparer.cs" />
     <Compile Include="Collections\SortableList.cs" />

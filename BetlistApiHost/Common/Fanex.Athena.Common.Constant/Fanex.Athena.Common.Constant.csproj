@@ -38,6 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BetType.cs" />
+    <Compile Include="BookedBetStatusTypes.cs" />
     <Compile Include="FormatKey.cs" />
     <Compile Include="LiveStatusTypes.cs" />
     <Compile Include="OddsType.cs" />

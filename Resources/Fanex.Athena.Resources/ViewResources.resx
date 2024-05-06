@@ -299,4 +299,31 @@
     <value>Mobile Galaxy</value>
     <comment>Mobile Galaxy</comment>
   </data>
+  <data name="BookedId" xml:space="preserve">
+    <value>Booked Id</value>
+  </data>
+  <data name="BookedTime" xml:space="preserve">
+    <value>Booked Time</value>
+  </data>
+  <data name="Booking" xml:space="preserve">
+    <value>Booking</value>
+  </data>
+  <data name="Cancelled" xml:space="preserve">
+    <value>Cancelled</value>
+  </data>
+  <data name="OddsLower" xml:space="preserve">
+    <value>Odds Lower</value>
+  </data>
+  <data name="OddsUpper" xml:space="preserve">
+    <value>Odds Upper</value>
+  </data>
+  <data name="Reason" xml:space="preserve">
+    <value>Reason</value>
+  </data>
+  <data name="Successful" xml:space="preserve">
+    <value>Successful</value>
+  </data>
+  <data name="Unsuccessful" xml:space="preserve">
+    <value>Unsuccessful</value>
+  </data>
 </root>
