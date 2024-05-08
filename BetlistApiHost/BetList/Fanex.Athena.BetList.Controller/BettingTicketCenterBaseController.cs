@@ -55,7 +55,9 @@
 #pragma warning disable S1067 // Expressions should not be too complex
             var result = new
             {
-                Data = _ticketBuilderService.BuildTicketText(ticket, metaModel, option.IsAllowedCustomerComm),
+                Data = option.IsBookedBet
+                    ? _ticketBuilderService.BuildBookedBetTicketText(ticket, metaModel)
+                    : _ticketBuilderService.BuildTicketText(ticket, metaModel, option.IsAllowedCustomerComm),
                 Total = new
                 {
                     WinLoss = (option.ShowTotal && option.ShowWinLoss) ? _ticketBuilderService.BuildSumWinLoss(ticket, option.IsAllowedCustomerComm) : null,

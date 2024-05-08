@@ -8,6 +8,7 @@
     using Fanex.BetList.Core.App_GlobalResources;
     using Fanex.BetList.Core.Builder;
     using Fanex.BetList.Core.Entities;
+    using Fanex.BetList.Core.TicketHelper;
     using Helpers;
     using Resources;
 
@@ -23,6 +24,40 @@
             bool isShowIpvn = false)
         {
             return builder.BuildStatus(ticket, ticketHelper, ticketData, isShowIpvn);
+        }
+
+        public static string BuildOddsUpperLower(this IBetListHTMLBuilder builder, decimal odds)
+        {
+            return string.Format("<div class='oddstype'>{0}</div>", Fanex.BetList.Core.Utils.ConvertByBetType.Odds(odds));
+        }
+
+        public static string BuildBookedBetStatus(this IBetListHTMLBuilder builder, LrfTicket ticket, Func<string, string, string> getResourceData, bool isShowIp = false)
+        {
+            const string PatternStatusBetlist = "<div class='status'>{0}</div>";
+            const string PatternReason = "<div class='reason'>{0}:<br>{1}</div>";
+            const string PatternIp = "<div class='ip'><br><div class='iplink'>{0}</div></div>";
+            string ipHtml = isShowIp ? string.Format(PatternIp, ticket.IP) : string.Empty;
+
+            switch (ticket.StatusId)
+            {
+                case BookedBetStatusTypes.Booking:
+                case BookedBetStatusTypes.ProcressingBet:
+                    return string.Format(PatternStatusBetlist, ViewResources.Booking) + ipHtml;
+
+                case BookedBetStatusTypes.Successful:
+                    return string.Format(PatternStatusBetlist, ViewResources.Successful) + ipHtml;
+
+                case BookedBetStatusTypes.Unsuccessful:
+                    return string.Format(PatternStatusBetlist, ViewResources.Unsuccessful) +
+                           string.Format(PatternReason, ViewResources.Reason, getResourceData("BookedBet_Reason", ticket.Reason)) +
+                           ipHtml;
+
+                case BookedBetStatusTypes.Cancelled:
+                    return string.Format(PatternStatusBetlist, ViewResources.Cancelled) + ipHtml;
+
+                default:
+                    return string.Format(PatternStatusBetlist, string.Empty) + ipHtml;
+            }
         }
 
         // when updating this, remember to update Fanex.Athena.Excel.BetList.LrfBetListExcelBuilder as well

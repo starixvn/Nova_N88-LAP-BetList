@@ -19,6 +19,8 @@ namespace Fanex.Athena.BetList.Service
 
         private readonly IIPService _ipService;
 
+        private const string HyphenTextHTML = "<div class='underdog'>-</div>";
+
         [CLSCompliant(false)]
         public TicketBuilderService(
             IBetListHTMLBuilder betlistHtmlBuilder,
@@ -28,6 +30,38 @@ namespace Fanex.Athena.BetList.Service
             _betlistHtmlBuilder = betlistHtmlBuilder;
             _ticketHelper = ticketHelper;
             _ipService = ipService;
+        }
+
+        public IList<TicketText> BuildBookedBetTicketText(TicketResult ticketResult, ICommonValueMetaModel metaModel)
+        {
+            var startIndex = ((metaModel.PageIndex - 1) * metaModel.PageSize) + 1;
+            var ticketTextList = new List<TicketText>();
+
+            _ticketHelper.IsVnIp = _ipService.IsVNIP;
+
+            foreach (var ticket in ticketResult.MainTicketList)
+            {
+                var ticketText = new TicketText
+                {
+                    Index = startIndex++,
+                    ExternalId = ticket.ExternalId,
+                    SystemId = ticket.UserName,
+                    BookedTime = _betlistHtmlBuilder.BuildTransTime(ticket),
+                    RefNo = ticket.RefNo != "0" ? ticket.RefNo : string.Empty,
+                    BookedId = ticket.TransId.ToString(),
+                    Choice = _betlistHtmlBuilder.BuildChoice(ticket, _ticketHelper, ticketResult.TicketDataList, false),
+                    OddsLower = ticket.OddsLower == 0 ? HyphenTextHTML : _betlistHtmlBuilder.BuildOddsUpperLower(ticket.OddsLower),
+                    OddsUpper = ticket.OddsUpper == 0 ? HyphenTextHTML : _betlistHtmlBuilder.BuildOddsUpperLower(ticket.OddsUpper),
+                    OddsType = _betlistHtmlBuilder.BuildOddsTypeName(ticket, ticketResult.TicketDataList, _ticketHelper.GetValidOddsTypeNameById),
+                    Stake = _betlistHtmlBuilder.BuildStake(ticket, _ticketHelper),
+                    Status = _betlistHtmlBuilder.BuildBookedBetStatus(ticket, _ticketHelper.GetResourceData, metaModel.IsShowIpvn),
+                    Platform = PlatformType.GetPlatformName(ticket.BetFrom)
+                };
+
+                ticketTextList.Add(ticketText);
+            }
+
+            return ticketTextList;
         }
 
         public IList<TicketText> BuildTicketText(TicketResult ticketResult, ICommonValueMetaModel metaModel, bool isAllowedCustomerComm)
@@ -46,8 +80,6 @@ namespace Fanex.Athena.BetList.Service
                         ticket,
                         ticket.CustId);
                 }
-
-                _ticketHelper.IsVnIp = _ipService.IsVNIP;
 
                 var ticketText = new TicketText
                 {

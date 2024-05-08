@@ -16,6 +16,12 @@
 
         public string BetFrom { get; set; }
 
+        public decimal OddsUpper { get; set; }
+
+        public decimal OddsLower { get; set; }
+
+        public string Reason { get; set; }
+
         public decimal WinLossComm
         {
             get

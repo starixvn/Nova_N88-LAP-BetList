@@ -17,5 +17,7 @@
         public bool ShowExternalId { get; set; }
 
         public bool IsShowIpvn { get; set; }
+
+        public bool IsBookedBet { get; set; }
     }
 }

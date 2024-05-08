@@ -11,5 +11,7 @@
         Task<TicketResult> GetBetListByRefnoAsync(RefNoBetListMetaModel metaModel);
 
         Task<TicketResult> GetRunningBetListAsync(BaseBettingTicketMetaModel metaModel);
+
+        Task<TicketResult> GetBetListForBookedBetAsync(BookedBetBetListMetaModel metaModel);
     }
 }

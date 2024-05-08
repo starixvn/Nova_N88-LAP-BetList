@@ -94,6 +94,30 @@
             return ReturnData(ticketResult, option, metaModel);
         }
 
+        [HttpPost]
+        public async Task<ActionResult> GetByBookedBet(BookedBetBetListMetaModel metaModel)
+        {
+            var ticketResult = await _dataAccess.GetBetListForBookedBetAsync(metaModel
+             ).ConfigureAwait(false);
+
+            var option = new BettingTicketCenterOption
+            {
+                IsBookedBet = true,
+                ShowTotal = true,
+                ShowSumStake = true,
+                ShowSystemId = true,
+                ShowExternalId = true,
+                IsShowIpvn = metaModel.IsShowIpvn
+            };
+
+            if (metaModel.IsExport)
+            {
+                return Export(ticketResult, option, metaModel, ViewResources.Total);
+            }
+
+            return ReturnData(ticketResult, option, metaModel);
+        }
+
         private ActionResult Export(TicketResult ticket, BettingTicketCenterOption option, BaseBettingTicketMetaModel metaModel, string totalText)
         {
             if (ticket.MainTicketList.Count == 0)
