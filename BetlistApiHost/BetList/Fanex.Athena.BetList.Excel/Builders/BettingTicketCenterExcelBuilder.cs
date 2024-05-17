@@ -335,7 +335,10 @@ namespace Fanex.Athena.BetList.Excel.Builders
 
         private void AddBookedBetRefNoCell(LrfTicket ticket)
         {
-            var rtfRefNo = new HSSFRichTextString(ticket.RefNo != "0" ? ticket.RefNo : string.Empty);
+            var bookedBetRefno = ticket.RefNo;
+            ticket.RefNo = SystemConstants.DefaultBookedBetRefno;
+
+            var rtfRefNo = new HSSFRichTextString(bookedBetRefno != "0" ? bookedBetRefno : string.Empty);
             BuilDataAlignedCenterCell(rtfRefNo);
         }
 
