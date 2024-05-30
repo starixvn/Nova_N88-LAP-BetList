@@ -214,8 +214,8 @@
     <Reference Include="Fanex.Result.Core.RemotingRef, Version=2.0.0.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Result.Core.RemotingRef.2.0.0.2\lib\net461\Fanex.Result.Core.RemotingRef.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.Result.Core.Sportsbook, Version=2.0.0.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Result.Core-Sportsbook.2.0.0.6-LastSeries-07\lib\net461\Fanex.Result.Core.Sportsbook.dll</HintPath>
+    <Reference Include="Fanex.Result.Core.Sportsbook, Version=2.0.0.8, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Result.Core-Sportsbook.2.0.0.8\lib\net461\Fanex.Result.Core.Sportsbook.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core.ThirdParty, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Result.Core.ThirdPartyResult.2.0.0\lib\net461\Fanex.Result.Core.ThirdParty.dll</HintPath>
