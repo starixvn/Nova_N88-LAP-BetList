@@ -55,7 +55,7 @@ namespace Fanex.Athena.BetList.Service
                     Choice = _betlistHtmlBuilder.BuildChoice(ticket, _ticketHelper, ticketResult.TicketDataList, false),
                     OddsLower = ticket.OddsLower == 0 ? HyphenTextHTML : _betlistHtmlBuilder.BuildOddsUpperLower(ticket.OddsLower),
                     OddsUpper = ticket.OddsUpper == 0 ? HyphenTextHTML : _betlistHtmlBuilder.BuildOddsUpperLower(ticket.OddsUpper),
-                    OddsType = _betlistHtmlBuilder.BuildOddsTypeName(ticket, ticketResult.TicketDataList, _ticketHelper.GetValidOddsTypeNameById),
+                    OddsType = BuildOddsTypeNameText(ticket, ticketResult),
                     Stake = _betlistHtmlBuilder.BuildStake(ticket, _ticketHelper),
                     Status = _betlistHtmlBuilder.BuildBookedBetStatus(ticket, _ticketHelper.GetResourceData, metaModel.IsShowIpvn),
                     Platform = PlatformType.GetPlatformName(ticket.BetFrom)
@@ -93,7 +93,7 @@ namespace Fanex.Athena.BetList.Service
                     RefNo = _betlistHtmlBuilder.BuildRefNo(ticket),
                     Choice = _betlistHtmlBuilder.BuildChoice(ticket, _ticketHelper, ticketResult.TicketDataList, false),
                     Odds = _betlistHtmlBuilder.BuildOddsValue(ticket, ticketResult.TicketDataList, _ticketHelper.GetValidOddsTypeNameById),
-                    OddsType = _betlistHtmlBuilder.BuildOddsTypeName(ticket, ticketResult.TicketDataList, _ticketHelper.GetValidOddsTypeNameById),
+                    OddsType = BuildOddsTypeNameText(ticket, ticketResult),
                     Stake = _betlistHtmlBuilder.BuildStake(ticket, _ticketHelper),
                     LicenseeWL = _betlistHtmlBuilder.BuildLicenseeWL(ticket),
                     WinLoss = _betlistHtmlBuilder.BuildCustomerWL(ticket, isAllowedCustomerComm),
@@ -160,6 +160,16 @@ namespace Fanex.Athena.BetList.Service
             }
 
             return ticketTextList;
+        }
+
+        private string BuildOddsTypeNameText(LrfTicket ticket, TicketResult ticketResult)
+        {
+            if (ticket.BetTypeId == (int)BetType.VirtualSports4MixParlay)
+            {
+                ticket.OddsType = string.Empty;
+            }
+
+            return _betlistHtmlBuilder.BuildOddsTypeName(ticket, ticketResult.TicketDataList, _ticketHelper.GetValidOddsTypeNameById);
         }
 
         public string BuildSumWinLoss(TicketResult ticketResult, bool isAllowedCustomerComm)
