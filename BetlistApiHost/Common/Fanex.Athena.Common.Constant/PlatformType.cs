@@ -12,6 +12,7 @@
         private const string MobileStandard = "MobileStandard";
         private const string MobileEuro = "MobileEuro";
         private const string MobileGalaxy = "MobileGalaxy";
+        private const string DesktopCompact = "DesktopCompact";
         private const string MobileCompact = "MobileCompact";
         private const string MobileOthers = "MobileOthers";
         private const string ESportsDesktop = "ESportsDesktop";
@@ -34,12 +35,12 @@
             { "9", DesktopOthers },
             { ">", DesktopOthers },
             { "W001", DesktopGalaxy },
-            { "W003", DesktopGalaxy },
+            { "W003", DesktopCompact },
             { "l", MobileStandard },
             { "]", MobileStandard },
             { "%", MobileEuro },
             { "W002", MobileGalaxy },
-            { "W004", MobileGalaxy },
+            { "W004", MobileCompact },
             { "c", MobileCompact },
             { "@", MobileCompact },
             { "7", MobileOthers },

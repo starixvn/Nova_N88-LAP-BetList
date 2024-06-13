@@ -326,4 +326,7 @@
   <data name="Unsuccessful" xml:space="preserve">
     <value>Unsuccessful</value>
   </data>
+  <data name="DesktopCompact" xml:space="preserve">
+    <value>Desktop Compact</value>
+  </data>
 </root>
