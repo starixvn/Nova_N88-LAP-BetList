@@ -259,7 +259,7 @@ namespace Fanex.Athena.BetList.Excel.Builders
                 _builder.AddOddsValue(ticket, ticketResult.TicketDataList, _ticketHelper.GetValidOddsTypeNameById);
             }
 
-            _builder.AddOddsType(ticket, ticketResult.TicketDataList, _ticketHelper.GetValidOddsTypeNameById);
+            AddOddType(ticket, ticketResult);
             _builder.AddStake(ticket, _ticketHelper);
 
             if (option.ShowWinLoss)
@@ -386,6 +386,16 @@ namespace Fanex.Athena.BetList.Excel.Builders
         {
             var rtfPlatfrom = new HSSFRichTextString(PlatformType.GetPlatformName(ticket.BetFrom));
             BuilDataAlignedCenterCell(rtfPlatfrom);
+        }
+
+        private void AddOddType(LrfTicket ticket, TicketResult ticketResult)
+        {
+            if (ticket.BetTypeId == (int)BetType.VirtualSports4MixParlay)
+            {
+                ticket.OddsType = string.Empty;
+            }
+
+            _builder.AddOddsType(ticket, ticketResult.TicketDataList, _ticketHelper.GetValidOddsTypeNameById);
         }
 
         private void AddLiveCell(LrfTicket ticket)
