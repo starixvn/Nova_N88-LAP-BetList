@@ -28,7 +28,6 @@ namespace Fanex.Athena.Result.Controller
 
         private static readonly IEnumerable<SportType> ShowingMatchCodeSportTypes = new[]
         {
-            SportType.VirtualHorseRacing,
             SportType.VirtualGreyhounds,
             SportType.VirtualSpeedway,
             SportType.VirtualMotorRacing,
@@ -269,6 +268,16 @@ namespace Fanex.Athena.Result.Controller
             _htmlResult = _resultService.HtmlParser(leapgamings, setting);
         }
 
+        private async Task GetBetradarPopUpData(ResultPopupMetaModel metalModel, ResultSetting setting)
+        {
+            var eventDate = metalModel.WinLossDate.HasValue ? metalModel.WinLossDate.Value : DateTime.Now;
+            var dataBetradar = await _resultService.GetPopUpBetradarMatchesAsync(metalModel.MatchId, eventDate).ConfigureAwait(false);
+            if (dataBetradar != null)
+            {
+                _htmlResult = _resultService.HtmlParser(dataBetradar, setting);
+            }
+        }
+
         private async Task GetOtherNormalPopUpData(ResultPopupMetaModel metalModel, ResultSetting setting)
         {
             var data = await _resultService.GetPopUpMatchAsync(metalModel).ConfigureAwait(false);
@@ -307,6 +316,12 @@ namespace Fanex.Athena.Result.Controller
             if (sportType == SportType.Bitcoin)
             {
                 await GetBitcoinPopUpData(metalModel, setting).ConfigureAwait(false);
+                return;
+            }
+
+            if (sportType == SportType.VirtualDogRacing || sportType == SportType.VirtualHorseRacing)
+            {
+                await GetBetradarPopUpData(metalModel, setting).ConfigureAwait(false);
                 return;
             }
 
