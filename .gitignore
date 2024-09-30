@@ -19,6 +19,7 @@ Thumbs.db
 *.ilk
 *.log
 *.suo
+*.dtbcache.json
 [Bb]in
 [Dd]ebug*/
 *.lib
