@@ -13,6 +13,7 @@
     using Fanex.Athena.BetList.Service.Interfaces;
     using Fanex.Athena.Common.Utility.Services.Interfaces;
     using Fanex.Athena.Resources;
+    using Newtonsoft.Json;
 
     public class BettingTicketCenterAdvancedSearchController : BettingTicketCenterBaseController
     {
@@ -24,17 +25,21 @@
 
         private readonly IBettingTicketCenterZipBuilder _zipBuilder;
 
+        private readonly ITempFileService _tempFileService;
+
         public BettingTicketCenterAdvancedSearchController(
             IAppSettings appSettings,
             IBettingTicketCenterAdvancedSearchDataAccess dataAccess,
             IIPService ipService,
             ITicketBuilderService ticketBuilderService,
             IBettingTicketCenterZipBuilder zipBuilder,
-            IBettingTicketCenterExcel bettingTicketCenterExcel) : base(ticketBuilderService, bettingTicketCenterExcel)
+            IBettingTicketCenterExcel bettingTicketCenterExcel,
+            ITempFileService tempFileService) : base(ticketBuilderService, bettingTicketCenterExcel)
         {
             _appSettings = appSettings;
             _dataAccess = dataAccess;
             _zipBuilder = zipBuilder ?? new BettingTicketCenterZipBuilder(_appSettings, null, bettingTicketCenterExcel, ipService);
+            _tempFileService = tempFileService;
         }
 
         private int MaxRowSupportExportExcel => int.Parse(_appSettings.GetValue("MaxRowSupportExportExcel"));
@@ -55,7 +60,7 @@
                     });
                 }
 
-                return await Export(metaModel, totalRow);
+                return await Export(metaModel).ConfigureAwait(false);
             }
 
             var ticketResult = await _dataAccess.GetBetListForMultipleCustomersAsync(metaModel);
@@ -63,23 +68,23 @@
             return ReturnData(ticketResult, GetBetListOption(metaModel.HasPlayerCom, metaModel.IsShowIpvn), metaModel);
         }
 
-        private async Task<ActionResult> Export(AdvancedSearchBetListMetaModel metaModel, int totalRow)
+        private async Task<ActionResult> Export(AdvancedSearchBetListMetaModel metaModel)
         {
             var title = GetTitle(metaModel);
             var totalText = $"{ViewResources.Totalin} {metaModel.BaseCurrencyName}";
 
-            if (totalRow <= MaxRowPerFile)
+            var ticketResult = await _dataAccess.GetBetListForMultipleCustomersAsync(metaModel, MaxRowPerFile);
+
+            if (ticketResult.TotalRows <= MaxRowPerFile)
             {
-                var normalTicketResult = await _dataAccess.GetBetListForMultipleCustomersAsync(metaModel);
-                if (normalTicketResult.MainTicketList.Count == 0)
+                if (ticketResult.TotalRows == 0)
                 {
                     return new HttpStatusCodeResult(System.Net.HttpStatusCode.NoContent);
                 }
 
-                return ExportXls(normalTicketResult, title, metaModel.HasPlayerCom, metaModel.IsShowIpvn, totalText);
+                var tickets = GetTicketFromFile(ticketResult.DataPath[0]);
+                return ExportXls(tickets, title, metaModel.HasPlayerCom, metaModel.IsShowIpvn, totalText);
             }
-
-            var ticketResult = await _dataAccess.GetBetListForMultipleCustomersAsync(metaModel, MaxRowPerFile);
 
             var zipFile = _zipBuilder.BuildZip(HttpContext.Response, ticketResult, title, metaModel, totalText);
 
@@ -116,5 +121,12 @@
             IsAllowedCustomerComm = hasPlayerComm,
             IsShowIpvn = isShowIpvn
         };
+
+        private TicketResult GetTicketFromFile(string filePath)
+        {
+            var contentData = _tempFileService.ReadString(filePath);
+            _tempFileService.Delete(filePath);
+            return JsonConvert.DeserializeObject<TicketResult>(contentData);
+        }
     }
 }
