@@ -82,7 +82,7 @@
                     return new HttpStatusCodeResult(System.Net.HttpStatusCode.NoContent);
                 }
 
-                var tickets = GetTicketFromFile(ticketResult.DataPath[0]);
+                var tickets = GetTicketFromFile(ticketResult);
                 return ExportXls(tickets, title, metaModel.HasPlayerCom, metaModel.IsShowIpvn, totalText);
             }
 
@@ -122,11 +122,19 @@
             IsShowIpvn = isShowIpvn
         };
 
-        private TicketResult GetTicketFromFile(string filePath)
+        private TicketResult GetTicketFromFile(GroupTicketResult groupTicket)
         {
-            var contentData = _tempFileService.ReadString(filePath);
-            _tempFileService.Delete(filePath);
-            return JsonConvert.DeserializeObject<TicketResult>(contentData);
+            var contentData = _tempFileService.ReadString(groupTicket.DataPath[0]);
+            _tempFileService.Delete(groupTicket.DataPath[0]);
+            var ticketResult = JsonConvert.DeserializeObject<TicketResult>(contentData);
+
+            ticketResult.SumStake = groupTicket.SumStake;
+            ticketResult.SumWinLoss = groupTicket.SumWinLoss;
+            ticketResult.SumLicenseeWL = groupTicket.SumLicenseeWL;
+            ticketResult.SumComm = groupTicket.SumComm;
+            ticketResult.SumPlayerComm = groupTicket.SumPlayerComm;
+            ticketResult.TotalRows = groupTicket.TotalRows;
+            return ticketResult;
         }
     }
 }

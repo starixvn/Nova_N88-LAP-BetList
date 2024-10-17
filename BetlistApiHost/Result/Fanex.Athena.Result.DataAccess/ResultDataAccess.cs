@@ -15,6 +15,7 @@
     using Fanex.Result.Core.Bitcoin.DTO;
     using Fanex.Result.Core.Racing.DTO;
     using Fanex.Result.Core.Sportsbook.DTO;
+    using Fanex.Result.Core.VirtualRacing.DTO;
     using Model.MetaModel;
 
     [CLSCompliant(false)]
@@ -319,6 +320,57 @@
                     {
                         throw new NotSupportedException($"The type '{type.FullName}' is not supported.");
                     }
+                }
+            }
+        }
+
+        public async Task<IList<VirtualRacing>> GetPopUpBetradarAsync(int eventId, DateTime eventDate)
+        {
+            const string UspName = "Lrf_TicketResult_Race";
+            var balanceUp = _balanceUpDataAccess.GetBalanceUp();
+            var result = new List<VirtualRacing>();
+
+            using (var db = this.GetObjectDb(UspName))
+            {
+                db.SetParameterValue("EventId", eventId);
+                db.SetParameterValue("EventDate", eventDate);
+                db.SetParameterValue("MoveBetsDay", balanceUp.MoveBetsDay);
+                db.SetParameterValue("BalanceUpDay", balanceUp.BalanceUpDay);
+
+                using (var reader = await db.ExecuteReaderAsync().ConfigureAwait(false))
+                {
+                    while (reader.Read())
+                    {
+                        var data = new VirtualRacing
+                        {
+                            LeagueId = reader.ToInt("LeagueID"),
+                            EventId = reader.ToInt("EventID"),
+                            VendorMatchId = reader.ToInt("VendorMatchId"),
+                            EventTime = reader.ToDateTime("EventTime"),
+                            EventStatus = reader.ToString("EventStatus"),
+                            BetStatus = reader.ToString("BetStatus"),
+                            Distance = reader.ToString("Distance"),
+                            Details = new List<VirtualRacingDetail>()
+                        };
+
+                        if (reader.NextResult())
+                        {
+                            while (reader.Read())
+                            {
+                                data.Details.Add(new VirtualRacingDetail
+                                {
+                                    Orid = reader.ToInt("Orid"),
+                                    EventId = reader.ToInt("EventID"),
+                                    Placing = reader.ToInt("Placing"),
+                                    Lane = reader.ToString("Lane"),
+                                    RacerId = reader.ToInt("RacerID")
+                                });
+                            }
+                        }
+                        result.Add(data);
+                    }
+
+                    return result;
                 }
             }
         }
