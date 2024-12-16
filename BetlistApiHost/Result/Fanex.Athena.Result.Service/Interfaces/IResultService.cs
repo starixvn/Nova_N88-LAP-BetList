@@ -55,6 +55,8 @@
 
         Task<IList<Sportsbook>> GetPopUpMatchAsync(ResultPopupMetaModel metalModel);
 
+        Task<IList<Sportsbook>> GetPopUpMatch3rdAsync(int matchId);
+
         Task<IList<Racing>> GetPopUpVirtualSportMatchAsync(ResultPopupMetaModel metalModel);
 
         /// <summary>

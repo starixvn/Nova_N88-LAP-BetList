@@ -278,6 +278,15 @@ namespace Fanex.Athena.Result.Controller
             }
         }
 
+        private async Task GetBetbyPopUpData(ResultPopupMetaModel metalModel, ResultSetting setting)
+        {
+            var dataBetby = await _resultService.GetPopUpMatch3rdAsync(metalModel.MatchId).ConfigureAwait(false);
+            if (dataBetby != null)
+            {
+                _htmlResult = _resultService.HtmlParser(dataBetby, setting);
+            }
+        }
+
         private async Task GetOtherNormalPopUpData(ResultPopupMetaModel metalModel, ResultSetting setting)
         {
             var data = await _resultService.GetPopUpMatchAsync(metalModel).ConfigureAwait(false);
@@ -322,6 +331,12 @@ namespace Fanex.Athena.Result.Controller
             if (sportType == SportType.VirtualDogRacing || sportType == SportType.VirtualHorseRacing)
             {
                 await GetBetradarPopUpData(metalModel, setting).ConfigureAwait(false);
+                return;
+            }
+
+            if (sportType == SportType.BetbyBasketball)
+            {
+                await GetBetbyPopUpData(metalModel, setting).ConfigureAwait(false);
                 return;
             }
 

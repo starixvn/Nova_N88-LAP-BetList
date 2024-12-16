@@ -102,6 +102,11 @@
             return await this._dataAccess.GetPopUpMatchesAsync<Sportsbook>(metalModel).ConfigureAwait(false);
         }
 
+        public async Task<IList<Sportsbook>> GetPopUpMatch3rdAsync(int matchId)
+        {
+            return await this._dataAccess.GetPopUpMatches3rdAsync<Sportsbook>(matchId).ConfigureAwait(false);
+        }
+
         public async Task<IList<Racing>> GetPopUpVirtualSportMatchAsync(ResultPopupMetaModel metalModel)
         {
             return await this._dataAccess.GetPopUpMatchesAsync<Racing>(metalModel).ConfigureAwait(false);
