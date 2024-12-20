@@ -99,7 +99,7 @@
 
                 var totalRow = FakeHelper.Create<int>();
                 _dataAccess.GetTotalRowForMultipleCustomersAsync(metaModel).Returns(totalRow);
-                _appSettings.GetValue("MaxRowSupportExportExcel").Returns((totalRow - 1).ToString());
+                _appSettings.GetValue("MaxTicketLimit").Returns((totalRow - 1).ToString());
 
                 // Action
                 var result = (await controller.GetData(metaModel) as JsonResult).Data;
@@ -123,7 +123,7 @@
 
                 var totalRow = FakeHelper.Create<int>();
                 _dataAccess.GetTotalRowForMultipleCustomersAsync(metaModel).Returns(totalRow);
-                _appSettings.GetValue("MaxRowSupportExportExcel").Returns((totalRow + 1).ToString());
+                _appSettings.GetValue("MaxTicketLimit").Returns((totalRow + 1).ToString());
                 _appSettings.GetValue("MaxRowPerExcelFile").Returns((totalRow + 1).ToString());
 
                 var ticketResult = new TicketResult();
@@ -150,7 +150,7 @@
 
                 var totalRow = FakeHelper.Create<int>();
                 _dataAccess.GetTotalRowForMultipleCustomersAsync(metaModel).Returns(totalRow);
-                _appSettings.GetValue("MaxRowSupportExportExcel").Returns((totalRow + 1).ToString());
+                _appSettings.GetValue("MaxTicketLimit").Returns((totalRow + 1).ToString());
                 _appSettings.GetValue("MaxRowPerExcelFile").Returns((totalRow + 1).ToString());
 
                 var ticketResult = new TicketResult { MainTicketList = new SortableList<LrfTicket> { FakeHelper.Create<LrfTicket>() } };
@@ -187,7 +187,7 @@
 
                 var totalRow = FakeHelper.Create<int>();
                 _dataAccess.GetTotalRowForMultipleCustomersAsync(metaModel).Returns(totalRow);
-                _appSettings.GetValue("MaxRowSupportExportExcel").Returns((totalRow + 1).ToString());
+                _appSettings.GetValue("MaxTicketLimit").Returns((totalRow + 1).ToString());
 
                 var maxRowPerFile = totalRow - 1;
                 _appSettings.GetValue("MaxRowPerExcelFile").Returns(maxRowPerFile.ToString());

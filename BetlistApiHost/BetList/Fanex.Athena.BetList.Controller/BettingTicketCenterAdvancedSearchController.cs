@@ -42,24 +42,25 @@
             _tempFileService = tempFileService;
         }
 
-        private int MaxRowSupportExportExcel => int.Parse(_appSettings.GetValue("MaxRowSupportExportExcel"));
+        private int MaxTicketLimit => int.Parse(_appSettings.GetValue("MaxTicketLimit"));
 
         private int MaxRowPerFile => int.Parse(_appSettings.GetValue("MaxRowPerExcelFile"));
 
         [HttpPost]
         public async Task<ActionResult> GetData(AdvancedSearchBetListMetaModel metaModel)
         {
+            var totalRow = await _dataAccess.GetTotalRowForMultipleCustomersAsync(metaModel);
+
+            if (totalRow > MaxTicketLimit)
+            {
+                return Json(new
+                {
+                    ErrorCode = RowsExceedLimitErrorCode
+                });
+            }
+
             if (metaModel.IsExport)
             {
-                var totalRow = await _dataAccess.GetTotalRowForMultipleCustomersAsync(metaModel);
-                if (totalRow > MaxRowSupportExportExcel)
-                {
-                    return Json(new
-                    {
-                        ErrorCode = RowsExceedLimitErrorCode
-                    });
-                }
-
                 return await Export(metaModel).ConfigureAwait(false);
             }
 
