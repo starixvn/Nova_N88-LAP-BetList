@@ -49,7 +49,7 @@
         [HttpPost]
         public async Task<ActionResult> GetData(AdvancedSearchBetListMetaModel metaModel)
         {
-            var totalRow = await _dataAccess.GetTotalRowForMultipleCustomersAsync(metaModel);
+            var totalRow = await _dataAccess.GetTotalRowForMultipleCustomersAsync(metaModel, MaxTicketLimit);
 
             if (totalRow > MaxTicketLimit)
             {

@@ -10,6 +10,6 @@
 
         Task<GroupTicketResult> GetBetListForMultipleCustomersAsync(AdvancedSearchBetListMetaModel metaModel, int rowPerGroup);
 
-        Task<int> GetTotalRowForMultipleCustomersAsync(AdvancedSearchBetListMetaModel metaModel);
+        Task<int> GetTotalRowForMultipleCustomersAsync(AdvancedSearchBetListMetaModel metaModel, int maxTotalRows);
     }
 }
