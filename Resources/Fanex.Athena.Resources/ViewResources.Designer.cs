@@ -502,6 +502,15 @@ namespace Fanex.Athena.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Quick Bet Widget.
+        /// </summary>
+        public static string QuickBetWidget {
+            get {
+                return ResourceManager.GetString("QuickBetWidget", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reason.
         /// </summary>
         public static string Reason {
