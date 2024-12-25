@@ -1,5 +1,6 @@
 ﻿namespace Fanex.Athena.Common.Constant
 {
+    using System;
     using System.Collections.Generic;
     using Resources;
 
@@ -26,7 +27,7 @@
         private const string QuickBetWidget = "QuickBetWidget";
         private const string ChatRoom = "ChatRoom";
 
-        private static readonly IDictionary<string, string> _platforms = new Dictionary<string, string>
+        private static readonly IDictionary<string, string> _platforms = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
         {
             { "x", DesktopNewAsia },
             { "a", DesktopChina },
