@@ -329,4 +329,7 @@
   <data name="DesktopCompact" xml:space="preserve">
     <value>Desktop Compact</value>
   </data>
+  <data name="QuickBetWidget" xml:space="preserve">
+    <value>Quick Bet Widget</value>
+  </data>
 </root>

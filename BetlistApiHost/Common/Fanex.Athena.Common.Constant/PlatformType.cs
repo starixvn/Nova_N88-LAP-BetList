@@ -1,5 +1,6 @@
 ﻿namespace Fanex.Athena.Common.Constant
 {
+    using System;
     using System.Collections.Generic;
     using Resources;
 
@@ -23,10 +24,10 @@
         private const string Tablet = "Tablet";
         private const string DeepLink = "DeepLink";
         private const string Wap = "Wap";
+        private const string QuickBetWidget = "QuickBetWidget";
         private const string ChatRoom = "ChatRoom";
-        private const string BetfromOthers = "BetfromOthers";
 
-        private static IDictionary<string, string> _platforms = new Dictionary<string, string>
+        private static readonly IDictionary<string, string> _platforms = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
         {
             { "x", DesktopNewAsia },
             { "a", DesktopChina },
@@ -52,10 +53,13 @@
             { "}", MobileOthers },
             { "1", ESportsDesktop },
             { "4", ESportsDesktop },
+            { "W005", ESportsDesktop },
             { "2", ESportsMobile },
             { "5", ESportsMobile },
+            { "W006", ESportsMobile },
             { "3", ESportsApp },
             { "6", ESportsApp },
+            { "W007", ESportsApp },
             { "o", MobileApp },
             { "~", MobileApp },
             { "0", NativeApp },
@@ -64,14 +68,7 @@
             { "m", Wap },
             { "A000", ChatRoom },
             { "A003", ChatRoom },
-            { "v", BetfromOthers },
-            { "d", BetfromOthers },
-            { "g", BetfromOthers },
-            { "e", BetfromOthers },
-            { "u", BetfromOthers },
-            { "^", BetfromOthers },
-            { "A001", BetfromOthers },
-            { "A002", BetfromOthers },
+            { "Q001", QuickBetWidget }
         };
 
         public static string GetPlatformName(string code)
