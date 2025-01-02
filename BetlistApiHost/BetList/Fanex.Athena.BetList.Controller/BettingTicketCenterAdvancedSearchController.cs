@@ -55,7 +55,8 @@
             {
                 return Json(new
                 {
-                    ErrorCode = RowsExceedLimitErrorCode
+                    ErrorCode = RowsExceedLimitErrorCode,
+                    LimitRows = MaxTicketLimit
                 });
             }
 
