@@ -1,17 +1,12 @@
 ﻿namespace Fanex.Athena.BetList.Excel
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using Athena.BetList.Model.DTO;
     using Athena.BetList.Model.MetaModel;
-    using BetListNPOI.HSSF.UserModel;
-    using BetListNPOI.HSSF.Util;
     using BetListNPOI.SS.UserModel;
     using BetListNPOI.SS.Util;
+    using BetListNPOI.HSSF.Util;
+    using BetListNPOI.XSSF.UserModel;
     using Common.Constant;
-    using Common.Utility.Services;
-    using Common.Utility.Services.Interfaces;
     using Fanex.Athena.BetList.Service.Interfaces;
     using Fanex.BetList.Core.Builder;
     using Fanex.BetList.Core.Entities;
@@ -19,6 +14,9 @@
     using Helpers;
     using Resources;
     using Service.Extensions;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
 
     public class BetListExcel
     {
@@ -86,7 +84,7 @@
 
         protected internal virtual IBetListExcelBuilder CreateExcelBuilder()
         {
-            return new BetListExcelBuilder();
+            return new BetListExcelXBuilder();
         }
 
         private static void AddNoInfoRow(IBetListExcelBuilder builder, string note = null)
@@ -96,21 +94,21 @@
             var titleStyle = builder.CreateCellStyle();
             titleStyle.Alignment = HorizontalAlignment.Center;
 
-            builder.AddCell(new HSSFRichTextString(ViewResources.NoInfo), titleStyle);
+            builder.AddCell(new XSSFRichTextString(ViewResources.NoInfo), titleStyle);
             builder.MergeCell(new CellRangeAddress(NoInfoRowIndex, NoInfoRowIndex, 0, NumberOfColumn - 1));
         }
 
         private static void AddTitle(IBetListExcelBuilder builder, string title)
         {
             var font = builder.CreateFont();
-            font.Boldweight = (short)FontBoldWeight.Bold;
+            font.IsBold = true;
             font.Color = HSSFColor.Orange.Index;
 
             var titleStyle = builder.CreateCellStyle();
             titleStyle.VerticalAlignment = VerticalAlignment.Center;
             titleStyle.SetFont(font);
 
-            builder.AddCell(new HSSFRichTextString(title), titleStyle);
+            builder.AddCell(new XSSFRichTextString(title), titleStyle);
             builder.MergeCell(new CellRangeAddress(0, 0, 0, NumberOfColumn - 1));
         }
 
@@ -132,10 +130,10 @@
             const int noteRowIndex = 1;
             const int blankRowIndex = 2;
 
-            builder.AddCell(new HSSFRichTextString(note), noteStyle);
+            builder.AddCell(new XSSFRichTextString(note), noteStyle);
             builder.MergeCell(new CellRangeAddress(noteRowIndex, noteRowIndex, 0, NumberOfColumn - 1));
 
-            builder.AddCell(new HSSFRichTextString(string.Empty), noteStyle);
+            builder.AddCell(new XSSFRichTextString(string.Empty), noteStyle);
             builder.MergeCell(new CellRangeAddress(blankRowIndex, blankRowIndex, 0, NumberOfColumn - 1));
         }
 
@@ -251,11 +249,11 @@
         protected internal virtual void InitializeFonts(IBetListExcelBuilder builder)
         {
             _negativeWinLossFont = builder.CreateFont();
-            _negativeWinLossFont.Boldweight = (short)FontBoldWeight.Bold;
+            _negativeWinLossFont.IsBold = true;
             _negativeWinLossFont.Color = (short)FontColor.Red;
 
             _winLossFont = builder.CreateFont();
-            _winLossFont.Boldweight = (short)FontBoldWeight.Bold;
+            _winLossFont.IsBold = true;
             _winLossFont.Color = (short)FontColor.None;
         }
 

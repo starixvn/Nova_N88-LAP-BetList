@@ -136,7 +136,7 @@ namespace Fanex.Athena.BetList.Controller.Utility
             {
                 for (var i = 0; i < excelFiles.Count; i++)
                 {
-                    zip.AddEntry($"sheet{i}.xls", _tempFileService.ReadBytes(excelFiles[i]));
+                    zip.AddEntry($"sheet{i}.xlsx", _tempFileService.ReadBytes(excelFiles[i]));
                 }
 
                 CleanDataFile(excelFiles);

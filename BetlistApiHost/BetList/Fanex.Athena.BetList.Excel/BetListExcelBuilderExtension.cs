@@ -2,7 +2,7 @@
 {
     using System.Globalization;
     using BetList.Model.DTO;
-    using BetListNPOI.HSSF.UserModel;
+    using BetListNPOI.XSSF.UserModel;
     using BetListNPOI.SS.UserModel;
     using BetListNPOI.SS.Util;
     using Common.Utility.Helpers;
@@ -24,7 +24,7 @@
                 ? "-"
                 : settledWL;
 
-            var rtfCustomerWl = new HSSFRichTextString(winloss);
+            var rtfCustomerWl = new XSSFRichTextString(winloss);
             rtfCustomerWl.ApplyFont(font);
             builder.AddCell(rtfCustomerWl);
 
@@ -35,7 +35,7 @@
         {
             var betEffective = string.Format("{0:#,##0.00}\n", ticket.BetEffective);
 
-            var rtfBetEffective = new HSSFRichTextString(betEffective);
+            var rtfBetEffective = new XSSFRichTextString(betEffective);
             rtfBetEffective.ApplyFont(font);
             builder.AddCell(rtfBetEffective);
 
@@ -49,7 +49,7 @@
                 ICellStyle oddStyle,
                 ICellStyle evenStyle)
         {
-            var rtfExternalId = new HSSFRichTextString(externalId);
+            var rtfExternalId = new XSSFRichTextString(externalId);
             builder.AddCell(rtfExternalId, ticketHelper.Index.IsEvenNumber() ? oddStyle : evenStyle);
 
             return builder;
@@ -63,16 +63,16 @@
 
             var footerStyle = builder.CreateFooterCellStyle();
 
-            var rtfTotal = new HSSFRichTextString(ViewResources.GrandTotal);
+            var rtfTotal = new XSSFRichTextString(ViewResources.GrandTotal);
             for (int i = 0; i < SumStakeColIndex; i++)
             {
                 builder.AddCell(rtfTotal, footerStyle);
             }
 
-            builder.AddCell(new HSSFRichTextString(string.Format(NumberFormat, sumStake)), footerStyle);
+            builder.AddCell(new XSSFRichTextString(string.Format(NumberFormat, sumStake)), footerStyle);
 
             // add the rest columns
-            var emptyText = new HSSFRichTextString();
+            var emptyText = new XSSFRichTextString();
             builder.AddCell(emptyText, footerStyle);
             builder.AddCell(emptyText, footerStyle);
             builder.AddCell(emptyText, footerStyle);
@@ -96,22 +96,22 @@
 
             var footerStyle = builder.CreateFooterCellStyle();
 
-            var rtfTotal = new HSSFRichTextString(ViewResources.GrandTotal);
+            var rtfTotal = new XSSFRichTextString(ViewResources.GrandTotal);
             for (int i = 0; i < StartFooterContentIndex; i++)
             {
                 builder.AddCell(rtfTotal, footerStyle);
             }
 
-            builder.AddCell(new HSSFRichTextString(string.Format(NumberFormat, sumCustomerWL)), footerStyle);
+            builder.AddCell(new XSSFRichTextString(string.Format(NumberFormat, sumCustomerWL)), footerStyle);
 
-            builder.AddCell(new HSSFRichTextString(string.Format(NumberFormat, sumBetEffective)), footerStyle);
+            builder.AddCell(new XSSFRichTextString(string.Format(NumberFormat, sumBetEffective)), footerStyle);
 
-            var rtfSumLicenseeWl = new HSSFRichTextString(string.Format(NumberFormat, sumLicenseeWLComm));
+            var rtfSumLicenseeWl = new XSSFRichTextString(string.Format(NumberFormat, sumLicenseeWLComm));
             rtfSumLicenseeWl.ApplyFont(sumLicenseeWLComm >= 0 ? blackFont : redFont);
             builder.AddCell(rtfSumLicenseeWl, footerStyle);
 
             // add the rest column
-            builder.AddCell(new HSSFRichTextString(), footerStyle);
+            builder.AddCell(new XSSFRichTextString(), footerStyle);
 
             var lastRowIndex = builder.LastContentRow;
             builder.MergeCell(new CellRangeAddress(lastRowIndex, lastRowIndex, 0, StartFooterContentIndex - 1), footerStyle);
@@ -131,7 +131,7 @@
 
             for (int i = 0; i < captions.Length; i++)
             {
-                var cell = builder.AddCell(new HSSFRichTextString(captions[i]), headerStyle);
+                var cell = builder.AddCell(new XSSFRichTextString(captions[i]), headerStyle);
                 builder.SetColumnWidth(cell.ColumnIndex, columWidths[i]);
             }
 
@@ -140,7 +140,7 @@
 
         public static IBetListExcelBuilder AddIndex(this IBetListExcelBuilder builder, ITicketHelper ticketHelper, int index)
         {
-            var rtfNo = new HSSFRichTextString(index.ToString(CultureInfo.InvariantCulture));
+            var rtfNo = new XSSFRichTextString(index.ToString(CultureInfo.InvariantCulture));
             builder.AddCell(
                             rtfNo,
                             ticketHelper.Index.IsEvenNumber() ? builder.OddCellStyleCenterAligned : builder.EvenCellStyleCenterAligned);
@@ -167,7 +167,7 @@
 
                 var licenseeWlText = string.Format("{0}\n{1}", licenseeWl, comm);
 
-                var rtfLicenseeWl = new HSSFRichTextString(licenseeWlText);
+                var rtfLicenseeWl = new XSSFRichTextString(licenseeWlText);
                 rtfLicenseeWl.ApplyFont(0, licenseeWl.Length, ticket.LicenseeWL >= 0 ? blackFont : redFont);
                 rtfLicenseeWl.ApplyFont(licenseeWl.Length, licenseeWlText.Length, blackFont);
 
@@ -180,7 +180,7 @@
                 var licenseeWl = isRunning || isContribution
                                     ? "-"
                                     : string.Format(NumberFormat, ticket.LicenseeWL + ticket.Comm);
-                var rtfLicenseeWl = new HSSFRichTextString(licenseeWl);
+                var rtfLicenseeWl = new XSSFRichTextString(licenseeWl);
                 rtfLicenseeWl.ApplyFont(ticket.LicenseeWL + ticket.Comm >= 0 ? blackFont : redFont);
                 builder.AddCell(rtfLicenseeWl);
             }
@@ -195,7 +195,7 @@
             ICellStyle oddStyle,
             ICellStyle evenStyle)
         {
-            var rtfSystemId = new HSSFRichTextString(systemId);
+            var rtfSystemId = new XSSFRichTextString(systemId);
             builder.AddCell(rtfSystemId, ticketHelper.Index.IsEvenNumber() ? oddStyle : evenStyle);
 
             return builder;

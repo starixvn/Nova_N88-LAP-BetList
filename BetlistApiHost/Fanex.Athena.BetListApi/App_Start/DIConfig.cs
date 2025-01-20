@@ -43,7 +43,7 @@
         {
             builder.RegisterType<TicketHelper>().As<ITicketHelper>().InstancePerRequest();
             builder.RegisterType<BetListHTMLBuilder>().As<IBetListHTMLBuilder>().InstancePerRequest();
-            builder.RegisterType<BetListExcelBuilder>().As<IBetListExcelBuilder>().InstancePerRequest();
+            builder.RegisterType<BetListExcelXBuilder>().As<IBetListExcelBuilder>().InstancePerRequest();
             builder.RegisterType<RemotingRefService>().As<IRemotingRefService>().SingleInstance();
             builder.RegisterInstance(Logger.Log).As<Logging.ILogger>();
         }
