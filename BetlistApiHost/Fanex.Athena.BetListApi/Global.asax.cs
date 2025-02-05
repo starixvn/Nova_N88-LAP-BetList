@@ -56,7 +56,8 @@
 
             DbSettingProviderManager
                 .StartNewSession()
-                .WithSqlServer(resourcePath: SpNameConfigSource)
+                .WithSqlServer()
+                .UseDefaultDbSettingProvider("~/SpNameConfig", true)
                 .Run();
             RefDataTypeContainer
            .ConnectTo(new Uri(ConfigurationManager.AppSettings["Fanex.RemotingRef.Service.Url"]))

@@ -98,7 +98,7 @@
                 var metaModel = FakeHelper.Create<AdvancedSearchBetListMetaModel>(x => x.IsExport, true);
 
                 var totalRow = FakeHelper.Create<int>();
-                _dataAccess.GetTotalRowForMultipleCustomersAsync(metaModel).Returns(totalRow);
+                _dataAccess.GetTotalRowForMultipleCustomersAsync(metaModel, (totalRow - 1)).Returns(totalRow);
                 _appSettings.GetValue("MaxTicketLimit").Returns((totalRow - 1).ToString());
 
                 // Action
@@ -122,7 +122,7 @@
                 var metaModel = FakeHelper.Create<AdvancedSearchBetListMetaModel>(x => x.IsExport, true);
 
                 var totalRow = FakeHelper.Create<int>();
-                _dataAccess.GetTotalRowForMultipleCustomersAsync(metaModel).Returns(totalRow);
+                _dataAccess.GetTotalRowForMultipleCustomersAsync(metaModel, (totalRow - 1)).Returns(totalRow);
                 _appSettings.GetValue("MaxTicketLimit").Returns((totalRow + 1).ToString());
                 _appSettings.GetValue("MaxRowPerExcelFile").Returns((totalRow + 1).ToString());
 
@@ -149,7 +149,7 @@
                 var metaModel = FakeHelper.Create<AdvancedSearchBetListMetaModel>(x => x.IsExport, true);
 
                 var totalRow = FakeHelper.Create<int>();
-                _dataAccess.GetTotalRowForMultipleCustomersAsync(metaModel).Returns(totalRow);
+                _dataAccess.GetTotalRowForMultipleCustomersAsync(metaModel, (totalRow - 1)).Returns(totalRow);
                 _appSettings.GetValue("MaxTicketLimit").Returns((totalRow + 1).ToString());
                 _appSettings.GetValue("MaxRowPerExcelFile").Returns((totalRow + 1).ToString());
 
@@ -186,7 +186,7 @@
                 var metaModel = FakeHelper.Create<AdvancedSearchBetListMetaModel>(x => x.IsExport, true);
 
                 var totalRow = FakeHelper.Create<int>();
-                _dataAccess.GetTotalRowForMultipleCustomersAsync(metaModel).Returns(totalRow);
+                _dataAccess.GetTotalRowForMultipleCustomersAsync(metaModel, (totalRow - 1)).Returns(totalRow);
                 _appSettings.GetValue("MaxTicketLimit").Returns((totalRow + 1).ToString());
 
                 var maxRowPerFile = totalRow - 1;

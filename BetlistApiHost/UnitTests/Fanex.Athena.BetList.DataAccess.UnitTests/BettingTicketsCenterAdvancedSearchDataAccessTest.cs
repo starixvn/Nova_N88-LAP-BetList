@@ -100,7 +100,7 @@
             var metaModel = FakeHelper.Create<AdvancedSearchBetListMetaModel>();
 
             // Action
-            var result = await DataAccess.GetTotalRowForMultipleCustomersAsync(metaModel).ConfigureAwait(false);
+            var result = await DataAccess.GetTotalRowForMultipleCustomersAsync(metaModel, (totalRow - 1)).ConfigureAwait(false);
 
             // Assert
             Assert.Multiple(() =>
