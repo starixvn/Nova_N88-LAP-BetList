@@ -68,7 +68,9 @@
             { "m", Wap },
             { "A000", ChatRoom },
             { "A003", ChatRoom },
-            { "Q001", QuickBetWidget }
+            { "Q001", QuickBetWidget },
+            { "W012", DesktopOthers },
+            { "W013", MobileOthers }
         };
 
         public static string GetPlatformName(string code)
