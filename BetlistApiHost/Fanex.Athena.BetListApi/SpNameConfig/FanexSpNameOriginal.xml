@@ -43,6 +43,7 @@
 	<Function Name="TicketDetail">
 		<Setting Key="Lrf_BetList_SelCombinationParlayDetail" SpName="Lrf_BetList_SelCombinationParlayDetail" DbName="DBACC.bodb02.wsv_lap" />
 		<Setting Key="Lrf_BetList_SelParlayDetail" SpName="Lrf_BetList_SelParlayDetail" DbName="DBACC.bodb02.wsv_lap" />
+		<Setting Key="Lrf_Result_Parlay_Match3rd" SpName="Lrf_Result_Parlay_Match3rd" DbName="DBACC.bodb02.wsv_lap" />
 		<Setting Key="Lrf_BetList_RNG_Detail" SpName="Lrf_BetList_RNG_Detail" DbName="DBACC.bodb02.wsv_lap" />
 		<Setting Key="Lrf_BetList_LC_Detail" SpName="Lrf_BetList_LC_Detail" DbName="DBACC.bodb02.wsv_lap" />
 		<Setting Key="Lrf_BetList_CashOut_Detail" SpName="Lrf_BetList_CashOut_Detail" DbName="DBACC.bodb02.wsv_lap" />

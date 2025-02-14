@@ -22,13 +22,16 @@
     public class ResultDataAccess : BaseDataAccess, IResultDataAccess
     {
         private const string MatchidColumn = "matchid";
+        private const string Match3rdIdColumn = "Match3rdId";
         private const string BetstatusColumn = "betstatus";
         private const string EventDateColumn = "eventdate";
         private const string KickOffTimeColumn = "kickofftime";
         private const string LcolorColumn = "lcolor";
         private const string IsFavorColumn = "IsFavor";
         private const string LeagueIdColumn = "leagueid";
+        private const string League3rdIdColumn = "League3rdId";
         private const string Status = "status";
+        private const string SportTypeColumn = "sporttype";
 
         private readonly IBalanceUpDataAccess _balanceUpDataAccess;
 
@@ -379,6 +382,57 @@
             }
         }
 
+        public async Task<IList<Parlay>> GetPopUpVS5ParalayMatchAsync(long refNo)
+        {
+            const string UspName = "Lrf_Result_Parlay_Match3rd";
+            var uspParams = new { refno = refNo };
+
+            using (var db = this.GetObjectDb(UspName))
+            {
+                using (var reader = await db.ExecuteReaderAsync(uspParams).ConfigureAwait(false))
+                {
+                    var results = new List<Parlay>();
+
+                    while (reader.Read())
+                    {
+                        var leagueId = reader.ToInt(League3rdIdColumn);
+                        var parlay = results.SingleOrDefault(x => x.LeagueId == leagueId);
+                        if (parlay == null)
+                        {
+                            parlay = new Parlay
+                            {
+                                LeagueId = leagueId,
+                                SportId = reader.ToInt(SportTypeColumn)
+                            };
+
+                            results.Add(parlay);
+                        }
+
+                        var sportbook = new Sportsbook
+                        {
+                            AwayId = reader.ToInt("awayID"),
+                            HomeId = reader.ToInt("homeID"),
+                            BetStatus = reader.ToString(BetstatusColumn),
+                            LeagueId = leagueId,
+                            MatchId = reader.ToInt(Match3rdIdColumn),
+                            EventStatus = reader.ToString("eventstatus"),
+                            FinalAwayScore = reader.ToNullableInt("finalawayscore"),
+                            HtAwayScore = reader.ToNullableInt("htawayscore"),
+                            FinalHomeScore = reader.ToNullableInt("finalhomescore"),
+                            HtHomeScore = reader.ToNullableInt("hthomescore"),
+                            KickOffTime = DateTime.Parse(reader.ToString(EventDateColumn)),
+                            MatchCode = reader.ToString("matchcode"),
+                            RefNo = refNo.ToString(CultureInfo.InvariantCulture)
+                        };
+
+                        parlay.Sportbook.Add(sportbook);
+                    }
+
+                    return results;
+                }
+            }
+        }
+
         /// <summary>
         /// Get game detail.
         /// </summary>
@@ -646,6 +700,7 @@
             while (reader.Read())
             {
                 var result = ReadSportsbook3rd(reader);
+                result.KickOffTime = result.EventDate;
                 results.Add(result);
             }
 
