@@ -89,14 +89,10 @@
 
             using (var db = GetObjectDb(UspKey))
             {
-                var productCodes = metaModel.ProductCodeList.Split(',');
-                var productList = string.Join(",", productCodes.Except(new[] { ProductCodes.BA }));
-
                 db.SetParameterValue("AgentList", metaModel.AgentListXml);
                 db.SetParameterValue("UserName", metaModel.UserName);
                 db.SetParameterValue("BaseCurrency", metaModel.BaseCurrency);
-                db.SetParameterValue("ProductList", productList);
-                db.SetParameterValue("showBA", productCodes.Contains(ProductCodes.BA));
+                db.SetParameterValue("ProductList", metaModel.ProductCodeList);
                 db.SetParameterValue("PageSize", metaModel.IsExport ? int.MaxValue - 1 : metaModel.PageSize);
                 db.SetParameterValue("PageIndex", metaModel.IsExport ? 1 : metaModel.PageIndex);
                 db.SetParameterValue("StatusFilter", metaModel.Status);
@@ -128,11 +124,8 @@
 
         private void AddSingleCustomerParameters(IObjectDb db, SingleCustomersBetListMetaModel metaModel)
         {
-            var productCodes = metaModel.ProductCodeList.Split(',');
-            var productList = string.Join(",", productCodes.Except(new[] { ProductCodes.BA }));
             var balanceUp = _balanceUpDataAccess.GetBalanceUp();
-            db.SetParameterValue("ShowBA", productCodes.Contains(ProductCodes.BA));
-            db.SetParameterValue("ProductList", productList);
+            db.SetParameterValue("ProductList", metaModel.ProductCodeList);
             db.SetParameterValue("FromDate", metaModel.FromDate);
             db.SetParameterValue("ToDate", metaModel.ToDate);
             db.SetParameterValue("AgentList", metaModel.AgentListXml);
