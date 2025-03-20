@@ -117,6 +117,11 @@
             return await this._dataAccess.GetPopUpParalayMatchAsync(refNo).ConfigureAwait(false);
         }
 
+        public async Task<IList<Parlay>> GetPopUpVS5ParlayMatchAsync(long refNo)
+        {
+            return await this._dataAccess.GetPopUpVS5ParalayMatchAsync(refNo).ConfigureAwait(false);
+        }
+
         public async Task<Sportsbook> GetPopUpSingleMatchParlayAsync(int matchId, string marketId)
         {
             return await this._dataAccess.GetPopUpSingleMatchParlayAsync(matchId, marketId).ConfigureAwait(false);
@@ -140,6 +145,11 @@
         public async Task<IList<VirtualRacing>> GetPopUpBetradarMatchesAsync(int eventId, DateTime eventDate)
         {
             return await this._dataAccess.GetPopUpBetradarAsync(eventId, eventDate).ConfigureAwait(false);
+        }
+        
+        public async Task<IList<Sportsbook>> GetPopUpVS5MatchesAsync(int matchId)
+        {
+            return await this._dataAccess.GetPopUpMatches3rdAsync<Sportsbook>(matchId).ConfigureAwait(false);
         }
 
         #endregion Popup

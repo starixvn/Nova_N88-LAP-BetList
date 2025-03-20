@@ -249,6 +249,8 @@
 
         VirtualSports4MixParlay = 10449,
 
+        VirtualSports5MixParlay = 11099,
+
         FirstHalfThreeWayHandicap = 453,
 
         VirtualBasketballOverUnder = 2803,

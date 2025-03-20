@@ -67,6 +67,8 @@
         /// <returns>The parlay list.</returns>
         Task<IList<Parlay>> GetPopUpParlayMatchAsync(long refNo);
 
+        Task<IList<Parlay>> GetPopUpVS5ParlayMatchAsync(long refNo);
+
         /// <summary>
         ///  Get match result of number game.
         /// </summary>
@@ -79,6 +81,8 @@
         Task<IList<Bitcoin>> GetPopUpBitcoinMatchesAsync(int matchId);
 
         Task<IList<VirtualRacing>> GetPopUpBetradarMatchesAsync(int eventId, DateTime eventDate);
+        
+        Task<IList<Sportsbook>> GetPopUpVS5MatchesAsync(int matchId);
 
         Task<Sportsbook> GetPopUpSingleMatchParlayAsync(int matchId, string marketId);
 

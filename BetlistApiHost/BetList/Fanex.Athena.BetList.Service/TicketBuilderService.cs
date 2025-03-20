@@ -164,11 +164,6 @@ namespace Fanex.Athena.BetList.Service
 
         private string BuildOddsTypeNameText(LrfTicket ticket, TicketResult ticketResult)
         {
-            if (ticket.BetTypeId == (int)BetType.VirtualSports4MixParlay)
-            {
-                ticket.OddsType = string.Empty;
-            }
-
             return _betlistHtmlBuilder.BuildOddsTypeName(ticket, ticketResult.TicketDataList, _ticketHelper.GetValidOddsTypeNameById);
         }
 

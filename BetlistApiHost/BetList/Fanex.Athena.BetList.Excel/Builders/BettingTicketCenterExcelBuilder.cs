@@ -390,11 +390,6 @@ namespace Fanex.Athena.BetList.Excel.Builders
 
         private void AddOddType(LrfTicket ticket, TicketResult ticketResult)
         {
-            if (ticket.BetTypeId == (int)BetType.VirtualSports4MixParlay)
-            {
-                ticket.OddsType = string.Empty;
-            }
-
             _builder.AddOddsType(ticket, ticketResult.TicketDataList, _ticketHelper.GetValidOddsTypeNameById);
         }
 
