@@ -1,5 +1,6 @@
 ﻿namespace Fanex.Athena.BetList.DataAccess
 {
+    using System.Data.Common;
     using System.Linq;
     using System.Threading.Tasks;
     using BetList.Model.DTO;
@@ -68,6 +69,7 @@
                     db.SetParameterValue("MoveBetsDay", balanceUp.MoveBetsDay);
                     db.SetParameterValue("BalanceUpDay", balanceUp.BalanceUpDay);
                     db.SetParameterValue("BaseCurrency", metaModel.BaseCurrency);
+                    db.SetParameterValue("ViewSabaCoins", metaModel.ViewSabaCoins);
 
                     using (var reader = await db.ExecuteReaderAsync().ConfigureAwait(false))
                     {
