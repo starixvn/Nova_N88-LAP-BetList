@@ -331,7 +331,7 @@
             }
         }
 
-        public async Task<IList<VirtualRacing>> GetPopUpBetradarAsync(int eventId, DateTime eventDate)
+        public async Task<IList<VirtualRacing>> GetPopUpVSNewRacingAsync(int eventId, DateTime eventDate)
         {
             const string UspName = "Lrf_TicketResult_Race";
             var balanceUp = _balanceUpDataAccess.GetBalanceUp();
@@ -352,7 +352,7 @@
                         {
                             LeagueId = reader.ToInt("LeagueID"),
                             EventId = reader.ToInt("EventID"),
-                            VendorMatchId = reader.ToInt("VendorMatchId"),
+                            VendorMatchId = reader.ToString("VendorMatchId"),
                             EventTime = reader.ToDateTime("EventTime"),
                             EventStatus = reader.ToString("EventStatus"),
                             BetStatus = reader.ToString("BetStatus"),

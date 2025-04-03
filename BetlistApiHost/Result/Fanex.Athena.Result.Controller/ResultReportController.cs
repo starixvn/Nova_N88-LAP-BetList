@@ -34,6 +34,15 @@ namespace Fanex.Athena.Result.Controller
             SportType.VirtualCycling
         };
 
+        private static readonly IEnumerable<SportType> VSNewRacingSportTypes = new[]
+        {
+            SportType.VirtualDogRacing,
+            SportType.VirtualHorseRacing,
+            SportType.VirtualSteepleChase,
+            SportType.VirtualHarnessRacing,
+            SportType.VirtualMotorRacing
+        };
+
         private readonly IResultService _resultService;
 
         private readonly ICacheRefAdapter _cacheRefAdapter;
@@ -273,16 +282,16 @@ namespace Fanex.Athena.Result.Controller
             _htmlResult = _resultService.HtmlParser(leapgamings, setting);
         }
 
-        private async Task GetBetradarPopUpData(ResultPopupMetaModel metalModel, ResultSetting setting)
+        private async Task GetVSNewRacingPopUpData(ResultPopupMetaModel metalModel, ResultSetting setting)
         {
             var eventDate = metalModel.WinLossDate.HasValue ? metalModel.WinLossDate.Value : DateTime.Now;
-            var dataBetradar = await _resultService.GetPopUpBetradarMatchesAsync(metalModel.MatchId, eventDate).ConfigureAwait(false);
-            if (dataBetradar != null)
+            var dataVSNewRacing = await _resultService.GetPopUpVSNewRacingMatchesAsync(metalModel.MatchId, eventDate).ConfigureAwait(false);
+            if (dataVSNewRacing != null)
             {
-                _htmlResult = _resultService.HtmlParser(dataBetradar, setting);
+                _htmlResult = _resultService.HtmlParser(dataVSNewRacing, setting);
             }
         }
-        
+
         private async Task GetVirtuallySportsPopUpData(ResultPopupMetaModel metalModel, ResultSetting setting)
         {
             var dataVirtuallySports = await _resultService.GetPopUpVS5MatchesAsync(metalModel.MatchId).ConfigureAwait(false);
@@ -342,12 +351,12 @@ namespace Fanex.Athena.Result.Controller
                 return;
             }
 
-            if (sportType == SportType.VirtualDogRacing || sportType == SportType.VirtualHorseRacing)
+            if (VSNewRacingSportTypes.Contains(sportType))
             {
-                await GetBetradarPopUpData(metalModel, setting).ConfigureAwait(false);
+                await GetVSNewRacingPopUpData(metalModel, setting).ConfigureAwait(false);
                 return;
             }
-            
+
             if (sportType == SportType.VirtuallySports)
             {
                 await GetVirtuallySportsPopUpData(metalModel, setting).ConfigureAwait(false);

@@ -80,8 +80,8 @@
 
         Task<IList<Bitcoin>> GetPopUpBitcoinMatchesAsync(int matchId);
 
-        Task<IList<VirtualRacing>> GetPopUpBetradarMatchesAsync(int eventId, DateTime eventDate);
-        
+        Task<IList<VirtualRacing>> GetPopUpVSNewRacingMatchesAsync(int eventId, DateTime eventDate);
+
         Task<IList<Sportsbook>> GetPopUpVS5MatchesAsync(int matchId);
 
         Task<Sportsbook> GetPopUpSingleMatchParlayAsync(int matchId, string marketId);

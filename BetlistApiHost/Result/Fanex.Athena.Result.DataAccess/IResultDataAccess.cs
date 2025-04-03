@@ -42,7 +42,7 @@
 
         Task<IList<T>> GetPopUpMatches3rdAsync<T>(int matchId);
 
-        Task<IList<VirtualRacing>> GetPopUpBetradarAsync(int eventId, DateTime eventDate);
+        Task<IList<VirtualRacing>> GetPopUpVSNewRacingAsync(int eventId, DateTime eventDate);
 
         Task<Sportsbook> GetPopUpSingleMatchParlayAsync(int matchId, string marketId);
 
