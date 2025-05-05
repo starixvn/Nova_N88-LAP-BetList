@@ -402,7 +402,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Content Include="SpNameConfig\FanexSpName.BACKUPMNL.xml">
+    <Content Include="SpNameConfig\FanexSpName.KLDR.xml">
       <DependentUpon>FanexSpName.xml.tt</DependentUpon>
     </Content>
     <Content Include="SpNameConfig\FanexSpName.LOCAL.xml">
@@ -410,7 +410,6 @@
     </Content>
     <Content Include="SpNameConfig\FanexSpName.PRO.xml">
       <DependentUpon>FanexSpName.xml.tt</DependentUpon>
-      <SubType>Designer</SubType>
     </Content>
     <Content Include="SpNameConfig\FanexSpName.SIT.xml">
       <DependentUpon>FanexSpName.xml.tt</DependentUpon>
@@ -420,9 +419,8 @@
     </Content>
     <Content Include="SpNameConfig\FanexSpName.xml">
       <DependentUpon>FanexSpName.xml.tt</DependentUpon>
-      <SubType>Designer</SubType>
     </Content>
-    <Content Include="SpNameConfig\FanexSpName.xml1.txt">
+    <Content Include="SpNameConfig\FanexSpName.xml.txt">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FanexSpName.xml.tt</DependentUpon>
@@ -461,14 +459,18 @@
     <None Include=".dockerignore">
       <DependentUpon>Dockerfile</DependentUpon>
     </None>
+    <None Include="SiteConfig\Web.AppSettings.KLDR.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="SiteConfig\Web.DEV.config" />
+    <Content Include="SiteConfig\WebConfigTransforms\KLDR.config" />
     <None Include="SpNameConfig\FanexSpNameOriginal.xml">
       <SubType>Designer</SubType>
     </None>
     <Content Include="Deployment.ignore" />
     <None Include="SpNameConfig\FanexSpName.xml.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>FanexSpName.xml1.txt</LastGenOutput>
+      <LastGenOutput>FanexSpName.xml.txt</LastGenOutput>
     </None>
     <None Include="SpNameConfig\SpNameConfiguration.ttinclude" />
     <Content Include="SiteConfig\Web.LOCAL.config">
@@ -479,9 +481,6 @@
       <DependentUpon>Web.config.tt</DependentUpon>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="SiteConfig\Web.SANDBOX.config">
-      <DependentUpon>Web.config.tt</DependentUpon>
-    </Content>
     <Content Include="SiteConfig\Web.UAT.config">
       <DependentUpon>Web.config.tt</DependentUpon>
       <SubType>Designer</SubType>
@@ -489,19 +488,11 @@
     <Content Include="SiteConfig\Web.SIT.config">
       <DependentUpon>Web.config.tt</DependentUpon>
     </Content>
-    <Content Include="SiteConfig\WebConfigTransforms\BACKUPMNL.config" />
     <Content Include="SiteConfig\WebConfigTransforms\LOCAL.config" />
     <Content Include="SiteConfig\WebConfigTransforms\PRO.config" />
-    <Content Include="SiteConfig\WebConfigTransforms\SANDBOX.config" />
     <Content Include="SiteConfig\WebConfigTransforms\UAT.config" />
-    <Content Include="SiteConfig\Web.AppSettings.BACKUPMNL.config">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="SiteConfig\Web.AppSettings.LOCAL.config" />
     <Content Include="SiteConfig\Web.AppSettings.PRO.config">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="SiteConfig\Web.AppSettings.SANDBOX.config">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="SiteConfig\Web.AppSettings.SIT.config">
@@ -531,6 +522,7 @@
     <Content Include="Views\Web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="T4.FileManager.VisualStudio.ttinclude" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="SiteConfig\WebConfigTransforms\SIT.config">
@@ -552,9 +544,6 @@
     <Content Include="WhoAmI.aspx" />
     <Content Include="packages.config">
       <SubType>Designer</SubType>
-    </Content>
-    <Content Include="SiteConfig\Web.BACKUPMNL.config">
-      <DependentUpon>Web.config.tt</DependentUpon>
     </Content>
     <None Include="SiteConfig\Web.config.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
