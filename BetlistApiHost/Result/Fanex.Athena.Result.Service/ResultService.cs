@@ -142,11 +142,11 @@
             return await this._dataAccess.GetPopUpMatches3rdAsync<Bitcoin>(matchId).ConfigureAwait(false);
         }
 
-        public async Task<IList<VirtualRacing>> GetPopUpBetradarMatchesAsync(int eventId, DateTime eventDate)
+        public async Task<IList<VirtualRacing>> GetPopUpVSNewRacingMatchesAsync(int eventId, DateTime eventDate)
         {
-            return await this._dataAccess.GetPopUpBetradarAsync(eventId, eventDate).ConfigureAwait(false);
+            return await this._dataAccess.GetPopUpVSNewRacingAsync(eventId, eventDate).ConfigureAwait(false);
         }
-        
+
         public async Task<IList<Sportsbook>> GetPopUpVS5MatchesAsync(int matchId)
         {
             return await this._dataAccess.GetPopUpMatches3rdAsync<Sportsbook>(matchId).ConfigureAwait(false);

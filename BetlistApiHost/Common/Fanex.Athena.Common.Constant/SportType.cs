@@ -299,6 +299,12 @@
 
         VirtualBasketball = 193,
 
+        VirtualSteepleChase = 125,
+
+        VirtualHarnessRacing = 126,
+
+        VirtualMotorRacing = 127,
+
         PP = 248
     }
 }
