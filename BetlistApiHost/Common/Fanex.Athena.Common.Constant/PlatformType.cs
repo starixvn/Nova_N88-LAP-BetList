@@ -69,6 +69,7 @@
             { "A000", ChatRoom },
             { "A003", ChatRoom },
             { "Q001", QuickBetWidget },
+            { "Q002", QuickBetWidget },
             { "W012", DesktopOthers },
             { "W013", MobileOthers }
         };
