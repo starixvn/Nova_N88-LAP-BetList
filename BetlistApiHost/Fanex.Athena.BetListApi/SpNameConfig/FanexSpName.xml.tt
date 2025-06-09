@@ -1,17 +1,17 @@
 ﻿<#@ output extension=".txt" #>
-<#@ include file="$(SolutionDir)\BetlistApiHost\Fanex.Athena.BetListApi\T4.FileManager.VisualStudio.ttinclude" #>
+<#@ include file="$(SolutionDir)\BetlistApiHost\Fanex.Athena.BetListApi\TemplateFilemanager.CS.ttinclude" #>
 <#@ include file="SpNameConfiguration.ttinclude" #>
 <#
-	string path = SiteInfo.Host.ResolveAssemblyReference("$(SolutionDir)\\BetlistApiHost");
-	Directory.SetCurrentDirectory(path);
-	var manager = TemplateFileManager.Create(this);
+	string path = SiteInfo.Host.ResolveAssemblyReference("$(SolutionDir)");
+	Directory.SetCurrentDirectory(path + "BetlistApiHost");
+	var manager = TemplateFileManager.Create(this);	
 	var allSpName = Helper.GetAllSpName();
 	var listOfConfig = Helper.GetListOfConfig();
 	foreach(var site in sites)
 	{
 		var x = site.SiteEnvironment.ToString();
 		var fileName = x == "DEV" ? "FanexSpName.xml" : string.Format("FanexSpName.{0}.xml", site.SiteEnvironment);
-		manager.StartNewFile(fileName, "Fanex.Athena.BetListApi" , "SpNameConfig");
+		manager.StartNewFile(fileName, "Fanex.Athena.BetListApi", "SpNameConfig");
 		#>
 <#=site.GenerateSpName(allSpName, listOfConfig)#>
 		<#

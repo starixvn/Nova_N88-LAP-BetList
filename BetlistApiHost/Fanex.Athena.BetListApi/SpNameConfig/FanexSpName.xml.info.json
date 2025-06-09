@@ -1,1 +1,40 @@
-{"FilesToGenerate":[{"Filename":"FanexSpName.xml","Project":"Fanex.Athena.BetListApi","Path":"SpNameConfig","Properties":{}},{"Filename":"FanexSpName.LOCAL.xml","Project":"Fanex.Athena.BetListApi","Path":"SpNameConfig","Properties":{}},{"Filename":"FanexSpName.UAT.xml","Project":"Fanex.Athena.BetListApi","Path":"SpNameConfig","Properties":{}},{"Filename":"FanexSpName.SIT.xml","Project":"Fanex.Athena.BetListApi","Path":"SpNameConfig","Properties":{}},{"Filename":"FanexSpName.PRO.xml","Project":"Fanex.Athena.BetListApi","Path":"SpNameConfig","Properties":{}},{"Filename":"FanexSpName.KLDR.xml","Project":"Fanex.Athena.BetListApi","Path":"SpNameConfig","Properties":{}}]}
+{
+  "FilesToGenerate": [
+    {
+      "Filename": "FanexSpName.xml",
+      "Project": "Fanex.Athena.BetListApi",
+      "Path": "SpNameConfig",
+      "Properties": {}
+    },
+    {
+      "Filename": "FanexSpName.LOCAL.xml",
+      "Project": "Fanex.Athena.BetListApi",
+      "Path": "SpNameConfig",
+      "Properties": {}
+    },
+    {
+      "Filename": "FanexSpName.UAT.xml",
+      "Project": "Fanex.Athena.BetListApi",
+      "Path": "SpNameConfig",
+      "Properties": {}
+    },
+    {
+      "Filename": "FanexSpName.SIT.xml",
+      "Project": "Fanex.Athena.BetListApi",
+      "Path": "SpNameConfig",
+      "Properties": {}
+    },
+    {
+      "Filename": "FanexSpName.PRO.xml",
+      "Project": "Fanex.Athena.BetListApi",
+      "Path": "SpNameConfig",
+      "Properties": {}
+    },
+    {
+      "Filename": "FanexSpName.BACKUPMNL.xml",
+      "Project": "Fanex.Athena.BetListApi",
+      "Path": "SpNameConfig",
+      "Properties": {}
+    }
+  ]
+}

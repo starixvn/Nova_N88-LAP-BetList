@@ -1,4 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Root>
-	<SpNameConfig Environment="DEV,LOCAL,SIT,UAT,KLDR" SpName="test" EnvironmentText="_UAT2"></SpNameConfig>
+  <SpNameConfig Environment="DEV" SpName="test" EnvironmentText="_UAT2"></SpNameConfig>
 </Root>

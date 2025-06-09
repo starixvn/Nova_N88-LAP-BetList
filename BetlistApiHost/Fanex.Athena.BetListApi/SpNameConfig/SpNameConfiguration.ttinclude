@@ -1,4 +1,5 @@
 ﻿<#@ template debug="true" hostSpecific="true" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
 <#
     SiteInfo.Host = Host;
 #>

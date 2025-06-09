@@ -30,8 +30,8 @@
 		<Setting Key="Lrf_BetList_RefNo_Mem" SpName="Lrf_BetList_RefNo_Mem" DbName="DBACC.bodb02.wsv_lap" />
 		<Setting Key="Lrf_BetList_Running" SpName="Lrf_BetList_Running" DbName="DBBOF.bodb02.wsv_lap" />
 		<Setting Key="Lrf_BetList_Mem" SpName="Lrf_BetList_Mem" DbName="DBACC.bodb02.wsv_lap" />
-		<Setting Key="Lrf_BetList_Licensee" SpName="Lrf_BetList_Licensee" DbName="DBEXT.bodb02.wsv_lap" />
-		<Setting Key="Lrf_BetList_Licensee_TotalRows" SpName="Lrf_BetList_Licensee_TotalRows" DbName="DBEXT.bodb02.wsv_lap" />
+		<Setting Key="Lrf_BetList_Licensee" SpName="Lrf_BetList_Licensee" DbName="DBACC.bodb02.wsv_lap" />
+		<Setting Key="Lrf_BetList_Licensee_TotalRows" SpName="Lrf_BetList_Licensee_TotalRows" DbName="DBACC.bodb02.wsv_lap" />
 		<Setting Key="Lrf_BetList_Running_Mem" SpName="Lrf_BetList_Running_Mem"  DbName="DBBOF.bodb02.wsv_lap" />
 		<Setting Key="Lrf_BetList_BookedBets" SpName="Lrf_BetList_BookedBets" DbName="DBACC.bodb02.wsv_lap" />
 		<Setting Key="Lrf_BetList_Statement_Mem" SpName="Lrf_BetList_Statement_Mem"  DbName="DBACC.bodb02.wsv_lap" />
