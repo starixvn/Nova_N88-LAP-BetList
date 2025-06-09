@@ -98,9 +98,10 @@
             ObjectDb.GetOutputParams().Returns(new Hashtable { { "totalrows", totalRow } });
 
             var metaModel = FakeHelper.Create<AdvancedSearchBetListMetaModel>();
+            var maxTicketLimit = 10000;
 
             // Action
-            var result = await DataAccess.GetTotalRowForMultipleCustomersAsync(metaModel).ConfigureAwait(false);
+            var result = await DataAccess.GetTotalRowForMultipleCustomersAsync(metaModel, maxTicketLimit).ConfigureAwait(false);
 
             // Assert
             Assert.Multiple(() =>
