@@ -462,6 +462,9 @@
     <None Include="SiteConfig\Web.AppSettings.KLDR.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="SiteConfig\Web.ConnectionStrings.KLDR.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="SiteConfig\Web.DEV.config" />
     <Content Include="SiteConfig\WebConfigTransforms\KLDR.config" />
     <None Include="SpNameConfig\FanexSpNameOriginal.xml">
