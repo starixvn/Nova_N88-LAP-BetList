@@ -45,7 +45,7 @@
                     Dsn = new Dsn(ConfigurationManager.AppSettings["Sentry-Dsn"])
                 }));
 
-            Logger.Log.Error("Application starting...");
+            Logger.Log.Info("Application starting...");
 
             const string SpNameConfigSource = "~/SpNameConfig/FanexSpName.xml";
 
