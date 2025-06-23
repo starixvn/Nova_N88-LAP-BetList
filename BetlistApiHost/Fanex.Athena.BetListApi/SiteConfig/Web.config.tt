@@ -5,7 +5,7 @@
 <#@ output extension=".txt" #>
 <#
 string projectPath = Host.ResolveAssemblyReference("$(SolutionDir)") + @"BetlistApiHost\Fanex.Athena.BetListApi\";
-var environments = new string[] {"LOCAL", "UAT", "SIT", "PRO", "KLDR" };
+var environments = new string[] {"LOCAL", "UAT", "SIT", "PRO", "KLDR", "KLDRPRO" };
 foreach(var environment in environments)
 {
  using(var transform = new Microsoft.Web.XmlTransform.XmlTransformation( projectPath + "SiteConfig\\WebConfigTransforms\\" + environment + ".config"))

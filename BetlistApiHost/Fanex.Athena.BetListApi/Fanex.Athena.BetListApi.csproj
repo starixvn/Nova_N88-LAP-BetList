@@ -462,11 +462,16 @@
     <None Include="SiteConfig\Web.AppSettings.KLDR.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="SiteConfig\Web.AppSettings.KLDRPRO.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="SiteConfig\Web.ConnectionStrings.KLDR.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="SiteConfig\Web.DEV.config" />
     <Content Include="SiteConfig\WebConfigTransforms\KLDR.config" />
+    <None Include="SiteConfig\Web.ConnectionStrings.KLDRPRO.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="SpNameConfig\FanexSpNameOriginal.xml">
       <SubType>Designer</SubType>
     </None>
@@ -489,6 +494,16 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="SiteConfig\Web.SIT.config">
+      <DependentUpon>Web.config.tt</DependentUpon>
+    </Content>
+    <Content Include="SiteConfig\Web.KLDR.config">
+      <DependentUpon>Web.config.tt</DependentUpon>
+    </Content>
+    <Content Include="SiteConfig\Web.KLDRPRO.config">
+      <DependentUpon>Web.config.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SiteConfig\Web.DEV.config">
       <DependentUpon>Web.config.tt</DependentUpon>
     </Content>
     <Content Include="SiteConfig\WebConfigTransforms\LOCAL.config" />
