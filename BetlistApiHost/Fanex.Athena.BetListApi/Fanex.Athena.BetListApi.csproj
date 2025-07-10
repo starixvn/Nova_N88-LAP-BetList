@@ -154,8 +154,8 @@
     <Reference Include="Fanex.BetList.TableGames, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.BetList.TableGames.2.0.0\lib\net461\Fanex.BetList.TableGames.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.BetList.VGaming, Version=2.0.0.7, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.BetList.VGaming.2.0.0.7\lib\net461\Fanex.BetList.VGaming.dll</HintPath>
+    <Reference Include="Fanex.BetList.VGaming, Version=2.0.0.8, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.BetList.VGaming.2.0.0.8\lib\net461\Fanex.BetList.VGaming.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.BetList.VirtualGames, Version=2.0.0.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.BetList.VirtualGames.2.0.0.2-RemoveTable-02\lib\net461\Fanex.BetList.VirtualGames.dll</HintPath>
