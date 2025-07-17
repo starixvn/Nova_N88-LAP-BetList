@@ -139,8 +139,8 @@
     <Reference Include="Fanex.BetList.PlayerTips, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.BetList.PlayerTips.2.0.0\lib\net461\Fanex.BetList.PlayerTips.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.BetList.PP, Version=2.0.0.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.BetList.PP.2.0.0.3\lib\net461\Fanex.BetList.PP.dll</HintPath>
+    <Reference Include="Fanex.BetList.PP, Version=2.0.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.BetList.PP.2.0.0.4\lib\net461\Fanex.BetList.PP.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.BetList.RnGCasino, Version=2.0.0.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.BetList.RnGCasino.2.0.0.2\lib\net461\Fanex.BetList.RnGCasino.dll</HintPath>
@@ -154,8 +154,8 @@
     <Reference Include="Fanex.BetList.TableGames, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.BetList.TableGames.2.0.0\lib\net461\Fanex.BetList.TableGames.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.BetList.VGaming, Version=2.0.0.7, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.BetList.VGaming.2.0.0.7\lib\net461\Fanex.BetList.VGaming.dll</HintPath>
+    <Reference Include="Fanex.BetList.VGaming, Version=2.0.0.8, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.BetList.VGaming.2.0.0.8\lib\net461\Fanex.BetList.VGaming.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.BetList.VirtualGames, Version=2.0.0.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.BetList.VirtualGames.2.0.0.2-RemoveTable-02\lib\net461\Fanex.BetList.VirtualGames.dll</HintPath>
@@ -217,8 +217,8 @@
     <Reference Include="Fanex.Result.Core.Sportsbook, Version=2.0.2.4, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Result.Core-Sportsbook.2.0.2.4\lib\net461\Fanex.Result.Core.Sportsbook.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.Result.Core.ThirdParty, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Result.Core.ThirdPartyResult.2.0.0\lib\net461\Fanex.Result.Core.ThirdParty.dll</HintPath>
+    <Reference Include="Fanex.Result.Core.ThirdParty, Version=2.0.0.8, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Result.Core.ThirdPartyResult.2.0.0.8\lib\net461\Fanex.Result.Core.ThirdParty.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core.VirtualRacing, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Result.Core.VirtualRacing.1.0.0.1-vs7-03\lib\net461\Fanex.Result.Core.VirtualRacing.dll</HintPath>
@@ -402,7 +402,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Content Include="SpNameConfig\FanexSpName.BACKUPMNL.xml">
+    <Content Include="SpNameConfig\FanexSpName.KLDR.xml">
       <DependentUpon>FanexSpName.xml.tt</DependentUpon>
     </Content>
     <Content Include="SpNameConfig\FanexSpName.LOCAL.xml">
@@ -410,7 +410,6 @@
     </Content>
     <Content Include="SpNameConfig\FanexSpName.PRO.xml">
       <DependentUpon>FanexSpName.xml.tt</DependentUpon>
-      <SubType>Designer</SubType>
     </Content>
     <Content Include="SpNameConfig\FanexSpName.SIT.xml">
       <DependentUpon>FanexSpName.xml.tt</DependentUpon>
@@ -420,9 +419,8 @@
     </Content>
     <Content Include="SpNameConfig\FanexSpName.xml">
       <DependentUpon>FanexSpName.xml.tt</DependentUpon>
-      <SubType>Designer</SubType>
     </Content>
-    <Content Include="SpNameConfig\FanexSpName.xml1.txt">
+    <Content Include="SpNameConfig\FanexSpName.xml.txt">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FanexSpName.xml.tt</DependentUpon>
@@ -461,26 +459,24 @@
     <None Include=".dockerignore">
       <DependentUpon>Dockerfile</DependentUpon>
     </None>
-    <None Include="SiteConfig\Web.DEV.config" />
+    <None Include="SiteConfig\Web.AppSettings.KLDRPRO.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="SiteConfig\Web.ConnectionStrings.KLDRPRO.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="SpNameConfig\FanexSpNameOriginal.xml">
       <SubType>Designer</SubType>
     </None>
     <Content Include="Deployment.ignore" />
     <None Include="SpNameConfig\FanexSpName.xml.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>FanexSpName.xml1.txt</LastGenOutput>
+      <LastGenOutput>FanexSpName.xml.txt</LastGenOutput>
     </None>
     <None Include="SpNameConfig\SpNameConfiguration.ttinclude" />
     <Content Include="SiteConfig\Web.LOCAL.config">
       <DependentUpon>Web.config.tt</DependentUpon>
       <SubType>Designer</SubType>
-    </Content>
-    <Content Include="SiteConfig\Web.PRO.config">
-      <DependentUpon>Web.config.tt</DependentUpon>
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="SiteConfig\Web.SANDBOX.config">
-      <DependentUpon>Web.config.tt</DependentUpon>
     </Content>
     <Content Include="SiteConfig\Web.UAT.config">
       <DependentUpon>Web.config.tt</DependentUpon>
@@ -489,38 +485,25 @@
     <Content Include="SiteConfig\Web.SIT.config">
       <DependentUpon>Web.config.tt</DependentUpon>
     </Content>
-    <Content Include="SiteConfig\WebConfigTransforms\BACKUPMNL.config" />
+    <Content Include="SiteConfig\Web.KLDRPRO.config">
+      <DependentUpon>Web.config.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SiteConfig\Web.DEV.config">
+      <DependentUpon>Web.config.tt</DependentUpon>
+    </Content>
     <Content Include="SiteConfig\WebConfigTransforms\LOCAL.config" />
     <Content Include="SiteConfig\WebConfigTransforms\PRO.config" />
-    <Content Include="SiteConfig\WebConfigTransforms\SANDBOX.config" />
     <Content Include="SiteConfig\WebConfigTransforms\UAT.config" />
-    <Content Include="SiteConfig\Web.AppSettings.BACKUPMNL.config">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="SiteConfig\Web.AppSettings.LOCAL.config" />
-    <Content Include="SiteConfig\Web.AppSettings.PRO.config">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="SiteConfig\Web.AppSettings.SANDBOX.config">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="SiteConfig\Web.AppSettings.SIT.config">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="SiteConfig\Web.AppSettings.UAT.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="SiteConfig\Web.ConnectionStrings.BACKUPMNL.config">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="SiteConfig\Web.ConnectionStrings.DEV.config" />
     <Content Include="SiteConfig\Web.ConnectionStrings.LOCAL.config" />
-    <Content Include="SiteConfig\Web.ConnectionStrings.PRO.config">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="SiteConfig\Web.ConnectionStrings.SANDBOX.config">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="SiteConfig\Web.ConnectionStrings.SIT.config">
       <SubType>Designer</SubType>
     </Content>
@@ -531,6 +514,7 @@
     <Content Include="Views\Web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="T4.FileManager.VisualStudio.ttinclude" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="SiteConfig\WebConfigTransforms\SIT.config">
@@ -552,9 +536,6 @@
     <Content Include="WhoAmI.aspx" />
     <Content Include="packages.config">
       <SubType>Designer</SubType>
-    </Content>
-    <Content Include="SiteConfig\Web.BACKUPMNL.config">
-      <DependentUpon>Web.config.tt</DependentUpon>
     </Content>
     <None Include="SiteConfig\Web.config.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

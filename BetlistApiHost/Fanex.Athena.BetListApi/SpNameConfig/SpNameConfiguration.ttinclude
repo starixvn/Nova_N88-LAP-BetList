@@ -27,8 +27,8 @@
         },
 		new SiteInfo
         {
-            SiteEnvironment = SiteEnvironment.BACKUPMNL
-        }
+            SiteEnvironment = SiteEnvironment.KLDR
+        },
     };
 #>
 <#+
@@ -39,7 +39,7 @@
         UAT,
 		SIT,
         PRO,
-		BACKUPMNL
+		KLDR
     }
 
 	class SiteInfo
