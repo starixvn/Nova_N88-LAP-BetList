@@ -101,7 +101,8 @@
                 db.SetParameterValue("ConvertToBaseCur", metaModel.IsConvertAll);
                 db.SetParameterValue("TotalRows", null);
                 db.SetParameterValue("SumStake", null);
-                AddSortParameter(db, metaModel.SortBy, metaModel.SortOrder);
+                db.SetParameterValue("SortType", metaModel.SortType);
+                db.SetParameterValue("SortOrder", metaModel.SortOrder);
 
                 using (var reader = await db.ExecuteReaderAsync().ConfigureAwait(false))
                 {
@@ -114,14 +115,6 @@
             }
 
             return ticketResult;
-        }
-
-        private static void AddSortParameter(IObjectDb db, string sortBy, string sortOrder)
-        {
-            if (!string.IsNullOrWhiteSpace(sortBy))
-            {
-                db.SetParameterValue("Sort", sortBy + " " + sortOrder);
-            }
         }
 
         private void AddSingleCustomerParameters(IObjectDb db, SingleCustomersBetListMetaModel metaModel)
@@ -147,7 +140,8 @@
             db.SetParameterValue("SumLicenseeWL", null);
             db.SetParameterValue("SumComm", null);
             db.SetParameterValue("SumPlayerComm", null);
-            AddSortParameter(db, metaModel.SortBy, metaModel.SortOrder);
+            db.SetParameterValue("SortType", metaModel.SortType);
+            db.SetParameterValue("SortOrder", metaModel.SortOrder);
         }
 
         public async Task<TicketResult> GetBetListForBookedBetAsync(BookedBetBetListMetaModel metaModel)
@@ -176,7 +170,8 @@
 
                     db.SetParameterValue("TotalRows", null);
                     db.SetParameterValue("SumStake", null);
-                    AddSortParameter(db, metaModel.SortBy, metaModel.SortOrder);
+                    db.SetParameterValue("SortType", metaModel.SortType);
+                    db.SetParameterValue("SortOrder", metaModel.SortOrder);
 
                     using (var reader = await db.ExecuteReaderAsync().ConfigureAwait(false))
                     {

@@ -192,7 +192,8 @@
             db.SetParameterValue("SumLicenseeWL", null);
             db.SetParameterValue("SumComm", null);
             db.SetParameterValue("SumPlayerComm", null);
-            AddSortParameter(db, metaModel.SortBy, metaModel.SortOrder);
+            db.SetParameterValue("SortType", metaModel.SortType);
+            db.SetParameterValue("SortOrder", metaModel.SortOrder);
         }
     }
 }
