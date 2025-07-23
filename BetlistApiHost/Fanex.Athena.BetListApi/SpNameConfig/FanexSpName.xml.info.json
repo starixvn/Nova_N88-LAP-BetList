@@ -25,13 +25,7 @@
       "Properties": {}
     },
     {
-      "Filename": "FanexSpName.PRO.xml",
-      "Project": "Fanex.Athena.BetListApi",
-      "Path": "SpNameConfig",
-      "Properties": {}
-    },
-    {
-      "Filename": "FanexSpName.BACKUPMNL.xml",
+      "Filename": "FanexSpName.KLDRPRO.xml",
       "Project": "Fanex.Athena.BetListApi",
       "Path": "SpNameConfig",
       "Properties": {}
