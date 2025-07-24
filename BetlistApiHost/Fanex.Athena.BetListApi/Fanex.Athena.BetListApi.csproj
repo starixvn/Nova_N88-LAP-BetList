@@ -402,14 +402,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Content Include="SpNameConfig\FanexSpName.KLDR.xml">
-      <DependentUpon>FanexSpName.xml.tt</DependentUpon>
-    </Content>
     <Content Include="SpNameConfig\FanexSpName.LOCAL.xml">
       <DependentUpon>FanexSpName.xml.tt</DependentUpon>
     </Content>
-    <Content Include="SpNameConfig\FanexSpName.PRO.xml">
+    <Content Include="SpNameConfig\FanexSpName.KLDRPRO.xml">
       <DependentUpon>FanexSpName.xml.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="SpNameConfig\FanexSpName.SIT.xml">
       <DependentUpon>FanexSpName.xml.tt</DependentUpon>

@@ -1,4 +1,5 @@
 ﻿<#@ template debug="true" hostSpecific="true" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
 <#
     SiteInfo.Host = Host;
 #>
@@ -21,13 +22,9 @@
         {
             SiteEnvironment = SiteEnvironment.SIT
         },
-        new SiteInfo
-        {
-            SiteEnvironment = SiteEnvironment.PRO
-        },
 		new SiteInfo
         {
-            SiteEnvironment = SiteEnvironment.KLDR
+            SiteEnvironment = SiteEnvironment.KLDRPRO
         },
     };
 #>
@@ -38,8 +35,7 @@
         LOCAL,
         UAT,
 		SIT,
-        PRO,
-		KLDR
+		KLDRPRO
     }
 
 	class SiteInfo

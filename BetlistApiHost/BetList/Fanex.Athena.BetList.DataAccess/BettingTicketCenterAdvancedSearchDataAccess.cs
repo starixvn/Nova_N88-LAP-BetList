@@ -115,6 +115,7 @@
                 db.SetParameterValue("FromDate", metaModel.FromDate);
                 db.SetParameterValue("ToDate", metaModel.ToDate);
                 db.SetParameterValue("MoveBetsDay", balanceUp.MoveBetsDay);
+                db.SetParameterValue("BalanceUpDay", balanceUp.BalanceUpDay);
                 db.SetParameterValue("SportTypeList", metaModel.SportListXML);
                 db.SetParameterValue("BetTypeList", metaModel.BetTypeIds);
                 db.SetParameterValue("CashOutMode", metaModel.CashOutMode);
@@ -170,6 +171,7 @@
             db.SetParameterValue("FromDate", metaModel.FromDate);
             db.SetParameterValue("ToDate", metaModel.ToDate);
             db.SetParameterValue("MoveBetsDay", balanceUp.MoveBetsDay);
+            db.SetParameterValue("BalanceUpDay", balanceUp.BalanceUpDay);
             db.SetParameterValue("SportTypeList", metaModel.SportListXML);
             db.SetParameterValue("BetTypeList", metaModel.BetTypeIds);
             db.SetParameterValue("CashOutMode", metaModel.CashOutMode);
