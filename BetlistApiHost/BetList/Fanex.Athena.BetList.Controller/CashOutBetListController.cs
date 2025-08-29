@@ -116,13 +116,16 @@ namespace Fanex.Athena.BetList.Controller
             _ticketHelper.IsVnIp = _ipService.IsVNIP;
 
             var statusHtml = _betListHTMLBuilder.CreateStatusBuilder(ticket.BetTypeId).Render(ticket, _ticketHelper, null, isShowIpvn);
-            statusHtml.StatusResult = null;
+            if (statusHtml != null)
+            {
+                statusHtml.StatusResult = null;
+            }
             return new TicketText
             {
                 ExternalId = ticket.ExternalId,
                 SystemId = ticket.UserName,
                 TransTime = _betListHTMLBuilder.BuildTrans(ticket),
-                Status = statusHtml.ToString(),
+                Status = statusHtml?.ToString() ?? string.Empty,
                 Choice = _betListHTMLBuilder.BuildChoice(ticket, _ticketHelper, null, false),
                 Odds = _betListHTMLBuilder.BuildOdds(ticket, null, _ticketHelper.GetValidOddsTypeNameById),
                 Stake = _betListHTMLBuilder.BuildStake(ticket, _ticketHelper),

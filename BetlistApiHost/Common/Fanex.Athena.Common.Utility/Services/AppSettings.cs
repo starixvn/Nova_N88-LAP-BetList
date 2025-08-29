@@ -1,9 +1,6 @@
 ﻿namespace Fanex.Athena.Common.Utility.Services
 {
-    using System;
-    using System.Collections.Generic;
     using System.Configuration;
-    using System.Linq;
     using Interfaces;
 
     /// <summary>

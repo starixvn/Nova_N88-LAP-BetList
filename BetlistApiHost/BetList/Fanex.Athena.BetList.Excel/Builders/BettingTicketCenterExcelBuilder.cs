@@ -423,12 +423,12 @@ namespace Fanex.Athena.BetList.Excel.Builders
 
         private void BuilDataAlignedCenterCell(IRichTextString text)
         {
-            _builder.AddCell(text, _ticketHelper.Index.IsEvenNumber() ? _oddCellCenterAlign : _evenCellCenterAlign);
+            _builder.AddCell(text, _ticketHelper.Index.IsEvenNumber() ? _evenCellCenterAlign : _oddCellCenterAlign);
         }
 
         private void BuilDataAlignedRightCell(IRichTextString text)
         {
-            _builder.AddCell(text, _ticketHelper.Index.IsEvenNumber() ? _oddCellRightAlign : _evenCellRightAlign);
+            _builder.AddCell(text, _ticketHelper.Index.IsEvenNumber() ? _evenCellRightAlign : _oddCellRightAlign);
         }
 
         private ICellStyle CreateCellStyle(HorizontalAlignment align, bool isEvenCell)

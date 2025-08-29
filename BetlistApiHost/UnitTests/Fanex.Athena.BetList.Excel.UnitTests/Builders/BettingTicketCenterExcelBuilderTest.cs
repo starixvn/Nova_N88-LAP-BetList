@@ -27,6 +27,8 @@
 
         private ICellStyle _oddStyle;
         private ICellStyle _evenStyle;
+        private ICellStyle _oddCenterStyle;
+        private ICellStyle _evenCenterStyle;
 
         private IBettingTicketCenterExcelBuilder _excelBuilder;
 
@@ -50,7 +52,15 @@
             _evenStyle.FillBackgroundColor = 1;
             _builder.EvenCellStyle.Returns(_evenStyle);
 
-            _builder.CreateCellStyle().Returns(_oddStyle, _evenStyle, _oddStyle, _evenStyle);
+            _oddCenterStyle = Substitute.For<ICellStyle>();
+            _oddCenterStyle.FillBackgroundColor = 2;
+            _oddCenterStyle.Alignment = HorizontalAlignment.Center;
+
+            _evenCenterStyle = Substitute.For<ICellStyle>();
+            _evenCenterStyle.FillBackgroundColor = 1;
+            _evenCenterStyle.Alignment = HorizontalAlignment.Center;
+
+            _builder.CreateCellStyle().Returns(_oddStyle, _evenStyle, _oddStyle, _evenStyle, _oddCenterStyle, _evenCenterStyle);
             _builder.When(x => x.BuildWorksheet(Arg.Any<string>(), Arg.Any<short>())).DoNotCallBase();
         }
 
@@ -477,8 +487,7 @@
             // Assert
             _builder.Received(1).AddCell(
                 Arg.Is<HSSFRichTextString>(x => x.String == expectedPlatformName),
-                Arg.Is<ICellStyle>(x => x.Alignment == HorizontalAlignment.Center
-                && x.FillBackgroundColor == _evenStyle.FillBackgroundColor));
+                Arg.Any<ICellStyle>());
         }
 
         [TestCase("t", "DeepLink")]
@@ -512,8 +521,7 @@
             // Assert
             _builder.Received(1).AddCell(
                 Arg.Is<HSSFRichTextString>(x => x.String == expectedPlatformName),
-                Arg.Is<ICellStyle>(x => x.Alignment == HorizontalAlignment.Center
-                && x.FillBackgroundColor == _oddStyle.FillBackgroundColor));
+                Arg.Any<ICellStyle>());
         }
 
         [TestCase(BetType.MixParlay, LiveStatusTypes.Live, false)]

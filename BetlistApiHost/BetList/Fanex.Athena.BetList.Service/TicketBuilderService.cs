@@ -175,10 +175,10 @@ namespace Fanex.Athena.BetList.Service
 
         private static void BuildContributionTicket(TicketText ticketText)
         {
-            const string HyphenTextHTML = "<div class='underdog'>-</div>";
+            const string hyphenTextHtml = "<div class='underdog'>-</div>";
 
-            ticketText.LicenseeWL = HyphenTextHTML;
-            ticketText.WinLoss = HyphenTextHTML;
+            ticketText.LicenseeWL = hyphenTextHtml;
+            ticketText.WinLoss = hyphenTextHtml;
         }
     }
 }

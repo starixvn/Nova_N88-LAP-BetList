@@ -1,11 +1,8 @@
 ﻿namespace Fanex.Athena.BetList.DataAccess
 {
-    using System.Data.Common;
-    using System.Linq;
     using System.Threading.Tasks;
     using BetList.Model.DTO;
     using BetList.Model.MetaModel;
-    using Common.Constant;
     using Common.DataAccess.Interfaces;
     using Data;
     using Fanex.Athena.Common.Utility.Helpers;
@@ -91,10 +88,23 @@
 
             using (var db = GetObjectDb(UspKey))
             {
+                // Handle showBA and ProductList logic
+                var showBA = metaModel.ProductCodeList?.Contains("BA") == true;
+                var productList = metaModel.ProductCodeList;
+                if (showBA && !string.IsNullOrEmpty(productList))
+                {
+                    productList = productList.Replace("BA,", "").Replace(",BA", "").Replace("BA", "");
+                    if (productList.StartsWith(","))
+                        productList = productList.Substring(1);
+                    if (productList.EndsWith(","))
+                        productList = productList.Substring(0, productList.Length - 1);
+                }
+
                 db.SetParameterValue("AgentList", metaModel.AgentListXml);
                 db.SetParameterValue("UserName", metaModel.UserName);
                 db.SetParameterValue("BaseCurrency", metaModel.BaseCurrency);
-                db.SetParameterValue("ProductList", metaModel.ProductCodeList);
+                db.SetParameterValue("ProductList", productList);
+                db.SetParameterValue("showBA", showBA);
                 db.SetParameterValue("PageSize", metaModel.IsExport ? int.MaxValue - 1 : metaModel.PageSize);
                 db.SetParameterValue("PageIndex", metaModel.IsExport ? 1 : metaModel.PageIndex);
                 db.SetParameterValue("StatusFilter", metaModel.Status);
@@ -120,7 +130,21 @@
         private void AddSingleCustomerParameters(IObjectDb db, SingleCustomersBetListMetaModel metaModel)
         {
             var balanceUp = _balanceUpDataAccess.GetBalanceUp();
-            db.SetParameterValue("ProductList", metaModel.ProductCodeList);
+
+            // Handle ShowBA and ProductList logic
+            var showBA = metaModel.ProductCodeList?.Contains("BA") == true;
+            var productList = metaModel.ProductCodeList;
+            if (showBA && !string.IsNullOrEmpty(productList))
+            {
+                productList = productList.Replace("BA,", "").Replace(",BA", "").Replace("BA", "");
+                if (productList.StartsWith(","))
+                    productList = productList.Substring(1);
+                if (productList.EndsWith(","))
+                    productList = productList.Substring(0, productList.Length - 1);
+            }
+
+            db.SetParameterValue("ShowBA", showBA);
+            db.SetParameterValue("ProductList", productList);
             db.SetParameterValue("FromDate", metaModel.FromDate);
             db.SetParameterValue("ToDate", metaModel.ToDate);
             db.SetParameterValue("AgentList", metaModel.AgentListXml);

@@ -5,7 +5,7 @@
     using System.Threading.Tasks;
     using Common.DataAccess;
     using Common.Utility.Helpers;
-    using Fanex.Athena.Common.DataAccess.Interfaces;
+
     using Fanex.Common;
     using Fanex.Common.Extensions;
     using Interfaces;

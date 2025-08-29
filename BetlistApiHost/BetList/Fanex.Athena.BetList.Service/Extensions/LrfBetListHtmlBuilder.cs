@@ -8,7 +8,7 @@
     using Fanex.BetList.Core.App_GlobalResources;
     using Fanex.BetList.Core.Builder;
     using Fanex.BetList.Core.Entities;
-    using Fanex.BetList.Core.TicketHelper;
+
     using Helpers;
     using Resources;
 
@@ -142,7 +142,7 @@
             return licenseeWl < 0
                 ? string.Join(
                     null,
-                    new[] { "<span class='negative-number'>", string.Format("{0:#,##0.00}", licenseeWl), "</span>" })
+                    "<span class='negative-number'>", string.Format("{0:#,##0.00}", licenseeWl), "</span>")
                 : string.Format("{0:#,##0.00}", licenseeWl);
         }
 

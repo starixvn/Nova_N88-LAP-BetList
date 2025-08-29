@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Data;
+    using System.Linq;
     using Common.DataAccess.Extensions;
     using Fanex.Common.Extensions;
 
@@ -17,13 +18,7 @@
             _reader = reader;
             _existingColumns = new HashSet<string>();
 
-            foreach (var item in columns)
-            {
-                if (reader.HasColumn(item))
-                {
-                    _existingColumns.Add(item);
-                }
-            }
+            _existingColumns.UnionWith(columns.Where(reader.HasColumn));
         }
 
         public bool Read()

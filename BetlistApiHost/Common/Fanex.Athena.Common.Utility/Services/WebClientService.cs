@@ -16,6 +16,22 @@
             }
         }
 
+        public string UploadString(Uri address, string parameters, IDictionary<HttpRequestHeader, string> headers)
+        {
+            using (WebClient webClient = new WebClient())
+            {
+                if (headers != null)
+                {
+                    foreach (var header in headers)
+                    {
+                        webClient.Headers[header.Key] = header.Value;
+                    }
+                }
+
+                return webClient.UploadString(address, parameters);
+            }
+        }
+
         public string DownloadString(string address)
         {
             using (WebClient webClient = new WebClient())
@@ -30,22 +46,6 @@
             using (WebClient webClient = new WebClient())
             {
                 return webClient.DownloadData(address);
-            }
-        }
-
-        public string UploadString(Uri address, string parameters, IDictionary<HttpRequestHeader, string> headers)
-        {
-            using (WebClient webClient = new WebClient())
-            {
-                if (headers != null)
-                {
-                    foreach (var header in headers)
-                    {
-                        webClient.Headers[header.Key] = header.Value;
-                    }
-                }
-
-                return webClient.UploadString(address, parameters);
             }
         }
     }
