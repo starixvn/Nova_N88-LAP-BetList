@@ -65,7 +65,7 @@ namespace Fanex.Athena.BetList.Service
             double num = 0.0;
             if (IsValidIpV4(ip))
             {
-                string[] strArray = ip.Split(new[] { '.' });
+                string[] strArray = ip.Split('.');
                 num = double.Parse(strArray[0]) * IP32Bits + double.Parse(strArray[1]) * IPMaxRange + double.Parse(strArray[IpIndex2]) * IPMaxBytes + double.Parse(strArray[IpIndex3]);
             }
 

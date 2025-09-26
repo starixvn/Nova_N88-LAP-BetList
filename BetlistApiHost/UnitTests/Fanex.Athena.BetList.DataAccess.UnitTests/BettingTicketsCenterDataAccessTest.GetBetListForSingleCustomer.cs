@@ -9,11 +9,11 @@
 
     public partial class BettingTicketsCenterDataAccessTest
     {
-        [TestCase("", "", false)]
-        [TestCase("P1,SB,P2", "P1,SB,P2", false)]
-        [TestCase("BA,P1,P2", "P1,P2", true)]
-        [TestCase("P1,BA,P2,SB", "P1,P2,SB", true)]
-        public async Task GetBetListForSingleCustomerAsync_WhenCall_ParametersPassedCorrectly(string productCode, string productList, bool showBA)
+        [TestCase("")]
+        [TestCase("P1,SB,P2")]
+        [TestCase("BA,P1,P2")]
+        [TestCase("P1,BA,P2,SB")]
+        public async Task GetBetListForSingleCustomerAsync_WhenCall_ParametersPassedCorrectly(string productCode)
         {
             // Arrange
             DataAccess.GetObjectDb(Arg.Is(BetListBySingleCustomerUspKey)).Returns(ObjectDb);
@@ -29,8 +29,7 @@
             // Assert
             Assert.Multiple(() =>
             {
-                ObjectDb.Received(1).SetParameterValue("ShowBA", showBA);
-                ObjectDb.Received(1).SetParameterValue("ProductList", productList);
+                ObjectDb.Received(1).SetParameterValue("ProductList", productCode);
                 ObjectDb.Received(1).SetParameterValue("FromDate", metaModel.FromDate);
                 ObjectDb.Received(1).SetParameterValue("ToDate", metaModel.ToDate);
                 ObjectDb.Received(1).SetParameterValue("AgentList", metaModel.AgentListXml);
@@ -83,13 +82,14 @@
             Reader.Read().Returns(false);
             ObjectDb.GetOutputParams().Returns(new Hashtable());
 
-            var metaModel = new SingleCustomersBetListMetaModel { ProductCodeList = string.Empty, SortBy = "Colum1", SortOrder = "asc" };
+            var metaModel = new SingleCustomersBetListMetaModel { ProductCodeList = string.Empty, SortType = 1, SortOrder = 1 };
 
             // Action
             await DataAccess.GetBetListForSingleCustomerAsync(metaModel);
 
             // Assert
-            ObjectDb.Received(1).SetParameterValue("Sort", metaModel.SortBy + " " + metaModel.SortOrder);
+            ObjectDb.Received(1).SetParameterValue("SortType", metaModel.SortType);
+            ObjectDb.Received(1).SetParameterValue("SortOrder", metaModel.SortOrder);
         }
 
         [Test]

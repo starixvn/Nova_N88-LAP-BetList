@@ -28,6 +28,7 @@
             balanceUpDataAccess.GetBalanceUp().Returns(BalanceUp);
             DataAccess = Substitute.ForPartsOf<BettingTicketCenterDataAccess>(
                 balanceUpDataAccess, CurrencyDataAccess);
+            DataAccess.GetObjectDb(Arg.Any<string>(), Arg.Any<int>()).Returns(ObjectDb);
         }
 
         [Test]

@@ -1,6 +1,6 @@
 ﻿namespace Fanex.Athena.Common.Utility.Services.Interfaces
 {
-    using System.Collections.Generic;
+
 
     public interface IAppSettings
     {

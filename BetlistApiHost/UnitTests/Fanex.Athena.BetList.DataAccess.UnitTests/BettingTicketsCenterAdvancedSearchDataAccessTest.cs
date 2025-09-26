@@ -34,6 +34,7 @@
             DataAccess = Substitute.ForPartsOf<BettingTicketCenterAdvancedSearchDataAccess>(
                 balanceUpDataAccess,
                 _tempFileService, CurrencyDataAccess);
+            DataAccess.GetObjectDb(Arg.Any<string>(), Arg.Any<int>()).Returns(ObjectDb);
         }
 
         [TearDown]
@@ -138,7 +139,7 @@
             ObjectDb.GetOutputParams().Returns(new Hashtable());
 
             var metaModel = FakeHelper.Create<AdvancedSearchBetListMetaModel>(x => x.IsExport, true);
-            metaModel.SortBy = string.Empty;
+            metaModel.SortType = 0;
 
             // Action
             await DataAccess.GetBetListForMultipleCustomersAsync(metaModel, RowPerGroup).ConfigureAwait(false);

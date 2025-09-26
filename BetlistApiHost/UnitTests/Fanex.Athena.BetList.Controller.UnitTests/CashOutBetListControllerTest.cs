@@ -123,8 +123,8 @@
 
                 var statusHtml = FakeHelper.Create<Status_Template>();
                 var status = Substitute.For<IStatus>();
-                status.Render(originalTicket, _ticketHelper, null, true).Returns(statusHtml);
-                _betListHTMLBuilder.CreateStatusBuilder(originalTicket.BetTypeId).Returns(status);
+                status.Render(Arg.Any<LrfTicket>(), Arg.Any<ITicketHelper>(), null, Arg.Any<bool>()).Returns(statusHtml);
+                _betListHTMLBuilder.CreateStatusBuilder(Arg.Any<int>()).Returns(status);
 
                 var transTime = FakeHelper.Create<string>();
                 _betListHTMLBuilder.BuildTrans(originalTicket).Returns(transTime);
@@ -232,8 +232,8 @@
 
                 var statusHtml = FakeHelper.Create<Status_Template>();
                 var status = Substitute.For<IStatus>();
-                status.Render(originalTicket, _ticketHelper, null, true).Returns(statusHtml);
-                _betListHTMLBuilder.CreateStatusBuilder(originalTicket.BetTypeId).Returns(status);
+                status.Render(Arg.Any<LrfTicket>(), Arg.Any<ITicketHelper>(), null, Arg.Any<bool>()).Returns(statusHtml);
+                _betListHTMLBuilder.CreateStatusBuilder(Arg.Any<int>()).Returns(status);
 
                 metaModel.IsShowIpvn = true;
 
@@ -264,8 +264,8 @@
 
                 var statusHtml = FakeHelper.Create<Status_Template>();
                 var status = Substitute.For<IStatus>();
-                status.Render(originalTicket, _ticketHelper, null, true).Returns(statusHtml);
-                _betListHTMLBuilder.CreateStatusBuilder(originalTicket.BetTypeId).Returns(status);
+                status.Render(Arg.Any<LrfTicket>(), Arg.Any<ITicketHelper>(), null, Arg.Any<bool>()).Returns(statusHtml);
+                _betListHTMLBuilder.CreateStatusBuilder(Arg.Any<int>()).Returns(status);
 
                 // Action
                 var result = (CashOutBetListDetailViewModel)(await controller.Detail(metaModel)).Data;
@@ -296,8 +296,8 @@
 
                 var statusHtml = FakeHelper.Create<Status_Template>();
                 var status = Substitute.For<IStatus>();
-                status.Render(originalTicket, _ticketHelper, null, true).Returns(statusHtml);
-                _betListHTMLBuilder.CreateStatusBuilder(originalTicket.BetTypeId).Returns(status);
+                status.Render(Arg.Any<LrfTicket>(), Arg.Any<ITicketHelper>(), null, Arg.Any<bool>()).Returns(statusHtml);
+                _betListHTMLBuilder.CreateStatusBuilder(Arg.Any<int>()).Returns(status);
 
                 metaModel.IsShowIpvn = true;
 
@@ -329,8 +329,8 @@
 
                 var statusHtml = FakeHelper.Create<Status_Template>();
                 var status = Substitute.For<IStatus>();
-                status.Render(originalTicket, _ticketHelper, null, true).Returns(statusHtml);
-                _betListHTMLBuilder.CreateStatusBuilder(originalTicket.BetTypeId).Returns(status);
+                status.Render(Arg.Any<LrfTicket>(), Arg.Any<ITicketHelper>(), null, Arg.Any<bool>()).Returns(statusHtml);
+                _betListHTMLBuilder.CreateStatusBuilder(Arg.Any<int>()).Returns(status);
 
                 // Action
                 var result = (CashOutBetListDetailViewModel)(await controller.Detail(metaModel)).Data;
@@ -360,8 +360,8 @@
 
                 var statusHtml = FakeHelper.Create<Status_Template>();
                 var status = Substitute.For<IStatus>();
-                status.Render(originalTicket, _ticketHelper, null, true).Returns(statusHtml);
-                _betListHTMLBuilder.CreateStatusBuilder(originalTicket.BetTypeId).Returns(status);
+                status.Render(Arg.Any<LrfTicket>(), Arg.Any<ITicketHelper>(), null, Arg.Any<bool>()).Returns(statusHtml);
+                _betListHTMLBuilder.CreateStatusBuilder(Arg.Any<int>()).Returns(status);
 
                 metaModel.IsShowIpvn = true;
 

@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Data;
+    using System.Globalization;
     using System.Linq;
     using System.Threading.Tasks;
     using Common.DataAccess;
@@ -114,9 +115,9 @@
                             LeagueId = reader.ToInt("leagueid"),
                             MatchId = matchId,
                             EventStatus = reader.ToString("eventstatus"),
-                            EventDate = DateTime.Parse(reader.ToString("eventdate")),
+                            EventDate = DateTime.Parse(reader.ToString("eventdate"), CultureInfo.InvariantCulture),
                             IsPending = reader.HasColumn(IsRefundColumn) && reader.ToString(IsRefundColumn) != "0",
-                            KickOffTime = DateTime.Parse(reader.ToString("kickofftime")),
+                            KickOffTime = DateTime.Parse(reader.ToString("kickofftime"), CultureInfo.InvariantCulture),
                             MatchCode = reader.ToString("matchcode"),
                             Seg = new List<int> { seq },
                             Ball = new List<int> { number }
@@ -152,9 +153,9 @@
                             LeagueId = reader.ToInt("leagueid"),
                             MatchId = matchId,
                             EventStatus = reader.ToString("eventstatus"),
-                            EventDate = DateTime.Parse(reader.ToString("eventdate")),
+                            EventDate = DateTime.Parse(reader.ToString("eventdate"), CultureInfo.InvariantCulture),
                             IsPending = reader.HasColumn(IsRefundColumn) && reader.ToString(IsRefundColumn) != "0",
-                            KickOffTime = DateTime.Parse(reader.ToString("kickofftime")),
+                            KickOffTime = DateTime.Parse(reader.ToString("kickofftime"), CultureInfo.InvariantCulture),
                             MatchCode = reader.ToString("matchcode"),
                             Seq = new List<int> { seq },
                             Ball = new List<int> { number }

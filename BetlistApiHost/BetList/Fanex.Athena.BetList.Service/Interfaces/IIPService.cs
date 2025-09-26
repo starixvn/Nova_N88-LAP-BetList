@@ -1,6 +1,4 @@
-﻿using Fanex.Athena.BetList.Model.DTO;
-using System;
-using System.Collections.Generic;
+﻿using System;
 
 namespace Fanex.Athena.BetList.Service.Interfaces
 {
