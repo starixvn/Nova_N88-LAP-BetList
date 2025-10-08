@@ -69,7 +69,7 @@
                     {
                         data.Add(new Outright
                         {
-                            EventDate = DateTime.Parse(reader.ToString(EventDateColumn)),
+                            EventDate = DateTime.Parse(reader.ToString(EventDateColumn), CultureInfo.InvariantCulture),
                             SportType = reader.ToInt("sporttype"),
                             LeagueId = reader.ToInt(LeagueIdColumn),
                             TeamId = reader.ToInt("teamid"),
@@ -420,7 +420,7 @@
                             HtAwayScore = reader.ToNullableInt("htawayscore"),
                             FinalHomeScore = reader.ToNullableInt("finalhomescore"),
                             HtHomeScore = reader.ToNullableInt("hthomescore"),
-                            KickOffTime = DateTime.Parse(reader.ToString(EventDateColumn)),
+                            KickOffTime = DateTime.Parse(reader.ToString(EventDateColumn), CultureInfo.InvariantCulture),
                             MatchCode = reader.ToString("matchcode"),
                             RefNo = refNo.ToString(CultureInfo.InvariantCulture)
                         };
@@ -493,9 +493,9 @@
                 Color = reader.HasColumn(LcolorColumn) && reader[LcolorColumn] != DBNull.Value ? reader.ToString(LcolorColumn) : string.Empty,
                 FinalHomeScore = reader.ToNullableInt("finalhomescore"),
                 HtHomeScore = reader.ToNullableInt("hthomescore"),
-                EventDate = DateTime.Parse(reader.ToString(EventDateColumn)),
+                EventDate = DateTime.Parse(reader.ToString(EventDateColumn), CultureInfo.InvariantCulture),
                 IsNeutral = reader.ToBool("IsNeutral"),
-                KickOffTime = DateTime.Parse(reader.ToString(KickOffTimeColumn)),
+                KickOffTime = DateTime.Parse(reader.ToString(KickOffTimeColumn), CultureInfo.InvariantCulture),
                 MatchCode = reader.ToString("matchcode"),
                 GoalRecord = reader.ToString("goalrecord"),
                 IsHTCal = reader.ToBool("IsHTCal"),
@@ -633,7 +633,7 @@
                                     PlaceOdds = reader.ToDecimal("placeodds"),
                                     WinOdds = reader.ToDecimal("odds"),
                                     RaceName = (int)reader.ToNullableInt("racename", 0),
-                                    KickOffTime = reader[KickOffTimeColumn] != DBNull.Value ? DateTime.Parse(reader.ToString(KickOffTimeColumn)) : DateTime.MinValue,
+                                    KickOffTime = reader[KickOffTimeColumn] != DBNull.Value ? DateTime.Parse(reader.ToString(KickOffTimeColumn), CultureInfo.InvariantCulture) : DateTime.MinValue,
                                     Favourite = reader[IsFavorColumn] != DBNull.Value ? reader.ToString(IsFavorColumn) : string.Empty,
                                     RowCount = reader.ToInt("rowcount"),
                                     SCROfMatch = reader.ToString("SCR"),
@@ -658,7 +658,7 @@
                             Match3rdId = reader.ToInt("Match3rdId"),
                             BetStatus = reader[BetstatusColumn] != DBNull.Value ? reader.ToString(BetstatusColumn) : string.Empty,
                             EventStatus = reader.ToString("EventStatus"),
-                            EventDate = DateTime.Parse(reader.ToString("EventDate"))
+                            EventDate = DateTime.Parse(reader.ToString("EventDate"), CultureInfo.InvariantCulture)
                         });
             }
 
@@ -730,7 +730,7 @@
                 HtAwayScore = reader.ToNullableInt("htawayscore"),
                 FinalHomeScore = reader.ToNullableInt("finalhomescore"),
                 HtHomeScore = reader.ToNullableInt("hthomescore"),
-                EventDate = DateTime.Parse(reader.ToString(EventDateColumn)),
+                EventDate = DateTime.Parse(reader.ToString(EventDateColumn), CultureInfo.InvariantCulture),
                 MatchCode = reader.ToString("matchcode")
             };
         }

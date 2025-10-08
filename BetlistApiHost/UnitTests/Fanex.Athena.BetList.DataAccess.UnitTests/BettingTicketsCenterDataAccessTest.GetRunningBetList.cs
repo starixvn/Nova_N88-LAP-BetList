@@ -9,11 +9,11 @@
 
     public partial class BettingTicketsCenterDataAccessTest
     {
-        [TestCase("", "", false)]
-        [TestCase("P1,SB,P2", "P1,SB,P2", false)]
-        [TestCase("BA,P1,P2", "P1,P2", true)]
-        [TestCase("P1,BA,P2,SB", "P1,P2,SB", true)]
-        public async Task GetRunningBetListAsync_WhenCall_ParametersPassedCorrectly(string productCode, string productList, bool showBA)
+        [TestCase("")]
+        [TestCase("P1,SB,P2")]
+        [TestCase("BA,P1,P2")]
+        [TestCase("P1,BA,P2,SB")]
+        public async Task GetRunningBetListAsync_WhenCall_ParametersPassedCorrectly(string productCode)
         {
             // Arrange
             DataAccess.GetObjectDb(Arg.Is(RunningBetListUspKey)).Returns(ObjectDb);
@@ -32,8 +32,7 @@
                 ObjectDb.Received(1).SetParameterValue("AgentList", metaModel.AgentListXml);
                 ObjectDb.Received(1).SetParameterValue("UserName", metaModel.UserName);
                 ObjectDb.Received(1).SetParameterValue("BaseCurrency", metaModel.BaseCurrency);
-                ObjectDb.Received(1).SetParameterValue("ProductList", productList);
-                ObjectDb.Received(1).SetParameterValue("showBA", showBA);
+                ObjectDb.Received(1).SetParameterValue("ProductList", productCode);
                 ObjectDb.Received(1).SetParameterValue("PageSize", metaModel.PageSize);
                 ObjectDb.Received(1).SetParameterValue("PageIndex", metaModel.PageIndex);
                 ObjectDb.Received(1).SetParameterValue("TotalRows", null);
@@ -72,13 +71,14 @@
             Reader.Read().Returns(false);
             ObjectDb.GetOutputParams().Returns(new Hashtable());
 
-            var metaModel = new BaseBettingTicketMetaModel { ProductCodeList = string.Empty, SortBy = "Colum1", SortOrder = "asc" };
+            var metaModel = new BaseBettingTicketMetaModel { ProductCodeList = string.Empty, SortType = 1, SortOrder = 1 };
 
             // Action
             await DataAccess.GetRunningBetListAsync(metaModel);
 
             // Assert
-            ObjectDb.Received(1).SetParameterValue("Sort", metaModel.SortBy + " " + metaModel.SortOrder);
+            ObjectDb.Received(1).SetParameterValue("SortType", metaModel.SortType);
+            ObjectDb.Received(1).SetParameterValue("SortOrder", metaModel.SortOrder);
         }
 
         [Test]
