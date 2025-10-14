@@ -89,7 +89,7 @@
       <HintPath>..\..\..\packages\Fanex.Result.Core-Racing.2.0.0\lib\net461\Fanex.Result.Core.Racing.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core.Sportsbook, Version=2.0.2.6, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.Result.Core-Sportsbook.2.0.2.6-basketball-04\lib\net461\Fanex.Result.Core.Sportsbook.dll</HintPath>
+      <HintPath>..\..\..\packages\Fanex.Result.Core-Sportsbook.2.0.2.6\lib\net461\Fanex.Result.Core.Sportsbook.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core.VirtualRacing, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Result.Core.VirtualRacing.1.0.0.1-vs7-03\lib\net461\Fanex.Result.Core.VirtualRacing.dll</HintPath>
