@@ -66,8 +66,8 @@
     <Reference Include="Fanex.Result.Core.Casino, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Result.Core.Casino.1.0.0.1\lib\Fanex.Result.Core.Casino.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.Result.Core.Happy5, Version=2.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Fanex.Result.Core.Happy5.2.0.0.1\lib\net461\Fanex.Result.Core.Happy5.dll</HintPath>
+    <Reference Include="Fanex.Result.Core.Happy5, Version=1.0.2.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Fanex.Result.Core.Happy5.1.0.2.5\lib\net461\Fanex.Result.Core.Happy5.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core.LeapGaming, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Fanex.Result.Core-LeapGaming.2.0.0\lib\net461\Fanex.Result.Core.LeapGaming.dll</HintPath>
