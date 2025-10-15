@@ -43,6 +43,13 @@ namespace Fanex.Athena.Result.Controller
             SportType.VirtualMotorRacing
         };
 
+        private static readonly IEnumerable<SportType> BetbySportTypes = new[]
+{
+            SportType.BetbyBasketball,
+            SportType.ESoccer,
+            SportType.EVolleyball
+        };
+
         private readonly IResultService _resultService;
 
         private readonly ICacheRefAdapter _cacheRefAdapter;
@@ -363,7 +370,7 @@ namespace Fanex.Athena.Result.Controller
                 return;
             }
 
-            if (sportType == SportType.BetbyBasketball)
+            if (BetbySportTypes.Contains(sportType))
             {
                 await GetBetbyPopUpData(metalModel, setting).ConfigureAwait(false);
                 return;
