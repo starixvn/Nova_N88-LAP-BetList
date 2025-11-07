@@ -79,6 +79,15 @@ namespace Fanex.Athena.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bet Builder&lt;sup&gt;+&lt;/sup&gt;.
+        /// </summary>
+        public static string BetBuilderPlus {
+            get {
+                return ResourceManager.GetString("BetBuilderPlus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Others.
         /// </summary>
         public static string BetfromOthers {

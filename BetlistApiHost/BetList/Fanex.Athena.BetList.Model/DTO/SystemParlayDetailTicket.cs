@@ -8,6 +8,8 @@
 
         public decimal MOdds { get; set; }
 
+        public decimal Odds { get; set; }
+
         public decimal PlayerComm { get; set; }
 
         public long Serial { get; set; }
@@ -21,6 +23,8 @@
         public long TransId { get; set; }
 
         public decimal WinLost { get; set; }
+
+        public string BetTeam { get; set; }
 
         public DateTime WinLostDate { get; set; }
     }

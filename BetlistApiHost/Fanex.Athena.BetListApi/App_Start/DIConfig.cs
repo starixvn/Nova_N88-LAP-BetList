@@ -16,6 +16,7 @@
     using Fanex.RemotingRef;
     using Fanex.Athena.BetList.Service.Interfaces;
     using Fanex.Athena.BetList.Service;
+    using Fanex.BetList.Core.Builder.HybridParlayBuilder;
 
     public static class DIConfig
     {
@@ -45,6 +46,7 @@
             builder.RegisterType<BetListHTMLBuilder>().As<IBetListHTMLBuilder>().InstancePerRequest();
             builder.RegisterType<BetListExcelBuilder>().As<IBetListExcelBuilder>().InstancePerRequest();
             builder.RegisterType<RemotingRefService>().As<IRemotingRefService>().SingleInstance();
+            builder.RegisterType<HyBridParlayBuilder>().As<IHybridParlayBuilder>().InstancePerRequest();
             builder.RegisterInstance(Logger.Log).As<Logging.ILogger>();
         }
 

@@ -8,6 +8,8 @@
 
     public static class BetListHelper
     {
+        public const int MixParlayOddsSpread = 3;
+
         public static void ClearData(TicketResult ticketResult)
         {
             ticketResult.MainTicketList.Clear();
@@ -72,6 +74,11 @@
 
         private static string GetBetTypeName(ITicketHelper tickerHelper, LrfTicket ticket)
         {
+            if (ticket.BetTypeId == (int)BetType.CombinationMixParlay && ticket.OddsSpread == MixParlayOddsSpread)
+            {
+                return ViewResources.BetBuilderPlus;
+            }
+
             return (ticket.BetTypeId == (int)BetType.CombinationMixParlay && ticket.BetTeam == "1") ?
                             ViewResources.MixParlay :
                             tickerHelper.GetBetTypeNameById(ticket.BetTypeId);

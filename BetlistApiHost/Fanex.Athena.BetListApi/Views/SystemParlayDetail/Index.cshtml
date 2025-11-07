@@ -78,17 +78,17 @@
             <tbody>
                 @RenderFirstRow()
                 @foreach (var dataByDate in groupedData)
-            {
-                var rowSpan = dataByDate.Count().ToString();
-                var isFirstItem = true;
-
-                var subTotal = dataByDate.Sum(x => x.WinLoss);
-
-                foreach (var dataByMatch in dataByDate)
                 {
+                    var rowSpan = dataByDate.Count().ToString();
+                    var isFirstItem = true;
+
+                    var subTotal = dataByDate.Sum(x => x.WinLoss);
+
+                    foreach (var dataByMatch in dataByDate)
+                    {
                         <tr>
                             @if (isFirstItem)
-                    {
+                            {
                                 <td rowspan="@rowSpan" style="text-align: center; font-weight: normal;">@dataByMatch.Date.ToString("MM/dd/yyyy")</td>
                                 isFirstItem = false;
                             }
@@ -100,7 +100,28 @@
                                     <div class="match-group" title="@matchText">@matchText</div>
                                 }
                             </td>
-                            <td>@NumberHelper.DecFormat(dataByMatch.Odds, 4)</td>
+                            @{
+                                var betTeamInt = 0;
+                                int.TryParse(dataByMatch.BetTeam, out betTeamInt);
+                            }
+                            @if (dataByMatch.Odds == dataByMatch.MOdds || betTeamInt != 1)
+                            {
+                                <td>@NumberHelper.DecFormat(dataByMatch.MOdds, 4)</td>
+                            }
+                            else
+                            {
+                                <td>
+                                    <div class="width120 height34 table-cell r">
+                                        <span class="underdog strikethrough">
+                                            @NumberHelper.DecFormat(@dataByMatch.Odds, 4)
+                                        </span>
+                                        <br>
+                                        <span class="oddstype">
+                                            <span class="underdog">@NumberHelper.DecFormat(@dataByMatch.MOdds, 4)</span>
+                                        </span>
+                                    </div>
+                                </td>
+                            }
                             <td>@NumberHelper.DecFormat(dataByMatch.Stake)</td>
                             <td>
                                 <div class="@(dataByMatch.WinLoss < 0 ? "negative" : string.Empty)">@NumberHelper.DecFormat(dataByMatch.WinLoss)</div>
@@ -131,7 +152,7 @@
                     <td style="border-left: none;">&nbsp;</td>
                 </tr>
                 @if (Model.DataList.Any())
-            {
+                {
                     <tr class="system-parlay-total">
                         <td colspan="4">@CoreBetList.total:</td>
                         <td class="@(Model.Total < 0 ? "negative" : string.Empty)">@NumberHelper.DecFormat(Model.Total)</td>
