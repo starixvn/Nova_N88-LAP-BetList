@@ -26,6 +26,7 @@
         private const string Wap = "Wap";
         private const string QuickBetWidget = "QuickBetWidget";
         private const string ChatRoom = "ChatRoom";
+        private const string CasinoRoyale = "CasinoRoyale";
 
         private static readonly IDictionary<string, string> _platforms = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
         {
@@ -71,6 +72,12 @@
             { "Q001", QuickBetWidget },
             { "Q002", QuickBetWidget },
             { "W012", DesktopOthers },
+            { "$001", CasinoRoyale },
+            { "$002", CasinoRoyale },
+            { "$003", CasinoRoyale },
+            { "$004", CasinoRoyale },
+            { "$005", CasinoRoyale },
+            { "$006", CasinoRoyale },
             { "W013", MobileOthers }
         };
 

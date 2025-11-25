@@ -142,6 +142,15 @@ namespace Fanex.Athena.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Casino Royale.
+        /// </summary>
+        public static string CasinoRoyale {
+            get {
+                return ResourceManager.GetString("CasinoRoyale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Chat Room.
         /// </summary>
         public static string ChatRoom {
