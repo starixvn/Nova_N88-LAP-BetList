@@ -335,4 +335,7 @@
   <data name="CasinoRoyale" xml:space="preserve">
     <value>Casino Royale</value>
   </data>
+  <data name="BetBuilderPlus" xml:space="preserve">
+    <value>Bet Builder&lt;sup&gt;+&lt;/sup&gt;</value>
+  </data>
 </root>

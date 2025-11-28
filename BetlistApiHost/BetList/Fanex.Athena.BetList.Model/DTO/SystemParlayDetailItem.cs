@@ -9,6 +9,8 @@
 
         public decimal Odds { get; set; }
 
+        public decimal MOdds { get; set; }
+
         public decimal Stake { get; set; }
 
         public decimal WinLoss { get; set; }
@@ -16,6 +18,8 @@
         public decimal PlayerComm { get; set; }
 
         public string Status { get; set; }
+
+        public string BetTeam { get; set; }
 
         public IEnumerable<SystemParlayDetailMatch> MatchList { get; set; }
     }

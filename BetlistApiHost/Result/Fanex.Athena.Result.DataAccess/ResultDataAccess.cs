@@ -229,7 +229,12 @@
                             results.Add(parlay);
                         }
 
-                        parlay.Sportbook.Add(ReadSportsbook(reader, refNo.ToString(CultureInfo.InvariantCulture), leagueId));
+                        var matchId = reader.ToInt(MatchidColumn);
+                        var sportsbook = ReadSportsbook(reader, refNo.ToString(CultureInfo.InvariantCulture), leagueId);
+                        if (!parlay.Sportbook.Any(x => x.MatchId == matchId))
+                        {
+                            parlay.Sportbook.Add(sportsbook);
+                        }
                     }
 
                     AddGameDetails(reader, results);

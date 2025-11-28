@@ -92,7 +92,7 @@ namespace Fanex.Athena.BetList.Service
                     TransTime = _betlistHtmlBuilder.BuildTransTime(ticket),
                     RefNo = _betlistHtmlBuilder.BuildRefNo(ticket),
                     Choice = _betlistHtmlBuilder.BuildChoice(ticket, _ticketHelper, ticketResult.TicketDataList, false),
-                    Odds = _betlistHtmlBuilder.BuildOddsValue(ticket, ticketResult.TicketDataList, _ticketHelper.GetValidOddsTypeNameById),
+                    Odds = BuildOddsText(ticket, ticketResult),
                     OddsType = BuildOddsTypeNameText(ticket, ticketResult),
                     Stake = _betlistHtmlBuilder.BuildStake(ticket, _ticketHelper),
                     LicenseeWL = _betlistHtmlBuilder.BuildLicenseeWL(ticket),
@@ -143,7 +143,7 @@ namespace Fanex.Athena.BetList.Service
                     TransTime = _betlistHtmlBuilder.BuildTrans(ticket),
                     Status = _betlistHtmlBuilder.BuildStatus(ticket, _ticketHelper, ticketResult.TicketDataList, (metaModel != null) && metaModel.IsShowIpvn || isShowIpvn),
                     Choice = _betlistHtmlBuilder.BuildChoice(ticket, _ticketHelper, ticketResult.TicketDataList, false),
-                    Odds = _betlistHtmlBuilder.BuildOdds(ticket, ticketResult.TicketDataList, _ticketHelper.GetValidOddsTypeNameById),
+                    Odds = BuildOddsText(ticket, ticketResult),
                     Stake = _betlistHtmlBuilder.BuildStake(ticket, _ticketHelper),
                     LicenseeWL = _betlistHtmlBuilder.BuildLicenseeWL(ticket),
                     WinLoss = _betlistHtmlBuilder.BuildCustomerWL(ticket, isAllowedCustomerComm),
@@ -162,9 +162,18 @@ namespace Fanex.Athena.BetList.Service
             return ticketTextList;
         }
 
+        private string BuildOddsText(LrfTicket ticket, TicketResult ticketResult)
+        {
+            return ticket.BetTypeId != (int)BetType.CombinationMixParlay || ticket.OddsSpread != BetListHelper.MixParlayOddsSpread
+                ? _betlistHtmlBuilder.BuildOddsValue(ticket, ticketResult.TicketDataList, _ticketHelper.GetValidOddsTypeNameById)
+                : _betlistHtmlBuilder.BuildOdds(ticket, ticketResult.TicketDataList, _ticketHelper.GetValidOddsTypeNameById);
+        }
+
         private string BuildOddsTypeNameText(LrfTicket ticket, TicketResult ticketResult)
         {
-            return _betlistHtmlBuilder.BuildOddsTypeName(ticket, ticketResult.TicketDataList, _ticketHelper.GetValidOddsTypeNameById);
+            return ticket.BetTypeId != (int)BetType.CombinationMixParlay
+                ? _betlistHtmlBuilder.BuildOddsTypeName(ticket, ticketResult.TicketDataList, _ticketHelper.GetValidOddsTypeNameById)
+                : null;
         }
 
         public string BuildSumWinLoss(TicketResult ticketResult, bool isAllowedCustomerComm)
